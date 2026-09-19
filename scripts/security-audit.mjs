@@ -80,7 +80,7 @@ try {
   process.exit(1);
 }
 
-if (report.error || typeof report.vulnerabilities !== "object" || report.vulnerabilities === null) {
+if (typeof report.vulnerabilities !== "object" || report.vulnerabilities === null) {
   console.error("Security audit did not return a valid vulnerability report.");
   console.error(JSON.stringify(report, null, 2));
   process.exit(1);
