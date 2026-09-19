@@ -1,6 +1,6 @@
 # CP-01 Checkpoint
 
-Status: COMPLETE
+Status: REVIEW_BLOCKED
 
 ## Scope
 
@@ -25,6 +25,15 @@ Repository bootstrap and engineering foundation only. CP-02 may add the design s
 - Cloudflare: Wrangler `--dry-run` read 37 generated assets; no remote deployment was claimed.
 - Final state: working tree clean at the implementation commit.
 
+## Review status
+
+Post-execution review on 2026-09-19 found the remote GitHub Actions CI failing before any workflow step starts. Repeated runs complete in roughly 3-4 seconds with zero steps and runner_id=0. Local validation evidence remains useful, but CP-01 is not review-approved until remote CI is diagnosed and either made green or documented as an external account/platform blocker with exact evidence.
+
+Additional repair items:
+- align the `start` command with static export;
+- make non-indexable robots behavior explicitly disallow crawling;
+- document/configure main-branch protection/rules when feasible.
+
 ## Next dependency
 
-CP-02 is ready to add the approved token bridge and design system. Final logo, founder identity, public business email, domain, production launch and paid services remain explicit later gates.
+Run CP-01R review repairs before CP-02. Final logo, founder identity, public business email, domain, production launch and paid services remain later gates.
