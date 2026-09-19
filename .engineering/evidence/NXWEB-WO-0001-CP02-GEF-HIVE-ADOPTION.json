@@ -114,13 +114,18 @@
     },
     "postMergeQuality": {
       "status": "PASS",
-      "runId": 35467126080,
-      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35467126080"
+      "runId": 35469637489,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35469637489"
     },
     "postMergeGovernance": {
       "status": "PASS",
-      "runId": 35467126075,
-      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35467126075"
+      "runId": 35469637438,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35469637438"
+    },
+    "mergedPullRequest": {
+      "number": 16,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/pull/16",
+      "mergeSha": "4b2b1f0e18239e2453e1060c3ef3761de5bcdfb9"
     }
   },
   "knownBlockers": [],
