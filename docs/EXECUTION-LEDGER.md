@@ -3,7 +3,8 @@
 | Prompt | Source planning SHA | Result SHA | Status | Validation | Blockers |
 | --- | --- | --- | --- | --- | --- |
 | CP-01 | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | `79309b5` | REVIEW_BLOCKED | `npm ci`; `npm run check`; `npm run test:e2e`; `npm audit --audit-level=high`; Wrangler dry-run | none |
-| CP-01R | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | pending | REVIEW_BLOCKED | pending local and remote gates | GitHub Actions blocked before steps by account billing/spending-limit error; main ruleset capability pending |
+| CP-01R | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | `38a40f3` | COMPLETE | `npm ci`; `npm run check`; `npm run test:e2e`; `npm run security`; Wrangler dry-run; remote CI run `35443467860` | none |
+| CP-01F | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | pending PR merge | IN_PROGRESS | pending release-contract cases, local gates and required PR CI | merge to `main` required by package |
 
 ## Evidence notes
 
@@ -17,11 +18,12 @@
 
 ## Post-execution review 2026-09-19
 
-- Remote GitHub Actions CI failed on main and PR-triggered runs before any job step executed.
+- Remote GitHub Actions CI initially failed on main and PR-triggered runs before any job step executed.
 - A rerun reproduced the failure; a later documentation push reproduced it again.
-- Observed jobs had zero steps and `runner_id=0`, so no specific repository test/lint/build command has yet been shown to be the remote failure source.
-- CP-01 local validation evidence is retained, but remote release governance is not green.
-- CP-01R is required before CP-02 review approval.
+- Observed jobs had zero steps and `runner_id=0`; the exact account billing/spending-limit annotation was recorded and the correction SHA later passed all remote steps.
+- CP-01 local validation evidence is retained as the historical foundation record.
+- CP-01R closed the previous review block; CP-01F is the remaining release-gate package before CP-02 approval.
+- CP-01R closed the previous review block; CP-01F is the remaining release-gate package before CP-02 approval.
 
 ## CP-01R evidence
 
@@ -29,7 +31,7 @@
 - Repository actions are enabled with `allowed_actions: all`; the workflow itself is syntactically readable through `gh workflow view CI --yaml`. No repository-configurable workflow failure was observed.
 - R-02: `npm start` now serves the static `out/` artifact through `scripts/serve-static.mjs`; Wrangler remains the separate preview path.
 - R-03: LOCAL/PREVIEW robots explicitly disallow `/`; PRODUCTION allows `/` only with an explicit origin; unit coverage was added.
-- R-04: the repository is private, the authenticated account has admin permissions, and the rulesets endpoint currently returns an empty list. GitHub's documented availability for rulesets on private repositories depends on Pro, Team or Enterprise, so creation must be attempted and its exact result recorded without purchasing a plan.
+- R-04: active ruleset `23698968` (`Protect main`) is verified through `GET /rulesets/23698968` and `GET /rules/branches/main`. It requires pull requests and the `quality` status check, blocks deletion and non-fast-forward updates, and has no bypass actors. No paid plan was purchased.
 
 ## CP-01R review outcome
 
@@ -38,3 +40,12 @@
 - R-02 and R-04 are verified resolved.
 - R-03 is functionally improved, but R-05 remains: production environment without explicit origin can still become indexable.
 - CP-01F is required before CP-02.
+
+## CP-01F evidence
+
+- R-05 confirmed before repair: `NEXLABS_ENV=PRODUCTION` without an origin returned `isIndexable: true`, and the sitemap used `http://localhost:3000` as a fallback.
+- F1-F2: runtime indexability now requires PRODUCTION plus an explicit HTTPS origin; release assertion rejects non-production, missing-origin and non-HTTPS production configurations.
+- F3: `npm run validate:release` is an explicit non-production promotion gate with deterministic failure and success cases.
+- F4-F6: metadata, robots and sitemap emit release-safe output only; misconfigured production remains non-indexable and emits no localhost sitemap.
+- F7: deterministic unit coverage added for environment, metadata, robots, sitemap and release validator cases.
+- F8-F10: ordinary CI remains domain-independent; the repair is being delivered through the active Protect main PR flow with no bypass or force-push.

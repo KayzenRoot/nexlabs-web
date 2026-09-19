@@ -19,6 +19,23 @@ describe("robots contract", () => {
     });
   });
 
+  it.each([
+    ["PRODUCTION without origin", "PRODUCTION", undefined],
+    ["PRODUCTION with HTTP origin", "PRODUCTION", "http://example.invalid"],
+  ] as const)("fails closed in %s", (_label, environment, origin) => {
+    process.env.NEXLABS_ENV = environment;
+    if (origin) process.env.NEXT_PUBLIC_SITE_ORIGIN = origin;
+
+    expect(robots()).toEqual({
+      rules: {
+        userAgent: "*",
+        allow: [],
+        disallow: "/",
+      },
+      sitemap: undefined,
+    });
+  });
+
   it("allows crawling and publishes the sitemap in production", () => {
     process.env.NEXLABS_ENV = "PRODUCTION";
     process.env.NEXT_PUBLIC_SITE_ORIGIN = "https://example.invalid";

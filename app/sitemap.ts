@@ -5,7 +5,9 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const config = getRuntimeConfig();
-  const origin = config.origin ?? new URL("http://localhost:3000");
+  if (!config.isIndexable || !config.origin) return [];
+
+  const origin = config.origin;
   return [
     {
       url: new URL("/", origin).toString(),

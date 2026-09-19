@@ -35,3 +35,9 @@ Because `output: "export"` produces `out/` without a Next.js server runtime, `np
 Status: accepted for CP-01R.
 
 LOCAL and PREVIEW emit `disallow: "/"` and no sitemap. PRODUCTION emits `allow: "/"` and a sitemap only when `NEXT_PUBLIC_SITE_ORIGIN` is explicitly configured. No production domain is invented in the repository.
+
+## ADR-CP01F-001 - Fail-closed production release contract
+
+Status: accepted for CP-01F.
+
+Production becomes indexable only when `NEXLABS_ENV=PRODUCTION` and an explicit valid HTTPS `NEXT_PUBLIC_SITE_ORIGIN` are present. Missing or invalid production configuration remains non-indexable, emits no canonical metadata, disallows crawling and emits no sitemap URL. `npm run validate:release` is the promotion gate; ordinary PR CI remains domain-independent.
