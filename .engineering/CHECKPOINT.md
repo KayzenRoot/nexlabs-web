@@ -4,22 +4,22 @@ Status: `DERIVED_VIEW`
 Canonical source: `docs/project-brain/13-CHECKPOINT.md`
 
 ## STATUS
-CP-02R POST-MERGE GOVERNANCE REPAIR IN PROGRESS
+CP-02 COMPLETE - GEF V1 + HIVE V1 OPERATIONAL
 
 ## VERSION
-NEXLABS-WEB CP-02R
+NEXLABS-WEB CP-02 COMPLETE
 
 ## PHASE
-Post-merge exact-head governance repair
+Governed development ready
 
 ## OBJECTIVE
-Repair squash-merge lineage validation, restore green hosted governance on main, then complete ruleset migration and HIVE MCP activation.
+GEF v1.0.0 and HIVE v1.0.0 adopted and operational for governed NexLabs Web development.
 
 ## IN PROGRESS
-Promotion-anchor validation, hosted quality/Governance rerun, ruleset hardening, and HIVE MCP activation verification.
+NONE
 
 ## BLOCKERS
-Protect main still requires only quality, and the current Codex session must be reopened once to load the project-scoped HIVE MCP configuration.
+NONE
 
 ## NEXT STEP
-Merge the validator repair through protected main, verify both hosted workflows green, then require Governance in the ruleset and reopen Codex to verify HIVE MCP before checkpoint promotion.
+Admit CP-03 through a new GEF Work Order and Context Lock.

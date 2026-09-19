@@ -1,6 +1,6 @@
 # NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION
 
-Status: `ADMITTED / EXECUTING`
+Status: `COMPLETED`
 
 ## OBJECTIVE
 
@@ -92,3 +92,14 @@ Return `APPROVED`, `CORRECTION REQUIRED` or `BLOCKED` with severity, exact evide
 ## STOP CONDITION
 
 Stop with `APPROVED` only after exact-head evidence, required checks, protected merge, post-merge checks and ruleset migration all pass. Otherwise report `CORRECTION REQUIRED` for repairable defects or `BLOCKED` for an external boundary, without fabricating success.
+
+## FINAL ACCEPTANCE
+
+Status: `COMPLETED`
+
+- GEF v1.0.0 and HIVE v1.0.0 are adopted at the pinned commits.
+- HIVE project `NEXLABS-WEB` is `READY`; repository index is `COMPLETED`; retrieval corpus is `CURRENT`.
+- The active Work Order was prepared as a project-scoped, digest-bound READY task and the read-only MCP surface passed the required project, checkpoint, search and context-build checks.
+- Protect main remains active with `quality` and `Governance` required and no bypass actors.
+- Context Lock `NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION` is `CLOSED`.
+- GEF state is `GEF_V1_ADOPTED_READY_FOR_GOVERNED_DEVELOPMENT`; the next legal action is admission of CP-03 through a new Work Order and Context Lock.

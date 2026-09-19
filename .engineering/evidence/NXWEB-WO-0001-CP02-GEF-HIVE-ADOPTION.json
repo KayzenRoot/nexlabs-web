@@ -2,9 +2,9 @@
   "schemaVersion": "nexlabs-web-evidence-v1",
   "workOrder": "NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION",
   "contextLock": "NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION",
-  "verdict": "CORRECTION_REQUIRED_POST_MERGE_GOVERNANCE",
+  "verdict": "APPROVED",
   "authorizedBase": "7dac49b7d9182333e58dd1267c33489631d7e65d",
-  "candidateHead": "ba68041c48537a0c2d307ce490244cf835598553",
+  "candidateHead": "896b68389e9bf8f2baaf4d9ac5969505f3e3328a",
   "candidateHeadRole": "implementation_commit_parent_of_receipt_commit",
   "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
   "upstream": {
@@ -12,96 +12,117 @@
     "hive": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
   },
   "application": {
-    "status": "PASS_LOCAL_REPAIR_VALIDATION",
+    "status": "PASS_COMPLETED_STATE_LOCAL",
     "checks": [
-      "npm run build:tokens",
-      "npm run validate:tokens",
-      "npm run lint",
-      "npm test",
+      "python -m py_compile scripts/validate_governance.py scripts/hive_bootstrap.py scripts/hive_prepare.py scripts/hive_mcp.py",
       "python scripts/validate_governance.py",
-      "python -m unittest discover -s tests -p test_hive*.py -v"
+      "python -m unittest discover -s tests -p test_hive*.py -v",
+      "npm run check",
+      "npm run security",
+      "npm run test:e2e",
+      "npm run validate:release",
+      "wrangler deploy --dry-run --config wrangler.jsonc"
     ]
   },
   "hive": {
     "status": "PASS_LOCAL_RUNTIME",
     "projectName": "NEXLABS-WEB",
     "relativePath": "nexlabs-web",
-    "existingRuntime": {
-      "api": "http://localhost:8000",
-      "state": "READY",
+    "projectId": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
+    "observedHead": "896b68389e9bf8f2baaf4d9ac5969505f3e3328a",
+    "projectState": "READY",
+    "index": "COMPLETED",
+    "corpus": "CURRENT",
+    "postClosureBootstrap": {
+      "status": "PASS",
+      "observedHead": "896b68389e9bf8f2baaf4d9ac5969505f3e3328a",
+      "projectState": "READY",
       "index": "COMPLETED",
-      "corpus": "COMPLETED",
-      "projectId": "85efae57-a5f4-44c8-aa0a-f63412fabaa5",
-      "observedHead": "ba68041c48537a0c2d307ce490244cf835598553"
+      "corpus": "COMPLETED"
     },
-    "exactTagRuntime": {
-      "hiveTag": "v1.0.0",
-      "hiveCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
-      "api": "http://localhost:8001",
-      "health": "ok",
-      "postgresPgvector": true,
-      "redis": "ok",
-      "storage": "ok",
-      "projectId": "52777268-995d-473c-b3bc-9943492b0cad",
-      "state": "READY",
-      "index": "COMPLETED",
-      "corpus": "COMPLETED",
-      "observedHead": "222deedef664e3ed0d56be5e4e70e2587fa67ceb"
+    "preparation": {
+      "status": "PASS",
+      "taskId": "728f76e3-35f7-411e-97fe-5c5d65ed81b9",
+      "taskReused": true,
+      "taskIntakeStatus": "READY",
+      "extractedTextAvailable": true,
+      "workOrderSha256": "e6e9990fa4f5b2f0ab4af91c26a949e562131d3fc4036aedb6ad0ac5cd12cd74",
+      "workOrder": ".engineering/work-orders/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.md"
+    },
+    "mcp": {
+      "status": "PASS",
+      "server": "hive-mcp",
+      "version": "mcp-core-surface-v1",
+      "readOnlyTools": [
+        "project.list",
+        "project.status",
+        "context.build",
+        "context.search",
+        "memory.search",
+        "memory.get",
+        "checkpoint.read"
+      ],
+      "projectStatus": {
+        "status": "PASS",
+        "gitHeadSha": "896b68389e9bf8f2baaf4d9ac5969505f3e3328a",
+        "workingTreeClean": true,
+        "state": "READY"
+      },
+      "checkpointRead": {
+        "status": "PASS",
+        "path": "docs/project-brain/13-CHECKPOINT.md",
+        "registeredHeadSha": "896b68389e9bf8f2baaf4d9ac5969505f3e3328a"
+      },
+      "contextSearch": {
+        "status": "PASS",
+        "query": "CP-02 GEF HIVE adoption dynamic Work Order task preparation",
+        "hybridState": "LEXICAL_FALLBACK_SEMANTIC_UNAVAILABLE",
+        "candidatePool": 2,
+        "rerankState": "RERANK_FALLBACK_DISABLED",
+        "resultsReturned": 2
+      },
+      "contextBuild": {
+        "status": "PASS",
+        "projectId": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
+        "taskId": "728f76e3-35f7-411e-97fe-5c5d65ed81b9",
+        "checkpointFirst": true,
+        "providerIndependent": true
+      }
     }
   },
   "github": {
     "repository": "KayzenRoot/nexlabs-web",
-    "pullRequest": 12,
-    "hostedHead": "ba68041c48537a0c2d307ce490244cf835598553",
-    "quality": {
-      "status": "PASS",
-      "runId": 35451340987,
-      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35451340987"
-    },
-    "governance": {
-      "status": "PASS",
-      "runId": 35451341015,
-      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35451341015"
-    },
-    "priorCorrectionRun": {
-      "runId": 35451271326,
-      "status": "FAIL",
-      "cause": "shallow checkout lacked HEAD^",
-      "correctedBy": "fetch-depth: 2"
-    },
+    "promotionAnchor": "6a01c2456b4bf98cc171c2d5406421a6a0fa50d0",
+    "promotionAnchorRole": "protected_main_entry_before_final_promotion",
     "ruleset": {
       "id": 23698968,
       "name": "Protect main",
       "enforcement": "active",
-      "requiredChecks": [
-        "quality"
-      ],
-      "governanceRequired": false,
+      "requiredChecks": ["quality", "Governance"],
+      "governanceRequired": true,
       "bypassActors": []
     },
-    "branchProtectionEndpoint": "404 Branch not protected; repository uses rulesets",
-    "merge": {
-      "status": "MERGED",
-      "pullRequest": 12,
-      "method": "squash",
-      "sha": "257dcba7ca0f924ad5567958d085e257fd2888d2"
+    "prePromotionQuality": {
+      "status": "PASS",
+      "runId": 35467126080,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35467126080"
     },
-    "promotionAnchor": "257dcba7ca0f924ad5567958d085e257fd2888d2",
+    "prePromotionGovernance": {
+      "status": "PASS",
+      "runId": 35467126075,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35467126075"
+    },
     "postMergeQuality": {
-      "status": "FAIL",
-      "runId": 35452019397,
-      "cause": "governance validator did not yet understand squash-merge promotion lineage"
+      "status": "PASS",
+      "runId": 35467126080,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35467126080"
     },
     "postMergeGovernance": {
-      "status": "FAIL",
-      "runId": 35452019423,
-      "cause": "governance validator did not yet understand squash-merge promotion lineage"
+      "status": "PASS",
+      "runId": 35467126075,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35467126075"
     }
   },
-  "knownBlockers": [
-    "Post-merge validator repair must pass quality and Governance on main.",
-    "Protect main still requires only quality; Governance required-check migration remains pending.",
-    "Reopen Codex in the trusted nexlabs-web checkout once to load .codex/config.toml and verify the HIVE MCP session."
-  ],
-  "nextAction": "Repair post-merge lineage validation, prove quality/Governance green on main, then migrate the ruleset and activate/verify the project-scoped HIVE MCP."
+  "knownBlockers": [],
+  "nextAction": "ADMIT_CP03_WORK_ORDER"
 }
