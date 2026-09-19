@@ -4,8 +4,8 @@
 | --- | --- | --- | --- | --- | --- |
 | CP-01 | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | `79309b5` | REVIEW_BLOCKED | `npm ci`; `npm run check`; `npm run test:e2e`; `npm audit --audit-level=high`; Wrangler dry-run | none |
 | CP-01R | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | `38a40f3` | COMPLETE | `npm ci`; `npm run check`; `npm run test:e2e`; `npm run security`; Wrangler dry-run; remote CI run `35443467860` | none |
-| CP-01F | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | pending PR merge | IN_PROGRESS | pending release-contract cases, local gates and required PR CI | merge to `main` required by package |
-| CP-02 | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | pending commit/PR | IMPLEMENTED_PENDING_PR_REVIEW | `npm ci`; token build/validation; typecheck; lint; 31 tests; content/link/assets validation; static build; Playwright 2/2; audit 0; Wrangler dry-run; fail-closed release gate | PR quality, merge and post-merge main CI |
+| CP-01F | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | `d715ea8` | COMPLETE | release validator cases; local gates; PR CI; post-merge main CI `35444931516` | none |
+| CP-02 | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | `7f411fa` + merge update | IMPLEMENTED_PENDING_PR_REVIEW | `npm ci`; token build/validation; typecheck; lint; 31 tests; content/link/assets validation; static build; Playwright 2/2; audit 0; Wrangler dry-run; fail-closed release gate | PR quality, merge and post-merge main CI |
 
 ## Evidence notes
 
@@ -23,8 +23,7 @@
 - A rerun reproduced the failure; a later documentation push reproduced it again.
 - Observed jobs had zero steps and `runner_id=0`; the exact account billing/spending-limit annotation was recorded and the correction SHA later passed all remote steps.
 - CP-01 local validation evidence is retained as the historical foundation record.
-- CP-01R closed the previous review block; CP-01F is the remaining release-gate package before CP-02 approval.
-- CP-01R closed the previous review block; CP-01F is the remaining release-gate package before CP-02 approval.
+- CP-01R closed the previous review block; CP-01F then closed the final production release/indexing gate before CP-02 approval.
 
 ## CP-01R evidence
 
@@ -57,3 +56,11 @@
 - The shell includes a server-first header/footer, accessible mobile navigation with Escape/focus return, a small theme controller, replaceable BrandMark/VisualSlot contracts, semantic primitives, and a generic labeled SVG diagram.
 - `npm run test:e2e` passed 2/2; JavaScript-disabled home and 404 behavior remain covered.
 - `npm audit --audit-level=high` found 0 vulnerabilities. Wrangler dry-run read the static output with no bindings and no deployment.
+
+## CP-01F final review
+
+- PR #10 passed required `quality` CI and merged through Protect main.
+- Squash merge SHA: `d715ea8e05b56c4944b3fcb7a0d6e5139642e948`.
+- Post-merge main CI run `35444931516` completed SUCCESS with all required steps.
+- CP-01/CP-01R/CP-01F foundation series is APPROVED / COMPLETE.
+- CP-02 is READY under the active no-UGAS/no-Blender workstation policy.

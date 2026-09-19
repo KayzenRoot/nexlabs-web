@@ -41,7 +41,6 @@ LOCAL and PREVIEW emit `disallow: "/"` and no sitemap. PRODUCTION emits `allow: 
 Status: accepted for CP-01F.
 
 Production becomes indexable only when `NEXLABS_ENV=PRODUCTION` and an explicit valid HTTPS `NEXT_PUBLIC_SITE_ORIGIN` are present. Missing or invalid production configuration remains non-indexable, emits no canonical metadata, disallows crawling and emits no sitemap URL. `npm run validate:release` is the promotion gate; ordinary PR CI remains domain-independent.
-
 ## ADR-CP02-001 - Provisional token source and generated bridge
 
 Status: accepted for CP-02 implementation, pending PR review.
