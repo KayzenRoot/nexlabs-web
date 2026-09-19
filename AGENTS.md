@@ -17,7 +17,7 @@ Before product edits:
 1. Resolve Git root, branch, HEAD and cleanliness.
 2. Read the Project Brain checkpoint and active Work Order.
 3. Verify HIVE v1.0.0 availability through `scripts/hive_bootstrap.py` or an exact external runtime receipt.
-4. Run `scripts/hive_prepare.py` to bind the active Work Order to a deterministic HIVE task digest.
+4. Run `scripts/hive_prepare.py` with no Work Order override so it resolves the currently active Work Order from `.engineering/gef/GEF-CURRENT.json`, then binds that exact Work Order to a deterministic HIVE task digest.
 5. Resolve `NEXLABS-WEB` project and task status through HIVE.
 6. Retrieve only the minimum sufficient context.
 7. Prefer Git/static/AST evidence before inference.
@@ -27,7 +27,7 @@ Before product edits:
 
 The stable read-only HIVE MCP surface is: `project.list`, `project.status`, `context.build`, `context.search`, `memory.search`, `memory.get`, and `checkpoint.read`.
 
-`scripts/hive_prepare.py` is the bounded preparation seam before that read-only surface. It refreshes the registered project, reindexes the repository, synchronizes the corpus, reuses or creates one task through HIVE task intake using the exact Work Order SHA-256, and returns the project/task/head tuple. The MCP surface itself never creates tasks.
+`scripts/hive_prepare.py` is the bounded preparation seam before that read-only surface. By default it discovers the active GEF Work Order from `.engineering/gef/GEF-CURRENT.json`, refreshes the registered project, reindexes the repository, synchronizes the corpus, reuses or creates one READY/extracted task through HIVE task intake using the exact Work Order SHA-256, and returns the project/task/head tuple. An explicit `--work-order` override is only for governed diagnostics or migration work. The MCP surface itself never creates tasks.
 
 If HIVE is unavailable, never fabricate HIVE evidence. A Work Order marked `HIVE_REQUIRED` fails closed unless it explicitly admits degraded-safe execution.
 
