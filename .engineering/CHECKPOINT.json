@@ -2,11 +2,11 @@
   "schemaVersion": "nexlabs-web-gef-checkpoint-bridge-v1",
   "viewStatus": "DERIVED_VIEW",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "CP-02 COMPLETE - GEF V1 + HIVE V1 OPERATIONAL",
-  "version": "NEXLABS-WEB CP-02 COMPLETE",
-  "phase": "Governed development ready",
-  "objective": "GEF v1.0.0 and HIVE v1.0.0 adopted and operational for governed NexLabs Web development.",
-  "inProgress": "NONE",
+  "status": "CP-03 ADMITTED - IN PROGRESS",
+  "version": "NEXLABS-WEB CP-03 IN PROGRESS",
+  "phase": "Governed institutional page implementation",
+  "objective": "Implement the static institutional content surface with typed canonical content, verified evidence, route metadata and exact-head validation.",
+  "inProgress": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
   "blockers": "NONE",
-  "nextStep": "Admit CP-03 through a new GEF Work Order and Context Lock."
+  "nextStep": "Prepare the active CP-03 Work Order through HIVE before product edits."
 }

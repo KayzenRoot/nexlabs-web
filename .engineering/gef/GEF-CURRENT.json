@@ -4,12 +4,12 @@
   "promptMode": "GEF_V1_HIVE_FIRST",
   "reviewMode": "DELTA_EXACT_HEAD",
   "assuranceMode": "FAIL_CLOSED_MISSING_EVIDENCE",
-  "adoptionState": "GEF_V1_ADOPTED_READY_FOR_GOVERNED_DEVELOPMENT",
-  "productStage": "CP02_COMPLETE",
-  "nextLegalAction": "ADMIT_CP03_WORK_ORDER",
+  "adoptionState": "GEF_V1_CP03_ADMITTED",
+  "productStage": "CP03_ADMITTED_IN_PROGRESS",
+  "nextLegalAction": "PREPARE_HIVE_TASK",
   "productImplementationAuthorized": true,
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "lastCompletedWorkOrder": "NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION",
-  "activeWorkOrder": null,
-  "activeContextLock": null
+  "activeWorkOrder": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
+  "activeContextLock": "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES"
 }

@@ -1,6 +1,6 @@
 # 15 - Definition of Done
 
-CP-02R is complete only when:
+CP-02R was completed at the prior protected checkpoint. CP-03 is complete only when:
 
 1. CP-02 contrast and theme persistence repairs pass deterministic tests.
 2. Source, base, candidate, GEF and HIVE pins are exact in canonical records.
@@ -13,3 +13,5 @@ CP-02R is complete only when:
 9. Protect main requires `quality` and `Governance`, with an API snapshot recorded.
 10. GEF state is truthfully promoted only after evidence acceptance.
 11. No HIGH/CRITICAL issue, secret, unsafe path, UGAS/Blender/Three.js change or false product claim is present.
+12. All CP-03 institutional routes, typed content, evidence links, route metadata and static/E2E checks pass on the exact candidate.
+13. Workstation capability layers are truthful and no UGAS provider or visual-production work is introduced.

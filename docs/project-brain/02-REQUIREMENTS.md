@@ -20,4 +20,4 @@
 
 ## Workstation
 
-No UGAS, Blender MCP, final logo, canonical 3D, final high-fidelity motion or Three.js/R3F is required or permitted in the active workstation mode.
+Capability layers are recorded separately: `BLENDER_MCP_READY=true`, `UGAS_CORE_INSTALLED=true`, and `UGAS_GENERATION_PROVIDER_READY=false` because the local ComfyUI/provider endpoint is unavailable. CP-03 remains static-only and does not require or permit provider startup, generation, final logo, canonical 3D, final high-fidelity motion or Three.js/R3F.
