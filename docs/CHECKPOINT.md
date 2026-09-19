@@ -63,7 +63,7 @@ CP-02 is READY. Final logo, founder identity, public business email, domain, pro
 
 ## CP-02 status
 
-CP-02 implements the provisional token contract and reusable semantic shell on top of the approved CP-01F base. The package is `IMPLEMENTED_PENDING_PR_REVIEW`: local gates are green, but the required PR quality run, merge to `main`, and post-merge main verification remain external review boundaries. No final logo, UGAS, Blender MCP, Three.js/R3F, production domain, backend, analytics, or contact capture was added.
+CP-02 implements the provisional token contract and reusable semantic shell on top of the approved CP-01F base. The package is `READY_FOR_MERGE`: local gates and PR quality are green, while merge to `main` and post-merge main verification remain explicit release boundaries. No final logo, UGAS, Blender MCP, Three.js/R3F, production domain, backend, analytics, or contact capture was added.
 
 Evidence for the current candidate:
 
@@ -72,3 +72,5 @@ Evidence for the current candidate:
 - Generated artifacts: CSS custom properties, TypeScript names, and public bridge manifest.
 - Static output: `717.1 KiB`; CP-01 baseline recorded as `658.4 KiB` (+58.7 KiB, approximately +8.9%), with no remote font or runtime graphics dependency.
 - The referenced `EXECUTION-WORKSTATION-POLICY.md` was absent in the source planning repository; the active local `docs/WORKSTATION-MODE.md` remains authoritative.
+- PR: `#12` (`https://github.com/KayzenRoot/nexlabs-web/pull/12`), implementation head `c63bacd`.
+- Required PR quality run `35447080102` passed all workflow steps; post-merge `main` SHA/CI remains pending explicit merge authorization.
