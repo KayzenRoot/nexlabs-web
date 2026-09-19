@@ -51,6 +51,9 @@ function isAllowedVulnerability(name, vulnerabilities, lock, visiting = new Set(
       if (!isAllowedVulnerability(item, vulnerabilities, lock, next)) return false;
       continue;
     }
+    if (!["high", "critical"].includes(String(item?.severity || "").toLowerCase())) {
+      continue;
+    }
     if (!isAllowedLeaf(name, item, vulnerability, lock)) return false;
   }
   return true;
@@ -77,13 +80,20 @@ try {
   process.exit(1);
 }
 
-const vulnerabilities = report.vulnerabilities || {};
+if (report.error || typeof report.vulnerabilities !== "object" || report.vulnerabilities === null || !report.metadata) {
+  console.error("Security audit did not return a valid vulnerability report.");
+  console.error(JSON.stringify(report, null, 2));
+  process.exit(1);
+}
+
+const vulnerabilities = report.vulnerabilities;
+const lock = readLock();
 const blocking = [];
 const allowed = [];
 
 for (const [name, vulnerability] of Object.entries(vulnerabilities)) {
   if (!["high", "critical"].includes(vulnerability.severity)) continue;
-  if (isAllowedVulnerability(name, vulnerabilities, readLock())) {
+  if (isAllowedVulnerability(name, vulnerabilities, lock)) {
     allowed.push(name);
   } else {
     blocking.push({
