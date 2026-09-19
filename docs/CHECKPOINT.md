@@ -1,6 +1,6 @@
 # CP-01 Checkpoint
 
-Status: REVIEW_BLOCKED
+Status: COMPLETE
 
 ## Scope
 
@@ -27,7 +27,7 @@ Repository bootstrap and engineering foundation only. CP-02 may add the design s
 
 ## Review status
 
-Post-execution review on 2026-09-19 found the remote GitHub Actions CI failing before any workflow step starts. Repeated runs complete in roughly 3-4 seconds with zero steps and runner_id=0. Local validation evidence remains useful, but CP-01 is not review-approved until remote CI is diagnosed and either made green or documented as an external account/platform blocker with exact evidence.
+Post-execution review on 2026-09-19 initially found the remote GitHub Actions CI failing before any workflow step starts. Repeated historical runs completed in roughly 3-4 seconds with zero steps and runner_id=0. CP-01R diagnosed the exact billing/spending-limit annotation, repaired the foundation findings, and then verified a successful remote run on the correction SHA.
 
 Additional repair items:
 - align the `start` command with static export;
@@ -36,8 +36,12 @@ Additional repair items:
 
 ## CP-01R correction status
 
-The R-02 and R-03 repairs are implemented and covered by local tests. R-01 was diagnosed against the remote repository: GitHub annotated the failed job with `The job was not started because recent account payments have failed or your spending limit needs to be increased`; the job had zero steps and `runner_id=0`. This is an account billing/spending-limit blocker external to repository code. R-04 remains subject to the private-repository plan/API capability and is recorded in the execution ledger.
+The R-02 and R-03 repairs are implemented and covered by local tests. R-01 was diagnosed against the remote repository: GitHub annotated the historical failed jobs with `The job was not started because recent account payments have failed or your spending limit needs to be increased`; the jobs had zero steps and `runner_id=0`. The exact correction SHA `38a40f3` later ran all workflow steps successfully in 39 seconds. R-04 is active as ruleset `23698968` (`Protect main`) with pull-request, `quality` status-check, deletion and non-fast-forward protections.
+
+## CP-01R closure
+
+CP-01R is complete. Local and remote validation are green, the active main ruleset is verified through the GitHub API, and the workstation policy remains active. CP-02 may proceed within the documented workstation and product-scope gates.
 
 ## Next dependency
 
-Run CP-01R review repairs before CP-02. Final logo, founder identity, public business email, domain, production launch and paid services remain later gates.
+Final logo, founder identity, public business email, domain, production launch and paid services remain later gates.
