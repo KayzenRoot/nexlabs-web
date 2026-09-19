@@ -4,11 +4,11 @@ Status: `TARGET_PENDING_ADMIN_UPDATE`
 
 ## Observed current protection
 
-Ruleset `Protect main` is active and currently requires pull requests and the `quality` context, blocks deletion and non-fast-forward updates, and has no bypass actor recorded in the current evidence.
+Live snapshot at 2026-09-19T15:18Z: ruleset `Protect main` (ID `23698968`) is active for `main`. It blocks deletion and non-fast-forward updates, requires pull requests and the `quality` context, and has no bypass actor. The branch-protection endpoint reports `404 Branch not protected` because this repository uses rulesets rather than legacy branch protection.
 
 ## Desired CP-02R protection
 
-The protected `main` flow should require both `quality` and `Governance` after the Governance workflow has run successfully on the repaired PR and the required administration mutation is authorized. No paid plan or bypass is assumed.
+The protected `main` flow should require both `quality` and `Governance` after the Governance workflow has run successfully on the repaired PR and the required administration mutation is authorized. The live ruleset currently requires only `quality`; no paid plan or bypass is assumed.
 
 ## Activation boundary
 
