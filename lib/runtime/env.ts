@@ -13,6 +13,9 @@ function parseOrigin(value: string | undefined): URL | undefined {
   if (origin.pathname !== "/" || origin.search || origin.hash) {
     throw new Error("NEXT_PUBLIC_SITE_ORIGIN must contain an origin without a path, query, or hash");
   }
+  if (origin.username || origin.password) {
+    throw new Error("NEXT_PUBLIC_SITE_ORIGIN must not contain credentials");
+  }
   return origin;
 }
 
@@ -26,16 +29,20 @@ export interface RuntimeConfig {
 export function getRuntimeConfig(): RuntimeConfig {
   const environment = parseEnvironment(process.env.NEXLABS_ENV);
   const origin = parseOrigin(process.env.NEXT_PUBLIC_SITE_ORIGIN);
+  const isProduction = environment === "PRODUCTION";
   return {
     environment,
     origin,
-    isProduction: environment === "PRODUCTION",
-    isIndexable: environment === "PRODUCTION",
+    isProduction,
+    isIndexable: isProduction && origin?.protocol === "https:",
   };
 }
 
 export function assertReleaseEnvironment(config = getRuntimeConfig()): RuntimeConfig {
   if (!config.isProduction) throw new Error("Release validation requires NEXLABS_ENV=PRODUCTION");
   if (!config.origin) throw new Error("Production releases require NEXT_PUBLIC_SITE_ORIGIN");
+  if (config.origin.protocol !== "https:") {
+    throw new Error("Production releases require an HTTPS NEXT_PUBLIC_SITE_ORIGIN");
+  }
   return config;
 }

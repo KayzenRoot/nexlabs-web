@@ -13,8 +13,11 @@ Run the core suite with:
 npm run test
 npm run test:e2e
 npm run validate
+npm run validate:release # production-only gate; requires explicit HTTPS origin
 ```
 
 The E2E server is a small repository-owned static server so the test does not add a production runtime dependency. `npm run start` uses the same server for the local production-like smoke check on port 3000; Playwright uses port 3100 to avoid collisions.
 
 The robots contract is covered by unit tests: LOCAL and PREVIEW explicitly disallow `/`, while PRODUCTION allows `/` and emits a sitemap only when an explicit origin is configured.
+
+Release validation is tested for non-production, missing-origin, malformed-origin, HTTP-origin and valid HTTPS-origin cases. Production misconfiguration also produces no canonical metadata, no crawl permission and no localhost sitemap fallback.

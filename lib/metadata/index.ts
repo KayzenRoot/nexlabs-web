@@ -6,7 +6,7 @@ export function buildSiteMetadata(path = "/"): Metadata {
   const config = getRuntimeConfig();
   const title = siteContent.routes.find((route) => route.path === path)?.title ?? siteContent.identity.descriptor;
   const description = siteContent.routes.find((route) => route.path === path)?.description ?? siteContent.hero.body;
-  const origin = config.origin;
+  const origin = config.isIndexable ? config.origin : undefined;
 
   return {
     title: {

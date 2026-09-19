@@ -26,6 +26,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "validate:links": "node scripts/validate-links.mjs",
     "validate:assets": "node scripts/validate-assets.mjs",
+    "validate:release": "node scripts/validate-release.mjs",
     "report:bundle": "node scripts/report-bundle.mjs",
     "security": "npm audit --audit-level=high",
     "check": "npm run typecheck && npm run lint && npm run test && npm run validate && npm run build",
