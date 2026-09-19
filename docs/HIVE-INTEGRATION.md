@@ -19,7 +19,7 @@ Before using the read-only MCP surface, run:
 python scripts/hive_prepare.py --relative-path nexlabs-web
 ```
 
-The preparation bridge fails closed on a dirty or mismatched checkout, refreshes project inspection/index/corpus, computes the SHA-256 digest of the active Work Order's exact UTF-8 bytes, reuses a task with that digest when present, or submits one Markdown task through `POST /api/v1/projects/{project_id}/tasks/text`. Its JSON output binds `project_id`, `task_id`, Work Order digest and Git HEAD for subsequent MCP calls. It never creates tasks through MCP and never writes canonical project state.
+The preparation bridge fails closed on a dirty or mismatched checkout. With no override, it resolves the current `activeWorkOrder` from `.engineering/gef/GEF-CURRENT.json`, refreshes project inspection/index/corpus, computes the SHA-256 digest of that Work Order's exact UTF-8 bytes, reuses an existing READY/extracted task with the same digest, or submits one Markdown task through `POST /api/v1/projects/{project_id}/tasks/text`. Matching-but-unready tasks fail closed instead of being silently reused. Its JSON output binds `project_id`, `task_id`, Work Order identity/digest and Git HEAD for subsequent MCP calls. It never creates tasks through MCP and never writes canonical project state.
 
 ## MCP
 
