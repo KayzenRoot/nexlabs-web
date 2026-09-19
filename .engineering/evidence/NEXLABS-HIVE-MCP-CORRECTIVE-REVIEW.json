@@ -10,7 +10,8 @@
   },
   "git": {
     "branch": "codex/cp-02r-hive-mcp-corrective",
-    "head": "97c7a41fd8e73e099d2d62b671e428d4315b7f20",
+    "proofHead": "82b1cbfc834950e9cc65f46f6243fa7669d107e1",
+    "proofHeadRole": "parent_of_receipt_commit",
     "workingTreeClean": true
   },
   "hivePreparation": {
@@ -22,7 +23,7 @@
     "index": "COMPLETED",
     "corpus": "COMPLETED",
     "taskId": "784c1d18-76f4-4aef-8da4-8716b9fb51e8",
-    "taskReused": false,
+    "taskReused": true,
     "taskIntakeStatus": "READY",
     "taskOriginalBlobSha256": "e6e9990fa4f5b2f0ab4af91c26a949e562131d3fc4036aedb6ad0ac5cd12cd74"
   },
@@ -32,8 +33,8 @@
     "checkpointRead": {
       "status": "PASS",
       "version": "mcp-checkpoint-read-v1",
-      "registeredHead": "97c7a41fd8e73e099d2d62b671e428d4315b7f20",
-      "observedHead": "97c7a41fd8e73e099d2d62b671e428d4315b7f20"
+      "registeredHead": "82b1cbfc834950e9cc65f46f6243fa7669d107e1",
+      "observedHead": "82b1cbfc834950e9cc65f46f6243fa7669d107e1"
     },
     "contextSearch": {
       "status": "PASS_FALLBACK",
@@ -44,8 +45,8 @@
     },
     "contextBuild": {
       "status": "PASS",
-      "version": "context-payload-v1",
-      "outputFingerprint": "2637195d05cb4bb60840506dbc33d01f377dc355e7a871ce1af671d1c84b4244",
+      "version": "mcp-context-build-v1",
+      "outputFingerprint": "d5716bed4557b9b46cbf3382f49dec8afaf3dd3d6a509d6801ec1a6c7cc2868c",
       "taskId": "784c1d18-76f4-4aef-8da4-8716b9fb51e8"
     }
   },
