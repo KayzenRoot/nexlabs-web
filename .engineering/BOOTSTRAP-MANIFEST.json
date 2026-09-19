@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "nexlabs-web-gef-bootstrap-v1",
+  "project": "KayzenRoot/nexlabs-web",
+  "mode": "EXISTING_PROJECT / BROWNFIELD",
+  "executionBase": "7dac49b7d9182333e58dd1267c33489631d7e65d",
+  "candidateHead": "222deedef664e3ed0d56be5e4e70e2587fa67ceb",
+  "planningSource": {"repository": "KayzenRoot/nexlabs-startup", "commit": "b541e802472a3acc75a3a8ebd3818d33de8a316f"},
+  "gef": {"version": "1.0.0", "repository": "KayzenRoot/gef-bootstrap", "releaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"},
+  "hive": {"version": "1.0.0", "repository": "KayzenRoot/hive", "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf", "integrationMode": "EXTERNAL_LOCAL_FIRST", "projectName": "NEXLABS-WEB", "relativePath": "nexlabs-web"},
+  "canonicalRoot": "docs/project-brain",
+  "governanceRoot": ".engineering",
+  "activeWorkOrder": "NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION",
+  "activeContextLock": "NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION"
+}

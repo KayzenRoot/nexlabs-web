@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "nexlabs-web-evidence-v1",
+  "workOrder": "NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION",
+  "contextLock": "NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION",
+  "verdict": "BLOCKED_EXTERNAL_BOUNDARY",
+  "authorizedBase": "7dac49b7d9182333e58dd1267c33489631d7e65d",
+  "candidateHead": "222deedef664e3ed0d56be5e4e70e2587fa67ceb",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "upstream": {"gef": "866fe3af8cccc65c929aaf6a47a924401fa448b3", "hive": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"},
+  "application": {
+    "status": "PASS_LOCAL_REPAIR_VALIDATION",
+    "checks": ["npm run build:tokens", "npm run validate:tokens", "npm run lint", "npm test", "python scripts/validate_governance.py", "python -m unittest discover -s tests -p test_hive*.py -v"]
+  },
+  "hive": {
+    "status": "PASS_LOCAL_RUNTIME",
+    "projectName": "NEXLABS-WEB",
+    "relativePath": "nexlabs-web",
+    "existingRuntime": {"api": "http://localhost:8000", "state": "READY", "index": "COMPLETED", "corpus": "COMPLETED", "observedHead": "222deedef664e3ed0d56be5e4e70e2587fa67ceb"},
+    "exactTagRuntime": {"hiveTag": "v1.0.0", "hiveCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf", "api": "http://localhost:8001", "health": "ok", "postgresPgvector": true, "redis": "ok", "storage": "ok", "projectId": "52777268-995d-473c-b3bc-9943492b0cad", "state": "READY", "index": "COMPLETED", "corpus": "COMPLETED", "observedHead": "222deedef664e3ed0d56be5e4e70e2587fa67ceb"}
+  },
+  "github": {
+    "repository": "KayzenRoot/nexlabs-web",
+    "pullRequest": 12,
+    "quality": "PASS_AT_ADMISSION_HEAD_35447150784",
+    "governance": "PENDING_EXACT_HEAD_RUN",
+    "ruleset": "TARGET_PENDING_ADMIN_UPDATE",
+    "merge": "NOT_AUTHORIZED_BY_BLANK_REQUEST"
+  },
+  "knownBlockers": [
+    "Push the repaired candidate and collect exact-head quality plus Governance workflow runs.",
+    "Protected merge, post-merge checks and ruleset required-check migration are not yet evidenced or authorized.",
+    "Reopen Codex in the trusted nexlabs-web checkout once to load .codex/config.toml; the current session cannot reload MCP configuration dynamically."
+  ],
+  "nextAction": "Commit and push the repaired candidate, verify hosted exact-head checks, then stop at the protected merge boundary unless explicitly authorized."
+}

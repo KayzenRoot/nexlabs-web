@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "nexlabs-web-gef-baseline-v1",
+  "project": "KayzenRoot/nexlabs-web",
+  "adoptionMode": "EXISTING_PROJECT / BROWNFIELD",
+  "baseHead": "7dac49b7d9182333e58dd1267c33489631d7e65d",
+  "cp02CandidateAtAdmission": "222deedef664e3ed0d56be5e4e70e2587fa67ceb",
+  "gefVersion": "1.0.0",
+  "gefReleaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3",
+  "hiveVersion": "1.0.0",
+  "hiveReleaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+  "planningSourceCommit": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "productCodePresentAtBaseline": true,
+  "note": "Baseline is the approved CP-01F main state before CP-02R repair and governance adoption."
+}

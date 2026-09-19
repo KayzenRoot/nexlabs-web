@@ -69,7 +69,7 @@
   --nx-color-neutral-50: #f7fafc;
   --nx-color-neutral-100: #e1e9ef;
   --nx-color-neutral-300: #b7c6d3;
-  --nx-color-neutral-500: #65798b;
+  --nx-color-neutral-500: #93a6b5;
   --nx-color-neutral-700: #2a3a48;
   --nx-color-neutral-800: #1d2a35;
   --nx-color-neutral-850: #17212b;
@@ -143,7 +143,7 @@
   --nx-color-neutral-50: #0b1014;
   --nx-color-neutral-100: #1b2a38;
   --nx-color-neutral-300: #415365;
-  --nx-color-neutral-500: #718396;
+  --nx-color-neutral-500: #526476;
   --nx-color-neutral-700: #c3d2df;
   --nx-color-neutral-800: #d9e4ec;
   --nx-color-neutral-850: #e5edf3;
@@ -166,8 +166,8 @@
   --nx-color-functional-danger: #be123c;
   --nx-color-functional-info: #1d4ed8;
   --nx-semantic-surface-page: var(--nx-color-neutral-950);
-  --nx-semantic-surface-primary: var(--nx-color-neutral-100);
-  --nx-semantic-surface-raised: var(--nx-color-neutral-900);
+  --nx-semantic-surface-primary: var(--nx-color-neutral-900);
+  --nx-semantic-surface-raised: var(--nx-color-neutral-850);
   --nx-semantic-surface-overlay: var(--nx-color-neutral-950);
   --nx-semantic-surface-inverse: var(--nx-color-neutral-950);
   --nx-semantic-text-primary: var(--nx-color-neutral-50);
@@ -218,7 +218,7 @@
   --nx-color-neutral-50: #0b1014;
   --nx-color-neutral-100: #1b2a38;
   --nx-color-neutral-300: #415365;
-  --nx-color-neutral-500: #718396;
+  --nx-color-neutral-500: #526476;
   --nx-color-neutral-700: #c3d2df;
   --nx-color-neutral-800: #d9e4ec;
   --nx-color-neutral-850: #e5edf3;
@@ -241,8 +241,8 @@
   --nx-color-functional-danger: #be123c;
   --nx-color-functional-info: #1d4ed8;
   --nx-semantic-surface-page: var(--nx-color-neutral-950);
-  --nx-semantic-surface-primary: var(--nx-color-neutral-100);
-  --nx-semantic-surface-raised: var(--nx-color-neutral-900);
+  --nx-semantic-surface-primary: var(--nx-color-neutral-900);
+  --nx-semantic-surface-raised: var(--nx-color-neutral-850);
   --nx-semantic-surface-overlay: var(--nx-color-neutral-950);
   --nx-semantic-surface-inverse: var(--nx-color-neutral-950);
   --nx-semantic-text-primary: var(--nx-color-neutral-50);

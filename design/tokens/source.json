@@ -11,7 +11,7 @@
         "850": {"dark": "#17212b", "light": "#e5edf3"},
         "800": {"dark": "#1d2a35", "light": "#d9e4ec"},
         "700": {"dark": "#2a3a48", "light": "#c3d2df"},
-        "500": {"dark": "#65798b", "light": "#718396"},
+        "500": {"dark": "#93a6b5", "light": "#526476"},
         "300": {"dark": "#b7c6d3", "light": "#415365"},
         "100": {"dark": "#e1e9ef", "light": "#1b2a38"},
         "50": {"dark": "#f7fafc", "light": "#0b1014"}
@@ -88,8 +88,8 @@
   },
   "semantic": {
     "surface.page": {"dark": "{color.neutral.950}", "light": "{color.neutral.950}"},
-    "surface.primary": {"dark": "{color.neutral.900}", "light": "{color.neutral.100}"},
-    "surface.raised": {"dark": "{color.neutral.850}", "light": "{color.neutral.900}"},
+    "surface.primary": {"dark": "{color.neutral.900}", "light": "{color.neutral.900}"},
+    "surface.raised": {"dark": "{color.neutral.850}", "light": "{color.neutral.850}"},
     "surface.overlay": {"dark": "{color.neutral.800}", "light": "{color.neutral.950}"},
     "surface.inverse": {"dark": "{color.neutral.50}", "light": "{color.neutral.950}"},
     "text.primary": {"dark": "{color.neutral.50}", "light": "{color.neutral.50}"},

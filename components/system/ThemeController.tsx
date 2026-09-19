@@ -7,19 +7,24 @@ const storageKey = "nexlabs-theme";
 
 export function ThemeController() {
   const [mode, setMode] = useState<ThemeMode>("system");
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      const stored = window.localStorage.getItem(storageKey);
-      if (stored === "dark" || stored === "light" || stored === "system") setMode(stored);
+      try {
+        const stored = window.localStorage.getItem(storageKey);
+        if (stored === "dark" || stored === "light" || stored === "system") setMode(stored);
+      } catch { /* privacy-safe best effort */ }
+      setHydrated(true);
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
+    if (!hydrated) return;
     document.documentElement.dataset.theme = mode;
     try { window.localStorage.setItem(storageKey, mode); } catch { /* privacy-safe best effort */ }
-  }, [mode]);
+  }, [hydrated, mode]);
 
   return (
     <label className="theme-control">

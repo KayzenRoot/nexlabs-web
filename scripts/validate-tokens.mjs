@@ -52,9 +52,9 @@ function contrast(foreground, background) {
 }
 
 const contrastPairs = [
-  ["text.primary", "surface.page", 4.5],
-  ["text.secondary", "surface.page", 4.5],
-  ["text.link", "surface.page", 4.5],
+  ...["surface.page", "surface.primary", "surface.raised", "surface.overlay"].flatMap((surface) =>
+    ["text.primary", "text.secondary", "text.muted", "text.link"].map((text) => [text, surface, 4.5]),
+  ),
   ["button.primary.foreground", "button.primary.background", 4.5],
   ["button.secondary.foreground", "button.secondary.background", 4.5],
 ];

@@ -19,11 +19,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: Setup Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 24
           cache: npm
+      - name: Setup Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
       - name: Install dependencies
         run: npm ci
       - name: Typecheck
@@ -34,6 +40,10 @@ jobs:
         run: npm run test
       - name: Content and asset validation
         run: npm run validate
+      - name: Governance validation
+        run: python scripts/validate_governance.py
+      - name: HIVE bridge tests
+        run: python -m unittest discover -s tests -p "test_hive*.py" -v
       - name: Production build
         run: npm run build
       - name: Dependency audit

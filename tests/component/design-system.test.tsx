@@ -1,5 +1,5 @@
 import userEvent from "@testing-library/user-event";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { ThemeController } from "@/components/system/ThemeController";
 import { VisualSlot } from "@/components/media/VisualSlot";
@@ -25,6 +25,15 @@ describe("CP-02 design-system boundaries", () => {
     await user.selectOptions(select, "light");
     expect(document.documentElement.dataset.theme).toBe("light");
     expect(window.localStorage.getItem("nexlabs-theme")).toBe("light");
+  });
+
+  it("preserves a saved theme through hydration before writing persistence", async () => {
+    window.localStorage.setItem("nexlabs-theme", "dark");
+    render(<ThemeController />);
+    const select = screen.getByRole("combobox", { name: "Color theme" });
+    await waitFor(() => expect(select).toHaveValue("dark"));
+    expect(document.documentElement.dataset.theme).toBe("dark");
+    expect(window.localStorage.getItem("nexlabs-theme")).toBe("dark");
   });
 
   it("supports accessible and decorative visual slot modes", () => {
