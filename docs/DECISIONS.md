@@ -23,3 +23,15 @@ Company website licensing has not been approved. The repository is private and d
 Status: accepted for CP-01.
 
 Node 24 LTS and npm 11 are pinned by the runtime files, package manager field and CI. The lockfile is the install authority.
+
+## ADR-CP01R-001 - Static export local start contract
+
+Status: accepted for CP-01R.
+
+Because `output: "export"` produces `out/` without a Next.js server runtime, `npm start` invokes the repository-owned static server. Wrangler remains the separate preview path for the Cloudflare runtime boundary.
+
+## ADR-CP01R-002 - Explicit non-indexable robots rule
+
+Status: accepted for CP-01R.
+
+LOCAL and PREVIEW emit `disallow: "/"` and no sitemap. PRODUCTION emits `allow: "/"` and a sitemap only when `NEXT_PUBLIC_SITE_ORIGIN` is explicitly configured. No production domain is invented in the repository.

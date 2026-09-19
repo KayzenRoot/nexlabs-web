@@ -7,6 +7,7 @@ CP-01 establishes a static-first Next.js App Router application for `KayzenRoot/
 - Next.js + React + TypeScript provide routing, metadata and component boundaries.
 - `output: "export"` produces a portable `out/` directory with no server, database, authentication or runtime secret requirement.
 - Cloudflare Workers + Static Assets is the preferred deployment boundary. Wrangler serves the generated `out/` directory.
+- Local production-like serving also reads only the generated `out/` directory through `scripts/serve-static.mjs`; there is no Next.js server runtime for the static export.
 - The root layout is a server component. Future interactive features must be isolated as client islands.
 - Content is version-controlled JSON validated at build time and imported through typed TypeScript contracts.
 

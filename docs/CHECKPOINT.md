@@ -34,6 +34,10 @@ Additional repair items:
 - make non-indexable robots behavior explicitly disallow crawling;
 - document/configure main-branch protection/rules when feasible.
 
+## CP-01R correction status
+
+The R-02 and R-03 repairs are implemented and covered by local tests. R-01 was diagnosed against the remote repository: GitHub annotated the failed job with `The job was not started because recent account payments have failed or your spending limit needs to be increased`; the job had zero steps and `runner_id=0`. This is an account billing/spending-limit blocker external to repository code. R-04 remains subject to the private-repository plan/API capability and is recorded in the execution ledger.
+
 ## Next dependency
 
 Run CP-01R review repairs before CP-02. Final logo, founder identity, public business email, domain, production launch and paid services remain later gates.

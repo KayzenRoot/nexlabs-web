@@ -10,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: config.isIndexable ? "/" : [],
+      disallow: config.isIndexable ? [] : "/",
     },
     sitemap: config.isIndexable && origin ? `${origin}sitemap.xml` : undefined,
   };

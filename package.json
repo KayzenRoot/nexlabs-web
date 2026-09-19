@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && npm run report:bundle",
-    "start": "next start",
+    "start": "node scripts/serve-static.mjs",
     "preview": "npm run build && wrangler dev --config wrangler.jsonc",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",

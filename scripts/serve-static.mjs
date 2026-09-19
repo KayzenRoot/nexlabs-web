@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "out");
 const portArgument = process.argv.indexOf("--port");
-const port = portArgument >= 0 ? Number(process.argv[portArgument + 1]) : 3100;
+const port = portArgument >= 0 ? Number(process.argv[portArgument + 1]) : 3000;
 const types = { ".css": "text/css", ".html": "text/html", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".txt": "text/plain" };
 
 const server = createServer(async (request, response) => {

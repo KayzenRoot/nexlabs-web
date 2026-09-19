@@ -10,6 +10,15 @@ npm run build
 npx wrangler dev --config wrangler.jsonc
 ```
 
+For a production-like local check of the generated static artifact, run:
+
+```bash
+npm run build
+npm run start
+```
+
+This serves `out/` with the repository-owned static server at `http://127.0.0.1:3000`. It is intentionally different from `npm run preview`, which starts Wrangler and exercises the Cloudflare Workers + Static Assets boundary.
+
 Remote deployment is intentionally not performed by CP-01. When Cloudflare credentials and a release decision exist, the documented deployment command is:
 
 ```bash

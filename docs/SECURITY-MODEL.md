@@ -9,5 +9,6 @@ CP-01 minimizes the public attack surface:
 - lockfile, npm audit and Dependabot configuration are committed;
 - GitHub Actions use read-only repository permissions and pinned action commits;
 - a Cloudflare static-asset header policy is versioned in `public/_headers`.
+- local and preview robots explicitly disallow crawling; production indexing requires the explicit production environment and origin contract.
 
 The header policy must be revalidated if a future client island, third-party asset, 3D runtime or dynamic Worker is added. No public security-reporting email is published because no monitored address has been approved.
