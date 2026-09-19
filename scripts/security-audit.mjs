@@ -1,5 +1,13 @@
 import { spawnSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+
+const DIAGNOSTIC_DIR = new URL("../.audit/", import.meta.url);
+const DIAGNOSTIC_FILE = new URL("../.audit/security-audit-diagnostic.json", import.meta.url);
+
+function writeDiagnostic(value) {
+  mkdirSync(DIAGNOSTIC_DIR, { recursive: true });
+  writeFileSync(DIAGNOSTIC_FILE, JSON.stringify(value, null, 2) + "\n", "utf8");
+}
 
 const ALLOWED_FALSE_POSITIVE = {
   package: "brace-expansion",
@@ -66,6 +74,7 @@ const audit = spawnSync(
 );
 
 if (audit.error) {
+  writeDiagnostic({ status: "ERROR", stage: "spawn", message: audit.error.message });
   console.error("Security audit could not start:", audit.error.message);
   process.exit(1);
 }
@@ -74,6 +83,13 @@ let report;
 try {
   report = JSON.parse(audit.stdout || "{}");
 } catch {
+  writeDiagnostic({
+    status: "ERROR",
+    stage: "parse",
+    auditExitStatus: audit.status,
+    stdoutPrefix: String(audit.stdout || "").slice(0, 2000),
+    stderrPrefix: String(audit.stderr || "").slice(0, 2000),
+  });
   console.error(audit.stdout);
   console.error(audit.stderr);
   console.error("Security audit returned invalid JSON.");
@@ -81,6 +97,14 @@ try {
 }
 
 if (typeof report.vulnerabilities !== "object" || report.vulnerabilities === null) {
+  writeDiagnostic({
+    status: "ERROR",
+    stage: "shape",
+    auditExitStatus: audit.status,
+    auditReportVersion: report.auditReportVersion ?? null,
+    error: report.error ?? null,
+    keys: Object.keys(report),
+  });
   console.error("Security audit did not return a valid vulnerability report.");
   console.error(JSON.stringify(report, null, 2));
   process.exit(1);
@@ -105,6 +129,14 @@ for (const [name, vulnerability] of Object.entries(vulnerabilities)) {
     });
   }
 }
+
+writeDiagnostic({
+  status: blocking.length ? "BLOCKED" : "PASS",
+  auditExitStatus: audit.status,
+  auditReportVersion: report.auditReportVersion ?? null,
+  allowed,
+  blocking,
+});
 
 if (allowed.length) {
   console.warn(
