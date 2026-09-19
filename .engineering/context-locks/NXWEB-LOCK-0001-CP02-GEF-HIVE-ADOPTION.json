@@ -5,7 +5,7 @@
   "status": "CLOSED",
   "repository": "KayzenRoot/nexlabs-web",
   "authorizedBase": "7dac49b7d9182333e58dd1267c33489631d7e65d",
-  "candidateHead": "7acf6461afdfdc9fe8709d74ec77fbfd89395e19",
+  "candidateHead": "896b68389e9bf8f2baaf4d9ac5969505f3e3328a",
   "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
   "upstream": {"gef": {"version": "1.0.0", "commit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"}, "hive": {"version": "1.0.0", "commit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"}},
   "workstationPolicy": "no-UGAS/no-Blender/no-final-logo/no-canonical-3D/no-Three.js",
