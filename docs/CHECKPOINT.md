@@ -1,6 +1,6 @@
 # CP-01 Checkpoint
 
-Status: CP-01F_IN_PROGRESS
+Status: COMPLETE
 
 ## Scope
 
@@ -46,6 +46,17 @@ Run CP-01F before CP-02 review approval. Final logo, founder identity, public bu
 
 Remote CI and main governance are now verified healthy. One final medium release-gate issue remains: production indexability can become true without an explicit canonical origin. CP-01F must make production release validation fail closed before CP-02 is review-approved.
 
-## CP-01F status
+## CP-01F final status
 
-CP-01F implements the fail-closed production contract and the explicit `npm run validate:release` promotion gate. Final approval remains pending the required PR CI and merge to `main`.
+CP-01F is APPROVED.
+
+- PR #10 passed the required `quality` check.
+- Squash merge SHA: `d715ea8e05b56c4944b3fcb7a0d6e5139642e948`.
+- Post-merge main CI run `35444931516` completed SUCCESS.
+- Production release/indexing now fails closed without an explicit valid HTTPS origin.
+- `npm run validate:release` is the explicit production promotion gate.
+- No UGAS/Blender work was introduced.
+
+## Next dependency
+
+CP-02 is READY. Final logo, founder identity, public business email, domain, production launch and paid services remain later gates.
