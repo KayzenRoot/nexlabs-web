@@ -28,7 +28,8 @@ REQUIRED = (
     "docs/project-brain/03-SCOPE.md", "docs/project-brain/04-ARCHITECTURE.md", "docs/project-brain/10-SECURITY-GOVERNANCE.md",
     "docs/project-brain/11-TEST-PLAN.md", "docs/project-brain/12-LOCAL-DEPLOYMENT.md", "docs/project-brain/13-CHECKPOINT.md",
     "docs/project-brain/14-BACKLOG.md", "docs/project-brain/15-DEFINITION-OF-DONE.md", "docs/project-brain/16-DECISIONS-LEDGER.md",
-    "docs/project-brain/17-BRAND-WEB-SOURCE-MAP.md", "scripts/hive_bootstrap.py", "scripts/hive_prepare.py", "scripts/hive_mcp.py", ".github/workflows/governance.yml",
+    "docs/project-brain/17-BRAND-WEB-SOURCE-MAP.md", "scripts/hive_bootstrap.py", "scripts/hive_prepare.py", "scripts/hive_mcp.py",
+    "tests/test_hive_prepare.py", ".github/workflows/governance.yml",
 )
 
 
@@ -167,6 +168,18 @@ if server.get("required") is not True or server.get("enabled") is not True or se
     fail("HIVE MCP server contract mismatch")
 if set(server.get("enabled_tools", [])) != HIVE_TOOLS or len(server.get("enabled_tools", [])) != len(HIVE_TOOLS):
     fail("HIVE MCP tool allowlist mismatch")
+
+prepare_source = read("scripts/hive_prepare.py")
+if "activeWorkOrder" not in prepare_source or "GEF_CURRENT" not in prepare_source:
+    fail("HIVE preparation must resolve the active GEF Work Order dynamically")
+if "DEFAULT_WORK_ORDER" in prepare_source:
+    fail("HIVE preparation must not hardcode one lifecycle Work Order as its default")
+if "extracted_text_available" not in prepare_source or "intake_status" not in prepare_source:
+    fail("HIVE preparation must fail closed on task extraction readiness")
+
+agents_source = read("AGENTS.md")
+if "scripts/hive_prepare.py" not in agents_source or "GEF-CURRENT.json" not in agents_source:
+    fail("AGENTS HIVE-first preflight must bind preparation to the active GEF Work Order")
 
 governance_files = [ROOT / path for path in REQUIRED] + [ROOT / "scripts/validate_governance.py"]
 for path in governance_files:
