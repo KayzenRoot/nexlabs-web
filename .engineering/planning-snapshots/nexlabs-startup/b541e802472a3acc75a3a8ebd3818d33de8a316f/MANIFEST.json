@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "nexlabs-web-planning-snapshot-v1",
+  "status": "IMMUTABLE_SOURCE_CACHE",
+  "authority": {
+    "repository": "KayzenRoot/nexlabs-startup",
+    "commit": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+    "note": "The parent repository at the pinned commit remains authoritative. This snapshot is an exact execution cache only."
+  },
+  "target": {
+    "repository": "KayzenRoot/nexlabs-web",
+    "baseSha": "cfbf03f820faf6f4a0ff1048f92c366f3cd1bf32"
+  },
+  "scope": "CP-03 Content + All Institutional Pages",
+  "files": [
+    {
+      "sourcePath": "brand-web/BRAND-WEB-MASTER-PLAN.md",
+      "sourceBlobSha": "930df0a266fc8ea9e6c191b81becc08f97863dc7",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BRAND-WEB-MASTER-PLAN.md",
+      "purpose": "CP-03 execution source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-07-UX-IA.md",
+      "sourceBlobSha": "28f2f42c62477c4adb2d751e81c2384bbbe25351",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-07-UX-IA.md",
+      "purpose": "CP-03 execution source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-07-PAGE-EVIDENCE-MATRIX.md",
+      "sourceBlobSha": "1ae971d67c2def7a7f995725c53af9b371a1a63b",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-07-PAGE-EVIDENCE-MATRIX.md",
+      "purpose": "CP-03 execution source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-08-CANONICAL-WEB-COPY.md",
+      "sourceBlobSha": "2f082c48c6add878cf21556b13ccdfa895dd7913",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-08-CANONICAL-WEB-COPY.md",
+      "purpose": "CP-03 execution source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-08-SEO-METADATA.md",
+      "sourceBlobSha": "7c8800babdc9f26676b34ab21eb1c3af2473aeb0",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-08-SEO-METADATA.md",
+      "purpose": "CP-03 execution source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-13-DESIGN-SYSTEM-COMPONENTS.md",
+      "sourceBlobSha": "58741bf8354f36b89416664ee77103ee008136da",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-13-DESIGN-SYSTEM-COMPONENTS.md",
+      "purpose": "CP-03 execution source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-17-CODEX-EXECUTION-PACKAGE.md",
+      "sourceBlobSha": "f7d617c65df0f272964ca91426ad1dbc7033cc1f",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-17-CODEX-EXECUTION-PACKAGE.md",
+      "purpose": "CP-03 execution source cache"
+    },
+    {
+      "sourcePath": "brand-web/EXECUTION-WORKSTATION-POLICY.md",
+      "sourceBlobSha": "79187074e5099fede178c3fd902284508a38e8d2",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/EXECUTION-WORKSTATION-POLICY.md",
+      "purpose": "CP-03 execution source cache"
+    }
+  ],
+  "staleWhen": [
+    "the authoritative planning commit changes",
+    "an accepted target-repository ADR supersedes a cached planning rule within its domain"
+  ]
+}
