@@ -177,9 +177,35 @@ for path in governance_files:
         fail(f"machine-specific absolute path in {path.relative_to(ROOT)}")
 
 current = data(".engineering/gef/GEF-CURRENT.json")
-if current.get("activeWorkOrder") != WORK_ORDER or current.get("activeContextLock") != LOCK:
-    fail("GEF current active identity mismatch")
-if current.get("adoptionState") not in {"GEF_V1_ADOPTION_IN_PROGRESS", "GEF_V1_ADOPTED_READY_FOR_GOVERNED_DEVELOPMENT"}:
+adoption_state = current.get("adoptionState")
+if adoption_state == "GEF_V1_ADOPTION_IN_PROGRESS":
+    if current.get("activeWorkOrder") != WORK_ORDER or current.get("activeContextLock") != LOCK:
+        fail("GEF current active identity mismatch")
+    if lock.get("status") != "ACTIVE":
+        fail("active GEF adoption requires an ACTIVE Context Lock")
+elif adoption_state == "GEF_V1_ADOPTED_READY_FOR_GOVERNED_DEVELOPMENT":
+    if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("completed GEF adoption cannot retain an active Work Order or Context Lock")
+    if current.get("lastCompletedWorkOrder") != WORK_ORDER:
+        fail("completed GEF adoption must bind the completed Work Order")
+    if lock.get("status") != "CLOSED":
+        fail("completed GEF adoption requires a CLOSED Context Lock")
+    if evidence.get("verdict") != "APPROVED":
+        fail("completed GEF adoption requires APPROVED evidence")
+    if evidence.get("knownBlockers"):
+        fail("completed GEF adoption cannot retain known blockers")
+    required_checks = set(evidence.get("github", {}).get("ruleset", {}).get("requiredChecks", []))
+    if not {"quality", "Governance"}.issubset(required_checks):
+        fail("completed GEF adoption requires quality and Governance in the ruleset evidence")
+    if evidence.get("github", {}).get("postMergeQuality", {}).get("status") != "PASS":
+        fail("completed GEF adoption requires a passing post-merge quality receipt")
+    if evidence.get("github", {}).get("postMergeGovernance", {}).get("status") != "PASS":
+        fail("completed GEF adoption requires a passing post-merge Governance receipt")
+    if evidence.get("hive", {}).get("mcp", {}).get("status") != "PASS":
+        fail("completed GEF adoption requires verified HIVE MCP evidence")
+    if "Status: `COMPLETED`" not in work_order:
+        fail("completed GEF adoption requires the Work Order to be marked COMPLETED")
+else:
     fail("invalid GEF adoption state")
 
 print("NexLabs Web governance validation: PASS")
