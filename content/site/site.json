@@ -1,0 +1,57 @@
+{
+  "identity": {
+    "brand": "NexLabs",
+    "corporateName": "NexLabs Technology",
+    "descriptor": "Infrastructure for AI-native software",
+    "stage": "pre-incorporation",
+    "location": "Brazil",
+    "market": "global"
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/",
+      "external": false
+    }
+  ],
+  "hero": {
+    "eyebrow": "NEXLABS TECHNOLOGY",
+    "heading": "Build with AI. Keep the system coherent.",
+    "body": "NexLabs builds developer infrastructure for complex AI-assisted software development, beginning with systems for durable context, retrieval, memory, efficiency and governed execution.",
+    "primaryAction": {
+      "label": "Explore HIVE",
+      "href": "https://github.com/KayzenRoot/hive",
+      "external": true
+    },
+    "secondaryAction": {
+      "label": "View GitHub",
+      "href": "https://github.com/KayzenRoot",
+      "external": true
+    }
+  },
+  "evidence": [
+    {
+      "id": "E-HIVE",
+      "label": "HIVE",
+      "description": "Open-source infrastructure for durable project context and AI-assisted development workflows.",
+      "href": "https://github.com/KayzenRoot/hive",
+      "kind": "github"
+    }
+  ],
+  "contact": {
+    "publicEmail": null,
+    "founder": {
+      "name": null,
+      "bio": null,
+      "approved": false
+    }
+  },
+  "routes": [
+    {
+      "path": "/",
+      "title": "NexLabs - Infrastructure for AI-native software",
+      "description": "NexLabs builds developer infrastructure for complex AI-assisted software development, beginning with HIVE.",
+      "indexable": true
+    }
+  ]
+}
