@@ -1,0 +1,142 @@
+{
+  "manifestKind": "nexlabs-design-tokens",
+  "schemaVersion": 1,
+  "status": "provisional-engineering",
+  "notes": "Candidate Dark Mineral Laboratory values. Replaceable after approved visual testing; not final brand artwork.",
+  "primitives": {
+    "color": {
+      "neutral": {
+        "950": {"dark": "#0b1014", "light": "#f7fafc"},
+        "900": {"dark": "#111820", "light": "#eef3f7"},
+        "850": {"dark": "#17212b", "light": "#e5edf3"},
+        "800": {"dark": "#1d2a35", "light": "#d9e4ec"},
+        "700": {"dark": "#2a3a48", "light": "#c3d2df"},
+        "500": {"dark": "#65798b", "light": "#718396"},
+        "300": {"dark": "#b7c6d3", "light": "#415365"},
+        "100": {"dark": "#e1e9ef", "light": "#1b2a38"},
+        "50": {"dark": "#f7fafc", "light": "#0b1014"}
+      },
+      "spectral": {
+        "300": {"dark": "#a5f3fc", "light": "#155e75"},
+        "400": {"dark": "#67e8f9", "light": "#0e7490"},
+        "500": {"dark": "#22d3ee", "light": "#0e7490"},
+        "600": {"dark": "#06b6d4", "light": "#155e75"},
+        "700": {"dark": "#0891b2", "light": "#164e63"}
+      },
+      "violet": {
+        "300": {"dark": "#c4b5fd", "light": "#5b21b6"},
+        "400": {"dark": "#a78bfa", "light": "#6d28d9"},
+        "500": {"dark": "#8b5cf6", "light": "#6d28d9"},
+        "600": {"dark": "#7c3aed", "light": "#5b21b6"}
+      },
+      "warm": {
+        "300": {"dark": "#fcd34d", "light": "#92400e"},
+        "400": {"dark": "#fbbf24", "light": "#a16207"},
+        "500": {"dark": "#f59e0b", "light": "#92400e"}
+      },
+      "functional": {
+        "success": {"dark": "#4ade80", "light": "#15803d"},
+        "warning": {"dark": "#facc15", "light": "#a16207"},
+        "danger": {"dark": "#fb7185", "light": "#be123c"},
+        "info": {"dark": "#60a5fa", "light": "#1d4ed8"}
+      }
+    },
+    "font": {
+      "family": {
+        "sans": "ui-sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+      },
+      "weight": {"regular": 400, "medium": 500, "semibold": 600, "bold": 700},
+      "size": {
+        "display-xl": "clamp(3.25rem, 9vw, 7.5rem)",
+        "display-lg": "clamp(2.75rem, 7vw, 5.5rem)",
+        "heading-1": "clamp(2.25rem, 5vw, 4rem)",
+        "heading-2": "clamp(1.75rem, 3vw, 2.75rem)",
+        "heading-3": "1.35rem",
+        "body-lg": "1.125rem",
+        "body": "1rem",
+        "body-sm": "0.875rem",
+        "label": "0.75rem",
+        "code-meta": "0.75rem"
+      },
+      "lineHeight": {"tight": 1.08, "snug": 1.25, "body": 1.6, "label": 1.3},
+      "tracking": {"tight": "-0.04em", "normal": "0", "wide": "0.12em"}
+    },
+    "space": {
+      "0": "0",
+      "1": "0.25rem",
+      "2": "0.5rem",
+      "3": "0.75rem",
+      "4": "1rem",
+      "5": "1.5rem",
+      "6": "2rem",
+      "7": "3rem",
+      "8": "4rem",
+      "9": "6rem",
+      "10": "8rem"
+    },
+    "radius": {"none": "0", "sm": "0.25rem", "md": "0.5rem", "lg": "0.875rem", "xl": "1.25rem", "full": "999px"},
+    "border": {"thin": "1px", "strong": "2px"},
+    "shadow": {"none": "none", "soft": "0 1rem 3rem rgb(0 0 0 / 0.18)", "focus": "0 0 0 3px var(--nx-action-focus)"},
+    "motion": {
+      "duration": {"instant": "0ms", "fast": "140ms", "standard": "220ms", "deliberate": "420ms", "cinematic": "900ms"},
+      "easing": {"precision": "cubic-bezier(0.2, 0.8, 0.2, 1)", "resolve": "cubic-bezier(0.16, 1, 0.3, 1)", "system": "cubic-bezier(0.22, 1, 0.36, 1)"}
+    },
+    "zIndex": {"base": 0, "header": 20, "overlay": 40, "skipLink": 60},
+    "breakpoint": {"sm": "36rem", "md": "48rem", "lg": "64rem", "xl": "80rem"},
+    "container": {"content": "72rem", "reading": "46rem", "wide": "86rem"}
+  },
+  "semantic": {
+    "surface.page": {"dark": "{color.neutral.950}", "light": "{color.neutral.950}"},
+    "surface.primary": {"dark": "{color.neutral.900}", "light": "{color.neutral.100}"},
+    "surface.raised": {"dark": "{color.neutral.850}", "light": "{color.neutral.900}"},
+    "surface.overlay": {"dark": "{color.neutral.800}", "light": "{color.neutral.950}"},
+    "surface.inverse": {"dark": "{color.neutral.50}", "light": "{color.neutral.950}"},
+    "text.primary": {"dark": "{color.neutral.50}", "light": "{color.neutral.50}"},
+    "text.secondary": {"dark": "{color.neutral.300}", "light": "{color.neutral.300}"},
+    "text.muted": {"dark": "{color.neutral.500}", "light": "{color.neutral.500}"},
+    "text.inverse": {"dark": "{color.neutral.950}", "light": "{color.neutral.950}"},
+    "text.link": {"dark": "{color.spectral.300}", "light": "{color.spectral.700}"},
+    "action.primary": {"dark": "{color.spectral.500}", "light": "{color.spectral.700}"},
+    "action.primaryHover": {"dark": "{color.spectral.400}", "light": "{color.spectral.600}"},
+    "action.secondary": {"dark": "{color.neutral.800}", "light": "{color.neutral.800}"},
+    "action.focus": {"dark": "{color.spectral.300}", "light": "{color.spectral.700}"},
+    "action.disabled": {"dark": "{color.neutral.700}", "light": "{color.neutral.300}"},
+    "signal.primary": {"dark": "{color.spectral.400}", "light": "{color.spectral.700}"},
+    "signal.secondary": {"dark": "{color.violet.400}", "light": "{color.violet.600}"},
+    "signal.rare": {"dark": "{color.warm.300}", "light": "{color.warm.500}"},
+    "state.success": {"dark": "{color.functional.success}", "light": "{color.functional.success}"},
+    "state.warning": {"dark": "{color.functional.warning}", "light": "{color.functional.warning}"},
+    "state.danger": {"dark": "{color.functional.danger}", "light": "{color.functional.danger}"},
+    "state.info": {"dark": "{color.functional.info}", "light": "{color.functional.info}"},
+    "diagram.node": {"dark": "{color.violet.400}", "light": "{color.violet.600}"},
+    "diagram.edge": {"dark": "{color.neutral.500}", "light": "{color.neutral.500}"},
+    "diagram.active": {"dark": "{color.spectral.400}", "light": "{color.spectral.700}"},
+    "diagram.label": {"dark": "{color.neutral.300}", "light": "{color.neutral.300}"}
+  },
+  "components": {
+    "button.primary.background": {"dark": "{action.primary}", "light": "{action.primary}"},
+    "button.primary.foreground": {"dark": "{color.neutral.950}", "light": "{color.neutral.950}"},
+    "button.primary.border": {"dark": "{action.primary}", "light": "{action.primary}"},
+    "button.primary.focusRing": {"dark": "{action.focus}", "light": "{action.focus}"},
+    "button.secondary.background": {"dark": "{action.secondary}", "light": "{action.secondary}"},
+    "button.secondary.foreground": {"dark": "{text.primary}", "light": "{text.primary}"},
+    "button.secondary.border": {"dark": "{color.neutral.700}", "light": "{color.neutral.700}"},
+    "nav.foreground": {"dark": "{text.secondary}", "light": "{text.secondary}"},
+    "nav.active": {"dark": "{text.link}", "light": "{text.link}"},
+    "nav.surface": {"dark": "{surface.page}", "light": "{surface.page}"},
+    "card.surface": {"dark": "{surface.raised}", "light": "{surface.raised}"},
+    "card.border": {"dark": "{color.neutral.700}", "light": "{color.neutral.700}"},
+    "card.title": {"dark": "{text.primary}", "light": "{text.primary}"},
+    "card.body": {"dark": "{text.secondary}", "light": "{text.secondary}"},
+    "hero.headline": {"dark": "{text.primary}", "light": "{text.primary}"},
+    "hero.body": {"dark": "{text.secondary}", "light": "{text.secondary}"},
+    "hero.signal": {"dark": "{signal.primary}", "light": "{signal.primary}"}
+  },
+  "bridge": {
+    "three.signalPrimary": {"dark": "{signal.primary}", "light": "{signal.primary}"},
+    "three.signalSecondary": {"dark": "{signal.secondary}", "light": "{signal.secondary}"},
+    "three.structure": {"dark": "{surface.raised}", "light": "{surface.raised}"},
+    "three.optical": {"dark": "{surface.overlay}", "light": "{surface.overlay}"}
+  }
+}

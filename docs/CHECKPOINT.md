@@ -49,3 +49,15 @@ Remote CI and main governance are now verified healthy. One final medium release
 ## CP-01F status
 
 CP-01F implements the fail-closed production contract and the explicit `npm run validate:release` promotion gate. Final approval remains pending the required PR CI and merge to `main`.
+
+## CP-02 status
+
+CP-02 implements the provisional token contract and reusable semantic shell on top of the CP-01F branch. The package is `IMPLEMENTED_PENDING_PR_REVIEW`: local gates are green, but the required PR quality run, merge to `main`, and post-merge main verification remain external review boundaries. No final logo, UGAS, Blender MCP, Three.js/R3F, production domain, backend, analytics, or contact capture was added.
+
+Evidence for the current candidate:
+
+- Planning source: `KayzenRoot/nexlabs-startup` at `6322b3650e52119fd093dc9e410fde0a15075b9f`.
+- Token source: `design/tokens/source.json`, schema 1, `provisional-engineering`.
+- Generated artifacts: CSS custom properties, TypeScript names, and public bridge manifest.
+- Static output: `717.1 KiB`; CP-01 baseline recorded as `658.4 KiB` (+58.7 KiB, approximately +8.9%), with no remote font or runtime graphics dependency.
+- The referenced `EXECUTION-WORKSTATION-POLICY.md` was absent in the source planning repository; the active local `docs/WORKSTATION-MODE.md` remains authoritative.

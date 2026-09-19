@@ -41,3 +41,15 @@ LOCAL and PREVIEW emit `disallow: "/"` and no sitemap. PRODUCTION emits `allow: 
 Status: accepted for CP-01F.
 
 Production becomes indexable only when `NEXLABS_ENV=PRODUCTION` and an explicit valid HTTPS `NEXT_PUBLIC_SITE_ORIGIN` are present. Missing or invalid production configuration remains non-indexable, emits no canonical metadata, disallows crawling and emits no sitemap URL. `npm run validate:release` is the promotion gate; ordinary PR CI remains domain-independent.
+
+## ADR-CP02-001 - Provisional token source and generated bridge
+
+Status: accepted for CP-02 implementation, pending PR review.
+
+`design/tokens/source.json` is the only authored token source. Deterministic CSS, TypeScript names, and a public machine-readable bridge are generated and validated in CI. Values remain explicitly provisional until approved visual testing; component code consumes semantic/component mappings rather than raw values.
+
+## ADR-CP02-002 - Static-first theme and media boundaries
+
+Status: accepted for CP-02 implementation, pending PR review.
+
+Dark/light/system is implemented with a tiny client controller and pre-hydration preference read. `VisualSlot` and the bridge manifest preserve stable replacement boundaries for future approved media without adding Three.js, R3F, UGAS, Blender MCP, analytics, or remote fonts to this workstation package.

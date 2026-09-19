@@ -5,6 +5,7 @@
 | CP-01 | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | `79309b5` | REVIEW_BLOCKED | `npm ci`; `npm run check`; `npm run test:e2e`; `npm audit --audit-level=high`; Wrangler dry-run | none |
 | CP-01R | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | `38a40f3` | COMPLETE | `npm ci`; `npm run check`; `npm run test:e2e`; `npm run security`; Wrangler dry-run; remote CI run `35443467860` | none |
 | CP-01F | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | pending PR merge | IN_PROGRESS | pending release-contract cases, local gates and required PR CI | merge to `main` required by package |
+| CP-02 | `6322b3650e52119fd093dc9e410fde0a15075b9f` (`KayzenRoot/nexlabs-startup`) | pending commit/PR | IMPLEMENTED_PENDING_PR_REVIEW | `npm ci`; token build/validation; typecheck; lint; 31 tests; content/link/assets validation; static build; Playwright 2/2; audit 0; Wrangler dry-run; fail-closed release gate | PR quality, merge and post-merge main CI |
 
 ## Evidence notes
 
@@ -49,3 +50,10 @@
 - F4-F6: metadata, robots and sitemap emit release-safe output only; misconfigured production remains non-indexable and emits no localhost sitemap.
 - F7: deterministic unit coverage added for environment, metadata, robots, sitemap and release validator cases.
 - F8-F10: ordinary CI remains domain-independent; the repair is being delivered through the active Protect main PR flow with no bypass or force-push.
+
+## CP-02 evidence
+
+- Token validation covers 26 required semantic mappings, reference resolution, generated drift, and dark/light contrast pairs.
+- The shell includes a server-first header/footer, accessible mobile navigation with Escape/focus return, a small theme controller, replaceable BrandMark/VisualSlot contracts, semantic primitives, and a generic labeled SVG diagram.
+- `npm run test:e2e` passed 2/2; JavaScript-disabled home and 404 behavior remain covered.
+- `npm audit --audit-level=high` found 0 vulnerabilities. Wrangler dry-run read the static output with no bindings and no deployment.
