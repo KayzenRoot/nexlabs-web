@@ -29,6 +29,7 @@
     "validate:links": "node scripts/validate-links.mjs",
     "validate:assets": "node scripts/validate-assets.mjs",
     "validate:governance": "python scripts/validate_governance.py",
+    "hive:prepare": "python scripts/hive_prepare.py",
     "validate:release": "node scripts/validate-release.mjs",
     "report:bundle": "node scripts/report-bundle.mjs",
     "security": "npm audit --audit-level=high",

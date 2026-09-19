@@ -12,3 +12,5 @@ The active parent planning source is `KayzenRoot/nexlabs-startup@b541e802472a3ac
 - Active workstation constraint: `brand-web/EXECUTION-WORKSTATION-POLICY.md`, reflected in the local `docs/WORKSTATION-MODE.md`.
 
 The CP-02R package itself is `brand-web/codex/CP-02-BRAND-TOKENS-DESIGN-SYSTEM.md`. Planning text is parent input; current implementation and governance truth is this repository's tracked state.
+
+The current strategic specialization direction includes AI-native developer infrastructure plus Web3, blockchain and smart-contract engineering. It is directional only and does not authorize claims about deployed protocols, audits, tokens, TVL, customers or on-chain traction.

@@ -17,14 +17,17 @@ Before product edits:
 1. Resolve Git root, branch, HEAD and cleanliness.
 2. Read the Project Brain checkpoint and active Work Order.
 3. Verify HIVE v1.0.0 availability through `scripts/hive_bootstrap.py` or an exact external runtime receipt.
-4. Resolve `NEXLABS-WEB` project status through HIVE.
-5. Retrieve only the minimum sufficient context.
-6. Prefer Git/static/AST evidence before inference.
-7. Obey the active Context Lock and Work Order.
-8. Execute admitted scope, collect exact-head evidence, audit and record the checkpoint delta.
-9. Use protected PR flow for merge and verify post-merge checks.
+4. Run `scripts/hive_prepare.py` to bind the active Work Order to a deterministic HIVE task digest.
+5. Resolve `NEXLABS-WEB` project and task status through HIVE.
+6. Retrieve only the minimum sufficient context.
+7. Prefer Git/static/AST evidence before inference.
+8. Obey the active Context Lock and Work Order.
+9. Execute admitted scope, collect exact-head evidence, audit and record the checkpoint delta.
+10. Use protected PR flow for merge and verify post-merge checks.
 
 The stable read-only HIVE MCP surface is: `project.list`, `project.status`, `context.build`, `context.search`, `memory.search`, `memory.get`, and `checkpoint.read`.
+
+`scripts/hive_prepare.py` is the bounded preparation seam before that read-only surface. It refreshes the registered project, reindexes the repository, synchronizes the corpus, reuses or creates one task through HIVE task intake using the exact Work Order SHA-256, and returns the project/task/head tuple. The MCP surface itself never creates tasks.
 
 If HIVE is unavailable, never fabricate HIVE evidence. A Work Order marked `HIVE_REQUIRED` fails closed unless it explicitly admits degraded-safe execution.
 

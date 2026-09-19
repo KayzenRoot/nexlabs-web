@@ -37,7 +37,7 @@ Assurance is fail closed for missing HIVE/runtime evidence, stale source binding
 2. Update source/checkpoint/ledger bindings.
 3. Materialize GEF target-project records, Project Brain and source hierarchy.
 4. Create the active Work Order, Context Lock, evidence and deterministic governance validator.
-5. Add HIVE bootstrap and read-only MCP launcher/configuration/tests.
+5. Add HIVE bootstrap, deterministic Work Order task preparation and read-only MCP launcher/configuration/tests.
 6. Add governance workflow and integrate validation into quality CI.
 7. Run application, governance, HIVE runtime and exact-head GitHub checks.
 8. Record a truthful verdict and checkpoint delta.
@@ -69,12 +69,13 @@ No HIVE backend, Postgres, Redis, dashboard, Docker stack or source vendor; no p
 - All source and evidence records pin the CP-02 planning, GEF and HIVE commits.
 - Governance validator, HIVE script tests and existing quality checks pass on the exact candidate.
 - HIVE registration resolves `NEXLABS-WEB`, state `READY`, index `COMPLETED` and corpus `CURRENT` when the local runtime is available.
+- HIVE preparation returns a project-scoped task whose original source digest equals the exact active Work Order bytes before MCP retrieval.
 - No secret, absolute machine path or placeholder governance state is committed.
 - No merge or promotion is claimed without its actual protected-flow evidence.
 
 ## TESTS
 
-Run the application validation listed in the CP-02 package, then `python -m py_compile scripts/validate_governance.py scripts/hive_bootstrap.py scripts/hive_mcp.py`, `python scripts/validate_governance.py`, `python -m unittest discover -s tests -p "test_hive*.py" -v`, Docker Compose config/health/bootstrap, and exact-head hosted `quality` plus `Governance`.
+Run the application validation listed in the CP-02 package, then `python -m py_compile scripts/validate_governance.py scripts/hive_bootstrap.py scripts/hive_prepare.py scripts/hive_mcp.py`, `python scripts/validate_governance.py`, `python -m unittest discover -s tests -p "test_hive*.py" -v`, Docker Compose config/health/bootstrap, `python scripts/hive_prepare.py --relative-path nexlabs-web`, and exact-head hosted `quality` plus `Governance`.
 
 ## EVIDENCE
 
@@ -82,7 +83,7 @@ Receipts live under `.engineering/evidence/` and bind the Work Order, Context Lo
 
 ## DELIVERABLES
 
-Governance contract, canonical Project Brain, source hierarchy, Work Order, Context Lock, evidence receipts, HIVE bootstrap/MCP bridge, governance validator/tests/workflow, CP-02 repairs and updated exact-head documentation.
+Governance contract, canonical Project Brain, source hierarchy, Work Order, Context Lock, evidence receipts, HIVE bootstrap/task-preparation/MCP bridge, governance validator/tests/workflow, CP-02 repairs and updated exact-head documentation.
 
 ## REVIEW FORMAT PT-BR
 

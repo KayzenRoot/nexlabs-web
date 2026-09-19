@@ -23,3 +23,15 @@ Governance and quality workflows check the exact PR head rather than a synthetic
 Status: accepted for CP-02R execution.
 
 Merge, post-merge verification and ruleset required-check migration are separate lifecycle gates. They are not claimed from a green PR run alone.
+
+## ADR-NXWEB-005 - Deterministic HIVE task preparation
+
+Status: accepted for CP-02R corrective execution.
+
+The active Work Order is submitted to HIVE task intake by exact UTF-8 source digest before read-only MCP context retrieval. Existing tasks with the same digest are reused deterministically. MCP remains read-only and cannot create tasks.
+
+## ADR-NXWEB-006 - Web3 strategic direction boundary
+
+Status: accepted as a strategy direction only.
+
+Web3, blockchain and smart-contract engineering may appear in the capability map, but no deployed protocol, audit, token, TVL, customer or on-chain traction claim is authorized by this direction.
