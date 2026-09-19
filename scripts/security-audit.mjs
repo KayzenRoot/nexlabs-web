@@ -67,46 +67,67 @@ function isAllowedVulnerability(name, vulnerabilities, lock, visiting = new Set(
   return true;
 }
 
-const audit = spawnSync(
-  process.platform === "win32" ? "npm.cmd" : "npm",
-  ["audit", "--json", "--audit-level=high"],
-  { encoding: "utf8", shell: false }
-);
-
-if (audit.error) {
-  writeDiagnostic({ status: "ERROR", stage: "spawn", message: audit.error.message });
-  console.error("Security audit could not start:", audit.error.message);
-  process.exit(1);
+function runAudit() {
+  return spawnSync(
+    process.platform === "win32" ? "npm.cmd" : "npm",
+    ["audit", "--json", "--audit-level=high"],
+    { encoding: "utf8", shell: false }
+  );
 }
 
+function safeErrorShape(report) {
+  return {
+    message: typeof report?.message === "string" ? report.message.slice(0, 1000) : null,
+    method: typeof report?.method === "string" ? report.method : null,
+    statusCode: Number.isInteger(report?.statusCode) ? report.statusCode : null,
+    uri: typeof report?.uri === "string" ? report.uri.replace(/([?&](?:token|key|auth)=[^&]+)/gi, "$1[REDACTED]") : null,
+    bodyPrefix: typeof report?.body === "string" ? report.body.slice(0, 2000) : null,
+    error: report?.error ?? null,
+  };
+}
+
+let audit;
 let report;
-try {
-  report = JSON.parse(audit.stdout || "{}");
-} catch {
-  writeDiagnostic({
-    status: "ERROR",
-    stage: "parse",
-    auditExitStatus: audit.status,
-    stdoutPrefix: String(audit.stdout || "").slice(0, 2000),
-    stderrPrefix: String(audit.stderr || "").slice(0, 2000),
-  });
-  console.error(audit.stdout);
-  console.error(audit.stderr);
-  console.error("Security audit returned invalid JSON.");
-  process.exit(1);
-}
+const attempts = [];
 
-if (typeof report.vulnerabilities !== "object" || report.vulnerabilities === null) {
-  writeDiagnostic({
-    status: "ERROR",
+for (let attempt = 1; attempt <= 3; attempt += 1) {
+  audit = runAudit();
+
+  if (audit.error) {
+    attempts.push({ attempt, stage: "spawn", message: audit.error.message });
+    continue;
+  }
+
+  try {
+    report = JSON.parse(audit.stdout || "{}");
+  } catch {
+    attempts.push({
+      attempt,
+      stage: "parse",
+      auditExitStatus: audit.status,
+      stdoutPrefix: String(audit.stdout || "").slice(0, 1000),
+      stderrPrefix: String(audit.stderr || "").slice(0, 1000),
+    });
+    continue;
+  }
+
+  if (typeof report.vulnerabilities === "object" && report.vulnerabilities !== null) {
+    break;
+  }
+
+  attempts.push({
+    attempt,
     stage: "shape",
     auditExitStatus: audit.status,
-    auditReportVersion: report.auditReportVersion ?? null,
-    error: report.error ?? null,
-    keys: Object.keys(report),
+    ...safeErrorShape(report),
   });
-  console.error("Security audit did not return a valid vulnerability report.");
-  console.error(JSON.stringify(report, null, 2));
+  report = undefined;
+}
+
+if (!audit || !report || typeof report.vulnerabilities !== "object" || report.vulnerabilities === null) {
+  writeDiagnostic({ status: "ERROR", stage: "audit-unavailable", attempts });
+  console.error("Security audit endpoint did not return a valid vulnerability report after 3 attempts.");
+  console.error(JSON.stringify(attempts, null, 2));
   process.exit(1);
 }
 
