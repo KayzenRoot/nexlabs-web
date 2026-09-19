@@ -30,3 +30,11 @@
 - R-02: `npm start` now serves the static `out/` artifact through `scripts/serve-static.mjs`; Wrangler remains the separate preview path.
 - R-03: LOCAL/PREVIEW robots explicitly disallow `/`; PRODUCTION allows `/` only with an explicit origin; unit coverage was added.
 - R-04: the repository is private, the authenticated account has admin permissions, and the rulesets endpoint currently returns an empty list. GitHub's documented availability for rulesets on private repositories depends on Pro, Team or Enterprise, so creation must be attempted and its exact result recorded without purchasing a plan.
+
+## CP-01R review outcome
+
+- Main CI run `35443467860` passed all workflow steps on `38a40f3`.
+- Active ruleset `Protect main` requires PR flow and strict `quality` status, and blocks deletion/non-fast-forward changes.
+- R-02 and R-04 are verified resolved.
+- R-03 is functionally improved, but R-05 remains: production environment without explicit origin can still become indexable.
+- CP-01F is required before CP-02.
