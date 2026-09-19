@@ -2,11 +2,11 @@
   "schemaVersion": "nexlabs-web-gef-checkpoint-bridge-v1",
   "viewStatus": "DERIVED_VIEW",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "CP-02R GEF/HIVE ADOPTION IN PROGRESS",
+  "status": "CP-02R POST-MERGE GOVERNANCE REPAIR IN PROGRESS",
   "version": "NEXLABS-WEB CP-02R",
-  "phase": "Brownfield repair, GEF adoption and HIVE integration",
-  "objective": "Repair the CP-02 candidate and establish a truthful, exact-head governed development boundary for NexLabs Web.",
-  "inProgress": "Contrast/theme repair, source rebinding, Project Brain materialization, HIVE bootstrap evidence, Governance workflow and PR #12 exact-head review.",
-  "blockers": "Protected merge, post-merge quality/Governance, and required-check migration remain pending explicit external authorization and hosted evidence.",
-  "nextStep": "Complete local and hosted exact-head evidence, audit the delta, then use protected PR flow. Promote this checkpoint only after the Work Order stop condition is actually satisfied."
+  "phase": "Post-merge exact-head governance repair",
+  "objective": "Repair squash-merge lineage validation, restore green hosted governance on main, then complete ruleset migration and HIVE MCP activation.",
+  "inProgress": "Promotion-anchor validation, hosted quality/Governance rerun, ruleset hardening, and HIVE MCP activation verification.",
+  "blockers": "Protect main still requires only quality, and the current Codex session must be reopened once to load the project-scoped HIVE MCP configuration.",
+  "nextStep": "Merge the validator repair through protected main, verify both hosted workflows green, then require Governance in the ruleset and reopen Codex to verify HIVE MCP before checkpoint promotion."
 }
