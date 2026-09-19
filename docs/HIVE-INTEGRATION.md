@@ -11,6 +11,16 @@ NexLabs Web integrates HIVE as a separate local-first runtime at `a53b5b9fcf55c3
 
 Run `python scripts/hive_bootstrap.py --relative-path nexlabs-web` after the supported HIVE Compose runtime is healthy. The script resolves exact relative-path identity, fails on a same-name collision, inspects Git, indexes and synchronizes the retrieval corpus.
 
+## Deterministic task preparation
+
+Before using the read-only MCP surface, run:
+
+```text
+python scripts/hive_prepare.py --relative-path nexlabs-web
+```
+
+The preparation bridge fails closed on a dirty or mismatched checkout. With no override, it resolves the current `activeWorkOrder` from `.engineering/gef/GEF-CURRENT.json`, refreshes project inspection/index/corpus, computes the SHA-256 digest of that Work Order's exact UTF-8 bytes, reuses an existing READY/extracted task with the same digest, or submits one Markdown task through `POST /api/v1/projects/{project_id}/tasks/text`. Matching-but-unready tasks fail closed instead of being silently reused. Its JSON output binds `project_id`, `task_id`, Work Order identity/digest and Git HEAD for subsequent MCP calls. It never creates tasks through MCP and never writes canonical project state.
+
 ## MCP
 
 `.codex/config.toml` defines required stdio server `hive` through `python scripts/hive_mcp.py`. The launcher resolves `HIVE_REPO_PATH`, sibling `hive` or sibling `Hive`, then runs `docker compose exec -T api python -m app.mcp_server`.

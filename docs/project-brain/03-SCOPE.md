@@ -6,6 +6,8 @@
 - Exact source/evidence binding correction.
 - GEF v1.0.0 target-project governance records.
 - HIVE v1.0.0 external project registration, inspection, indexing and corpus bridge.
+- Deterministic HIVE task-intake preparation for the active Work Order.
+- Web3, blockchain and smart-contract engineering as a strategic specialization direction only.
 - Canonical Project Brain and Source Hierarchy.
 - Work Order, Context Lock, evidence receipts and deterministic validator.
 - HIVE read-only MCP configuration and launcher.
@@ -18,3 +20,4 @@
 - Production launch, domain, backend, auth, database, analytics or contact capture.
 - Final logo, UGAS, Blender, canonical 3D, Three.js/R3F or high-fidelity motion.
 - Force-push, history rewrite, ruleset bypass or unapproved merge.
+- Claims of deployed protocols, audits, tokens, TVL, customers or on-chain traction.

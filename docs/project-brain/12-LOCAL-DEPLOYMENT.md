@@ -16,6 +16,7 @@ HIVE is a sibling external checkout. Configure the machine-local `HIVE_PROJECTS_
 
 ```text
 python scripts/hive_bootstrap.py --relative-path nexlabs-web
+python scripts/hive_prepare.py --relative-path nexlabs-web
 ```
 
-The committed launcher uses `HIVE_REPO_PATH` when supplied, then sibling `hive` or `Hive` directories. No absolute path is committed.
+The preparation command must pass before read-only MCP retrieval: it returns the HIVE project/task/head binding and reuses the active Work Order by exact source digest. The committed launcher uses `HIVE_REPO_PATH` when supplied, then sibling `hive` or `Hive` directories. No absolute path is committed.

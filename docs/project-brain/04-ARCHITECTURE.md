@@ -6,12 +6,12 @@ Next.js App Router with TypeScript and static export. `out/` is served through C
 
 ## Governance
 
-GEF is materialized under `.engineering/` and the canonical Project Brain under this directory. HIVE remains a separate Docker Compose runtime. `scripts/hive_bootstrap.py` uses the HIVE HTTP API for health, registry resolution, inspection, indexing and retrieval corpus synchronization. `scripts/hive_mcp.py` launches only the bounded read-only HIVE MCP server through Docker Compose.
+GEF is materialized under `.engineering/` and the canonical Project Brain under this directory. HIVE remains a separate Docker Compose runtime. `scripts/hive_bootstrap.py` uses the HIVE HTTP API for health, registry resolution, inspection, indexing and retrieval corpus synchronization. `scripts/hive_prepare.py` binds the active Work Order to one deterministic task-intake digest before retrieval. `scripts/hive_mcp.py` launches only the bounded read-only HIVE MCP server through Docker Compose.
 
 ## Authority flow
 
 ```text
-Git + Project Brain -> Work Order/Context Lock -> HIVE-derived context -> implementation evidence -> exact-head review
+Git + Project Brain -> Work Order/Context Lock -> HIVE project/task preparation -> HIVE-derived context -> implementation evidence -> exact-head review
 ```
 
 HIVE cannot overwrite canonical Git sources. The website repository never imports HIVE runtime packages.

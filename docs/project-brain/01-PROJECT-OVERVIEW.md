@@ -6,7 +6,11 @@ NexLabs Technology is a pre-incorporation technology initiative based in Brazil 
 
 ## Mission
 
-Build a credible, static-first institutional web system for infrastructure for AI-native software while keeping claims, identity and future visual assets governed.
+Build a credible, static-first institutional web system for AI-native software infrastructure and a strategic Web3, blockchain and smart-contract engineering specialization, while keeping claims, identity and future visual assets governed.
+
+## Strategic specialization boundary
+
+Web3, blockchain and smart-contract engineering are strategic directions for the NexLabs capability map. This repository does not claim deployed protocols, audits, tokens, TVL, customers or on-chain traction.
 
 ## Current product state
 

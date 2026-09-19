@@ -8,6 +8,8 @@
 - Provide accessible navigation, theme selection and future-media boundaries.
 - Provide GEF Work Order, Context Lock, evidence and checkpoint lifecycle records.
 - Provide HIVE v1.0.0 project registration/index/corpus integration through external local-first runtime tooling.
+- Bind read-only HIVE MCP retrieval to a deterministic task-intake record for the active Work Order.
+- Represent Web3, blockchain and smart-contract engineering as an unclaimed strategic specialization direction.
 
 ## Governance
 

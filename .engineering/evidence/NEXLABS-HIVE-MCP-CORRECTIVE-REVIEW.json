@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "nexlabs-web-hive-mcp-corrective-evidence-v1",
+  "sourceDocument": {
+    "filename": "NEXLABS-HIVE-MCP-CORRECTIVE-REVIEW.pdf",
+    "sha256": "14e7b089dbfe7c76c28afffe1582d677c1e6fb842b741ee4bc443686edea0d2"
+  },
+  "workOrder": {
+    "path": ".engineering/work-orders/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.md",
+    "sha256": "e6e9990fa4f5b2f0ab4af91c26a949e562131d3fc4036aedb6ad0ac5cd12cd74"
+  },
+  "git": {
+    "branch": "codex/cp-02r-hive-mcp-corrective",
+    "proofHead": "82b1cbfc834950e9cc65f46f6243fa7669d107e1",
+    "proofHeadRole": "parent_of_receipt_commit",
+    "workingTreeClean": true
+  },
+  "hivePreparation": {
+    "api": "http://localhost:8000",
+    "projectId": "85efae57-a5f4-44c8-aa0a-f63412fabaa5",
+    "projectName": "NEXLABS-WEB",
+    "relativePath": "nexlabs-web",
+    "state": "READY",
+    "index": "COMPLETED",
+    "corpus": "COMPLETED",
+    "taskId": "784c1d18-76f4-4aef-8da4-8716b9fb51e8",
+    "taskReused": true,
+    "taskIntakeStatus": "READY",
+    "taskOriginalBlobSha256": "e6e9990fa4f5b2f0ab4af91c26a949e562131d3fc4036aedb6ad0ac5cd12cd74"
+  },
+  "mcpReadOnlyProof": {
+    "projectList": "mcp-project-list-v1",
+    "projectStatus": "mcp-project-status-v1",
+    "checkpointRead": {
+      "status": "PASS",
+      "version": "mcp-checkpoint-read-v1",
+      "registeredHead": "82b1cbfc834950e9cc65f46f6243fa7669d107e1",
+      "observedHead": "82b1cbfc834950e9cc65f46f6243fa7669d107e1"
+    },
+    "contextSearch": {
+      "status": "PASS_FALLBACK",
+      "version": "mcp-context-search-v1",
+      "semanticState": "UNAVAILABLE",
+      "hybridState": "LEXICAL_FALLBACK_SEMANTIC_UNAVAILABLE",
+      "candidatePool": 0
+    },
+    "contextBuild": {
+      "status": "PASS",
+      "version": "mcp-context-build-v1",
+      "outputFingerprint": "d5716bed4557b9b46cbf3382f49dec8afaf3dd3d6a509d6801ec1a6c7cc2868c",
+      "taskId": "784c1d18-76f4-4aef-8da4-8716b9fb51e8"
+    }
+  },
+  "localValidation": {
+    "pythonCompile": "PASS",
+    "hiveUnitTests": "PASS 10 tests",
+    "governanceValidator": "PASS",
+    "npmCheck": "PASS"
+  },
+  "boundaries": {
+    "rulesetMutation": "NOT_EXECUTED",
+    "merge": "NOT_EXECUTED",
+    "promotion": "NOT_EXECUTED",
+    "release": "NOT_EXECUTED",
+    "reason": "Attachment was executed, but no direct user message authorized merge, promotion, release or ruleset mutation."
+  }
+}
