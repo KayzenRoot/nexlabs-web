@@ -1,0 +1,19 @@
+name: Work Order request
+description: Propose a bounded governed implementation package
+title: "wo: "
+labels: ["work-order"]
+body:
+  - type: input
+    id: objective
+    attributes:
+      label: Objective
+      description: State the measurable outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and acceptance
+      description: Define in-scope, out-of-scope and evidence requirements.
+    validations:
+      required: true

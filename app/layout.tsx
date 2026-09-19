@@ -9,7 +9,10 @@ export const metadata: Metadata = buildSiteMetadata();
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="system" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem("nexlabs-theme");if(t==="dark"||t==="light"||t==="system")document.documentElement.dataset.theme=t}catch(e){}})()` }} />
+      </head>
       <body>
         <SkipLink />
         <SiteHeader />

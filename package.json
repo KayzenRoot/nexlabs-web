@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npm run report:bundle",
+    "build": "npm run build:tokens && next build && npm run report:bundle",
     "start": "node scripts/serve-static.mjs",
     "preview": "npm run build && wrangler dev --config wrangler.jsonc",
     "typecheck": "tsc --noEmit",
@@ -22,14 +22,17 @@
     "test:component": "vitest run tests/component",
     "test:e2e": "npm run build && playwright test",
     "build:manifest": "node scripts/build-brand-manifest.mjs",
-    "validate": "npm run build:manifest && npm run validate:content && npm run validate:links && npm run validate:assets",
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "validate": "npm run validate:tokens && npm run build:manifest && npm run validate:content && npm run validate:links && npm run validate:assets",
+    "validate:tokens": "node scripts/validate-tokens.mjs",
     "validate:content": "node scripts/validate-content.mjs",
     "validate:links": "node scripts/validate-links.mjs",
     "validate:assets": "node scripts/validate-assets.mjs",
+    "validate:governance": "python scripts/validate_governance.py",
     "validate:release": "node scripts/validate-release.mjs",
     "report:bundle": "node scripts/report-bundle.mjs",
     "security": "npm audit --audit-level=high",
-    "check": "npm run typecheck && npm run lint && npm run test && npm run validate && npm run build",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run validate && npm run validate:governance && npm run build",
     "ci": "npm run check"
   },
   "dependencies": {

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "nexlabs-web-gef-project-profile-v1",
+  "gefVersion": "1.0.0",
+  "project": {"repository": "KayzenRoot/nexlabs-web", "defaultBranch": "main", "mode": "EXISTING_PROJECT / BROWNFIELD", "executionBase": "7dac49b7d9182333e58dd1267c33489631d7e65d"},
+  "sourceHierarchy": ["docs/project-brain/13-CHECKPOINT.md", "docs/project-brain/16-DECISIONS-LEDGER.md", "docs/project-brain/03-SCOPE.md", "docs/project-brain/15-DEFINITION-OF-DONE.md", "docs/project-brain/04-ARCHITECTURE.md", "docs/project-brain/02-REQUIREMENTS.md"],
+  "capabilities": {"hiveFirst": true, "exactHeadEvidence": true, "workOrders": true, "contextLocks": true, "deltaReview": true, "checkpointPromotion": true, "proofCarryForwardAuthority": false},
+  "pinnedUpstreams": {"planning": "b541e802472a3acc75a3a8ebd3818d33de8a316f", "gef": "866fe3af8cccc65c929aaf6a47a924401fa448b3", "hive": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"}
+}

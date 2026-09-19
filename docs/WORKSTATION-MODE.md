@@ -45,3 +45,6 @@ Hold until the founder explicitly announces that the UGAS/Blender workstation is
 Every placeholder intended for future replacement must have a clear semantic role and stable interface/slot.
 
 When the founder enables the UGAS/Blender workstation, resume the deferred graphical pipeline from the canonical BR specifications rather than redesigning the application architecture.
+## CP-02 design-system boundary
+
+The active workstation mode remains static-first. CP-02 may implement provisional CSS/SVG/text placeholders and stable media interfaces, but must not produce final logo identity, UGAS, Blender MCP output, canonical 3D, or Three.js/R3F dependencies. `docs/WORKSTATION-MODE.md` is the repository policy source for this constraint; the CP-02 source brief referenced an unavailable `EXECUTION-WORKSTATION-POLICY.md`, which was not fabricated.

@@ -1,0 +1,31 @@
+.eyebrow, .evidence-id, .label { color: var(--nx-semantic-text-muted); font-size: var(--nx-font-size-label); font-weight: var(--nx-font-weight-bold); letter-spacing: var(--nx-font-tracking-wide); text-transform: uppercase; }
+.eyebrow { margin-block-end: var(--nx-space-4); }
+.action-row { align-items: center; display: flex; flex-wrap: wrap; gap: var(--nx-space-3); margin-block-start: var(--nx-space-6); }
+.action { align-items: center; border: var(--nx-border-thin) solid var(--nx-component-button-secondary-border); cursor: pointer; display: inline-flex; justify-content: center; min-height: 2.75rem; padding: var(--nx-space-3) var(--nx-space-4); text-decoration: none; transition: background-color var(--nx-motion-duration-fast) var(--nx-motion-easing-precision), color var(--nx-motion-duration-fast) var(--nx-motion-easing-precision), border-color var(--nx-motion-duration-fast) var(--nx-motion-easing-precision); }
+.action-primary { background: var(--nx-component-button-primary-background); border-color: var(--nx-component-button-primary-border); color: var(--nx-component-button-primary-foreground); }
+.action-primary:hover { background: var(--nx-semantic-action-primary-hover); }
+.action-secondary { background: var(--nx-component-button-secondary-background); color: var(--nx-component-button-secondary-foreground); }
+.action-secondary:hover, .action-quiet:hover { border-color: var(--nx-semantic-action-primary); color: var(--nx-semantic-text-link); }
+.action-quiet { border-color: transparent; color: var(--nx-semantic-text-link); padding-inline: 0; }
+.badge { background: var(--nx-semantic-action-secondary); border: var(--nx-border-thin) solid var(--nx-component-card-border); color: var(--nx-semantic-text-secondary); display: inline-flex; font-size: var(--nx-font-size-label); padding: var(--nx-space-2) var(--nx-space-3); }
+.divider { border: 0; border-block-start: var(--nx-border-thin) solid var(--nx-component-card-border); margin-block: var(--nx-space-6); }
+.grid { display: grid; gap: var(--nx-space-5); }
+.section-header { max-width: var(--nx-container-reading); }
+.surface, .principle-card { background: var(--nx-component-card-surface); border: var(--nx-border-thin) solid var(--nx-component-card-border); }
+.evidence-card { border-block-start: var(--nx-border-thin) solid var(--nx-component-card-border); margin-block-start: var(--nx-space-5); padding-block-start: var(--nx-space-5); }
+.evidence-card p, .principle-card p:last-child { color: var(--nx-component-card-body); }
+.principle-card { min-height: 11rem; padding: var(--nx-space-5); }
+.principle-card .label { color: var(--nx-semantic-signal-primary); }
+.visual-slot { align-items: center; aspect-ratio: 1.25; background: var(--nx-component-card-surface); border: var(--nx-border-thin) solid var(--nx-component-card-border); display: grid; isolation: isolate; overflow: hidden; padding: var(--nx-space-6); position: relative; }
+.hero-visual-slot { box-shadow: var(--nx-shadow-soft); }
+.visual-slot-grid { background-image: linear-gradient(90deg, var(--nx-semantic-diagram-edge) 1px, transparent 1px), linear-gradient(var(--nx-semantic-diagram-edge) 1px, transparent 1px); background-size: 2rem 2rem; inset: 0; opacity: .28; position: absolute; transform: perspective(20rem) rotateX(55deg) scale(1.6); transform-origin: center bottom; }
+.visual-slot-copy { align-items: flex-start; display: grid; gap: var(--nx-space-3); max-width: 22rem; position: relative; z-index: 1; }
+.visual-slot-copy > span:last-child { color: var(--nx-semantic-text-secondary); }
+.theme-control select { background: var(--nx-semantic-surface-page); border: var(--nx-border-thin) solid var(--nx-semantic-action-secondary); color: var(--nx-semantic-text-primary); min-height: 2.5rem; padding: var(--nx-space-2) var(--nx-space-3); }
+.technical-diagram { align-self: center; background: var(--nx-semantic-surface-page); border: var(--nx-border-thin) solid var(--nx-component-card-border); margin: 0; padding: var(--nx-space-4); }
+.technical-diagram svg { display: block; height: auto; max-width: 100%; }
+.technical-diagram figcaption { color: var(--nx-semantic-text-muted); font-size: var(--nx-font-size-body-sm); margin-block-start: var(--nx-space-3); }
+.diagram-node { fill: var(--nx-semantic-diagram-node); stroke: var(--nx-semantic-diagram-label); stroke-width: 2; }
+.diagram-node-active { fill: var(--nx-semantic-diagram-active); }
+.diagram-edge { fill: none; stroke: var(--nx-semantic-diagram-edge); stroke-width: 2; }
+.diagram-label { fill: var(--nx-semantic-text-inverse); font-family: var(--nx-font-family-mono); font-size: 14px; }
