@@ -68,9 +68,20 @@ function isAllowedVulnerability(name, vulnerabilities, lock, visiting = new Set(
 }
 
 function runAudit() {
+  const npmExecPath = process.env.npm_execpath;
+  const command = npmExecPath
+    ? process.execPath
+    : process.platform === "win32"
+      ? process.env.ComSpec ?? "cmd.exe"
+      : "npm";
+  const args = npmExecPath
+    ? [npmExecPath, "audit", "--json", "--audit-level=high"]
+    : process.platform === "win32"
+      ? ["/d", "/s", "/c", "npm audit --json --audit-level=high"]
+      : ["audit", "--json", "--audit-level=high"];
   return spawnSync(
-    process.platform === "win32" ? "npm.cmd" : "npm",
-    ["audit", "--json", "--audit-level=high"],
+    command,
+    args,
     { encoding: "utf8", shell: false }
   );
 }
