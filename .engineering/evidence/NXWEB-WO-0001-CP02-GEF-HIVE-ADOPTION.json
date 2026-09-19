@@ -4,7 +4,8 @@
   "contextLock": "NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION",
   "verdict": "BLOCKED_EXTERNAL_BOUNDARY",
   "authorizedBase": "7dac49b7d9182333e58dd1267c33489631d7e65d",
-  "candidateHead": "222deedef664e3ed0d56be5e4e70e2587fa67ceb",
+  "candidateHead": "d655b7aa6fe43642f988d825967cce91046f8ff8",
+  "candidateHeadRole": "implementation_commit_parent_of_receipt_commit",
   "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
   "upstream": {"gef": "866fe3af8cccc65c929aaf6a47a924401fa448b3", "hive": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"},
   "application": {

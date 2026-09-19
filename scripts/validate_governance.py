@@ -119,9 +119,17 @@ try:
     head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
 except (OSError, subprocess.CalledProcessError) as exc:
     fail(f"cannot resolve Git HEAD: {exc}")
-for name, value in (("manifest", manifest.get("candidateHead")), ("lock", lock.get("candidateHead")), ("evidence", evidence.get("candidateHead"))):
-    if value != head:
-        fail(f"{name} candidate head {value!r} does not match exact Git HEAD {head}")
+try:
+    parent_head = subprocess.check_output(["git", "rev-parse", "HEAD^"], cwd=ROOT, text=True).strip()
+except (OSError, subprocess.CalledProcessError) as exc:
+    fail(f"cannot resolve the receipt parent Git HEAD: {exc}")
+candidate_values = {manifest.get("candidateHead"), lock.get("candidateHead"), evidence.get("candidateHead")}
+if candidate_values == {head}:
+    pass
+elif candidate_values == {parent_head} and evidence.get("candidateHeadRole") == "implementation_commit_parent_of_receipt_commit":
+    print(f"Receipt commit: {head}; implementation candidate: {parent_head}")
+else:
+    fail(f"candidate heads {candidate_values!r} do not bind to exact Git HEAD {head} or its declared receipt parent {parent_head}")
 
 work_order = read(".engineering/work-orders/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.md")
 for heading in ("## OBJECTIVE", "## HIVE PREFLIGHT", "## CANONICAL BASIS", "## CONTEXT BUDGET", "## RISK / ASSURANCE", "## SCOPE", "## OUT OF SCOPE", "## FILES / SEAMS", "## REQUIREMENTS", "## ARCHITECTURE RULES", "## CONSTRAINTS", "## ACCEPTANCE CRITERIA", "## TESTS", "## EVIDENCE", "## DELIVERABLES", "## REVIEW FORMAT PT-BR", "## STOP CONDITION"):
