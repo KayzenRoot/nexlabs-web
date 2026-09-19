@@ -124,12 +124,32 @@ try:
 except (OSError, subprocess.CalledProcessError) as exc:
     fail(f"cannot resolve the receipt parent Git HEAD: {exc}")
 candidate_values = {manifest.get("candidateHead"), lock.get("candidateHead"), evidence.get("candidateHead")}
+promotion_anchor = evidence.get("github", {}).get("promotionAnchor")
+
+def is_ancestor(ancestor: str, descendant: str) -> bool:
+    try:
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", ancestor, descendant],
+            cwd=ROOT,
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
 if candidate_values == {head}:
     pass
 elif candidate_values == {parent_head} and evidence.get("candidateHeadRole") == "implementation_commit_parent_of_receipt_commit":
     print(f"Receipt commit: {head}; implementation candidate: {parent_head}")
+elif isinstance(promotion_anchor, str) and promotion_anchor and is_ancestor(promotion_anchor, head):
+    print(f"Post-merge lineage: promotion anchor {promotion_anchor} is an ancestor of {head}")
 else:
-    fail(f"candidate heads {candidate_values!r} do not bind to exact Git HEAD {head} or its declared receipt parent {parent_head}")
+    fail(
+        f"candidate heads {candidate_values!r} do not bind to exact Git HEAD {head}, "
+        f"its declared receipt parent {parent_head}, or a verified promotion anchor"
+    )
 
 work_order = read(".engineering/work-orders/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.md")
 for heading in ("## OBJECTIVE", "## HIVE PREFLIGHT", "## CANONICAL BASIS", "## CONTEXT BUDGET", "## RISK / ASSURANCE", "## SCOPE", "## OUT OF SCOPE", "## FILES / SEAMS", "## REQUIREMENTS", "## ARCHITECTURE RULES", "## CONSTRAINTS", "## ACCEPTANCE CRITERIA", "## TESTS", "## EVIDENCE", "## DELIVERABLES", "## REVIEW FORMAT PT-BR", "## STOP CONDITION"):
