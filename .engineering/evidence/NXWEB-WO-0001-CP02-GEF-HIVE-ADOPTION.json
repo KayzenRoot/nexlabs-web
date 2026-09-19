@@ -4,7 +4,7 @@
   "contextLock": "NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION",
   "verdict": "APPROVED",
   "authorizedBase": "7dac49b7d9182333e58dd1267c33489631d7e65d",
-  "candidateHead": "7acf6461afdfdc9fe8709d74ec77fbfd89395e19",
+  "candidateHead": "1da5098412e46f365ca4a3fdee2ae8fe21abfefd",
   "candidateHeadRole": "implementation_commit_parent_of_receipt_commit",
   "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
   "upstream": {
@@ -12,7 +12,7 @@
     "hive": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
   },
   "application": {
-    "status": "PENDING_COMPLETED_STATE_VALIDATION",
+    "status": "PASS_COMPLETED_STATE_LOCAL",
     "checks": [
       "python -m py_compile scripts/validate_governance.py scripts/hive_bootstrap.py scripts/hive_prepare.py scripts/hive_mcp.py",
       "python scripts/validate_governance.py",
@@ -29,10 +29,17 @@
     "projectName": "NEXLABS-WEB",
     "relativePath": "nexlabs-web",
     "projectId": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
-    "observedHead": "7acf6461afdfdc9fe8709d74ec77fbfd89395e19",
+    "observedHead": "1da5098412e46f365ca4a3fdee2ae8fe21abfefd",
     "projectState": "READY",
     "index": "COMPLETED",
     "corpus": "CURRENT",
+    "postClosureBootstrap": {
+      "status": "PASS",
+      "observedHead": "1da5098412e46f365ca4a3fdee2ae8fe21abfefd",
+      "projectState": "READY",
+      "index": "COMPLETED",
+      "corpus": "COMPLETED"
+    },
     "preparation": {
       "status": "PASS",
       "taskId": "728f76e3-35f7-411e-97fe-5c5d65ed81b9",
@@ -57,21 +64,22 @@
       ],
       "projectStatus": {
         "status": "PASS",
-        "gitHeadSha": "6a01c2456b4bf98cc171c2d5406421a6a0fa50d0",
+        "gitHeadSha": "1da5098412e46f365ca4a3fdee2ae8fe21abfefd",
         "workingTreeClean": true,
         "state": "READY"
       },
       "checkpointRead": {
         "status": "PASS",
         "path": "docs/project-brain/13-CHECKPOINT.md",
-        "registeredHeadSha": "6a01c2456b4bf98cc171c2d5406421a6a0fa50d0"
+        "registeredHeadSha": "1da5098412e46f365ca4a3fdee2ae8fe21abfefd"
       },
       "contextSearch": {
         "status": "PASS",
         "query": "CP-02 GEF HIVE adoption dynamic Work Order task preparation",
         "hybridState": "LEXICAL_FALLBACK_SEMANTIC_UNAVAILABLE",
-        "candidatePool": 0,
-        "results": []
+        "candidatePool": 2,
+        "rerankState": "RERANK_FALLBACK_DISABLED",
+        "resultsReturned": 2
       },
       "contextBuild": {
         "status": "PASS",
