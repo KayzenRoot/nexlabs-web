@@ -1,6 +1,6 @@
 # CP-01 Checkpoint
 
-Status: REVIEW_BLOCKED
+Status: CONDITIONAL_PASS
 
 ## Scope
 
@@ -41,3 +41,7 @@ The R-02 and R-03 repairs are implemented and covered by local tests. R-01 was d
 ## Next dependency
 
 Run CP-01R review repairs before CP-02. Final logo, founder identity, public business email, domain, production launch and paid services remain later gates.
+
+## CP-01R review outcome
+
+Remote CI and main governance are now verified healthy. One final medium release-gate issue remains: production indexability can become true without an explicit canonical origin. CP-01F must make production release validation fail closed before CP-02 is review-approved.
