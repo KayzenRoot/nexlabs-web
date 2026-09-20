@@ -114,7 +114,7 @@ cp04_closed = current.get("lastCompletedWorkOrder") == CP04_WORK_ORDER and curre
 workstation_transition_active = current.get("adoptionState") == "GEF_V1_CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("productStage") == "CP04_COMPLETE" and current.get("reviewState") == "CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("nextLegalAction") == "RESUME_CP05_AFTER_WORKSTATION_TRANSITION_MERGE" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
 cp05_active = current.get("adoptionState") == "GEF_V1_CP05_ADMITTED" and current.get("activeWorkOrder") == CP05_WORK_ORDER and current.get("activeContextLock") == CP05_LOCK
 cp05_closed = current.get("adoptionState") == "GEF_V1_CP05_ADMITTED" and current.get("productStage") == "CP05_COMPLETE" and current.get("reviewState") == "CP05_COMPLETE" and current.get("lastCompletedWorkOrder") == CP05_WORK_ORDER and current.get("nextLegalAction") == "ADMIT_CP06_WITH_NEW_WORK_ORDER" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
-cp06_active = current.get("adoptionState") == "GEF_V1_CP06_ADMITTED" and current.get("productStage") == "CP06_IN_PROGRESS" and current.get("reviewState") == "CP06_IN_PROGRESS" and current.get("activeWorkOrder") == CP06_WORK_ORDER and current.get("activeContextLock") == CP06_LOCK
+cp06_active = current.get("adoptionState") == "GEF_V1_CP06_ADMITTED" and current.get("productStage") in {"CP06_IN_PROGRESS", "CP06_BLOCKED"} and current.get("reviewState") in {"CP06_IN_PROGRESS", "CP06_BLOCKED"} and current.get("activeWorkOrder") == CP06_WORK_ORDER and current.get("activeContextLock") == CP06_LOCK
 
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
 if manifest.get("project") != "KayzenRoot/nexlabs-web" or manifest.get("mode") != "EXISTING_PROJECT / BROWNFIELD":
@@ -237,7 +237,7 @@ elif cp06_active:
         fail(f"cannot resolve CP-06 Git state: {exc}")
     if branch != "codex/cp06-blender-motion-logo-web-assets":
         fail("CP-06 must execute on codex/cp06-blender-motion-logo-web-assets")
-    if current.get("lastCompletedWorkOrder") != CP05_WORK_ORDER or current.get("nextLegalAction") not in {"PREPARE_HIVE_TASK", "EXECUTE_CP06_WO_B3D_007_THROUGH_012", "VALIDATE_CP06_ASSETS", "PUBLISH_CP06_PR"}:
+    if current.get("lastCompletedWorkOrder") != CP05_WORK_ORDER or current.get("nextLegalAction") not in {"PREPARE_HIVE_TASK", "EXECUTE_CP06_WO_B3D_007_THROUGH_012", "VALIDATE_CP06_ASSETS", "PUBLISH_CP06_PR", "REPAIR_BLENDER_MCP_AND_RESUME_CP06"}:
         fail("CP-06 GEF state is not a bounded admitted execution state")
     if current.get("productImplementationAuthorized") is not True:
         fail("CP-06 product implementation is not explicitly authorized by the active Work Order")
@@ -258,7 +258,7 @@ elif cp06_active:
         fail("CP-06 Context Lock selected-logo binding is incomplete")
     if evidence.get("cp05Source", {}).get("sceneFingerprint") != "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61" or evidence.get("cp05Source", {}).get("masterBlend", {}).get("sha256") != "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd":
         fail("CP-06 CP-05 source binding is incomplete")
-    if evidence.get("verdict") not in {"IN_PROGRESS", "READY_FOR_REVIEW", "APPROVED", "CORRECTION REQUIRED", "BLOCKED"} or evidence.get("reviewState") != "CP06_IN_PROGRESS":
+    if evidence.get("verdict") not in {"IN_PROGRESS", "READY_FOR_REVIEW", "APPROVED", "CORRECTION REQUIRED", "BLOCKED"} or evidence.get("reviewState") not in {"CP06_IN_PROGRESS", "CP06_BLOCKED"}:
         fail("CP-06 evidence verdict/state is not bounded")
     for flag in ("runtimeThree", "brandMarkChange", "ugasProviderStarted", "ugasGeneration", "deployment", "cp08Media"):
         if evidence.get("outOfScopeConfirmed", {}).get(flag) is not False:
@@ -267,7 +267,7 @@ elif cp06_active:
         if heading not in work_order:
             fail(f"CP-06 Work Order missing section: {heading}")
     hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
-    if "Status: `CP06_IN_PROGRESS`" not in hierarchy or section(canonical, "## STATUS") != "CP-06 IN PROGRESS":
+    if not ("Status: `CP06_IN_PROGRESS`" in hierarchy or "Status: `CP06_BLOCKED_BLENDER_MCP`" in hierarchy) or section(canonical, "## STATUS") not in {"CP-06 IN PROGRESS", "CP-06 BLOCKED"}:
         fail("CP-06 canonical lifecycle documents are not in the active state")
 elif cp05_active:
     work_order = read(f".engineering/work-orders/{CP05_WORK_ORDER}.md")

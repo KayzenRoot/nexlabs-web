@@ -4,8 +4,8 @@
     "name": "NEXLABS-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS-WORK-ORDER.pdf",
     "sha256": "158779a40882f2a5ff270c84164482d68ea6d82a2eb846fad2d285ef97c8408c"
   },
-  "verdict": "IN_PROGRESS",
-  "reviewState": "CP06_IN_PROGRESS",
+  "verdict": "BLOCKED",
+  "reviewState": "CP06_BLOCKED",
   "workOrder": {
     "id": "NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
     "path": ".engineering/work-orders/NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS.md",
@@ -31,8 +31,8 @@
     "sceneMutationHead": null
   },
   "blender": {
-    "preflight": {"status": "PENDING", "sceneMutationBeforeGate": false},
-    "production": {"status": "PENDING", "sceneMutationPerformed": false}
+    "preflight": {"status": "BLOCKED_LIVE_MCP_UNAVAILABLE", "executable": "blender.exe", "version": null, "addon": {"status": "FAIL_NOT_CONNECTED", "protocolVersion": null, "expectedProtocolVersion": 7}, "tools": {"getAddonStatus": "FAIL_NOT_CONNECTED", "getSceneInfo": "FAIL_NOT_CONNECTED"}, "recovery": {"attempts": 1, "bounded": true}, "sceneMutationBeforeGate": false, "diagnostics": ["Initial get_addon_status: Addon handshake failed: Connection to Blender lost: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host", "Bounded recovery get_addon_status: Addon handshake failed: Not connected to Blender", "Bounded recovery get_scene_info: Error getting scene info: Not connected to Blender", "No blender/blender-launcher process was present; listener 127.0.0.1:8765 belonged to com.docker.backend PID 17120"]},
+    "production": {"status": "NOT_STARTED", "sceneMutationPerformed": false, "mutationAfterPolicyAndMcpGate": false}
   },
   "cp05Source": {
     "sceneId": "NL-SCENE-CONTEXT-CORE-01",
@@ -55,18 +55,18 @@
     "mcp": {"projectStatus": "PASS", "checkpointRead": "PASS", "contextSearch": "PASS", "contextSearchCorpusRunId": "b3543d66-a7c1-4b98-b24a-bbeb461e4c54", "contextSearchCandidatePool": 5, "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK", "coreContextBuild": "PASS", "mcpContextBuild": "PASS", "contextBuildMinimal": {"status": "PASS", "inputFingerprint": "b8deb1d853c5080e9507d292e3ef4afc3de7956a7fbbcccd9ef856a464841417", "outputFingerprint": "b1c628d217273c11fa6b42181c5519f634b6b3c4314d9b49a7e533859e28e868", "finalContextTokenEstimate": 4551, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}, "contextBuildDefault": {"status": "PASS", "inputFingerprint": "0a9f9bed98bd3e0aa65cacaba096b0a7d9cf636d4649a5258bd55dd334c6c5d3", "outputFingerprint": "cc8e21173cb5d065210d46f8328ef1548a0d8151104ad7ac373c7b4f90648372", "finalContextTokenEstimate": 4551, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}}
   },
   "workOrders": {
-    "WO-B3D-007": "PENDING",
-    "WO-B3D-008": "PENDING",
-    "WO-B3D-009": "PENDING",
-    "WO-B3D-010": "PENDING",
-    "WO-B3D-011": "PENDING",
-    "WO-B3D-012": "PENDING"
+    "WO-B3D-007": "BLOCKED_MCP_PREFLIGHT",
+    "WO-B3D-008": "BLOCKED_MCP_PREFLIGHT",
+    "WO-B3D-009": "BLOCKED_MCP_PREFLIGHT",
+    "WO-B3D-010": "BLOCKED_MCP_PREFLIGHT",
+    "WO-B3D-011": "BLOCKED_MCP_PREFLIGHT",
+    "WO-B3D-012": "BLOCKED_MCP_PREFLIGHT"
   },
-  "receipts": {"SSAC": "PENDING", "PFR": "PENDING", "LIPG": "PENDING", "EBL": "PENDING"},
-  "gates": {"G1": "PENDING", "G2": "PENDING", "G3": "PENDING", "G4": "PENDING", "G5": "PENDING", "G6": "PENDING", "G7": "PENDING", "G8": "PENDING", "G9": "PENDING", "G10": "PENDING"},
+  "receipts": {"SSAC": "BLOCKED_MCP_PREFLIGHT", "PFR": "BLOCKED_MCP_PREFLIGHT", "LIPG": "BLOCKED_MCP_PREFLIGHT", "EBL": "BLOCKED_MCP_PREFLIGHT"},
+  "gates": {"G1": "BLOCKED_MCP_PREFLIGHT", "G2": "BLOCKED_MCP_PREFLIGHT", "G3": "BLOCKED_MCP_PREFLIGHT", "G4": "BLOCKED_MCP_PREFLIGHT", "G5": "BLOCKED_MCP_PREFLIGHT", "G6": "BLOCKED_MCP_PREFLIGHT", "G7": "BLOCKED_MCP_PREFLIGHT", "G8": "BLOCKED_MCP_PREFLIGHT", "G9": "BLOCKED_MCP_PREFLIGHT", "G10": "BLOCKED_MCP_PREFLIGHT"},
   "outOfScopeConfirmed": {"runtimeThree": false, "brandMarkChange": false, "ugasProviderStarted": false, "ugasGeneration": false, "deployment": false, "cp08Media": false},
-  "hosted": {"status": "NOT_PUBLISHED", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
-  "knownBlockers": [],
+  "hosted": {"status": "NOT_PUBLISHED_EXTERNAL_BLOCKER", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
+  "knownBlockers": ["BLENDER_MCP_DISCONNECTED_WINERROR_10053", "BLENDER_MCP_NOT_CONNECTED_AFTER_BOUNDED_RECOVERY"],
   "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
   "researchGaps": []
 }

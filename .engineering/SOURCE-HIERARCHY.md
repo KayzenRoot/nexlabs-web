@@ -1,6 +1,6 @@
 # NexLabs Web Source Hierarchy
 
-Status: `CP06_IN_PROGRESS`
+Status: `CP06_BLOCKED_BLENDER_MCP`
 
 Authority is domain-specific. HIVE indexes, memories and GEF metadata accelerate work but cannot override tracked Git sources.
 
