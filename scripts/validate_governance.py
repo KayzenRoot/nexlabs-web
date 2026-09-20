@@ -98,7 +98,7 @@ CP04_LOCK = "NXWEB-LOCK-0003-CP04-LOGO-EXPLORATION"
 cp03_closed = current.get("lastCompletedWorkOrder") == CP03_WORK_ORDER and current.get("productStage") == "CP03_COMPLETE"
 cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED" and current.get("activeWorkOrder") == CP03_WORK_ORDER
 cp04_active = current.get("adoptionState") == "GEF_V1_CP04_ADMITTED" and current.get("activeWorkOrder") == CP04_WORK_ORDER
-cp04_closed = current.get("lastCompletedWorkOrder") == CP04_WORK_ORDER and current.get("productStage") == "CP04_COMPLETE" and current.get("reviewState") == "CP04_HG01_SATISFIED" and current.get("nextLegalAction") == "ADMIT_CP05_WITH_NEW_WORK_ORDER_AFTER_PR23_CLOSE"
+cp04_closed = current.get("lastCompletedWorkOrder") == CP04_WORK_ORDER and current.get("productStage") == "CP04_COMPLETE" and current.get("reviewState") == "CP04_HG01_SATISFIED" and current.get("nextLegalAction") == "RESUME_CP05_FROM_AUTHORIZED_WORKSTATION"
 workstation_transition_active = current.get("adoptionState") == "GEF_V1_CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("productStage") == "CP04_COMPLETE" and current.get("reviewState") == "CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("nextLegalAction") == "RESUME_CP05_AFTER_WORKSTATION_TRANSITION_MERGE" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
 
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
@@ -290,11 +290,26 @@ elif cp04_closed:
         fail("CP-04 closure evidence Context Lock digest mismatch")
     if lock.get("status") != "CLOSED" or "Status: `COMPLETED`" not in work_order:
         fail("CP-04 closure requires a CLOSED Context Lock and COMPLETED Work Order")
-    if current.get("reviewState") != "CP04_HG01_SATISFIED" or current.get("nextLegalAction") != "ADMIT_CP05_WITH_NEW_WORK_ORDER_AFTER_PR23_CLOSE":
-        fail("CP-04 GEF closure vocabulary is incomplete")
+    if current.get("reviewState") != "CP04_HG01_SATISFIED" or current.get("nextLegalAction") != "RESUME_CP05_FROM_AUTHORIZED_WORKSTATION":
+        fail("CP-04 GEF closure/workstation-resume vocabulary is incomplete")
     hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
     if "Status: `CP04_COMPLETE_READY_FOR_CP05_ADMISSION`" not in hierarchy:
         fail("CP-04 Source Hierarchy is not closed for CP-05 admission")
+    transition = data(".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json")
+    if transition.get("status") != "AUTHORIZED":
+        fail("CP-05 Blender workstation transition is not authorized")
+    capabilities = transition.get("capabilities", {})
+    if capabilities.get("BLENDER_MCP_READY") is not True or capabilities.get("BLENDER_PRODUCTION_AUTHORIZED") is not True:
+        fail("authorized workstation is missing Blender readiness/authorization")
+    if capabilities.get("UGAS_GENERATION_PROVIDER_READY") is not False or capabilities.get("UGAS_GENERATION_AUTHORIZED") is not False:
+        fail("authorized workstation must keep UGAS generation fail-closed")
+    if transition.get("scope", {}).get("sceneMutation") is not False or transition.get("scope", {}).get("cp05ProductImplementation") is not False:
+        fail("workstation authorization transition must remain non-product")
+    agents_policy = read("AGENTS.md")
+    workstation_policy = read("docs/WORKSTATION-MODE.md")
+    for policy_name, policy_source in (("AGENTS.md", agents_policy), ("docs/WORKSTATION-MODE.md", workstation_policy)):
+        if "BLENDER_PRODUCTION_AUTHORIZED=true" not in policy_source or "UGAS_GENERATION_AUTHORIZED=false" not in policy_source:
+            fail(f"{policy_name} does not reflect the authorized Blender / fail-closed UGAS policy")
     if section(canonical, "## STATUS") != "CP-04 COMPLETE" or section(canonical, "## VERSION") != "NEXLABS-WEB CP-04 HG-01 CLOSURE":
         fail("CP-04 canonical checkpoint is not in the closure state")
     if evidence.get("verdict") != "APPROVED" or evidence.get("reviewState") != "CP04_HG01_SATISFIED":
