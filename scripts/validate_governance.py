@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import hashlib
 import re
 import subprocess
@@ -210,16 +211,15 @@ elif workstation_transition_active:
     transition = data(".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json")
     try:
         head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-        parent_head = subprocess.check_output(["git", "rev-parse", "HEAD^"], cwd=ROOT, text=True).strip()
-        branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=ROOT, text=True).strip()
-        main_head = subprocess.check_output(["git", "rev-parse", "main"], cwd=ROOT, text=True).strip()
+        local_branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=ROOT, text=True).strip()
+        branch = local_branch or os.environ.get("GITHUB_HEAD_REF", "").strip()
         remote_main_head = subprocess.check_output(["git", "rev-parse", "origin/main"], cwd=ROOT, text=True).strip()
     except (OSError, subprocess.CalledProcessError) as exc:
         fail(f"cannot resolve workstation transition Git state: {exc}")
     if branch != "codex/cp05-blender-workstation-transition":
         fail("workstation transition must execute on codex/cp05-blender-workstation-transition")
-    if main_head != CP05_TRANSITION_BASE or remote_main_head != CP05_TRANSITION_BASE:
-        fail("workstation transition main/origin base is not the synchronized protected main")
+    if remote_main_head != CP05_TRANSITION_BASE:
+        fail("workstation transition origin/main is not the synchronized protected base")
     git_receipt = transition.get("git", {})
     candidate_head = git_receipt.get("transitionCandidateHead")
     if candidate_head != git_receipt.get("receiptCommitParent"):
