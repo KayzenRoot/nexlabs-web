@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img">
+  <path d="M 25 25 L 48 25 L 48 48 L 25 48 Z" fill="#10151c" fill-rule="nonzero"/>
+  <path d="M 72 25 L 95 25 L 95 48 L 72 48 Z" fill="#10151c" fill-rule="nonzero"/>
+  <path d="M 25 72 L 48 72 L 48 95 L 25 95 Z" fill="#10151c" fill-rule="nonzero"/>
+  <path d="M 72 72 L 95 72 L 95 95 L 72 95 Z" fill="#10151c" fill-rule="nonzero"/>
+  <path d="M 48 48 L 72 48 L 72 72 L 48 72 Z" fill="#10151c" fill-rule="nonzero"/>
+</svg>

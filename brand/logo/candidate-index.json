@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "nexlabs-cp04-logo-index-v1",
+  "workOrder": "NXWEB-WO-0003-CP04-LOGO-EXPLORATION",
+  "status": "CANDIDATE_EXPLORATION",
+  "canonicalSelection": false,
+  "runtimeWiring": false,
+  "constructionGrid": "12x12",
+  "generator": "scripts/logo_lab.py",
+  "candidateIds": [
+    "NX-D-01",
+    "NX-D-02",
+    "NX-D-03",
+    "NX-C-01",
+    "NX-C-02",
+    "NX-C-03",
+    "NX-B-01",
+    "NX-B-02",
+    "NX-B-03"
+  ],
+  "candidates": [
+    {
+      "id": "NX-D-01",
+      "family": "Topological N",
+      "revision": "r1",
+      "status": "CANDIDATE_EXPLORATION",
+      "svg": "brand/logo/candidates/NX-D-01.svg",
+      "sha256": "f0334fa704b280946e432540b3df8f9ff1f0c7457140ad92202424ae95b8ce66"
+    },
+    {
+      "id": "NX-D-02",
+      "family": "Topological N",
+      "revision": "r1",
+      "status": "CANDIDATE_EXPLORATION",
+      "svg": "brand/logo/candidates/NX-D-02.svg",
+      "sha256": "002be71dd8179ec994784b31631d7d6a01099add917d7fd6a92dcae36d9d06a3"
+    },
+    {
+      "id": "NX-D-03",
+      "family": "Topological N",
+      "revision": "r1",
+      "status": "CANDIDATE_EXPLORATION",
+      "svg": "brand/logo/candidates/NX-D-03.svg",
+      "sha256": "075b195b25ed194ed0f5272c855e80197462b785f6cae460bb9bc98cb012e3de"
+    },
+    {
+      "id": "NX-C-01",
+      "family": "Modular Core",
+      "revision": "r1",
+      "status": "CANDIDATE_EXPLORATION",
+      "svg": "brand/logo/candidates/NX-C-01.svg",
+      "sha256": "9b796a6aeae08fcf023466459bbd290d74b47af41f98fb66da1f1d7d4c2a53e7"
+    },
+    {
+      "id": "NX-C-02",
+      "family": "Modular Core",
+      "revision": "r1",
+      "status": "CANDIDATE_EXPLORATION",
+      "svg": "brand/logo/candidates/NX-C-02.svg",
+      "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+    },
+    {
+      "id": "NX-C-03",
+      "family": "Modular Core",
+      "revision": "r1",
+      "status": "CANDIDATE_EXPLORATION",
+      "svg": "brand/logo/candidates/NX-C-03.svg",
+      "sha256": "de2a61333ea69aebad2f0b89e99e5e37edf35eaf124280bc172d4b9be4263b76"
+    },
+    {
+      "id": "NX-B-01",
+      "family": "Routed N",
+      "revision": "r1",
+      "status": "CANDIDATE_EXPLORATION",
+      "svg": "brand/logo/candidates/NX-B-01.svg",
+      "sha256": "0768ebbe28df50f07792a122ec885c004869107dfb662e261394e55e10bade63"
+    },
+    {
+      "id": "NX-B-02",
+      "family": "Routed N",
+      "revision": "r1",
+      "status": "CANDIDATE_EXPLORATION",
+      "svg": "brand/logo/candidates/NX-B-02.svg",
+      "sha256": "c5596fe9e2d58045875703e357c94a34df8d7d875fc1c845df2eaf939de04641"
+    },
+    {
+      "id": "NX-B-03",
+      "family": "Routed N",
+      "revision": "r1",
+      "status": "CANDIDATE_EXPLORATION",
+      "svg": "brand/logo/candidates/NX-B-03.svg",
+      "sha256": "1ec78db174012bf50642e0d382a303bff83811dbe3d6df569052a81fd8fb117c"
+    }
+  ],
+  "reviewArtifacts": [
+    "brand/logo/review/blender-mcp-receipt.json",
+    "brand/logo/review/blender-projection-blocked.svg",
+    "brand/logo/review/contact-sheet.png",
+    "brand/logo/review/contact-sheet.svg",
+    "brand/logo/review/small-size.png",
+    "brand/logo/review/small-size.svg",
+    "brand/logo/review/theme-lockups.png",
+    "brand/logo/review/theme-lockups.svg",
+    "brand/logo/review/website-context.svg",
+    "brand/logo/evaluation.md",
+    "brand/logo/artifact-manifest.json"
+  ],
+  "blenderProjection": "BLOCKED_EXTERNAL",
+  "ugasGeneration": "NOT_PERFORMED",
+  "externalSimilarityResearch": "NOT_PERFORMED_IN_SCOPE"
+}

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+<rect width="960" height="540" fill="#202833"/>
+<text x="36" y="46" font-family="Arial, sans-serif" font-size="22px" font-weight="700" fill="#f5f7f9">CP04 / Blender MCP projection status</text>
+<text x="36" y="78" font-family="Arial, sans-serif" font-size="13px" font-weight="400" fill="#ffb4a2">BLOCKED_EXTERNAL: addon connection unavailable; no 3D pass is claimed.</text>
+<rect x="36" y="106" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
+<g transform="translate(52 118) scale(0.566667)"><path d="M 30 90 L 30 30 L 90 90 L 90 30" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/></g>
+<text x="128" y="148" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-D-01</text>
+<text x="128" y="170" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
+<rect x="336" y="106" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
+<g transform="translate(352 118) scale(0.566667)"><path d="M 30 90 L 30 30 L 90 90" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 90 90 L 90 30" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 30 60 L 60 60" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="428" y="148" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-D-02</text>
+<text x="428" y="170" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
+<rect x="636" y="106" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
+<g transform="translate(652 118) scale(0.566667)"><path d="M 30 90 L 30 30 L 50 30 L 90 70 L 90 30 L 100 30 L 100 90 L 80 90 L 40 50 L 40 90 Z" fill="#d8e0e8"/></g>
+<text x="728" y="148" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-D-03</text>
+<text x="728" y="170" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
+<rect x="36" y="236" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
+<g transform="translate(52 248) scale(0.566667)"><path d="M 25 25 L 48 25 L 48 48 L 25 48 Z" fill="#d8e0e8"/><path d="M 72 25 L 95 25 L 95 48 L 72 48 Z" fill="#d8e0e8"/><path d="M 25 72 L 48 72 L 48 95 L 25 95 Z" fill="#d8e0e8"/><path d="M 72 72 L 95 72 L 95 95 L 72 95 Z" fill="#d8e0e8"/><path d="M 48 48 L 72 48 L 72 72 L 48 72 Z" fill="#d8e0e8"/></g>
+<text x="128" y="278" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-C-01</text>
+<text x="128" y="300" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
+<rect x="336" y="236" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
+<g transform="translate(352 248) scale(0.566667)"><path d="M 25 25 L 55 25 L 55 42 L 42 42 L 42 78 L 55 78 L 55 95 L 25 95 Z" fill="#d8e0e8"/><path d="M 95 25 L 65 25 L 65 42 L 78 42 L 78 78 L 65 78 L 65 95 L 95 95 Z" fill="#d8e0e8"/><path d="M 55 42 L 65 42 L 65 78 L 55 78 Z" fill="#d8e0e8"/></g>
+<text x="428" y="278" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-C-02</text>
+<text x="428" y="300" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
+<rect x="636" y="236" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
+<g transform="translate(652 248) scale(0.566667)"><path d="M 25 25 L 55 25 L 55 38 L 38 38 L 38 82 L 55 82 L 55 95 L 25 95 Z" fill="#d8e0e8"/><path d="M 95 25 L 65 25 L 65 38 L 82 38 L 82 82 L 65 82 L 65 95 L 95 95 Z" fill="#d8e0e8"/><path d="M 55 48 L 65 48 L 65 72 L 55 72 Z" fill="#d8e0e8"/></g>
+<text x="728" y="278" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-C-03</text>
+<text x="728" y="300" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
+<rect x="36" y="366" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
+<g transform="translate(52 378) scale(0.566667)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 54 60" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="128" y="408" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-B-01</text>
+<text x="128" y="430" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
+<rect x="336" y="366" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
+<g transform="translate(352 378) scale(0.566667)"><path d="M 28 90 L 28 30 L 46 30 L 92 76 L 92 30" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M 28 60 L 58 60 L 58 48" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><path d="M 74 90 L 92 90" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="428" y="408" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-B-02</text>
+<text x="428" y="430" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
+<rect x="636" y="366" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
+<g transform="translate(652 378) scale(0.566667)"><path d="M 28 90 L 28 30 L 42 30 L 92 80 L 92 30" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"/><path d="M 42 90 L 42 58 L 74 90" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><path d="M 28 60 L 56 60" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/></g>
+<text x="728" y="408" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-B-03</text>
+<text x="728" y="430" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="520" viewBox="0 0 1060 520">
+<rect width="1060" height="520" fill="#f5f7f9"/>
+<text x="34" y="40" font-family="Arial, sans-serif" font-size="22px" font-weight="700" fill="#10151c">CP04 / light-dark lockup comparison</text>
+<rect x="34" y="68" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
+<rect x="194" y="68" width="160" height="112" rx="0" fill="#10151c"/>
+<g transform="translate(56 85) scale(0.65)"><path d="M 30 90 L 30 30 L 90 90 L 90 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/></g>
+<g transform="translate(216 85) scale(0.65)"><path d="M 30 90 L 30 30 L 90 90 L 90 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/></g>
+<text x="54" y="169" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-D-01</text>
+<text x="214" y="169" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
+<rect x="379" y="68" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
+<rect x="539" y="68" width="160" height="112" rx="0" fill="#10151c"/>
+<g transform="translate(401 85) scale(0.65)"><path d="M 30 90 L 30 30 L 90 90" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 90 90 L 90 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 30 60 L 60 60" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<g transform="translate(561 85) scale(0.65)"><path d="M 30 90 L 30 30 L 90 90" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 90 90 L 90 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 30 60 L 60 60" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="399" y="169" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-D-02</text>
+<text x="559" y="169" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
+<rect x="724" y="68" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
+<rect x="884" y="68" width="160" height="112" rx="0" fill="#10151c"/>
+<g transform="translate(746 85) scale(0.65)"><path d="M 30 90 L 30 30 L 50 30 L 90 70 L 90 30 L 100 30 L 100 90 L 80 90 L 40 50 L 40 90 Z" fill="#10151c"/></g>
+<g transform="translate(906 85) scale(0.65)"><path d="M 30 90 L 30 30 L 50 30 L 90 70 L 90 30 L 100 30 L 100 90 L 80 90 L 40 50 L 40 90 Z" fill="#f5f7f9"/></g>
+<text x="744" y="169" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-D-03</text>
+<text x="904" y="169" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
+<rect x="34" y="213" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
+<rect x="194" y="213" width="160" height="112" rx="0" fill="#10151c"/>
+<g transform="translate(56 230) scale(0.65)"><path d="M 25 25 L 48 25 L 48 48 L 25 48 Z" fill="#10151c"/><path d="M 72 25 L 95 25 L 95 48 L 72 48 Z" fill="#10151c"/><path d="M 25 72 L 48 72 L 48 95 L 25 95 Z" fill="#10151c"/><path d="M 72 72 L 95 72 L 95 95 L 72 95 Z" fill="#10151c"/><path d="M 48 48 L 72 48 L 72 72 L 48 72 Z" fill="#10151c"/></g>
+<g transform="translate(216 230) scale(0.65)"><path d="M 25 25 L 48 25 L 48 48 L 25 48 Z" fill="#f5f7f9"/><path d="M 72 25 L 95 25 L 95 48 L 72 48 Z" fill="#f5f7f9"/><path d="M 25 72 L 48 72 L 48 95 L 25 95 Z" fill="#f5f7f9"/><path d="M 72 72 L 95 72 L 95 95 L 72 95 Z" fill="#f5f7f9"/><path d="M 48 48 L 72 48 L 72 72 L 48 72 Z" fill="#f5f7f9"/></g>
+<text x="54" y="314" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-C-01</text>
+<text x="214" y="314" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
+<rect x="379" y="213" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
+<rect x="539" y="213" width="160" height="112" rx="0" fill="#10151c"/>
+<g transform="translate(401 230) scale(0.65)"><path d="M 25 25 L 55 25 L 55 42 L 42 42 L 42 78 L 55 78 L 55 95 L 25 95 Z" fill="#10151c"/><path d="M 95 25 L 65 25 L 65 42 L 78 42 L 78 78 L 65 78 L 65 95 L 95 95 Z" fill="#10151c"/><path d="M 55 42 L 65 42 L 65 78 L 55 78 Z" fill="#10151c"/></g>
+<g transform="translate(561 230) scale(0.65)"><path d="M 25 25 L 55 25 L 55 42 L 42 42 L 42 78 L 55 78 L 55 95 L 25 95 Z" fill="#f5f7f9"/><path d="M 95 25 L 65 25 L 65 42 L 78 42 L 78 78 L 65 78 L 65 95 L 95 95 Z" fill="#f5f7f9"/><path d="M 55 42 L 65 42 L 65 78 L 55 78 Z" fill="#f5f7f9"/></g>
+<text x="399" y="314" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-C-02</text>
+<text x="559" y="314" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
+<rect x="724" y="213" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
+<rect x="884" y="213" width="160" height="112" rx="0" fill="#10151c"/>
+<g transform="translate(746 230) scale(0.65)"><path d="M 25 25 L 55 25 L 55 38 L 38 38 L 38 82 L 55 82 L 55 95 L 25 95 Z" fill="#10151c"/><path d="M 95 25 L 65 25 L 65 38 L 82 38 L 82 82 L 65 82 L 65 95 L 95 95 Z" fill="#10151c"/><path d="M 55 48 L 65 48 L 65 72 L 55 72 Z" fill="#10151c"/></g>
+<g transform="translate(906 230) scale(0.65)"><path d="M 25 25 L 55 25 L 55 38 L 38 38 L 38 82 L 55 82 L 55 95 L 25 95 Z" fill="#f5f7f9"/><path d="M 95 25 L 65 25 L 65 38 L 82 38 L 82 82 L 65 82 L 65 95 L 95 95 Z" fill="#f5f7f9"/><path d="M 55 48 L 65 48 L 65 72 L 55 72 Z" fill="#f5f7f9"/></g>
+<text x="744" y="314" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-C-03</text>
+<text x="904" y="314" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
+<rect x="34" y="358" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
+<rect x="194" y="358" width="160" height="112" rx="0" fill="#10151c"/>
+<g transform="translate(56 375) scale(0.65)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 54 60" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<g transform="translate(216 375) scale(0.65)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 54 60" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="54" y="459" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-B-01</text>
+<text x="214" y="459" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
+<rect x="379" y="358" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
+<rect x="539" y="358" width="160" height="112" rx="0" fill="#10151c"/>
+<g transform="translate(401 375) scale(0.65)"><path d="M 28 90 L 28 30 L 46 30 L 92 76 L 92 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M 28 60 L 58 60 L 58 48" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><path d="M 74 90 L 92 90" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<g transform="translate(561 375) scale(0.65)"><path d="M 28 90 L 28 30 L 46 30 L 92 76 L 92 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M 28 60 L 58 60 L 58 48" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><path d="M 74 90 L 92 90" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="399" y="459" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-B-02</text>
+<text x="559" y="459" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
+<rect x="724" y="358" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
+<rect x="884" y="358" width="160" height="112" rx="0" fill="#10151c"/>
+<g transform="translate(746 375) scale(0.65)"><path d="M 28 90 L 28 30 L 42 30 L 92 80 L 92 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"/><path d="M 42 90 L 42 58 L 74 90" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><path d="M 28 60 L 56 60" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/></g>
+<g transform="translate(906 375) scale(0.65)"><path d="M 28 90 L 28 30 L 42 30 L 92 80 L 92 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"/><path d="M 42 90 L 42 58 L 74 90" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><path d="M 28 60 L 56 60" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/></g>
+<text x="744" y="459" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-B-03</text>
+<text x="904" y="459" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
+</svg>

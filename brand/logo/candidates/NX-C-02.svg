@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img">
+  <path d="M 25 25 L 55 25 L 55 42 L 42 42 L 42 78 L 55 78 L 55 95 L 25 95 Z" fill="#10151c" fill-rule="nonzero"/>
+  <path d="M 95 25 L 65 25 L 65 42 L 78 42 L 78 78 L 65 78 L 65 95 L 95 95 Z" fill="#10151c" fill-rule="nonzero"/>
+  <path d="M 55 42 L 65 42 L 65 78 L 55 78 Z" fill="#10151c" fill-rule="nonzero"/>
+</svg>

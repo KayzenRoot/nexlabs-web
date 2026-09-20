@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "nexlabs-cp04-logo-artifact-manifest-v1",
+  "generatedBy": "scripts/logo_lab.py",
+  "artifacts": [
+    {
+      "path": "brand/logo/README.md",
+      "sha256": "11330a2bbd9109fd3bd04d6f6b86ed35a3c206d8e50a2e5b8270a364a6c9bfc2"
+    },
+    {
+      "path": "brand/logo/candidate-index.json",
+      "sha256": "4d71e8688929beab50373e2c551c72f18b97e3c812fb8926bc64d2010b9c6e92"
+    },
+    {
+      "path": "brand/logo/candidates/NX-B-01.svg",
+      "sha256": "0768ebbe28df50f07792a122ec885c004869107dfb662e261394e55e10bade63"
+    },
+    {
+      "path": "brand/logo/candidates/NX-B-02.svg",
+      "sha256": "c5596fe9e2d58045875703e357c94a34df8d7d875fc1c845df2eaf939de04641"
+    },
+    {
+      "path": "brand/logo/candidates/NX-B-03.svg",
+      "sha256": "1ec78db174012bf50642e0d382a303bff83811dbe3d6df569052a81fd8fb117c"
+    },
+    {
+      "path": "brand/logo/candidates/NX-C-01.svg",
+      "sha256": "9b796a6aeae08fcf023466459bbd290d74b47af41f98fb66da1f1d7d4c2a53e7"
+    },
+    {
+      "path": "brand/logo/candidates/NX-C-02.svg",
+      "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+    },
+    {
+      "path": "brand/logo/candidates/NX-C-03.svg",
+      "sha256": "de2a61333ea69aebad2f0b89e99e5e37edf35eaf124280bc172d4b9be4263b76"
+    },
+    {
+      "path": "brand/logo/candidates/NX-D-01.svg",
+      "sha256": "f0334fa704b280946e432540b3df8f9ff1f0c7457140ad92202424ae95b8ce66"
+    },
+    {
+      "path": "brand/logo/candidates/NX-D-02.svg",
+      "sha256": "002be71dd8179ec994784b31631d7d6a01099add917d7fd6a92dcae36d9d06a3"
+    },
+    {
+      "path": "brand/logo/candidates/NX-D-03.svg",
+      "sha256": "075b195b25ed194ed0f5272c855e80197462b785f6cae460bb9bc98cb012e3de"
+    },
+    {
+      "path": "brand/logo/evaluation.md",
+      "sha256": "fc863424429298b97569ec226f8a814f760d6c5c59f3a58fa2d7afbf8fcaf0ea"
+    },
+    {
+      "path": "brand/logo/provenance/NX-B-01.json",
+      "sha256": "d6a09cd6ffa6b1aabeb88a5bdd9212b8a331f9e9ff746120a177f568aa89db9f"
+    },
+    {
+      "path": "brand/logo/provenance/NX-B-02.json",
+      "sha256": "6e4eb60d0c5e814cca9f1547a488b5d938528c2f44821cbaabffbac1b2f5c072"
+    },
+    {
+      "path": "brand/logo/provenance/NX-B-03.json",
+      "sha256": "81246096d9abd4c30774f721a25dcf96dc4e2ce70689a237c672444e1fc40dc4"
+    },
+    {
+      "path": "brand/logo/provenance/NX-C-01.json",
+      "sha256": "d51ca8a4171edbd8406f282a5a518b4bb0e28894f225c8e0bd15d41bc421e6d3"
+    },
+    {
+      "path": "brand/logo/provenance/NX-C-02.json",
+      "sha256": "c2ebb02988de3a7649bbac6ac4dba6652c4ea5ace8d752fb6239c38736901573"
+    },
+    {
+      "path": "brand/logo/provenance/NX-C-03.json",
+      "sha256": "c55a065797d536f6e580741934cf3fc9ba2a97446852d3a5e95f867bab796af1"
+    },
+    {
+      "path": "brand/logo/provenance/NX-D-01.json",
+      "sha256": "783aaeffb2592a4eb1c3d70d324b862653b8fbad643d265b9ce5aa64a1b72bd9"
+    },
+    {
+      "path": "brand/logo/provenance/NX-D-02.json",
+      "sha256": "c6cd7a446f431ae2d9ba1ef95c346cbd5a2bc14fc018e5e53813d7640d66df8b"
+    },
+    {
+      "path": "brand/logo/provenance/NX-D-03.json",
+      "sha256": "68e0488efc601ac724f83379f4992b680e3136eb76353d0bdc0b210b16b0f7d1"
+    },
+    {
+      "path": "brand/logo/review/blender-mcp-receipt.json",
+      "sha256": "566db76650bd96622e7e6160a832426ba839e3d0f2f23576b1f4c2c6b9bdaed6"
+    },
+    {
+      "path": "brand/logo/review/blender-projection-blocked.svg",
+      "sha256": "4def93f64aec5b51293925ff687af0b58d387b1c749645278412946ebaf67173"
+    },
+    {
+      "path": "brand/logo/review/contact-sheet.png",
+      "sha256": "f6faba867e964850819213e2b31b45482bdb4f9b63bdd8305077d406857b1618"
+    },
+    {
+      "path": "brand/logo/review/contact-sheet.svg",
+      "sha256": "2062f53390c7094e0c32618faf187eb38756e0d357497d9ae82a7ab2db101038"
+    },
+    {
+      "path": "brand/logo/review/small-size.png",
+      "sha256": "c27e08424b321d713dca2347dcbce9cbc117081da9db13556234dc4d396cbbb2"
+    },
+    {
+      "path": "brand/logo/review/small-size.svg",
+      "sha256": "2bedef649cfab88eab668b2097bd6bbdcf0124d01a9c98abf39157b51d310979"
+    },
+    {
+      "path": "brand/logo/review/theme-lockups.png",
+      "sha256": "78f30c10b16ad2b4c7907854ab4366f741c4cef36df89a8aec097ec846a30bf5"
+    },
+    {
+      "path": "brand/logo/review/theme-lockups.svg",
+      "sha256": "ffec1d80b1f77359c104eeb348bdd71c6f544de85cfac2a4461e25474b9edd0b"
+    },
+    {
+      "path": "brand/logo/review/website-context.svg",
+      "sha256": "6a81adc4a19bf82752a8e2ac0aaafc9007e96052d35623d9714c96054e98ce1c"
+    }
+  ]
+}

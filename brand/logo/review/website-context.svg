@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+<rect width="1200" height="620" fill="#202833"/>
+<text x="40" y="44" font-family="Arial, sans-serif" font-size="22px" font-weight="700" fill="#f5f7f9">CP04 / website-context comparison</text>
+<rect x="40" y="70" width="520" height="190" rx="16" fill="#f5f7f9"/>
+<text x="62" y="104" font-family="Arial, sans-serif" font-size="12px" font-weight="700" fill="#10151c">HEADER / LIGHT</text>
+<g transform="translate(68 122) scale(0.75)"><path d="M 30 90 L 30 30 L 90 90 L 90 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/></g>
+<text x="85" y="236" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#10151c">NX-D-01</text>
+<g transform="translate(228 122) scale(0.75)"><path d="M 30 90 L 30 30 L 90 90" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 90 90 L 90 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 30 60 L 60 60" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="245" y="236" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#10151c">NX-D-02</text>
+<g transform="translate(388 122) scale(0.75)"><path d="M 30 90 L 30 30 L 50 30 L 90 70 L 90 30 L 100 30 L 100 90 L 80 90 L 40 50 L 40 90 Z" fill="#10151c"/></g>
+<text x="405" y="236" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#10151c">NX-D-03</text>
+<text x="370" y="122" font-family="Arial, sans-serif" font-size="20px" font-weight="700" fill="#10151c">NexLabs</text>
+<rect x="610" y="70" width="520" height="190" rx="16" fill="#10151c"/>
+<text x="632" y="104" font-family="Arial, sans-serif" font-size="12px" font-weight="700" fill="#f5f7f9">HERO / DARK</text>
+<g transform="translate(638 122) scale(0.75)"><path d="M 30 90 L 30 30 L 90 90 L 90 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/></g>
+<text x="655" y="236" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#f5f7f9">NX-D-01</text>
+<g transform="translate(798 122) scale(0.75)"><path d="M 30 90 L 30 30 L 90 90" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 90 90 L 90 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 30 60 L 60 60" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="815" y="236" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#f5f7f9">NX-D-02</text>
+<g transform="translate(958 122) scale(0.75)"><path d="M 30 90 L 30 30 L 50 30 L 90 70 L 90 30 L 100 30 L 100 90 L 80 90 L 40 50 L 40 90 Z" fill="#f5f7f9"/></g>
+<text x="975" y="236" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#f5f7f9">NX-D-03</text>
+<rect x="40" y="315" width="520" height="190" rx="16" fill="#303b47"/>
+<text x="62" y="349" font-family="Arial, sans-serif" font-size="12px" font-weight="700" fill="#f5f7f9">FOOTER / MINERAL</text>
+<g transform="translate(68 367) scale(0.75)"><path d="M 30 90 L 30 30 L 90 90 L 90 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/></g>
+<text x="85" y="481" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#f5f7f9">NX-D-01</text>
+<g transform="translate(228 367) scale(0.75)"><path d="M 30 90 L 30 30 L 90 90" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 90 90 L 90 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 30 60 L 60 60" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="245" y="481" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#f5f7f9">NX-D-02</text>
+<g transform="translate(388 367) scale(0.75)"><path d="M 30 90 L 30 30 L 50 30 L 90 70 L 90 30 L 100 30 L 100 90 L 80 90 L 40 50 L 40 90 Z" fill="#f5f7f9"/></g>
+<text x="405" y="481" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#f5f7f9">NX-D-03</text>
+<rect x="610" y="315" width="520" height="190" rx="16" fill="#f5f7f9"/>
+<text x="632" y="349" font-family="Arial, sans-serif" font-size="12px" font-weight="700" fill="#10151c">SQUARE AVATAR</text>
+<g transform="translate(638 367) scale(0.75)"><path d="M 30 90 L 30 30 L 90 90 L 90 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/></g>
+<text x="655" y="481" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#10151c">NX-D-01</text>
+<g transform="translate(798 367) scale(0.75)"><path d="M 30 90 L 30 30 L 90 90" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 90 90 L 90 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 30 60 L 60 60" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<text x="815" y="481" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#10151c">NX-D-02</text>
+<g transform="translate(958 367) scale(0.75)"><path d="M 30 90 L 30 30 L 50 30 L 90 70 L 90 30 L 100 30 L 100 90 L 80 90 L 40 50 L 40 90 Z" fill="#10151c"/></g>
+<text x="975" y="481" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#10151c">NX-D-03</text>
+</svg>

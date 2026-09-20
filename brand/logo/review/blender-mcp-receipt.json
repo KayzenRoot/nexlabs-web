@@ -1,0 +1,19 @@
+{
+  "status": "BLOCKED_EXTERNAL",
+  "attempts": [
+    {
+      "tool": "get_addon_status",
+      "result": "Could not connect to Blender. Make sure the Blender addon is running."
+    },
+    {
+      "tool": "get_scene_info",
+      "result": "Could not connect to Blender. Make sure the Blender addon is running."
+    }
+  ],
+  "proofs": {
+    "candidateCount": 9,
+    "completed": 0,
+    "claimed": false
+  },
+  "providerStarted": false
+}
