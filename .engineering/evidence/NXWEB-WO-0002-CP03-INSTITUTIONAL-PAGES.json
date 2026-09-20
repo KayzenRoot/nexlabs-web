@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "nexlabs-web-cp03-evidence-v1",
+  "sourceDocument": {
+    "filename": "NEXLABS-CP03-LOCAL-EVIDENCE-RECOVERY-AND-RESUME.pdf",
+    "sha256": "b95d59f7c4cb1ec9f80d12b33c03ff18778baeeb8c8c4ca5c9c44f692ddb3253"
+  },
+  "verdict": "CORRECTION REQUIRED",
+  "workOrder": {
+    "id": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
+    "path": ".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md",
+    "sha256": "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575",
+    "bytes": 5664,
+    "parsedConstraintCount": 8,
+    "parsedAcceptanceCriteriaCount": 12
+  },
+  "contextLock": {
+    "id": "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES",
+    "status": "OPEN",
+    "authorizedBase": "d94f9b5520834ef05d0adc735ac7422068780ae1",
+    "admissionHead": "4e74522efa420841b59d63eb1b8ccd93b5f23922",
+    "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+    "workstationPolicy": "BLENDER_MCP_READY/UGAS_CORE_INSTALLED/UGAS_GENERATION_PROVIDER_NOT_READY/CP03_STATIC_ONLY"
+  },
+  "git": {
+    "repository": "KayzenRoot/nexlabs-web",
+    "baseSha": "d94f9b5520834ef05d0adc735ac7422068780ae1",
+    "branch": "codex/cp03-institutional-pages",
+    "proofHead": "9f21280ba55c3cbb4bf6c203b96408eae8d128d9",
+    "proofHeadRole": "implementation_commit_parent_of_receipt_commit",
+    "workingTreeCleanAtProof": true,
+    "commitsSinceBase": [
+      "4e74522 chore: admit CP-03 institutional pages",
+      "a24dde3 chore: compact CP03 HIVE work order",
+      "9f21280 feat: implement CP03 institutional pages"
+    ],
+    "changedFilesSinceBase": [
+      ".engineering/BOOTSTRAP-MANIFEST.json",
+      ".engineering/CHECKPOINT.json",
+      ".engineering/CHECKPOINT.md",
+      ".engineering/context-locks/NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES.json",
+      ".engineering/evidence/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.json",
+      ".engineering/gef/GEF-CURRENT.json",
+      ".engineering/gef/GEF-SOURCE-BRIDGE.json",
+      ".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md",
+      "app/about/page.tsx",
+      "app/contact/page.tsx",
+      "app/hive/page.tsx",
+      "app/not-found.tsx",
+      "app/open-source/page.tsx",
+      "app/privacy/page.tsx",
+      "app/sitemap.ts",
+      "app/technology/page.tsx",
+      "components/layout/SiteFooter.tsx",
+      "components/sections/ContentSectionView.tsx",
+      "components/sections/HomeShell.tsx",
+      "components/sections/InstitutionalPage.tsx",
+      "content/site/index.ts",
+      "content/site/pages.ts",
+      "content/site/site.json",
+      "docs/WORKSTATION-MODE.md",
+      "docs/project-brain/02-REQUIREMENTS.md",
+      "docs/project-brain/03-SCOPE.md",
+      "docs/project-brain/13-CHECKPOINT.md",
+      "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "lib/content/types.ts",
+      "lib/content/validation.ts",
+      "scripts/validate-content.mjs",
+      "scripts/validate_governance.py",
+      "styles/components.css",
+      "styles/layout.css",
+      "tests/component/home-shell.test.tsx",
+      "tests/e2e/home.spec.ts",
+      "tests/unit/content.test.ts",
+      "tests/unit/institutional-pages.test.ts",
+      "tests/unit/sitemap.test.ts"
+    ]
+  },
+  "hive": {
+    "api": "http://localhost:8000",
+    "version": "1.0.0",
+    "health": "PASS",
+    "project": {
+      "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
+      "name": "NEXLABS-WEB",
+      "relativePath": "nexlabs-web",
+      "state": "READY",
+      "head": "9f21280ba55c3cbb4bf6c203b96408eae8d128d9",
+      "workingTreeClean": true,
+      "index": "COMPLETED",
+      "corpus": "CURRENT",
+      "indexRunId": "eac95eed-9943-40c2-b0cc-c26f586424d8",
+      "corpusRunId": "9affd916-152a-493c-a229-a20dafb43672"
+    },
+    "task": {
+      "id": "cdd5f992-da9c-4f1b-9d04-a4db34f3624d",
+      "status": "READY",
+      "extractedTextAvailable": true,
+      "reused": true,
+      "workOrderSha256": "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575"
+    },
+    "mcpReadOnlyTools": [
+      "project.list",
+      "project.status",
+      "context.build",
+      "context.search",
+      "memory.search",
+      "memory.get",
+      "checkpoint.read"
+    ],
+    "coreContextBuild": {
+      "minimal": {
+        "request": {"top_k": 1, "disclosure_level": "L0"},
+        "status": "PASS",
+        "checkpointFirst": true,
+        "outputFingerprint": "5246b071c3744aa6c29ef1f4aeb3591ac7c7288102c2611a6277cd7971816cdc",
+        "finalContextTokenEstimate": 5171,
+        "effectiveBudgetTokens": 5888,
+        "hardMaxBudgetTokens": 6144,
+        "requiredContextExceedsHardBudget": false,
+        "serializedCapsuleCharacters": 22156
+      },
+      "default": {
+        "request": {},
+        "status": "PASS",
+        "checkpointFirst": true,
+        "outputFingerprint": "39f9d9c4a06258ecc81342bcdd32d890cc2b3da225a96cbc4d3eaf2c81e35775",
+        "finalContextTokenEstimate": 5171,
+        "effectiveBudgetTokens": 5888,
+        "hardMaxBudgetTokens": 6144,
+        "requiredContextExceedsHardBudget": false,
+        "serializedCapsuleCharacters": 22157
+      }
+    },
+    "mcp": {
+      "server": "hive-mcp",
+      "version": "mcp-core-surface-v1",
+      "projectList": "PASS",
+      "projectStatus": "PASS",
+      "checkpointRead": "PASS",
+      "contextSearch": {
+        "status": "PASS",
+        "candidatePool": 5,
+        "resultsReturned": 5,
+        "hybridState": "LEXICAL_FALLBACK_SEMANTIC_UNAVAILABLE",
+        "rerankState": "RERANK_FALLBACK_DISABLED"
+      },
+      "contextBuild": {
+        "minimal": {"status": "PASS", "checkpointFirst": true, "outputFingerprint": "5246b071c3744aa6c29ef1f4aeb3591ac7c7288102c2611a6277cd7971816cdc"},
+        "default": {"status": "PASS", "checkpointFirst": true, "outputFingerprint": "39f9d9c4a06258ecc81342bcdd32d890cc2b3da225a96cbc4d3eaf2c81e35775"}
+      },
+      "outputBoundExceeded": false,
+      "requiredContextExceedsTokenBudget": false
+    }
+  },
+  "product": {
+    "staticRoutes": ["/", "/hive", "/technology", "/open-source", "/about", "/contact", "/privacy", "/_not-found", "/robots.txt", "/sitemap.xml"],
+    "typedContent": "PASS",
+    "neutralMediaOnly": true,
+    "noUGASOrBlenderProductionAssets": true,
+    "localValidation": {
+      "pythonCompile": "PASS",
+      "governance": "PASS",
+      "hiveUnitTests": "PASS 17 tests",
+      "typecheck": "PASS",
+      "lint": "PASS",
+      "vitest": "PASS 11 files / 33 tests",
+      "validate": "PASS",
+      "check": "PASS",
+      "e2e": "PASS 4 tests",
+      "security": "PASS",
+      "releaseValidation": "EXPECTED_FAIL_CLOSED exit 1: NEXLABS_ENV=PRODUCTION is not set",
+      "wranglerDryRun": "PASS"
+    }
+  },
+  "hosted": {
+    "remoteBranch": "NOT_PUBLISHED_AT_PROOF_HEAD",
+    "pullRequest": "NONE_AT_PROOF_HEAD",
+    "requiredChecks": "NOT_RUN",
+    "merge": "NOT_EXECUTED"
+  },
+  "residualRisks": [
+    "Independent review, protected PR checks and merge are still pending.",
+    "Semantic retrieval is unavailable; context.search passed through the bounded lexical fallback.",
+    "Production release validation remains intentionally blocked until approved production configuration exists."
+  ],
+  "checkpointDelta": {
+    "currentStatus": "CP-03 ADMITTED - IN PROGRESS",
+    "proposedNextStep": "Publish codex/cp03-institutional-pages, open one protected PR, run quality and Governance on the exact PR head, then request independent review.",
+    "cp04Started": false
+  }
+}
