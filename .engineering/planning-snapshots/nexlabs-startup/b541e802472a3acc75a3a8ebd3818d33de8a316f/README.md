@@ -22,3 +22,15 @@ CP-03 executors should read the local cached paths listed by the manifest after 
 Checkpoint -> Decisions -> Scope -> Definition of Done -> Architecture -> Requirements -> CP-03 planning cache.
 
 Git-tracked target-project authority still wins within its domain. HIVE may index this cache but cannot overwrite it.
+
+
+## CP-04 logo exploration extension
+
+The same pinned parent commit now also caches the exact CP-04 logo/brand planning inputs:
+- BR-03 logo system and evaluation protocol;
+- BR-01 brand DNA and visual direction;
+- BR-04 visual system;
+- BR-17 prompt template;
+- BR-12 UGAS asset pipeline and provenance schema.
+
+These are execution mirrors only. Their source Git blob SHAs are recorded in MANIFEST.json. UGAS output may support exploration but cannot become canonical identity without the CP-04 human selection gate.
