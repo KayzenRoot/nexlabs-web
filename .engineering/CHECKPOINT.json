@@ -2,11 +2,11 @@
   "schemaVersion": "nexlabs-web-gef-checkpoint-bridge-v1",
   "viewStatus": "DERIVED_VIEW",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "CP-04 COMPLETE",
-  "version": "NEXLABS-WEB CP-04 HG-01 CLOSURE",
-  "phase": "CP-04 governed candidate exploration closed after HG-01 selected NX-C-02 r1; runtime BrandMark remains unchanged",
-  "objective": "Close the deterministic nine-candidate CP-04 exploration package after the independently reviewed HG-01 selection, without promoting the selected candidate into runtime.",
-  "inProgress": "NXWEB-WO-0003-CP04-LOGO-EXPLORATION is completed; NX-C-02 r1 is selected for future promotion review; CP-05 is not admitted until PR #23 closes successfully.",
-  "blockers": "BLENDER_MCP_UNAVAILABLE: the live Blender addon was not reachable for the lightweight projection proof. RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open.",
-  "nextStep": "Close PR #23 through the protected review flow, then admit CP-05 with a new Work Order and Context Lock; do not promote BrandMark before its separate gate."
+  "status": "CP-05 IN PROGRESS",
+  "version": "NEXLABS-WEB CP-05 BLENDER CONTEXT CORE FOUNDATION",
+  "phase": "CP-05 Blender Context Core foundation admitted from exact main base; live Blender MCP preflight passed, but scene production is blocked by the repository workstation policy",
+  "objective": "Execute WO-B3D-001 through WO-B3D-006 as a deterministic, auditable Blender foundation without logo integration or runtime 3D promotion.",
+  "inProgress": "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION is admitted at base affd133d9f8650ab91d2f0dd5871220306a3bba0; Blender 5.2.1/MCP protocol 7 preflight passed; no scene mutation occurred.",
+  "blockers": "REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION: AGENTS.md and docs/WORKSTATION-MODE.md keep this workstation static-only and do not authorize canonical Blender production. RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open.",
+  "nextStep": "Explicitly authorize and record the workstation policy transition, then resume CP-05 scene work; do not begin WO-B3D-007 or CP-06 and do not promote BrandMark before its separate gate."
 }

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "nexlabs-web-cp05-evidence-v1",
+  "sourceDocument": {
+    "name": "NEXLABS-CP05-BLENDER-CONTEXT-CORE-FOUNDATION-WORK-ORDER.pdf",
+    "sha256": "183ae223bb01fdac47f20ff1359657b63011e8a51ec3885f04f8b24e4e6bada1"
+  },
+  "verdict": "BLOCKED",
+  "reviewState": "CP05_PREFLIGHT_BLOCKED_BY_WORKSTATION_POLICY",
+  "workOrder": {
+    "id": "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
+    "path": ".engineering/work-orders/NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.md",
+    "status": "IN_PROGRESS",
+    "sha256": "0e4a323eb64834034d836cb7fb138bfa025979e03303c4d65720ae3de248d4b0"
+  },
+  "contextLock": {
+    "id": "NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
+    "path": ".engineering/context-locks/NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.json",
+    "status": "OPEN",
+    "workOrderSha256": "0e4a323eb64834034d836cb7fb138bfa025979e03303c4d65720ae3de248d4b0"
+  },
+  "authorizedBase": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "planningManifestSha256": "ac32a18d9c935c9cc8b7bb1e947bb4426774e2e1e4acd6fc4d60d72ebe2fcf1e",
+  "git": {
+    "admissionHead": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+    "candidateHead": null,
+    "reviewedCandidateHead": null,
+    "reviewReceiptHead": null,
+    "sceneMutationHead": null
+  },
+  "blender": {
+    "status": "PASS_LIVE_PREFLIGHT",
+    "executable": "blender.exe",
+    "version": "5.2.1 LTS",
+    "addon": {"status": "PASS", "version": "1.7", "protocolVersion": 7, "expectedProtocolVersion": 7},
+    "tools": {"getAddonStatus": "PASS", "getSceneInfo": "PASS"},
+    "recovery": {"attempts": 1, "bounded": true},
+    "sceneMutationPerformed": false,
+    "renderEvidence": []
+  },
+  "policyGate": {
+    "status": "BLOCKED",
+    "code": "REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION",
+    "sources": ["AGENTS.md", "docs/WORKSTATION-MODE.md"],
+    "detail": "The repository contract keeps this workstation static-only and forbids canonical Blender production; the attached CP-05 Work Order does not explicitly authorize changing that higher-priority policy.",
+    "requiredAction": "Explicitly authorize and record the workstation policy transition before scene mutation."
+  },
+  "hive": {"status": "PENDING"},
+  "workOrders": {
+    "WO-B3D-001": "NOT_STARTED_POLICY_BLOCK",
+    "WO-B3D-002": "NOT_STARTED_POLICY_BLOCK",
+    "WO-B3D-003": "NOT_STARTED_POLICY_BLOCK",
+    "WO-B3D-004": "NOT_STARTED_POLICY_BLOCK",
+    "WO-B3D-005": "NOT_STARTED_POLICY_BLOCK",
+    "WO-B3D-006": "NOT_STARTED_POLICY_BLOCK"
+  },
+  "deterministicScene": {
+    "status": "NOT_CREATED",
+    "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+    "builder": null,
+    "masterBlend": null,
+    "manifests": [],
+    "reviewRenders": []
+  },
+  "outOfScopeConfirmed": {
+    "animation": false,
+    "selectedLogoIntegration": false,
+    "glbLodExport": false,
+    "runtimeThree": false,
+    "brandMarkChange": false,
+    "ugasProviderStarted": false
+  },
+  "hosted": {"status": "NOT_STARTED", "pullRequest": null},
+  "knownBlockers": ["REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION"],
+  "researchGaps": ["No CP-05 scene evidence exists because policy blocked scene mutation before builder execution."]
+}

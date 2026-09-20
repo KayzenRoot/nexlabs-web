@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "nexlabs-web-context-lock-v1",
+  "lockId": "NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
+  "workOrder": "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
+  "status": "OPEN",
+  "authorizedBase": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "planningCache": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/",
+  "planningManifestSha256": "ac32a18d9c935c9cc8b7bb1e947bb4426774e2e1e4acd6fc4d60d72ebe2fcf1e",
+  "sourceDocument": {
+    "name": "NEXLABS-CP05-BLENDER-CONTEXT-CORE-FOUNDATION-WORK-ORDER.pdf",
+    "sha256": "183ae223bb01fdac47f20ff1359657b63011e8a51ec3885f04f8b24e4e6bada1"
+  },
+  "gef": {"version": "1.0.0", "releaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"},
+  "hive": {"version": "1.0.0", "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"},
+  "workOrderSha256": "0e4a323eb64834034d836cb7fb138bfa025979e03303c4d65720ae3de248d4b0",
+  "admissionHead": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+  "candidateHead": null,
+  "candidateHeadRole": null,
+  "reviewedCandidateHead": null,
+  "reviewedCandidateHeadRole": null,
+  "reviewReceiptHead": null,
+  "reviewReceiptHeadRole": null,
+  "scope": {
+    "workOrders": ["WO-B3D-001", "WO-B3D-002", "WO-B3D-003", "WO-B3D-004", "WO-B3D-005", "WO-B3D-006"],
+    "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+    "canonicalSelection": false,
+    "runtimeWiring": false
+  },
+  "selectedLogoDependency": {
+    "candidateId": "NX-C-02",
+    "revision": "r1",
+    "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165",
+    "metadataOnly": true
+  },
+  "preflight": {
+    "blenderExecutableRecorded": "blender.exe",
+    "blenderVersion": "5.2.1 LTS",
+    "addonStatus": "PASS",
+    "sceneInfo": "PASS",
+    "protocolVersion": 7,
+    "recoveryAttempts": 1,
+    "sceneMutationBeforeGate": false
+  },
+  "policyGate": {
+    "status": "BLOCKED",
+    "code": "REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION",
+    "source": "AGENTS.md and docs/WORKSTATION-MODE.md",
+    "sceneWorkAuthorized": false
+  },
+  "hive": {
+    "status": "PENDING",
+    "projectId": null,
+    "taskId": null,
+    "indexRunId": null,
+    "corpusRunId": null,
+    "context": null
+  },
+  "externalBlockers": ["REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION"],
+  "stopState": "CP05_ADMITTED_PREFLIGHT_PASSED_SCENE_WORK_POLICY_BLOCKED"
+}
