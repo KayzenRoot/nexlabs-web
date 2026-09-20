@@ -4,19 +4,19 @@
 CP-04 COMPLETE
 
 ## VERSION
-NEXLABS-WEB CP-05 BLENDER WORKSTATION TRANSITION
+NEXLABS-WEB CP-04 HG-01 CLOSURE
 
 ## PHASE
-CP-04 remains complete while the Blender workstation transition is in review; runtime BrandMark remains unchanged and CP-05 product work is not admitted on this branch
+CP-04 remains complete; the Blender workstation is authorized for governed CP-05 production, while runtime BrandMark remains unchanged and no product Work Order is active on protected main.
 
 ## OBJECTIVE
-Record the governed Blender workstation authorization needed to resume CP-05 later, without starting CP-05 product implementation or promoting the selected candidate into runtime.
+Preserve the verified CP-04 closure while enabling the preserved CP-05 Blender Context Core Work Order to resume from protected main under the new workstation authorization.
 
 ## IN PROGRESS
-NXWEB-WO-0003-CP04-LOGO-EXPLORATION remains completed; NX-C-02 r1 remains metadata-only; the CP-05 workstation transition is in review on `codex/cp05-blender-workstation-transition`, with no active product Work Order or Context Lock.
+No product implementation is active on protected main. The preserved local branch `codex/cp05-blender-context-core` contains the blocked CP-05 admission/HIVE history and must be resumed after this authorization reaches protected main.
 
 ## BLOCKERS
-WORKSTATION_TRANSITION_PR_REVIEW_PENDING: the Blender authorization is recorded locally but awaits protected quality/Governance checks and independent review. RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open.
+RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open. UGAS_GENERATION_PROVIDER_READY=false and UGAS_GENERATION_AUTHORIZED=false remain intentional non-blocking capability boundaries for CP-05 Blender work.
 
 ## NEXT STEP
-Close the workstation transition PR through protected review, then resume/admit CP-05 from updated `main` with its governed Work Order and Context Lock; do not promote BrandMark before its separate gate and do not begin CP-06.
+Resume the preserved CP-05 branch from protected main, integrate the workstation authorization without rewriting history, refresh Work Order/Context Lock/HIVE fingerprints if policy-source fingerprints changed, and continue WO-B3D-001 through WO-B3D-006. Do not begin CP-06.
