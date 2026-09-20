@@ -35,3 +35,15 @@ The active Work Order is submitted to HIVE task intake by exact UTF-8 source dig
 Status: accepted as a strategy direction only.
 
 Web3, blockchain and smart-contract engineering may appear in the capability map, but no deployed protocol, audit, token, TVL, customer or on-chain traction claim is authorized by this direction.
+
+## ADR-NXWEB-007 - Workstation capability layers
+
+Status: accepted for CP-03 execution.
+
+The implementation workstation has verified Blender MCP readiness and UGAS core installation, but the UGAS generation provider is not ready because the local ComfyUI/provider endpoint is unavailable. CP-03 records these capability layers truthfully and remains static-only: no provider auto-start, generation, final logo, canonical 3D, Blender asset production or UGAS derivative media is admitted.
+
+## ADR-NXWEB-008 - CP-03 HIVE license truth
+
+Status: accepted for CP-03 execution.
+
+The pinned HIVE repository documentation and `LICENSE` at `a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf` state that the repository is All Rights Reserved and is not an open-source license. The website may link to and describe the public implementation, but must not publish the stale Apache-2.0 claim from the planning draft.

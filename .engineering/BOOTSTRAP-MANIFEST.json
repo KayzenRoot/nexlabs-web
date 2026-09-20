@@ -9,6 +9,6 @@
   "hive": {"version": "1.0.0", "repository": "KayzenRoot/hive", "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf", "integrationMode": "EXTERNAL_LOCAL_FIRST", "projectName": "NEXLABS-WEB", "relativePath": "nexlabs-web"},
   "canonicalRoot": "docs/project-brain",
   "governanceRoot": ".engineering",
-  "activeWorkOrder": null,
-  "activeContextLock": null
+  "activeWorkOrder": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
+  "activeContextLock": "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES"
 }

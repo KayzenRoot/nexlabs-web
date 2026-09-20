@@ -13,6 +13,7 @@
 - HIVE read-only MCP configuration and launcher.
 - Governance workflow and existing quality integration.
 - Tests, documentation, exact-head validation and PR evidence.
+- CP-03 static institutional pages, typed content, route metadata and verified evidence links.
 
 ## Out of scope
 
@@ -21,3 +22,4 @@
 - Final logo, UGAS, Blender, canonical 3D, Three.js/R3F or high-fidelity motion.
 - Force-push, history rewrite, ruleset bypass or unapproved merge.
 - Claims of deployed protocols, audits, tokens, TVL, customers or on-chain traction.
+- Final logo, UGAS derivative media, Blender asset production, canonical 3D and Three.js/R3F remain outside CP-03.

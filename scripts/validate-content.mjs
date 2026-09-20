@@ -11,6 +11,14 @@ if (content.identity?.stage !== "pre-incorporation") errors.push("identity.stage
 if (!Array.isArray(content.navigation) || content.navigation.length === 0) errors.push("navigation must contain at least one item");
 if (!content.hero?.heading || !content.hero?.body) errors.push("hero heading and body are required");
 if (!Array.isArray(content.evidence) || content.evidence.length === 0) errors.push("at least one evidence link is required");
+const routePaths = (content.routes ?? []).map((route) => route.path);
+const routeTitles = (content.routes ?? []).map((route) => route.title);
+if (new Set(routePaths).size !== routePaths.length) errors.push("route paths must be unique");
+if (new Set(routeTitles).size !== routeTitles.length) errors.push("route metadata titles must be unique");
+for (const route of content.routes ?? []) {
+  if (!route.path.startsWith("/")) errors.push(`route must be internal: ${route.path}`);
+  if (!route.title || !route.description) errors.push(`route metadata is incomplete: ${route.path}`);
+}
 if (content.contact?.founder?.approved && (!content.contact.founder.name || !content.contact.founder.bio)) errors.push("approved founder data must include name and bio");
 const serialized = JSON.stringify(content);
 if (/\[(?:[A-Z0-9_]+)_?(?:REQUIRED|TODO|TBD)\]|lorem ipsum/i.test(serialized)) errors.push("unresolved placeholder token found");

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "nexlabs-web-context-lock-v1",
+  "lockId": "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES",
+  "workOrder": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
+  "status": "OPEN",
+  "repository": "KayzenRoot/nexlabs-web",
+  "authorizedBase": "d94f9b5520834ef05d0adc735ac7422068780ae1",
+  "candidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
+  "candidateHeadRole": "independent_review_input_head",
+  "reviewedCandidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
+  "reviewReceiptHead": "9529c31b2676b0de0e15acf3568e792de537b0b5",
+  "reviewReceiptHeadRole": "governance_correction_commit_parent_of_evidence_receipt_commit",
+  "workOrderSha256": "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "planningCache": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/",
+  "upstream": {
+    "gef": {"version": "1.0.0", "commit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"},
+    "hive": {"version": "1.0.0", "commit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"}
+  },
+  "workstationPolicy": "BLENDER_MCP_READY/UGAS_CORE_INSTALLED/UGAS_GENERATION_PROVIDER_NOT_READY/CP03_STATIC_ONLY",
+  "scopeClass": "CP03_INSTITUTIONAL_PAGES",
+  "assurance": "FAIL_CLOSED_MISSING_EVIDENCE",
+  "evidencePath": ".engineering/evidence/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.json"
+}

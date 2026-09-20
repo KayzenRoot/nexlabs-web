@@ -20,13 +20,17 @@ describe("sitemap contract", () => {
     process.env.NEXLABS_ENV = "PRODUCTION";
     process.env.NEXT_PUBLIC_SITE_ORIGIN = "https://example.invalid";
 
-    expect(sitemap()).toEqual([
-      {
-        url: "https://example.invalid/",
-        lastModified: new Date("2026-09-19"),
-        changeFrequency: "monthly",
-        priority: 1,
-      },
+    const entries = sitemap();
+    expect(entries).toHaveLength(7);
+    expect(entries.map((entry) => entry.url)).toEqual([
+      "https://example.invalid/",
+      "https://example.invalid/hive",
+      "https://example.invalid/technology",
+      "https://example.invalid/open-source",
+      "https://example.invalid/about",
+      "https://example.invalid/contact",
+      "https://example.invalid/privacy",
     ]);
+    expect(entries[0]).toMatchObject({ changeFrequency: "monthly", priority: 1 });
   });
 });
