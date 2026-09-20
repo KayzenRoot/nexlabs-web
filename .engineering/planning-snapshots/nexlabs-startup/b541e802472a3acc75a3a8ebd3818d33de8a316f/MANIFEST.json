@@ -8,9 +8,9 @@
   },
   "target": {
     "repository": "KayzenRoot/nexlabs-web",
-    "baseSha": "cfbf03f820faf6f4a0ff1048f92c366f3cd1bf32"
+    "baseSha": "c93da10de103728f3614ac39c09bb74941d79a33"
   },
-  "scope": "CP-03 Content + All Institutional Pages",
+  "scope": "CP-03 institutional pages + CP-04 logo exploration planning source cache",
   "files": [
     {
       "sourcePath": "brand-web/BRAND-WEB-MASTER-PLAN.md",
@@ -59,10 +59,66 @@
       "sourceBlobSha": "79187074e5099fede178c3fd902284508a38e8d2",
       "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/EXECUTION-WORKSTATION-POLICY.md",
       "purpose": "CP-03 execution source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-03-LOGO-SYSTEM.md",
+      "sourceBlobSha": "88962be9ad1d165fd63031671b8c21d2cad21b2c",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-03-LOGO-SYSTEM.md",
+      "purpose": "CP-04 logo exploration / brand production source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-03-LOGO-EVALUATION.md",
+      "sourceBlobSha": "d58a4633b30befda15ffc3a00f958a967a5d47a4",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-03-LOGO-EVALUATION.md",
+      "purpose": "CP-04 logo exploration / brand production source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-01-BRAND-DNA.md",
+      "sourceBlobSha": "e74620c1d59287b344168f8f76e3bb8773a10386",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-01-BRAND-DNA.md",
+      "purpose": "CP-04 logo exploration / brand production source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-01-VISUAL-DIRECTION.md",
+      "sourceBlobSha": "a26036460cb6c621b789029bca1f606250f7675a",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-01-VISUAL-DIRECTION.md",
+      "purpose": "CP-04 logo exploration / brand production source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-04-VISUAL-SYSTEM.md",
+      "sourceBlobSha": "327ccbb70c5303f49fef6a815f3dfa2a6e0482dd",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-04-VISUAL-SYSTEM.md",
+      "purpose": "CP-04 logo exploration / brand production source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-17-CODEX-PROMPT-TEMPLATE.md",
+      "sourceBlobSha": "8ace3c2ef0c62d053713a1d4fc888d2875e56d4d",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-17-CODEX-PROMPT-TEMPLATE.md",
+      "purpose": "CP-04 logo exploration / brand production source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-12-UGAS-ASSET-PIPELINE.md",
+      "sourceBlobSha": "3a4f56e555dd858c61daff3cae763a2c37c3c500",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-12-UGAS-ASSET-PIPELINE.md",
+      "purpose": "CP-04 logo exploration / brand production source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-12-ASSET-PROVENANCE-SCHEMA.md",
+      "sourceBlobSha": "6feebc0df320d0194abd305cc6e3659d17553542",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-12-ASSET-PROVENANCE-SCHEMA.md",
+      "purpose": "CP-04 logo exploration / brand production source cache"
     }
   ],
   "staleWhen": [
     "the authoritative planning commit changes",
     "an accepted target-repository ADR supersedes a cached planning rule within its domain"
+  ],
+  "extensions": [
+    {
+      "id": "CP04_LOGO_PLANNING_CACHE",
+      "addedAtBase": "c93da10de103728f3614ac39c09bb74941d79a33",
+      "fileCount": 8,
+      "note": "Exact-byte cache for CP-04 logo exploration, visual direction and optional UGAS provenance support."
+    }
   ]
 }
