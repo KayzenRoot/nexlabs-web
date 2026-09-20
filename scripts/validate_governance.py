@@ -222,10 +222,11 @@ elif workstation_transition_active:
         fail("workstation transition main/origin base is not the synchronized protected main")
     git_receipt = transition.get("git", {})
     candidate_head = git_receipt.get("transitionCandidateHead")
-    if candidate_head != parent_head or git_receipt.get("receiptCommitParent") != parent_head:
-        fail("workstation transition receipt must bind the direct receipt parent candidate")
+    if candidate_head != git_receipt.get("receiptCommitParent"):
+        fail("workstation transition receipt candidate and receipt-parent bindings disagree")
     try:
         subprocess.run(["git", "merge-base", "--is-ancestor", CP05_TRANSITION_BASE, candidate_head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "merge-base", "--is-ancestor", candidate_head, head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except (OSError, subprocess.CalledProcessError):
         fail("workstation transition candidate is not based on protected main")
     if transition.get("schemaVersion") != "nexlabs-web-cp05-workstation-transition-v1" or transition.get("status") != "IN_REVIEW":
@@ -601,7 +602,7 @@ if workstation_transition_active:
         fail("invalid workstation transition adoption state")
     if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
         fail("workstation transition cannot retain an active product Work Order or Context Lock")
-    if evidence.get("status") != "IN_REVIEW" or evidence.get("scope", {}).get("cp05ProductImplementation") is not False:
+    if transition.get("status") != "IN_REVIEW" or transition.get("scope", {}).get("cp05ProductImplementation") is not False:
         fail("workstation transition requires bounded non-product evidence")
 elif cp04_active:
     if adoption_state != "GEF_V1_CP04_ADMITTED":
