@@ -2,7 +2,7 @@
   "schemaVersion": "nexlabs-cp04-logo-provenance-v1",
   "candidateId": "NX-B-01",
   "family": "Routed N",
-  "revision": "r1",
+  "revision": "r2",
   "status": "CANDIDATE_EXPLORATION",
   "constructionGrid": "12x12",
   "source": {
@@ -15,7 +15,7 @@
     ]
   },
   "svgPath": "brand/logo/candidates/NX-B-01.svg",
-  "svgSha256": "0768ebbe28df50f07792a122ec885c004869107dfb662e261394e55e10bade63",
+  "svgSha256": "b76a0dfa30acf323f77c6bad574462d4624b97d94ad421e5722af50d2aa4b716",
   "ugAS": {
     "mode": "REFERENCE_ONLY",
     "generation": "NOT_PERFORMED",

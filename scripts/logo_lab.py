@@ -39,8 +39,8 @@ def primitive(points: list[tuple[int, int]], *, kind: str = "line", width: int =
     return {"points": points, "kind": kind, "width": width}
 
 
-def candidate(candidate_id: str, family: str, name: str, paths: list[dict[str, Any]], note: str) -> dict[str, Any]:
-    return {"id": candidate_id, "family": family, "name": name, "paths": paths, "note": note}
+def candidate(candidate_id: str, family: str, name: str, paths: list[dict[str, Any]], note: str, *, revision: str = "r1") -> dict[str, Any]:
+    return {"id": candidate_id, "family": family, "name": name, "paths": paths, "note": note, "revision": revision}
 
 
 CANDIDATES = [
@@ -74,8 +74,8 @@ CANDIDATES = [
     ], "Open frame variant keeps the core readable at reduced size."),
     candidate("NX-B-01", "Routed N", "diagonal route", [
         primitive([(28, 90), (28, 30), (44, 30), (92, 78), (92, 30)], width=13),
-        primitive([(28, 60), (54, 60)], width=8),
-    ], "A routed path uses one diagonal trunk with a small service branch."),
+        primitive([(28, 60), (56, 60), (64, 52)], width=9),
+    ], "A routed path uses one diagonal trunk with a connected service spur for clearer small-size route legibility.", revision="r2"),
     candidate("NX-B-02", "Routed N", "orthogonal route", [
         primitive([(28, 90), (28, 30), (46, 30), (92, 76), (92, 30)], width=12),
         primitive([(28, 60), (58, 60), (58, 48)], width=8),
@@ -382,7 +382,7 @@ def evaluation_markdown(metrics: dict[str, dict[str, Any]]) -> str:
         ("NX-C-01", "Strong modular system semantics; stable avatar.", "Core may look blocky beside wordmark."),
         ("NX-C-02", "Clear interlock and 2D/3D projection potential.", "Narrow core needs optical review in dark mode."),
         ("NX-C-03", "Open frame preserves negative space at small sizes.", "Less immediate N read than the other C variants."),
-        ("NX-B-01", "Route semantics with restrained detail.", "Service branch can disappear under blur."),
+        ("NX-B-01", "Route semantics with a connected service spur and clearer route continuity.", "The spur junction adds a small amount of detail; similarity research remains open."),
         ("NX-B-02", "Controlled orthogonal turn communicates infrastructure.", "Most circuitry-adjacent; avoid technology cliche."),
         ("NX-B-03", "Distinct rail structure and strong horizontal rhythm.", "Highest small-size complexity; human review required."),
     ]
@@ -429,7 +429,7 @@ def provenance(item: dict[str, Any], svg_hash: str) -> dict[str, Any]:
         "schemaVersion": "nexlabs-cp04-logo-provenance-v1",
         "candidateId": item["id"],
         "family": item["family"],
-        "revision": "r1",
+        "revision": item.get("revision", "r1"),
         "status": "CANDIDATE_EXPLORATION",
         "constructionGrid": "12x12",
         "source": {"type": "deterministic-procedural", "generator": "scripts/logo_lab.py", "references": ["BR-03-LOGO-SYSTEM", "BR-03-LOGO-EVALUATION", "BR-12-UGAS-ASSET-PIPELINE"]},
@@ -453,7 +453,7 @@ def generate() -> None:
         svg_hash = sha256_bytes(svg)
         metadata = provenance(item, svg_hash)
         (PROVENANCE_DIR / f"{item['id']}.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
-        index_items.append({"id": item["id"], "family": item["family"], "revision": "r1", "status": "CANDIDATE_EXPLORATION", "svg": f"brand/logo/candidates/{item['id']}.svg", "sha256": svg_hash})
+        index_items.append({"id": item["id"], "family": item["family"], "revision": item.get("revision", "r1"), "status": "CANDIDATE_EXPLORATION", "svg": f"brand/logo/candidates/{item['id']}.svg", "sha256": svg_hash})
     for name, content in review_sheets().items():
         (REVIEW_DIR / name).write_text(content, encoding="utf-8")
     metrics = blur_squint_metrics()

@@ -26,6 +26,8 @@ class LogoLabTests(unittest.TestCase):
         self.assertEqual(len(data["candidates"]), 9)
         self.assertEqual([item["id"] for item in data["candidates"]], EXPECTED)
         self.assertEqual(len({item["id"] for item in data["candidates"]}), 9)
+        revisions = {item["id"]: item["revision"] for item in data["candidates"]}
+        self.assertEqual(revisions["NX-B-01"], "r2")
 
     def test_masters_are_path_only_and_hash_bound(self):
         data = json.loads(INDEX.read_text(encoding="utf-8"))

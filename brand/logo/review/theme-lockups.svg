@@ -39,8 +39,8 @@
 <text x="904" y="314" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
 <rect x="34" y="358" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>
 <rect x="194" y="358" width="160" height="112" rx="0" fill="#10151c"/>
-<g transform="translate(56 375) scale(0.65)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 54 60" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
-<g transform="translate(216 375) scale(0.65)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 54 60" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<g transform="translate(56 375) scale(0.65)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 56 60 L 64 52" fill="none" stroke="#10151c" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/></g>
+<g transform="translate(216 375) scale(0.65)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 56 60 L 64 52" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/></g>
 <text x="54" y="459" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#586474">NX-B-01</text>
 <text x="214" y="459" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">NexLabs</text>
 <rect x="379" y="358" width="320" height="112" rx="12" fill="#ffffff" stroke="#d8e0e8"/>

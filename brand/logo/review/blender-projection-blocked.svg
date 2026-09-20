@@ -27,7 +27,7 @@
 <text x="728" y="278" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-C-03</text>
 <text x="728" y="300" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
 <rect x="36" y="366" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>
-<g transform="translate(52 378) scale(0.566667)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 54 60" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g>
+<g transform="translate(52 378) scale(0.566667)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 56 60 L 64 52" fill="none" stroke="#d8e0e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/></g>
 <text x="128" y="408" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-B-01</text>
 <text x="128" y="430" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#ffb4a2">external blocker</text>
 <rect x="336" y="366" width="260" height="92" rx="12" fill="#303b47" stroke="#536272"/>

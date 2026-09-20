@@ -8,11 +8,11 @@
     },
     {
       "path": "brand/logo/candidate-index.json",
-      "sha256": "951ea71ab9f80b02097e9e8192c4ae15accce03312253a1a890f76c12ffa9d2d"
+      "sha256": "c139188fca51ea7ed676f25998016e2bd3bcd5c9bbb6b6a98a16691fd5451319"
     },
     {
       "path": "brand/logo/candidates/NX-B-01.svg",
-      "sha256": "0768ebbe28df50f07792a122ec885c004869107dfb662e261394e55e10bade63"
+      "sha256": "b76a0dfa30acf323f77c6bad574462d4624b97d94ad421e5722af50d2aa4b716"
     },
     {
       "path": "brand/logo/candidates/NX-B-02.svg",
@@ -48,11 +48,11 @@
     },
     {
       "path": "brand/logo/evaluation.md",
-      "sha256": "bf6bb99012d091469fd21532d5fb80432fed0a4c459bfe930675e39a4375f0de"
+      "sha256": "5e2afff7715090712e495860c069ad29c406155b8599e2934898a1cfcf448407"
     },
     {
       "path": "brand/logo/provenance/NX-B-01.json",
-      "sha256": "d6a09cd6ffa6b1aabeb88a5bdd9212b8a331f9e9ff746120a177f568aa89db9f"
+      "sha256": "cbe367b8ab9a4bafd9b2f68378ddb90af0f9c245b4fc58d3bae9053a33e2597a"
     },
     {
       "path": "brand/logo/provenance/NX-B-02.json",
@@ -92,31 +92,31 @@
     },
     {
       "path": "brand/logo/review/blender-projection-blocked.svg",
-      "sha256": "4def93f64aec5b51293925ff687af0b58d387b1c749645278412946ebaf67173"
+      "sha256": "2119e35b3e879893f3c1b10acdb4828fd9d6b8b4558c1c93eed415352ab8594d"
     },
     {
       "path": "brand/logo/review/blur-squint.png",
-      "sha256": "4bdffe7b60bf5fdb684b3a2eff0b49dd865c0458babe9b9d2bffbdb15c3742cd"
+      "sha256": "647580620fad1d11bbebcadabe7108934fe85073fcd279c7ec33fe03bd7f34c8"
     },
     {
       "path": "brand/logo/review/blur-squint.svg",
-      "sha256": "d0a6ba8c56852d8206140623a228072eed4eb0aefa41bd5c0000e0d8d8c1cc67"
+      "sha256": "767624278ef5d1cbe5dcd8525c84652d4180fdc0c17451fa9e37c50e3de293f3"
     },
     {
       "path": "brand/logo/review/contact-sheet.png",
-      "sha256": "f6faba867e964850819213e2b31b45482bdb4f9b63bdd8305077d406857b1618"
+      "sha256": "5261dc113743d503cb19545af7eb045bc832f8f4d443a60a931fec03cf9ea205"
     },
     {
       "path": "brand/logo/review/contact-sheet.svg",
-      "sha256": "2062f53390c7094e0c32618faf187eb38756e0d357497d9ae82a7ab2db101038"
+      "sha256": "64a0a1332d0ded085d4d9d0672c5b11f56c567dd2f6cbad0639052b3a65bfeee"
     },
     {
       "path": "brand/logo/review/horizontal-lockups.png",
-      "sha256": "ba3324c68ed9cfab514daceb85483e026ec484e768d2df7b8434029a98d8f756"
+      "sha256": "1e3ce7a0eae5dba2a16e92d0639f826f550d2b844ec86b468c399168cc3cf549"
     },
     {
       "path": "brand/logo/review/horizontal-lockups.svg",
-      "sha256": "73245037763143d2ddbd96f96c0c524c771f2c475ff643b8e6b18c3f5444efe4"
+      "sha256": "69ba6a043fbdfc345286cca438c8ea6a893943761d0d91dbafd92864bd69f9dc"
     },
     {
       "path": "brand/logo/review/review-coverage.json",
@@ -124,27 +124,27 @@
     },
     {
       "path": "brand/logo/review/small-size.png",
-      "sha256": "c27e08424b321d713dca2347dcbce9cbc117081da9db13556234dc4d396cbbb2"
+      "sha256": "7eca099bac46abf35b137a0c9e350ff40e945305fea2abe51a1dfe375e58af7c"
     },
     {
       "path": "brand/logo/review/small-size.svg",
-      "sha256": "2bedef649cfab88eab668b2097bd6bbdcf0124d01a9c98abf39157b51d310979"
+      "sha256": "70628b0101c4ce8673874f27f76b60abe21af6ee2767064384f9d91a7e21b5d1"
     },
     {
       "path": "brand/logo/review/theme-lockups.png",
-      "sha256": "78f30c10b16ad2b4c7907854ab4366f741c4cef36df89a8aec097ec846a30bf5"
+      "sha256": "369080b4eb66d91102821eda59a4366f3a98cecf22fa4eb00230541047ca05a5"
     },
     {
       "path": "brand/logo/review/theme-lockups.svg",
-      "sha256": "ffec1d80b1f77359c104eeb348bdd71c6f544de85cfac2a4461e25474b9edd0b"
+      "sha256": "dcb17d10e665bdf00a222ec3348be0dcc999e8b9a0bb15e3cac1789bbe7ddeaf"
     },
     {
       "path": "brand/logo/review/website-context.png",
-      "sha256": "d84a7da014b166dd38e7b632e22dc77e0ac36efc63f4bf4ba5a0135581f8ef43"
+      "sha256": "126325c71db48969fcf518a35d5a1cc35069c9ad84f6879ff6457359c620b847"
     },
     {
       "path": "brand/logo/review/website-context.svg",
-      "sha256": "f6cf18f0176b551c2763355907724358346d2e6bb7b13b0218ed21f03f071bf0"
+      "sha256": "278fd373b30dc0226ceff63e27b882be524243128d9c1795dcaa3d06fc555492"
     }
   ]
 }

@@ -16,7 +16,7 @@ Each symbol is evaluated independently across silhouette, small size, relevance,
 | NX-C-01 | PASS | PASS (4/4) | PASS (light + dark) | PASS (882 px) | Strong modular system semantics; stable avatar. | Core may look blocky beside wordmark. |
 | NX-C-02 | PASS | PASS (4/4) | PASS (light + dark) | PASS (1080 px) | Clear interlock and 2D/3D projection potential. | Narrow core needs optical review in dark mode. |
 | NX-C-03 | PASS | PASS (4/4) | PASS (light + dark) | PASS (1044 px) | Open frame preserves negative space at small sizes. | Less immediate N read than the other C variants. |
-| NX-B-01 | PASS | PASS (4/4) | PASS (light + dark) | PASS (792 px) | Route semantics with restrained detail. | Service branch can disappear under blur. |
+| NX-B-01 | PASS | PASS (4/4) | PASS (light + dark) | PASS (792 px) | Route semantics with a connected service spur and clearer route continuity. | The spur junction adds a small amount of detail; similarity research remains open. |
 | NX-B-02 | PASS | PASS (4/4) | PASS (light + dark) | PASS (882 px) | Controlled orthogonal turn communicates infrastructure. | Most circuitry-adjacent; avoid technology cliche. |
 | NX-B-03 | PASS | PASS (4/4) | PASS (light + dark) | PASS (972 px) | Distinct rail structure and strong horizontal rhythm. | Highest small-size complexity; human review required. |
 
