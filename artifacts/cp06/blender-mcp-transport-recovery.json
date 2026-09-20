@@ -43,6 +43,30 @@
     "transportErrors": [],
     "sceneMutationBeforeGate": false
   },
+  "subsequentRecovery": {
+    "reason": "Blender process exited and the loopback transport dropped before scene mutation",
+    "ladderStep": "R3_REPEAT_AFTER_PROCESS_EXIT",
+    "blenderPid": 25232,
+    "listenerPid": 25232,
+    "blenderVersion": "5.2.1 LTS",
+    "addonVersion": "1.7",
+    "protocolVersion": 7,
+    "stabilityGate": {
+      "A_getAddonStatus": "PASS",
+      "B_getSceneInfo": "PASS",
+      "C_getAddonStatusAfterPause": "PASS",
+      "D_getSceneInfoAgain": "PASS",
+      "sameBlenderPid": true,
+      "transportErrors": []
+    },
+    "sceneLoadedReadOnlyAfterRecovery": true,
+    "sceneMutationBeforeGate": false
+  },
+  "productionGate": {
+    "status": "PASS",
+    "sceneMutationAfterPolicyAndMcpGate": true,
+    "productionCompleted": true
+  },
   "historicalBlockedReceipt": {
     "initialError": "[WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host",
     "boundedRecoveryAddon": "Not connected to Blender",

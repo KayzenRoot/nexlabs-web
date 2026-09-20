@@ -17,14 +17,11 @@ export default defineConfig({
     setupFiles: ["./tests/setup.ts"],
     include: ["tests/**/*.test.{ts,tsx}"],
     css: true,
-    pool: "threads",
-    // Vitest 5 supports this runtime setting; its published InlineConfig type is behind.
-    // @ts-expect-error Vitest 5 singleThread runtime option
-    singleThread: true,
+    // Forks are stable on the Windows workstation; keep execution serialized.
+    pool: "forks",
     isolate: false,
     fileParallelism: false,
     maxWorkers: 1,
-    minWorkers: 1,
     testTimeout: 15000,
   },
 });
