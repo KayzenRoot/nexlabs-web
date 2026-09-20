@@ -245,6 +245,9 @@ elif cp04_closed:
     if any("PENDING" in str(item) or "HUMAN_GATE_HG_01" in str(item) for item in evidence.get("knownBlockers", [])):
         fail("CP-04 closure retains a stale HG-01 pending blocker")
     closure_head = lock.get("reviewedCandidateHead")
+    closure_candidate_head = evidence.get("git", {}).get("closureCandidateHead")
+    if not isinstance(closure_candidate_head, str) or not closure_candidate_head:
+        fail("CP-04 closure is missing the closure candidate head")
     if closure_head != "b7c2e8f8f08a196c37dc0e070e3a228e2c742f3d" or lock.get("candidateHead") != closure_head or lock.get("reviewReceiptHead") != closure_head:
         fail("CP-04 closure head bindings do not match the independently reviewed exact head")
     proof_head = evidence.get("git", {}).get("proofHead")
@@ -256,13 +259,13 @@ elif cp04_closed:
             return True
         except (OSError, subprocess.CalledProcessError):
             return False
-    if not is_cp04_closure_ancestor(closure_head, head):
+    if not is_cp04_closure_ancestor(closure_head, head) or not is_cp04_closure_ancestor(closure_candidate_head, head):
         fail(f"CP-04 closure reviewed head {closure_head} is not an ancestor of exact Git HEAD {head}")
     hosted = evidence.get("hosted", {})
     hosted_pr = hosted.get("pullRequest", {})
-    if hosted.get("status") != "PASS" or hosted_pr.get("number") != 23 or hosted_pr.get("status") != "OPEN" or hosted_pr.get("observedHead") != closure_head:
+    if hosted.get("status") != "PASS" or hosted_pr.get("number") != 23 or hosted_pr.get("status") != "OPEN" or hosted_pr.get("observedHead") != closure_candidate_head:
         fail("CP-04 hosted closure evidence is not bound to the reviewed exact head")
-    if hosted_pr.get("quality", {}).get("status") != "PASS" or hosted_pr.get("Governance", {}).get("status") != "PASS":
+    if hosted_pr.get("quality", {}).get("status") != "PASS" or hosted_pr.get("quality", {}).get("head") != closure_candidate_head or hosted_pr.get("Governance", {}).get("status") != "PASS" or hosted_pr.get("Governance", {}).get("head") != closure_candidate_head:
         fail("CP-04 hosted quality/Governance checks are not PASS on the reviewed exact head")
     if hosted.get("merge") != "NOT_EXECUTED" or hosted.get("postMergeChecks") != "NOT_CLAIMED":
         fail("CP-04 closure evidence claims merge or post-merge checks")
@@ -271,7 +274,7 @@ elif cp04_closed:
     hive_mcp = hive.get("mcp", {})
     if hive.get("status") != "PASS" or hive_project.get("state") != "READY" or hive_project.get("workingTreeClean") is not True:
         fail("CP-04 closure requires a READY clean HIVE project receipt")
-    if hive_project.get("head") != closure_head or hive_mcp.get("checkpointHead") != closure_head:
+    if hive_project.get("head") != closure_candidate_head or hive_mcp.get("checkpointHead") != closure_candidate_head:
         fail("CP-04 HIVE closure receipt head mismatch")
     if hive_mcp.get("projectStatus") != "PASS" or hive_mcp.get("checkpointRead") != "PASS" or hive_mcp.get("contextSearch") != "PASS" or hive_mcp.get("coreContextBuild") != "PASS" or hive_mcp.get("mcpContextBuild") != "PASS":
         fail("CP-04 HIVE closure read-only validation receipts are incomplete")
