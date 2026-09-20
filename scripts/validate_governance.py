@@ -143,7 +143,7 @@ if cp03_active:
     if not isinstance(receipt, str) or not receipt or lock.get("reviewReceiptHeadRole") != "governance_correction_commit_parent_of_evidence_receipt_commit":
         fail("CP-03 Context Lock review receipt head is missing or untyped")
 
-    def is_ancestor(ancestor: str, descendant: str) -> bool:
+    def is_cp03_ancestor(ancestor: str, descendant: str) -> bool:
         try:
             subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             return True
@@ -151,9 +151,9 @@ if cp03_active:
             return False
 
     try:
-        if not is_ancestor(candidate, head):
+        if not is_cp03_ancestor(candidate, head):
             fail(f"CP-03 candidate head {candidate} is not an ancestor of exact Git HEAD {head}")
-        if not is_ancestor(receipt, head):
+        if not is_cp03_ancestor(receipt, head):
             fail(f"CP-03 review receipt head {receipt} is not an ancestor of exact Git HEAD {head}")
     except (OSError, subprocess.CalledProcessError):
         fail("CP-03 candidate/review receipt lineage could not be resolved")
