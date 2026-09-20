@@ -33,3 +33,10 @@ Missing, stale or conflicting authority blocks the affected progression. UNKNOWN
 ## CP-03 external-source availability rule
 
 Executor access to the private parent repository is optional once the pinned local cache is present and verified. A parent-repository HTTP 404 or missing local clone does not block CP-03 when the cache manifest matches the authoritative commit and source blob SHAs. A source pin change invalidates the cache and requires regeneration before execution.
+
+
+## CP-05 workstation authorization rule
+
+The protected repository policy authorizes governed Blender production on this workstation for CP-05 and later Work Orders that explicitly require Blender and pass the live MCP preflight. This authorization does not enable UGAS generation, provider startup, runtime 3D, logo promotion or CP-06+ scope by itself.
+
+The preserved local branch `codex/cp05-blender-context-core` may be resumed only after this authorization exists on protected `main`, and its Work Order/Context Lock/HIVE fingerprints must be refreshed if tracked policy-source fingerprints changed.

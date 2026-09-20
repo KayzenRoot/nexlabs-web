@@ -4,9 +4,9 @@
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "CP-04 COMPLETE",
   "version": "NEXLABS-WEB CP-04 HG-01 CLOSURE",
-  "phase": "CP-04 governed candidate exploration closed after HG-01 selected NX-C-02 r1; runtime BrandMark remains unchanged",
-  "objective": "Close the deterministic nine-candidate CP-04 exploration package after the independently reviewed HG-01 selection, without promoting the selected candidate into runtime.",
-  "inProgress": "NXWEB-WO-0003-CP04-LOGO-EXPLORATION is completed; NX-C-02 r1 is selected for future promotion review; CP-05 is not admitted until PR #23 closes successfully.",
-  "blockers": "BLENDER_MCP_UNAVAILABLE: the live Blender addon was not reachable for the lightweight projection proof. RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open.",
-  "nextStep": "Close PR #23 through the protected review flow, then admit CP-05 with a new Work Order and Context Lock; do not promote BrandMark before its separate gate."
+  "phase": "CP-04 remains complete; the Blender workstation is authorized for governed CP-05 production, while runtime BrandMark remains unchanged and no product Work Order is active on protected main.",
+  "objective": "Preserve the verified CP-04 closure while enabling the preserved CP-05 Blender Context Core Work Order to resume from protected main under the new workstation authorization.",
+  "inProgress": "No product implementation is active on protected main. The preserved local branch `codex/cp05-blender-context-core` contains the blocked CP-05 admission/HIVE history and must be resumed after this authorization reaches protected main.",
+  "blockers": "RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open. UGAS_GENERATION_PROVIDER_READY=false and UGAS_GENERATION_AUTHORIZED=false remain intentional non-blocking capability boundaries for CP-05 Blender work.",
+  "nextStep": "Resume the preserved CP-05 branch from protected main, integrate the workstation authorization without rewriting history, refresh Work Order/Context Lock/HIVE fingerprints if policy-source fingerprints changed, and continue WO-B3D-001 through WO-B3D-006. Do not begin CP-06."
 }

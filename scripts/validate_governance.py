@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import hashlib
 import re
 import subprocess
@@ -10,6 +11,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "7dac49b7d9182333e58dd1267c33489631d7e65d"
+CP05_TRANSITION_BASE = "affd133d9f8650ab91d2f0dd5871220306a3bba0"
+CP05_TRANSITION_PDF_SHA256 = "f39f3cdb3127263094c2b279ffcc6818eaf8ff272259b824f31d719931f71754"
 PLANNING = "b541e802472a3acc75a3a8ebd3818d33de8a316f"
 GEF = "866fe3af8cccc65c929aaf6a47a924401fa448b3"
 HIVE = "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
@@ -25,6 +28,7 @@ REQUIRED = (
     ".engineering/gef/GEF-POLICY.md", ".engineering/gef/GEF-PROJECT-PROFILE.json", ".engineering/gef/GEF-REVIEW-PROTOCOL.md",
     ".engineering/gef/GEF-SOURCE-BRIDGE.json", ".engineering/work-orders/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.md",
     ".engineering/context-locks/NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION.json", ".engineering/evidence/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.json",
+    ".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json", "docs/WORKSTATION-MODE.md",
     "docs/project-brain/00-README-UPLOAD-ORDER.md", "docs/project-brain/01-PROJECT-OVERVIEW.md", "docs/project-brain/02-REQUIREMENTS.md",
     "docs/project-brain/03-SCOPE.md", "docs/project-brain/04-ARCHITECTURE.md", "docs/project-brain/10-SECURITY-GOVERNANCE.md",
     "docs/project-brain/11-TEST-PLAN.md", "docs/project-brain/12-LOCAL-DEPLOYMENT.md", "docs/project-brain/13-CHECKPOINT.md",
@@ -94,7 +98,8 @@ CP04_LOCK = "NXWEB-LOCK-0003-CP04-LOGO-EXPLORATION"
 cp03_closed = current.get("lastCompletedWorkOrder") == CP03_WORK_ORDER and current.get("productStage") == "CP03_COMPLETE"
 cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED" and current.get("activeWorkOrder") == CP03_WORK_ORDER
 cp04_active = current.get("adoptionState") == "GEF_V1_CP04_ADMITTED" and current.get("activeWorkOrder") == CP04_WORK_ORDER
-cp04_closed = current.get("lastCompletedWorkOrder") == CP04_WORK_ORDER and current.get("productStage") == "CP04_COMPLETE"
+cp04_closed = current.get("lastCompletedWorkOrder") == CP04_WORK_ORDER and current.get("productStage") == "CP04_COMPLETE" and current.get("reviewState") == "CP04_HG01_SATISFIED" and current.get("nextLegalAction") == "RESUME_CP05_FROM_AUTHORIZED_WORKSTATION"
+workstation_transition_active = current.get("adoptionState") == "GEF_V1_CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("productStage") == "CP04_COMPLETE" and current.get("reviewState") == "CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("nextLegalAction") == "RESUME_CP05_AFTER_WORKSTATION_TRANSITION_MERGE" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
 
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
 if manifest.get("project") != "KayzenRoot/nexlabs-web" or manifest.get("mode") != "EXISTING_PROJECT / BROWNFIELD":
@@ -202,6 +207,65 @@ if cp04_active:
                 fail("CP-04 in-progress candidate head must be an ancestor of exact Git HEAD")
         if evidence.get("git", {}).get("proofHead") not in {None, "", head}:
             fail("CP-04 in-progress evidence proof head mismatch")
+elif workstation_transition_active:
+    transition = data(".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json")
+    try:
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+        local_branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=ROOT, text=True).strip()
+        branch = local_branch or os.environ.get("GITHUB_HEAD_REF", "").strip()
+        remote_main_head = subprocess.check_output(["git", "rev-parse", "origin/main"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve workstation transition Git state: {exc}")
+    if branch != "codex/cp05-blender-workstation-transition":
+        fail("workstation transition must execute on codex/cp05-blender-workstation-transition")
+    if remote_main_head != CP05_TRANSITION_BASE:
+        fail("workstation transition origin/main is not the synchronized protected base")
+    git_receipt = transition.get("git", {})
+    candidate_head = git_receipt.get("transitionCandidateHead")
+    if candidate_head != git_receipt.get("receiptCommitParent"):
+        fail("workstation transition receipt candidate and receipt-parent bindings disagree")
+    try:
+        subprocess.run(["git", "merge-base", "--is-ancestor", CP05_TRANSITION_BASE, candidate_head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "merge-base", "--is-ancestor", candidate_head, head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except (OSError, subprocess.CalledProcessError):
+        fail("workstation transition candidate is not based on protected main")
+    if transition.get("schemaVersion") != "nexlabs-web-cp05-workstation-transition-v1" or transition.get("status") != "IN_REVIEW":
+        fail("workstation transition receipt is not in the bounded IN_REVIEW state")
+    source = transition.get("sourceDocument", {})
+    if source.get("name") != "NEXLABS-CP05-BLENDER-WORKSTATION-TRANSITION-AUTHORIZATION.pdf" or source.get("sha256") != CP05_TRANSITION_PDF_SHA256:
+        fail("workstation transition source binding is incomplete")
+    if transition.get("base", {}).get("mainSha") != CP05_TRANSITION_BASE or transition.get("base", {}).get("branch") != branch:
+        fail("workstation transition base/branch receipt mismatch")
+    local_state = transition.get("localState", {})
+    if local_state.get("preservedBlockedBranch") != "codex/cp05-blender-context-core" or local_state.get("preserved") is not True:
+        fail("workstation transition did not preserve the blocked CP-05 branch")
+    if local_state.get("blockedCandidateHead") != "e6eef9346f72ff6bb4f0350a6cd765bcf665346f" or local_state.get("blockedReceiptHead") != "e0794aea77aaca34b19baf2adeb153d3df24774c":
+        fail("workstation transition preserved-branch receipt is incomplete")
+    capabilities = transition.get("capabilities", {})
+    if capabilities.get("BLENDER_MCP_READY") is not True or capabilities.get("BLENDER_PRODUCTION_AUTHORIZED") is not True:
+        fail("workstation transition Blender capability split is incomplete")
+    if capabilities.get("UGAS_CORE_INSTALLED") is not True or capabilities.get("UGAS_GENERATION_PROVIDER_READY") is not False or capabilities.get("UGAS_GENERATION_AUTHORIZED") is not False:
+        fail("workstation transition UGAS capability split is unsafe or incomplete")
+    blender = capabilities.get("blender", {})
+    if blender.get("version") != "5.2.1 LTS" or blender.get("addonVersion") != "1.7" or blender.get("protocolVersion") != 7 or blender.get("getAddonStatus") != "PASS" or blender.get("getSceneInfo") != "PASS":
+        fail("workstation transition Blender/MCP capability evidence is incomplete")
+    agents_source = read("AGENTS.md")
+    workstation_source = read("docs/WORKSTATION-MODE.md")
+    for policy_name, policy_source in (("AGENTS.md", agents_source), ("docs/WORKSTATION-MODE.md", workstation_source)):
+        if "BLENDER_MCP_READY=true" not in policy_source or "BLENDER_PRODUCTION_AUTHORIZED=true" not in policy_source:
+            fail(f"{policy_name} does not declare the authorized Blender capability split")
+        if "UGAS_CORE_INSTALLED=true" not in policy_source or "UGAS_GENERATION_PROVIDER_READY=false" not in policy_source or "UGAS_GENERATION_AUTHORIZED=false" not in policy_source:
+            fail(f"{policy_name} does not preserve the fail-closed UGAS capability split")
+    if transition.get("scope", {}).get("sceneMutation") is not False or transition.get("scope", {}).get("cp05ProductImplementation") is not False or transition.get("scope", {}).get("ugasGeneration") is not False:
+        fail("workstation transition claims forbidden product or generation work")
+    if transition.get("hosted", {}).get("status") != "NOT_STARTED" or transition.get("hosted", {}).get("merge") != "NOT_EXECUTED" or transition.get("hosted", {}).get("postMergeChecks") != "NOT_CLAIMED":
+        fail("workstation transition cannot claim hosted or post-merge evidence before the PR exists")
+    if section(canonical, "## STATUS") != "CP-04 COMPLETE" or section(canonical, "## VERSION") != "NEXLABS-WEB CP-05 BLENDER WORKSTATION TRANSITION":
+        fail("workstation transition checkpoint does not preserve CP-04 completion")
+    if "BLENDER_MCP_UNAVAILABLE" in section(canonical, "## BLOCKERS") or "RUNTIME_BRAND_PROMOTION_PENDING" not in section(canonical, "## BLOCKERS") or "EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED" not in section(canonical, "## BLOCKERS"):
+        fail("workstation transition checkpoint blocker vocabulary is incorrect")
+    if "Status: `CP05_BLENDER_WORKSTATION_TRANSITION_IN_REVIEW`" not in read(".engineering/SOURCE-HIERARCHY.md"):
+        fail("Source Hierarchy is not in the workstation transition review state")
 elif cp04_closed:
     work_order = read(f".engineering/work-orders/{CP04_WORK_ORDER}.md")
     lock = data(f".engineering/context-locks/{CP04_LOCK}.json")
@@ -226,11 +290,26 @@ elif cp04_closed:
         fail("CP-04 closure evidence Context Lock digest mismatch")
     if lock.get("status") != "CLOSED" or "Status: `COMPLETED`" not in work_order:
         fail("CP-04 closure requires a CLOSED Context Lock and COMPLETED Work Order")
-    if current.get("reviewState") != "CP04_HG01_SATISFIED" or current.get("nextLegalAction") != "ADMIT_CP05_WITH_NEW_WORK_ORDER_AFTER_PR23_CLOSE":
-        fail("CP-04 GEF closure vocabulary is incomplete")
+    if current.get("reviewState") != "CP04_HG01_SATISFIED" or current.get("nextLegalAction") != "RESUME_CP05_FROM_AUTHORIZED_WORKSTATION":
+        fail("CP-04 GEF closure/workstation-resume vocabulary is incomplete")
     hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
     if "Status: `CP04_COMPLETE_READY_FOR_CP05_ADMISSION`" not in hierarchy:
         fail("CP-04 Source Hierarchy is not closed for CP-05 admission")
+    transition = data(".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json")
+    if transition.get("status") != "AUTHORIZED":
+        fail("CP-05 Blender workstation transition is not authorized")
+    capabilities = transition.get("capabilities", {})
+    if capabilities.get("BLENDER_MCP_READY") is not True or capabilities.get("BLENDER_PRODUCTION_AUTHORIZED") is not True:
+        fail("authorized workstation is missing Blender readiness/authorization")
+    if capabilities.get("UGAS_GENERATION_PROVIDER_READY") is not False or capabilities.get("UGAS_GENERATION_AUTHORIZED") is not False:
+        fail("authorized workstation must keep UGAS generation fail-closed")
+    if transition.get("scope", {}).get("sceneMutation") is not False or transition.get("scope", {}).get("cp05ProductImplementation") is not False:
+        fail("workstation authorization transition must remain non-product")
+    agents_policy = read("AGENTS.md")
+    workstation_policy = read("docs/WORKSTATION-MODE.md")
+    for policy_name, policy_source in (("AGENTS.md", agents_policy), ("docs/WORKSTATION-MODE.md", workstation_policy)):
+        if "BLENDER_PRODUCTION_AUTHORIZED=true" not in policy_source or "UGAS_GENERATION_AUTHORIZED=false" not in policy_source:
+            fail(f"{policy_name} does not reflect the authorized Blender / fail-closed UGAS policy")
     if section(canonical, "## STATUS") != "CP-04 COMPLETE" or section(canonical, "## VERSION") != "NEXLABS-WEB CP-04 HG-01 CLOSURE":
         fail("CP-04 canonical checkpoint is not in the closure state")
     if evidence.get("verdict") != "APPROVED" or evidence.get("reviewState") != "CP04_HG01_SATISFIED":
@@ -533,7 +612,14 @@ for path in governance_files:
         fail(f"machine-specific absolute path in {path.relative_to(ROOT)}")
 
 adoption_state = current.get("adoptionState")
-if cp04_active:
+if workstation_transition_active:
+    if adoption_state != "GEF_V1_CP05_WORKSTATION_TRANSITION_IN_REVIEW":
+        fail("invalid workstation transition adoption state")
+    if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("workstation transition cannot retain an active product Work Order or Context Lock")
+    if transition.get("status") != "IN_REVIEW" or transition.get("scope", {}).get("cp05ProductImplementation") is not False:
+        fail("workstation transition requires bounded non-product evidence")
+elif cp04_active:
     if adoption_state != "GEF_V1_CP04_ADMITTED":
         fail("invalid CP-04 adoption state")
     if lock.get("status") not in {"OPEN", "ACTIVE"}:
