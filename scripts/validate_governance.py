@@ -166,8 +166,8 @@ if cp03_closed:
         fail(f"CP-03 reviewed head tree {reviewed_tree} differs from squash promotion tree {promotion_tree}")
     if lock.get("reviewedHeadTree") != reviewed_tree or lock.get("promotionAnchorTree") != promotion_tree:
         fail("CP-03 Context Lock tree proof does not match Git")
-    if current.get("productStage") != "CP03_COMPLETE" or current.get("reviewState") != "CP03_COMPLETE_CANDIDATE":
-        fail("CP-03 GEF state is not the protected squash completion candidate state")
+    if current.get("productStage") != "CP03_COMPLETE" or current.get("reviewState") != "CP03_VERIFIED_COMPLETE":
+        fail("CP-03 GEF state is not the verified protected squash completion state")
     if current.get("nextLegalAction") != "ADMIT_CP04_WITH_NEW_WORK_ORDER" or current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
         fail("CP-03 completion must stop before CP-04 admission")
     if lock.get("status") != "CLOSED":
@@ -177,8 +177,15 @@ if cp03_closed:
     hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
     if "Status: `CP03_COMPLETE_READY_FOR_NEXT_ADMISSION`" not in hierarchy:
         fail("CP-03 Source Hierarchy is not closed for the next admission")
-    if evidence.get("verdict") != "APPROVED" or evidence.get("reviewState") != "CP03_COMPLETE_CANDIDATE":
-        fail("CP-03 evidence does not describe the corrected completion candidate")
+    backlog = read("docs/project-brain/14-BACKLOG.md")
+    if "cp-03 institutional pages" in backlog.lower():
+        fail("CP-03 institutional pages remain in the future backlog")
+    if "CP-04 logo exploration/selection" not in backlog:
+        fail("CP-04 logo exploration/selection is missing from the future backlog")
+    if section(canonical, "## PHASE") != "CP-03 verified post-merge complete":
+        fail("checkpoint phase is not the verified CP-03 post-merge closure vocabulary")
+    if evidence.get("verdict") != "APPROVED" or evidence.get("reviewState") != "CP03_VERIFIED_COMPLETE":
+        fail("CP-03 evidence does not describe the verified completion")
     if evidence.get("git", {}).get("proofHead") != promotion_anchor or evidence.get("git", {}).get("reviewedCandidateHead") != reviewed:
         fail("CP-03 closure evidence reviewed/promotion head mismatch")
     if evidence.get("git", {}).get("reviewReceiptHead") != promotion_anchor:
@@ -199,8 +206,16 @@ if cp03_closed:
     if initial_post_merge.get("head") != promotion_anchor or initial_post_merge.get("classification") != "SQUASH_PROMOTION_LINEAGE_FALSE_NEGATIVE" or initial_post_merge.get("quality", {}).get("status") != "FAILURE" or initial_post_merge.get("Governance", {}).get("status") != "FAILURE":
         fail("CP-03 initial post-merge failure classification is missing")
     correction_pr = hosted.get("correctionPullRequest", {})
-    if correction_pr.get("merge") != "NOT_EXECUTED" or correction_pr.get("postMergeChecks") != "NOT_CLAIMED":
-        fail("CP-03 correction PR must remain unmerged with no post-merge claim")
+    if correction_pr.get("number") != 20 or correction_pr.get("status") != "MERGED" or correction_pr.get("reviewedHead") != "b60e3e518956127819e8a3d54b1dc33610b985b8" or correction_pr.get("mergeSha") != "1064e7832eae36a42485d5b040300edf2092be94" or correction_pr.get("mergeMethod") != "SQUASH":
+        fail("CP-03 correction PR evidence does not bind PR #20 to resulting main")
+    correction_pre_merge = correction_pr.get("preMergeChecks", {})
+    if correction_pre_merge.get("head") != correction_pr.get("reviewedHead") or correction_pre_merge.get("quality", {}).get("status") != "PASS" or correction_pre_merge.get("Governance", {}).get("status") != "PASS":
+        fail("CP-03 correction PR pre-merge checks are not PASS on the reviewed head")
+    correction_resulting_main = correction_pr.get("resultingMainChecks", {})
+    if correction_resulting_main.get("head") != correction_pr.get("mergeSha") or correction_resulting_main.get("quality", {}).get("status") != "PASS" or correction_resulting_main.get("Governance", {}).get("status") != "PASS":
+        fail("CP-03 resulting-main checks are not PASS on the correction merge SHA")
+    if correction_pr.get("merge") != "EXECUTED" or correction_pr.get("postMergeChecks") != "PASS":
+        fail("CP-03 correction PR merge or resulting-main checks are not recorded as complete")
     for heading in ("## OBJECTIVE", "## CONTEXT/HIVE PREFLIGHT", "## CANONICAL BASIS", "## SCOPE", "## OUT OF SCOPE", "## FILES/SOURCES TO READ", "## REQUIREMENTS", "## ARCHITECTURE RULES", "## CONSTRAINTS", "## ACCEPTANCE CRITERIA", "## TESTS", "## DELIVERABLES", "## REVIEW FORMAT", "## STOP CONDITION", "## EXECUTION REFERENCES / CANONICAL REFERENCES"):
         if heading not in work_order:
             fail(f"CP-03 Work Order missing section: {heading}")
