@@ -47,3 +47,11 @@ The implementation workstation has verified Blender MCP readiness and UGAS core 
 Status: accepted for CP-03 execution.
 
 The pinned HIVE repository documentation and `LICENSE` at `a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf` state that the repository is All Rights Reserved and is not an open-source license. The website may link to and describe the public implementation, but must not publish the stale Apache-2.0 claim from the planning draft.
+
+## ADR-NXWEB-009 - Blender production workstation transition
+
+Status: accepted for governed CP-05 resumption after the protected transition merge.
+
+This workstation is authorized for governed Blender production beginning with CP-05. The authorization is supported by Blender 5.2.1 LTS, MCP add-on 1.7/protocol 7, and passing `get_addon_status` and `get_scene_info` preflight receipts. Blender work remains conditional on an active governed Work Order and a passing live MCP gate; if that gate fails, the affected Work Order stops fail-closed.
+
+UGAS generation remains unauthorized and unready: `UGAS_GENERATION_PROVIDER_READY=false` and `UGAS_GENERATION_AUTHORIZED=false`. This decision does not promote NX-C-02 into runtime, admit CP-06, authorize Three.js/R3F, deployment, release or provider startup.

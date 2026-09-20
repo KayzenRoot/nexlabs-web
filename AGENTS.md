@@ -43,4 +43,11 @@ When a user directly provides or authorizes a PDF or Markdown work specification
 
 ## Workstation boundary
 
-The active workstation cannot run UGAS and is not the Blender production workstation. Keep no-UGAS/no-Blender active: use neutral placeholders and stable media slots, and do not introduce final logo artwork, canonical 3D, Three.js/R3F or final high-fidelity motion.
+This workstation has verified Blender MCP capability and is authorized for governed Blender production after the CP-05 workstation transition. The capability layers remain intentionally split:
+
+- `BLENDER_MCP_READY=true`: Blender 5.2.1 LTS with the MCP add-on and a passing MCP preflight.
+- `BLENDER_PRODUCTION_AUTHORIZED=true`: Blender production is allowed only for an active governed Work Order that explicitly requires Blender and after MCP preflight passes.
+- `UGAS_CORE_INSTALLED=true`: UGAS core is installed, but this does not authorize generation.
+- `UGAS_GENERATION_PROVIDER_READY=false` and `UGAS_GENERATION_AUTHORIZED=false`: provider startup and real UGAS generation remain prohibited unless separately authorized and ready.
+
+CP-05 Context Core foundation may use Blender only after this transition is merged, the Work Order/Context Lock is resumed or newly admitted, and the live MCP gate passes. This transition branch itself must not mutate a Blender scene. Blender authorization does not permit final logo promotion, Three.js/R3F runtime work, CP-06+, deployment or release. If Blender MCP becomes unavailable, the affected Blender Work Order fails closed rather than falling back to fabricated assets.
