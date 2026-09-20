@@ -25,7 +25,7 @@
   "planningManifestSha256": "ac32a18d9c935c9cc8b7bb1e947bb4426774e2e1e4acd6fc4d60d72ebe2fcf1e",
   "git": {
     "admissionHead": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
-    "candidateHead": "c3587cf227c578433340f9acdf006def70240a7a",
+    "candidateHead": "de5a35db79521fca740f909982cc69ffd2033dc3",
     "reviewedCandidateHead": null,
     "reviewReceiptHead": null,
     "sceneMutationHead": null
@@ -55,11 +55,11 @@
       "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
       "relativePath": "nexlabs-web",
       "state": "READY",
-    "head": "c3587cf227c578433340f9acdf006def70240a7a",
+    "head": "de5a35db79521fca740f909982cc69ffd2033dc3",
     "headRole": "cp05_exact_hive_checkpoint_candidate",
       "workingTreeClean": true,
-      "indexRunId": "5db76309-3093-4b0a-b9b3-54b251df1092",
-      "corpusRunId": "a9187d33-4ff7-4616-ae7c-f31f9ae2cbca"
+      "indexRunId": "8d34469f-ee16-41e9-afc2-738d1ac0985b",
+      "corpusRunId": "ce33feb8-68a6-4643-a323-9331156ceb17"
     },
     "task": {
       "id": "b24a0a72-35b7-4a67-a770-f661e1e6178f",
@@ -79,11 +79,11 @@
       "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK",
       "contextSearchQuery": "CP-05 Blender Context Core foundation",
       "contextSearchCandidatePool": 5,
-      "contextSearchCorpusRunId": "a9187d33-4ff7-4616-ae7c-f31f9ae2cbca",
-      "contextBuildDefault": {"status": "PASS", "disclosureLevel": "DEFAULT", "topK": 5, "inputFingerprint": "ccff297fb01b6dbf823f61eaf64c9ca7002d4059ebdcfcdccc1493e1a825073d", "outputFingerprint": "287296b39150d9f203ede674440e39ec42e8e2e9a949c8f3e96a11b4f122a639", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudget": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
-      "contextBuildMinimal": {"status": "PASS", "disclosureLevel": "L0", "topK": 1, "inputFingerprint": "ed03f3d4cead5fd8cbb333e2de4f6ac6e84d1e966453b6c4cbd7110b2ba74bff", "outputFingerprint": "d7d1c7027ef4e4bf17f621804c8e278bd2a6a7363aabd644ef6a901593fa4016", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
-      "coreContextBuildDefault": {"status": "PASS", "disclosureLevel": "DEFAULT", "topK": 5, "inputFingerprint": "ccff297fb01b6dbf823f61eaf64c9ca7002d4059ebdcfcdccc1493e1a825073d", "outputFingerprint": "287296b39150d9f203ede674440e39ec42e8e2e9a949c8f3e96a11b4f122a639", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
-      "coreContextBuildMinimal": {"status": "PASS", "disclosureLevel": "L0", "topK": 1, "inputFingerprint": "ed03f3d4cead5fd8cbb333e2de4f6ac6e84d1e966453b6c4cbd7110b2ba74bff", "outputFingerprint": "d7d1c7027ef4e4bf17f621804c8e278bd2a6a7363aabd644ef6a901593fa4016", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}
+      "contextSearchCorpusRunId": "ce33feb8-68a6-4643-a323-9331156ceb17",
+       "contextBuildDefault": {"status": "PASS", "disclosureLevel": "DEFAULT", "topK": 5, "inputFingerprint": "393185e08ba1daecd0ae65ccc896fdb585592ec8ba3c69067bc7b766a724e935", "outputFingerprint": "b0cf174ab2f9dcc8a86c20e56686fef8166b3014cc8e82190cd8bbda3c23cf6b", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudget": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+       "contextBuildMinimal": {"status": "PASS", "disclosureLevel": "L0", "topK": 1, "inputFingerprint": "c70324827ccbe7821cd889cb589aa53f70fd4d668046c53f0db2d722c7bbfdba", "outputFingerprint": "774d2fd8ac552a2cac15abe4777855ff56a22f3155ca6d9078b33681764900da", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+       "coreContextBuildDefault": {"status": "PASS", "disclosureLevel": "DEFAULT", "topK": 5, "inputFingerprint": "393185e08ba1daecd0ae65ccc896fdb585592ec8ba3c69067bc7b766a724e935", "outputFingerprint": "b0cf174ab2f9dcc8a86c20e56686fef8166b3014cc8e82190cd8bbda3c23cf6b", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+       "coreContextBuildMinimal": {"status": "PASS", "disclosureLevel": "L0", "topK": 1, "inputFingerprint": "c70324827ccbe7821cd889cb589aa53f70fd4d668046c53f0db2d722c7bbfdba", "outputFingerprint": "774d2fd8ac552a2cac15abe4777855ff56a22f3155ca6d9078b33681764900da", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}
     }
   },
   "workOrders": {
