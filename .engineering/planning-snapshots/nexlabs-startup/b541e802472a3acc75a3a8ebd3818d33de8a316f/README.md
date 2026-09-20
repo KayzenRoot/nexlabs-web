@@ -34,3 +34,12 @@ The same pinned parent commit now also caches the exact CP-04 logo/brand plannin
 - BR-12 UGAS asset pipeline and provenance schema.
 
 These are execution mirrors only. Their source Git blob SHAs are recorded in MANIFEST.json. UGAS output may support exploration but cannot become canonical identity without the CP-04 human selection gate.
+
+
+## CP-05 Blender Context Core extension
+
+The pinned planning cache also includes the exact CP-05 Blender foundation inputs:
+- BR-05 3D Language;
+- BR-11 Context Core Blender Work-Order Map.
+
+The parent planning repository at the pinned commit remains authoritative. These files are execution mirrors only and their exact Git blob SHAs are recorded in MANIFEST.json.
