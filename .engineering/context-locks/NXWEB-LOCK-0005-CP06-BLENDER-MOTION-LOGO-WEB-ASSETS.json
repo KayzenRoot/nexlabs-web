@@ -61,6 +61,7 @@
     "diagnostics": ["Codex MCP configuration verified with full path: blender enabled, uvx mcp-for-blender, BLENDER_HOST=127.0.0.1, BLENDER_PORT=9876", "Before recovery: no blender process, no listener on 127.0.0.1:9876, TCP probe failed", "After R3: Blender PID 39332 is the sole listener owner on 127.0.0.1:9876"]
   },
   "subsequentTransportRecovery": {"status": "PASS", "ladderStep": "R3_REPEAT_AFTER_PROCESS_EXIT", "blenderPid": 25232, "listenerPid": 25232, "blenderVersion": "5.2.1 LTS", "addonVersion": "1.7", "protocolVersion": 7, "stabilityGate": {"A_getAddonStatus": "PASS", "B_getSceneInfo": "PASS", "C_getAddonStatusAfterPause": "PASS", "D_getSceneInfoAgain": "PASS", "sameBlenderPid": true, "transportErrors": []}, "sceneLoadedReadOnlyAfterRecovery": true, "sceneMutationBeforeGate": false},
+  "finalKeepAlive": {"status": "PASS", "blenderPid": 8364, "listenerPid": 8364, "host": "127.0.0.1", "port": 9876, "blenderVersion": "5.2.1 LTS", "addonVersion": "1.7", "protocolVersion": 7, "stabilityGate": {"A_getAddonStatus": "PASS", "B_getSceneInfo": "PASS", "C_getAddonStatusAfterPause": "PASS", "D_getSceneInfoAgain": "PASS", "sameBlenderPid": true, "transportErrors": []}},
   "policyGate": {
     "status": "PASS_LIVE_PREFLIGHT",
     "code": "BLENDER_PRODUCTION_AUTHORIZED",

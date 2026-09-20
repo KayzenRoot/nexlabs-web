@@ -35,6 +35,7 @@
     "production": {"status": "PASS_LOCAL", "sceneMutationPerformed": true, "mutationAfterPolicyAndMcpGate": true, "workOrders": ["WO-B3D-007", "WO-B3D-008", "WO-B3D-009", "WO-B3D-010", "WO-B3D-011", "WO-B3D-012"], "sceneId": "NL-SCENE-CONTEXT-CORE-01", "assetManifest": "artifacts/cp06/cp06-asset-manifest.json", "provenance": "artifacts/cp06/cp06-provenance.json", "gateReport": "artifacts/cp06/cp06-gate-report.md", "glbInspection": "artifacts/cp06/reports/glb-inspection.json"}
   },
   "transportRecoveryFollowUp": {"status": "PASS", "ladderStep": "R3_REPEAT_AFTER_PROCESS_EXIT", "blenderPid": 25232, "listenerPid": 25232, "stabilityGate": {"A_getAddonStatus": "PASS", "B_getSceneInfo": "PASS", "C_getAddonStatusAfterPause": "PASS", "D_getSceneInfoAgain": "PASS", "sameBlenderPid": true, "transportErrors": []}, "sceneMutationBeforeGate": false},
+  "transportFinalKeepAlive": {"status": "PASS", "blenderPid": 8364, "listenerPid": 8364, "host": "127.0.0.1", "port": 9876, "blenderVersion": "5.2.1 LTS", "addonVersion": "1.7", "protocolVersion": 7, "stabilityGate": {"A_getAddonStatus": "PASS", "B_getSceneInfo": "PASS", "C_getAddonStatusAfterPause": "PASS", "D_getSceneInfoAgain": "PASS", "sameBlenderPid": true, "transportErrors": []}},
   "cp05Source": {
     "sceneId": "NL-SCENE-CONTEXT-CORE-01",
     "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",

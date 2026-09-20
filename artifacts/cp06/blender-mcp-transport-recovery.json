@@ -67,6 +67,24 @@
     "sceneMutationAfterPolicyAndMcpGate": true,
     "productionCompleted": true
   },
+  "finalKeepAlive": {
+    "status": "PASS",
+    "blenderPid": 8364,
+    "listenerPid": 8364,
+    "host": "127.0.0.1",
+    "port": 9876,
+    "blenderVersion": "5.2.1 LTS",
+    "addonVersion": "1.7",
+    "protocolVersion": 7,
+    "stabilityGate": {
+      "A_getAddonStatus": "PASS",
+      "B_getSceneInfo": "PASS",
+      "C_getAddonStatusAfterPause": "PASS",
+      "D_getSceneInfoAgain": "PASS",
+      "sameBlenderPid": true,
+      "transportErrors": []
+    }
+  },
   "historicalBlockedReceipt": {
     "initialError": "[WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host",
     "boundedRecoveryAddon": "Not connected to Blender",
