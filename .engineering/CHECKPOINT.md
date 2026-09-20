@@ -4,22 +4,22 @@ Status: `DERIVED_VIEW`
 Canonical source: `docs/project-brain/13-CHECKPOINT.md`
 
 ## STATUS
-CP-06 BLOCKED
+CP-06 IN PROGRESS
 
 ## VERSION
-NEXLABS-WEB CP-06 BLENDER MOTION + LOGO + WEB ASSETS BLOCKED
+NEXLABS-WEB CP-06 BLENDER MOTION + LOGO + WEB ASSETS IN PROGRESS
 
 ## PHASE
-CP-06 is admitted from protected main `9b502c1d618e93e1be45864acf19648e132515c6` under the new governed Work Order and extends the approved CP-05 Context Core through WO-B3D-012. Execution is blocked before Blender scene mutation because the live Blender MCP hard preflight and its bounded recovery both failed. The phase stops before CP-07 runtime integration and does not promote the production BrandMark.
+CP-06 is admitted from protected main `9b502c1d618e93e1be45864acf19648e132515c6` under the governed Work Order and extends the approved CP-05 Context Core through WO-B3D-012. The historical Blender MCP transport failure was recovered by reopening the same Blender 5.2.1 LTS installation; the live MCP stability gate now passes on loopback before scene mutation. The phase remains before CP-07 runtime integration and does not promote the production BrandMark.
 
 ## OBJECTIVE
 Execute WO-B3D-007 through WO-B3D-012 as a deterministic, auditable Blender motion, selected-logo projection, LOD, GLB and static fallback package for CP-07 consumption.
 
 ## IN PROGRESS
-NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS remains active but blocked before scene mutation; HIVE project/task/index/corpus and bounded MCP context receipts pass at candidate `234bcaaab5e8d56ca2796972b809e7d6b2fa320bd`.
+NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS remains active and is resumed after the live MCP stability gate. The existing HIVE task and Work Order digest remain bound; refreshed project/task/index/corpus and context receipts must remain exact-head bound as execution advances.
 
 ## BLOCKERS
-BLENDER_MCP_DISCONNECTED_WINERROR_10053: initial handshake lost the Blender connection; the single bounded recovery returned Not connected to Blender for both addon and scene info. No scene mutation occurred. UGAS generation remains unauthorized/unready and CP-07 runtime integration is out of scope.
+Historical transport blocker `BLENDER_MCP_DISCONNECTED_WINERROR_10053` was preserved in the CP06 evidence. Recovery is recorded as `MCP_RECOVERED` after the same Blender process became the sole owner of `127.0.0.1:9876` and four sequential addon/scene probes passed. UGAS generation remains unauthorized/unready and CP-07 runtime integration is out of scope.
 
 ## NEXT STEP
-Repair/reconnect the Blender MCP workstation, rerun the single hard preflight, and resume CP-06 from this blocked checkpoint; do not bypass the gate or start CP-07.
+Execute WO-B3D-007 through WO-B3D-012 under the resumed hard preflight, collect exact-head evidence, and stop before CP-07; do not start runtime integration or UGAS generation.

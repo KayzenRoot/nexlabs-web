@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "nexlabs-web-cp06-blender-mcp-transport-recovery-v1",
+  "recoveryDocument": {
+    "name": "NEXLABS-CP06-BLENDER-MCP-TRANSPORT-RECOVERY-AND-RESUME.pdf",
+    "sha256": "cda5c6f202cd4147b47b504df3fae10cd0b13ea1c5b560e41e82b84e88603ff6"
+  },
+  "workOrder": "NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
+  "contextLock": "NXWEB-LOCK-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
+  "branch": "codex/cp06-blender-motion-logo-web-assets",
+  "protectedBase": "9b502c1d618e93e1be45864acf19648e132515c6",
+  "preRecovery": {
+    "blenderProcess": "ABSENT",
+    "configuredHost": "127.0.0.1",
+    "configuredPort": 9876,
+    "listener": "ABSENT",
+    "tcpProbe": "FAIL",
+    "codexMcp": "ENABLED_UNSUPPORTED_AUTH"
+  },
+  "configuration": {
+    "command": "C:\\Users\\csn19\\.local\\bin\\uvx.exe",
+    "args": ["mcp-for-blender"],
+    "host": "127.0.0.1",
+    "port": 9876,
+    "safeMode": true,
+    "configSource": "C:\\Users\\csn19\\.codex\\config.toml"
+  },
+  "recovery": {
+    "ladderStep": "R3_SAME_BLENDER_RESTART",
+    "executable": "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+    "blenderPid": 39332,
+    "listenerPid": 39332,
+    "blenderVersion": "5.2.1 LTS",
+    "addonVersion": "1.7",
+    "protocolVersion": 7,
+    "capturedAt": "2026-09-20T15:42:06.1327547-03:00"
+  },
+  "stabilityGate": {
+    "A_getAddonStatus": "PASS",
+    "B_getSceneInfo": "PASS",
+    "C_getAddonStatusAfterPause": "PASS",
+    "D_getSceneInfoAgain": "PASS",
+    "sameBlenderPid": true,
+    "transportErrors": [],
+    "sceneMutationBeforeGate": false
+  },
+  "historicalBlockedReceipt": {
+    "initialError": "[WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host",
+    "boundedRecoveryAddon": "Not connected to Blender",
+    "boundedRecoveryScene": "Not connected to Blender",
+    "historicalListener": "127.0.0.1:8765 owned by com.docker.backend PID 17120",
+    "preserved": true
+  }
+}
