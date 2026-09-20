@@ -1,22 +1,22 @@
 # 13 - Checkpoint
 
 ## STATUS
-CP-03 COMPLETE
+CP-04 IN PROGRESS
 
 ## VERSION
-NEXLABS-WEB CP-03 COMPLETE
+NEXLABS-WEB CP-04 LOGO EXPLORATION
 
 ## PHASE
-CP-03 verified post-merge complete
+CP-04 governed candidate exploration; canonical selection is held at HG-01
 
 ## OBJECTIVE
-Implement the static institutional content surface with typed canonical content, verified evidence, route metadata and exact-head validation.
+Produce exactly nine deterministic NexLabs logo candidates with review evidence while preserving the existing runtime identity and stopping before canonical selection.
 
 ## IN PROGRESS
-NONE
+NXWEB-WO-0003-CP04-LOGO-EXPLORATION; HIVE preparation and candidate evidence in progress.
 
 ## BLOCKERS
-NONE
+BLENDER_MCP_UNAVAILABLE: the live Blender addon was not reachable for the lightweight projection proof.
 
 ## NEXT STEP
-Admit CP-04 through a new GEF Work Order + Context Lock.
+Complete the nine-candidate evidence package, run local gates, open the protected PR if green, then stop for HG-01 human selection.

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "nexlabs-web-cp04-evidence-v1",
+  "verdict": "IN_PROGRESS",
+  "reviewState": "CP04_IMPLEMENTATION_IN_PROGRESS",
+  "workOrder": {"id": "NXWEB-WO-0003-CP04-LOGO-EXPLORATION", "sha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361", "executionSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361"},
+  "contextLock": {"id": "NXWEB-LOCK-0003-CP04-LOGO-EXPLORATION", "workOrderSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361", "executionWorkOrderSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361"},
+  "authorizedBase": "b989606949bd362a2bd63d039448505f3220918e",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "sourcePdf": {"name": "NEXLABS-CP04-LOGO-EXPLORATION-WORK-ORDER.pdf", "sha256": "13c0192f04a49d40686c4c7937bd547358a57664c24d14d8d124a051228bf4ce"},
+  "candidateIds": [],
+  "canonicalSelection": false,
+  "runtimeWiring": false,
+  "hive": {"status": "PENDING", "project": "NEXLABS-WEB", "task": null},
+  "blender": {"status": "BLOCKED_EXTERNAL", "reason": "BLENDER_MCP_UNAVAILABLE", "addonStatus": "Could not connect to Blender. Make sure the Blender addon is running."},
+  "ugas": {"status": "INSPECTED_UNAVAILABLE", "providerStarted": false, "generationPerformed": false, "frozenSha": "0169f84248703931bb7578177d9773bce319c14e"},
+  "local": {"status": "PENDING"},
+  "hosted": {"status": "PENDING", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
+  "git": {"proofHead": null, "candidateHead": null, "reviewedCandidateHead": null, "reviewReceiptHead": null},
+  "knownBlockers": ["BLENDER_MCP_UNAVAILABLE", "HUMAN_GATE_HG_01_PENDING"],
+  "researchGaps": ["External visual similarity and trademark clearance were not performed; independent human review remains required."]
+}

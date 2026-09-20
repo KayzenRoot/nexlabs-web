@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "nexlabs-web-context-lock-v1",
+  "lockId": "NXWEB-LOCK-0003-CP04-LOGO-EXPLORATION",
+  "workOrder": "NXWEB-WO-0003-CP04-LOGO-EXPLORATION",
+  "status": "OPEN",
+  "authorizedBase": "b989606949bd362a2bd63d039448505f3220918e",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "gef": {"version": "1.0.0", "releaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"},
+  "hive": {"version": "1.0.0", "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"},
+  "workOrderSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361",
+  "executionWorkOrderSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361",
+  "admissionHead": "b989606949bd362a2bd63d039448505f3220918e",
+  "candidateHead": null,
+  "candidateHeadRole": "implementation_candidate_head",
+  "reviewedCandidateHead": null,
+  "reviewReceiptHead": null,
+  "promotionAnchor": null,
+  "scope": {"candidateCount": 9, "candidateFamilies": ["NX-D", "NX-C", "NX-B"], "canonicalSelection": false, "runtimeWiring": false},
+  "externalBlockers": ["BLENDER_MCP_UNAVAILABLE"],
+  "humanGate": "HG-01",
+  "stopState": "CP04_HUMAN_SELECTION_PENDING"
+}
