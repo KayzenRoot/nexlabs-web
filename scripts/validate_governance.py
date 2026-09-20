@@ -140,7 +140,7 @@ if cp03_active:
         fail("CP-03 Context Lock candidate head is missing")
     if candidate != reviewed or lock.get("candidateHeadRole") != "independent_review_input_head":
         fail("CP-03 Context Lock candidate/review lineage role mismatch")
-    if not isinstance(receipt, str) or not receipt or lock.get("reviewReceiptHeadRole") != "governance_correction_receipt_ancestor":
+    if not isinstance(receipt, str) or not receipt or lock.get("reviewReceiptHeadRole") != "governance_correction_commit_parent_of_evidence_receipt_commit":
         fail("CP-03 Context Lock review receipt head is missing or untyped")
 
     def is_ancestor(ancestor: str, descendant: str) -> bool:

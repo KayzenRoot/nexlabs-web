@@ -23,8 +23,8 @@
     "candidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
     "candidateHeadRole": "independent_review_input_head",
     "reviewedCandidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
-    "reviewReceiptHead": "61be13d087a8309196c49ad89914111b5f0ea545",
-    "reviewReceiptHeadRole": "governance_correction_receipt_ancestor",
+    "reviewReceiptHead": "9529c31b2676b0de0e15acf3568e792de537b0b5",
+    "reviewReceiptHeadRole": "governance_correction_commit_parent_of_evidence_receipt_commit",
     "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
     "workstationPolicy": "BLENDER_MCP_READY/UGAS_CORE_INSTALLED/UGAS_GENERATION_PROVIDER_NOT_READY/CP03_STATIC_ONLY"
   },
@@ -35,13 +35,15 @@
     "proofHead": "61be13d087a8309196c49ad89914111b5f0ea545",
     "proofHeadRole": "independent_review_input_head",
     "reviewedCandidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
-    "reviewReceiptHead": "61be13d087a8309196c49ad89914111b5f0ea545",
-    "reviewReceiptHeadRole": "governance_correction_receipt_ancestor",
+    "reviewReceiptHead": "9529c31b2676b0de0e15acf3568e792de537b0b5",
+    "reviewReceiptHeadRole": "governance_correction_commit_parent_of_evidence_receipt_commit",
     "workingTreeCleanAtProof": true,
     "commitsSinceBase": [
       "4e74522 chore: admit CP-03 institutional pages",
       "a24dde3 chore: compact CP03 HIVE work order",
-      "9f21280 feat: implement CP03 institutional pages"
+      "9f21280 feat: implement CP03 institutional pages",
+      "61be13d chore: record CP03 local evidence",
+      "9529c31 chore: correct CP03 review governance state"
     ],
     "changedFilesSinceBase": [
       ".engineering/BOOTSTRAP-MANIFEST.json",
