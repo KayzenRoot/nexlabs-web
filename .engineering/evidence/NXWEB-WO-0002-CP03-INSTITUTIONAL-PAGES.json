@@ -1,11 +1,11 @@
 {
   "schemaVersion": "nexlabs-web-cp03-evidence-v1",
   "sourceDocument": {
-    "filename": "NEXLABS-CP03-POSTMERGE-SQUASH-GOVERNANCE-CORRECTION.pdf",
-    "sha256": "b9336cffd79bc626a38adf69164c715f56c43a8e3c689c9ca4c41eb4569ecaaf"
+    "filename": "NEXLABS-CP03-FINAL-CANONICAL-RECEIPT-CLOSURE.pdf",
+    "sha256": "1497aedb53d8c51f29b9541e48a547ea44aad597abf7b1dd79b75c32f7175b97"
   },
   "verdict": "APPROVED",
-  "reviewState": "CP03_COMPLETE_CANDIDATE",
+  "reviewState": "CP03_VERIFIED_COMPLETE",
   "workOrder": {
     "id": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
     "path": ".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md",
@@ -218,7 +218,7 @@
   "hosted": {
     "remoteBranch": {
       "name": "codex/cp03-postmerge-governance-closure",
-      "status": "LOCAL_CORRECTION_CANDIDATE"
+      "status": "MERGED"
     },
     "mergedPullRequest": {
       "number": 19,
@@ -264,19 +264,50 @@
       }
     },
     "correctionPullRequest": {
-      "status": "TO_BE_OPENED_FROM_THIS_CANDIDATE",
-      "merge": "NOT_EXECUTED",
-      "postMergeChecks": "NOT_CLAIMED"
+      "number": 20,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/pull/20",
+      "status": "MERGED",
+      "reviewedHead": "b60e3e518956127819e8a3d54b1dc33610b985b8",
+      "mergeSha": "1064e7832eae36a42485d5b040300edf2092be94",
+      "mergeMethod": "SQUASH",
+      "preMergeChecks": {
+        "head": "b60e3e518956127819e8a3d54b1dc33610b985b8",
+        "quality": {
+          "status": "PASS",
+          "runId": 35484375374,
+          "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35484375374"
+        },
+        "Governance": {
+          "status": "PASS",
+          "runId": 35484375413,
+          "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35484375413"
+        }
+      },
+      "resultingMainChecks": {
+        "head": "1064e7832eae36a42485d5b040300edf2092be94",
+        "quality": {
+          "status": "PASS",
+          "runId": 35484531215,
+          "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35484531215"
+        },
+        "Governance": {
+          "status": "PASS",
+          "runId": 35484531184,
+          "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35484531184"
+        }
+      },
+      "merge": "EXECUTED",
+      "postMergeChecks": "PASS"
     }
   },
   "residualRisks": [
     "Semantic retrieval is unavailable; context.search passed through the bounded lexical fallback.",
     "Production release validation remains intentionally blocked until approved production configuration exists.",
-    "Correction PR quality, independent review, protected merge and resulting-main checks remain external gates."
+    "No remaining CP-03 correction gate; CP-04 still requires a new Work Order and Context Lock."
   ],
   "checkpointDelta": {
     "currentStatus": "CP03_COMPLETE",
-    "proposedNextStep": "Open the protected correction PR, request independent review after green checks, then merge only through Protect main and verify resulting-main quality/Governance.",
+    "proposedNextStep": "Admit CP-04 through a new Work Order + Context Lock.",
     "cp04Started": false
   }
 }

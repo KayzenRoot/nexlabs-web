@@ -10,7 +10,7 @@ CP-03 COMPLETE
 NEXLABS-WEB CP-03 COMPLETE
 
 ## PHASE
-CP-03 protected squash promotion and post-merge governance correction candidate
+CP-03 verified post-merge complete
 
 ## OBJECTIVE
 Implement the static institutional content surface with typed canonical content, verified evidence, route metadata and exact-head validation.
@@ -22,4 +22,4 @@ NONE
 NONE
 
 ## NEXT STEP
-Admit CP-04 only through a new Work Order and Context Lock; CP-04 is not admitted in this execution.
+Admit CP-04 through a new GEF Work Order + Context Lock.
