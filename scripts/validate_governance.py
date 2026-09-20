@@ -159,10 +159,25 @@ if cp04_active:
             fail("CP-04 human-selection state requires passing HIVE and local evidence")
         if evidence.get("canonicalSelection") is not False or evidence.get("runtimeWiring") is not False:
             fail("CP-04 human-selection state must not claim canonical selection or runtime wiring")
-        if lock.get("candidateHead") != head or lock.get("reviewedCandidateHead") != head:
-            fail("CP-04 human-selection state must bind candidate and reviewed heads to exact Git HEAD")
-        if evidence.get("git", {}).get("proofHead") != head:
-            fail("CP-04 human-selection evidence proof head mismatch")
+        candidate_head = lock.get("candidateHead")
+        reviewed_head = lock.get("reviewedCandidateHead")
+        receipt_head = lock.get("reviewReceiptHead")
+        proof_head = evidence.get("git", {}).get("proofHead")
+        if not all(isinstance(value, str) and value for value in (candidate_head, reviewed_head, receipt_head, proof_head)):
+            fail("CP-04 human-selection state requires candidate, reviewed, receipt and proof heads")
+        if candidate_head != reviewed_head:
+            fail("CP-04 human-selection state must keep candidate and reviewed heads aligned")
+        def is_cp04_ancestor(ancestor: str, descendant: str) -> bool:
+            try:
+                subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                return True
+            except (OSError, subprocess.CalledProcessError):
+                return False
+        for role, value in (("candidate", candidate_head), ("reviewed", reviewed_head), ("receipt", receipt_head), ("proof", proof_head)):
+            if not is_cp04_ancestor(value, head):
+                fail(f"CP-04 {role} head is not an ancestor of exact Git HEAD {head}")
+        if evidence.get("hosted", {}).get("status") != "PASS":
+            fail("CP-04 human-selection state requires hosted checks evidence")
     else:
         if lock.get("candidateHead") not in {None, ""}:
             try:
