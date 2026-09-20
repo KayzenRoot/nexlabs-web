@@ -14,7 +14,7 @@
   "candidateHeadRole": "implementation_candidate_head",
   "reviewedCandidateHead": "09861fde5422408d8b79c756ca90c67554351983",
   "reviewedCandidateHeadRole": "candidate_batch_review_input_head",
-  "reviewReceiptHead": "4db9a4e0f9bb83afb8149d193bdc981030d7666b",
+  "reviewReceiptHead": "11ddc7e70db836e06c296afdf5476dd0e7d9f5d4",
   "reviewReceiptHeadRole": "protected_pr_pre_selection_receipt_head",
   "promotionAnchor": null,
   "scope": {"candidateCount": 9, "candidateFamilies": ["NX-D", "NX-C", "NX-B"], "canonicalSelection": false, "runtimeWiring": false},

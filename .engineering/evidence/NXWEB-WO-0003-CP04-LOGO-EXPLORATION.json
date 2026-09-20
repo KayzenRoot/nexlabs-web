@@ -38,8 +38,8 @@
     "releaseValidation": {"status": "EXPECTED_FAIL_CLOSED", "reason": "NEXLABS_ENV=PRODUCTION is intentionally absent"},
     "wranglerDryRun": "PASS"
   },
-  "hosted": {"status": "PASS", "pullRequest": {"number": 23, "status": "OPEN", "base": "b989606949bd362a2bd63d039448505f3220918e", "observedHead": "4db9a4e0f9bb83afb8149d193bdc981030d7666b", "quality": {"status": "PASS", "workflow": "CI", "run": 99}, "Governance": {"status": "PASS", "workflow": "Governance", "run": 62}}, "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
-  "git": {"proofHead": "4db9a4e0f9bb83afb8149d193bdc981030d7666b", "candidateHead": "09861fde5422408d8b79c756ca90c67554351983", "reviewedCandidateHead": "09861fde5422408d8b79c756ca90c67554351983", "reviewReceiptHead": "4db9a4e0f9bb83afb8149d193bdc981030d7666b"},
+  "hosted": {"status": "PASS", "pullRequest": {"number": 23, "status": "OPEN", "base": "b989606949bd362a2bd63d039448505f3220918e", "observedHead": "11ddc7e70db836e06c296afdf5476dd0e7d9f5d4", "quality": {"status": "PASS", "workflow": "CI", "run": 101}, "Governance": {"status": "PASS", "workflow": "Governance", "run": 64}}, "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
+  "git": {"proofHead": "11ddc7e70db836e06c296afdf5476dd0e7d9f5d4", "candidateHead": "09861fde5422408d8b79c756ca90c67554351983", "reviewedCandidateHead": "09861fde5422408d8b79c756ca90c67554351983", "reviewReceiptHead": "11ddc7e70db836e06c296afdf5476dd0e7d9f5d4"},
   "knownBlockers": ["BLENDER_MCP_UNAVAILABLE", "HUMAN_GATE_HG_01_PENDING"],
   "researchGaps": ["External visual similarity and trademark clearance were not performed; independent human review remains required."]
 }
