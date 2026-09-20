@@ -8,9 +8,9 @@
   },
   "target": {
     "repository": "KayzenRoot/nexlabs-web",
-    "baseSha": "1c4fed7bd141f341f311c0469909f5518279f981"
+    "baseSha": "721ee1b1890e8d8280d929d03c39432042b844a3"
   },
-  "scope": "CP-03 institutional pages + CP-04 logo exploration + CP-05 Blender Context Core foundation planning source cache",
+  "scope": "CP-03 institutional pages + CP-04 logo exploration + CP-05 Blender Context Core foundation + CP-06 Blender motion/logo/LOD/export planning source cache",
   "files": [
     {
       "sourcePath": "brand-web/BRAND-WEB-MASTER-PLAN.md",
@@ -119,6 +119,54 @@
       "sourceBlobSha": "1593b20ffccd8b4af4f39c2cd38a1a690fb221ce",
       "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-11-CONTEXT-CORE-WORK-ORDERS.md",
       "purpose": "CP-05 Blender Context Core foundation source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-05-CONTEXT-CORE-CONTRACT.md",
+      "sourceBlobSha": "9079f89afaab1c9f7006143a501b2a1cfecb8666",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-05-CONTEXT-CORE-CONTRACT.md",
+      "purpose": "CP-06 Blender motion/logo/LOD/export/final-acceptance source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-06-MOTION-INTERACTION.md",
+      "sourceBlobSha": "3fbcd01cf3aafe27d5b3398ed30ca91be73212ba",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-06-MOTION-INTERACTION.md",
+      "purpose": "CP-06 Blender motion/logo/LOD/export/final-acceptance source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-06-INTERACTION-STATE-CONTRACT.md",
+      "sourceBlobSha": "b691d4faeef2066ca3c59629825ab0b34fded500",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-06-INTERACTION-STATE-CONTRACT.md",
+      "purpose": "CP-06 Blender motion/logo/LOD/export/final-acceptance source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-09-TECHNICAL-ARCHITECTURE.md",
+      "sourceBlobSha": "f7665ce4c6898e2468395609827ac6bde40dfde6",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-09-TECHNICAL-ARCHITECTURE.md",
+      "purpose": "CP-06 Blender motion/logo/LOD/export/final-acceptance source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-10-PERFORMANCE-ACCESSIBILITY.md",
+      "sourceBlobSha": "0bd7e61485800463835b5cc06ba6b1307aef3daf",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-10-PERFORMANCE-ACCESSIBILITY.md",
+      "purpose": "CP-06 Blender motion/logo/LOD/export/final-acceptance source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-10-PERFORMANCE-3D-BUDGETS.md",
+      "sourceBlobSha": "1c2e04bcf26a2328628b220424869c178bc0ddce",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-10-PERFORMANCE-3D-BUDGETS.md",
+      "purpose": "CP-06 Blender motion/logo/LOD/export/final-acceptance source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-10-ADAPTIVE-FIDELITY-CONTROLLER.md",
+      "sourceBlobSha": "80f8045653794ee2945a76a14a46e5bcb80ec01f",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-10-ADAPTIVE-FIDELITY-CONTROLLER.md",
+      "purpose": "CP-06 Blender motion/logo/LOD/export/final-acceptance source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-11-BLENDER-MCP-SPEC.md",
+      "sourceBlobSha": "79f3772d9e7d14e367b2dcf317586acf0bd0c97b",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-11-BLENDER-MCP-SPEC.md",
+      "purpose": "CP-06 Blender motion/logo/LOD/export/final-acceptance source cache"
     }
   ],
   "staleWhen": [
@@ -137,6 +185,12 @@
       "addedAtBase": "1c4fed7bd141f341f311c0469909f5518279f981",
       "fileCount": 2,
       "note": "Exact-byte cache for CP-05 BR-05 3D language and BR-11 Context Core Blender work orders."
+    },
+    {
+      "id": "CP06_BLENDER_MOTION_EXPORT_CACHE",
+      "addedAtBase": "721ee1b1890e8d8280d929d03c39432042b844a3",
+      "fileCount": 8,
+      "note": "Exact-byte cache for CP-06 Context Core contract, semantic motion/state, web architecture, performance/AFC budgets and Blender MCP production specification."
     }
   ]
 }

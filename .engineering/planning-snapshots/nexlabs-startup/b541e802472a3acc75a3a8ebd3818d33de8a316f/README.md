@@ -43,3 +43,18 @@ The pinned planning cache also includes the exact CP-05 Blender foundation input
 - BR-11 Context Core Blender Work-Order Map.
 
 The parent planning repository at the pinned commit remains authoritative. These files are execution mirrors only and their exact Git blob SHAs are recorded in MANIFEST.json.
+
+
+## CP-06 Blender motion/export extension
+
+The pinned planning cache also includes the exact CP-06 production inputs:
+- BR-05 Context Core Scene Contract;
+- BR-06 Motion & Interaction System;
+- BR-06 Interaction State Contract;
+- BR-09 Technical Architecture;
+- BR-10 Performance & Accessibility;
+- BR-10 Preliminary 3D Budgets;
+- BR-10 Adaptive Fidelity Controller;
+- BR-11 Blender MCP Production Specification.
+
+The parent planning repository at the pinned commit remains authoritative. These files are execution mirrors only and their exact Git blob SHAs are recorded in MANIFEST.json.
