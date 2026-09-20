@@ -4,22 +4,22 @@ Status: `DERIVED_VIEW`
 Canonical source: `docs/project-brain/13-CHECKPOINT.md`
 
 ## STATUS
-CP-03 IN REVIEW - CORRECTION PENDING
+CP-03 COMPLETE
 
 ## VERSION
-NEXLABS-WEB CP-03 REVIEW
+NEXLABS-WEB CP-03 COMPLETE
 
 ## PHASE
-CP-03 protected PR review; exact-head checks green; correction in progress
+CP-03 protected squash promotion and post-merge governance correction candidate
 
 ## OBJECTIVE
 Implement the static institutional content surface with typed canonical content, verified evidence, route metadata and exact-head validation.
 
 ## IN PROGRESS
-NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES
+NONE
 
 ## BLOCKERS
-INDEPENDENT_REVIEW_PENDING
+NONE
 
 ## NEXT STEP
-Request independent review of PR #19 on the exact correction head; do not merge before independent review, protected merge and post-merge checks.
+Admit CP-04 only through a new Work Order and Context Lock; CP-04 is not admitted in this execution.

@@ -87,7 +87,10 @@ for field, heading in field_map.items():
         fail(f"machine checkpoint drift: {field}")
 
 current = data(".engineering/gef/GEF-CURRENT.json")
-cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED"
+CP03_WORK_ORDER = "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES"
+CP03_LOCK = "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES"
+cp03_closed = current.get("lastCompletedWorkOrder") == CP03_WORK_ORDER and current.get("productStage") == "CP03_COMPLETE"
+cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED" and current.get("activeWorkOrder") == CP03_WORK_ORDER
 
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
 if manifest.get("project") != "KayzenRoot/nexlabs-web" or manifest.get("mode") != "EXISTING_PROJECT / BROWNFIELD":
@@ -112,7 +115,96 @@ for domain, path in {"PROJECT_STATE": "docs/project-brain/13-CHECKPOINT.md", "DE
     if source_bridge.get("domains", {}).get(domain) != path:
         fail(f"source bridge mismatch: {domain}")
 
-if cp03_active:
+if cp03_closed:
+    work_order = read(".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md")
+    lock = data(".engineering/context-locks/NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES.json")
+    evidence = data(".engineering/evidence/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.json")
+    if current.get("lastCompletedWorkOrder") != CP03_WORK_ORDER or current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("CP-03 closure must have no active Work Order or Context Lock")
+    if lock.get("workOrder") != CP03_WORK_ORDER or lock.get("lockId") != CP03_LOCK:
+        fail("CP-03 closed Work Order and Context Lock identity mismatch")
+    if lock.get("authorizedBase") != "d94f9b5520834ef05d0adc735ac7422068780ae1" or lock.get("planningSource") != PLANNING:
+        fail("CP-03 closed Context Lock base/source mismatch")
+    expected_digest = hashlib.sha256((ROOT / ".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md").read_bytes()).hexdigest()
+    execution_digest = "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575"
+    if lock.get("workOrderSha256") != expected_digest or lock.get("executionWorkOrderSha256") != execution_digest:
+        fail("CP-03 closed Context Lock Work Order digest binding mismatch")
+    if evidence.get("workOrder", {}).get("id") != CP03_WORK_ORDER or evidence.get("contextLock", {}).get("id") != CP03_LOCK:
+        fail("CP-03 closure evidence Work Order and Context Lock identity mismatch")
+    if evidence.get("workOrder", {}).get("sha256") != expected_digest or evidence.get("contextLock", {}).get("workOrderSha256") != expected_digest:
+        fail("CP-03 closure evidence Work Order digest mismatch")
+    if evidence.get("workOrder", {}).get("executionSha256") != execution_digest or evidence.get("contextLock", {}).get("executionWorkOrderSha256") != execution_digest:
+        fail("CP-03 closure evidence lost the execution Work Order digest")
+    try:
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve Git HEAD: {exc}")
+    reviewed = lock.get("reviewedCandidateHead")
+    promotion_anchor = lock.get("promotionAnchor")
+    if not isinstance(reviewed, str) or not reviewed or lock.get("candidateHead") != reviewed or lock.get("candidateHeadRole") != "independent_review_input_head":
+        fail("CP-03 closed Context Lock reviewed candidate binding is missing or untyped")
+    if promotion_anchor != "d8760304bc7b156ae82b725ff787f0be461d45a3" or lock.get("promotionAnchorRole") != "protected_squash_merge_anchor":
+        fail("CP-03 squash promotion anchor is missing or untyped")
+    if lock.get("reviewReceiptHead") != promotion_anchor or lock.get("reviewReceiptHeadRole") != "protected_squash_merge_anchor":
+        fail("CP-03 closed review receipt is not bound to the protected squash anchor")
+
+    def is_cp03_closure_ancestor(ancestor: str, descendant: str) -> bool:
+        try:
+            subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return True
+        except subprocess.CalledProcessError:
+            return False
+
+    if not is_cp03_closure_ancestor(promotion_anchor, head):
+        fail(f"CP-03 protected squash promotion anchor {promotion_anchor} is not an ancestor of exact Git HEAD {head}")
+    try:
+        reviewed_tree = subprocess.check_output(["git", "rev-parse", f"{reviewed}^{{tree}}"], cwd=ROOT, text=True).strip()
+        promotion_tree = subprocess.check_output(["git", "rev-parse", f"{promotion_anchor}^{{tree}}"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"CP-03 squash tree proof could not be resolved: {exc}")
+    if reviewed_tree != promotion_tree:
+        fail(f"CP-03 reviewed head tree {reviewed_tree} differs from squash promotion tree {promotion_tree}")
+    if lock.get("reviewedHeadTree") != reviewed_tree or lock.get("promotionAnchorTree") != promotion_tree:
+        fail("CP-03 Context Lock tree proof does not match Git")
+    if current.get("productStage") != "CP03_COMPLETE" or current.get("reviewState") != "CP03_COMPLETE_CANDIDATE":
+        fail("CP-03 GEF state is not the protected squash completion candidate state")
+    if current.get("nextLegalAction") != "ADMIT_CP04_WITH_NEW_WORK_ORDER" or current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("CP-03 completion must stop before CP-04 admission")
+    if lock.get("status") != "CLOSED":
+        fail("CP-03 completion requires a CLOSED Context Lock")
+    if "Status: `COMPLETED`" not in work_order:
+        fail("CP-03 completion requires a COMPLETED Work Order")
+    hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
+    if "Status: `CP03_COMPLETE_READY_FOR_NEXT_ADMISSION`" not in hierarchy:
+        fail("CP-03 Source Hierarchy is not closed for the next admission")
+    if evidence.get("verdict") != "APPROVED" or evidence.get("reviewState") != "CP03_COMPLETE_CANDIDATE":
+        fail("CP-03 evidence does not describe the corrected completion candidate")
+    if evidence.get("git", {}).get("proofHead") != promotion_anchor or evidence.get("git", {}).get("reviewedCandidateHead") != reviewed:
+        fail("CP-03 closure evidence reviewed/promotion head mismatch")
+    if evidence.get("git", {}).get("reviewReceiptHead") != promotion_anchor:
+        fail("CP-03 closure evidence review receipt mismatch")
+    if evidence.get("git", {}).get("reviewedHeadTree") != reviewed_tree or evidence.get("git", {}).get("promotionAnchorTree") != promotion_tree:
+        fail("CP-03 closure evidence tree proof mismatch")
+    hosted = evidence.get("hosted", {})
+    merged_pr = hosted.get("mergedPullRequest", {})
+    if merged_pr.get("number") != 19 or merged_pr.get("status") != "MERGED" or merged_pr.get("mergeMethod") != "SQUASH" or merged_pr.get("reviewedHead") != reviewed or merged_pr.get("mergeSha") != promotion_anchor:
+        fail("CP-03 merged PR evidence does not bind the reviewed head to the squash anchor")
+    promotion = hosted.get("promotion", {})
+    if promotion.get("reviewedHead") != reviewed or promotion.get("promotionAnchor") != promotion_anchor or promotion.get("reviewedHeadTree") != reviewed_tree or promotion.get("promotionAnchorTree") != promotion_tree or promotion.get("treeEquivalent") is not True:
+        fail("CP-03 hosted squash promotion tree proof is incomplete")
+    pre_merge = hosted.get("preMergeChecks", {})
+    if pre_merge.get("head") != reviewed or pre_merge.get("quality", {}).get("status") != "PASS" or pre_merge.get("Governance", {}).get("status") != "PASS":
+        fail("CP-03 pre-merge checks are not PASS on the reviewed head")
+    initial_post_merge = hosted.get("initialPostMergeChecks", {})
+    if initial_post_merge.get("head") != promotion_anchor or initial_post_merge.get("classification") != "SQUASH_PROMOTION_LINEAGE_FALSE_NEGATIVE" or initial_post_merge.get("quality", {}).get("status") != "FAILURE" or initial_post_merge.get("Governance", {}).get("status") != "FAILURE":
+        fail("CP-03 initial post-merge failure classification is missing")
+    correction_pr = hosted.get("correctionPullRequest", {})
+    if correction_pr.get("merge") != "NOT_EXECUTED" or correction_pr.get("postMergeChecks") != "NOT_CLAIMED":
+        fail("CP-03 correction PR must remain unmerged with no post-merge claim")
+    for heading in ("## OBJECTIVE", "## CONTEXT/HIVE PREFLIGHT", "## CANONICAL BASIS", "## SCOPE", "## OUT OF SCOPE", "## FILES/SOURCES TO READ", "## REQUIREMENTS", "## ARCHITECTURE RULES", "## CONSTRAINTS", "## ACCEPTANCE CRITERIA", "## TESTS", "## DELIVERABLES", "## REVIEW FORMAT", "## STOP CONDITION", "## EXECUTION REFERENCES / CANONICAL REFERENCES"):
+        if heading not in work_order:
+            fail(f"CP-03 Work Order missing section: {heading}")
+elif cp03_active:
     work_order = read(".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md")
     lock = data(".engineering/context-locks/NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES.json")
     evidence = data(".engineering/evidence/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.json")
@@ -259,7 +351,20 @@ for path in governance_files:
         fail(f"machine-specific absolute path in {path.relative_to(ROOT)}")
 
 adoption_state = current.get("adoptionState")
-if cp03_active:
+if cp03_closed:
+    if adoption_state != "GEF_V1_CP03_ADMITTED":
+        fail("invalid CP-03 completion adoption state")
+    if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("completed CP-03 cannot retain an active Work Order or Context Lock")
+    if lock.get("status") != "CLOSED":
+        fail("completed CP-03 requires a CLOSED Context Lock")
+    if evidence.get("verdict") != "APPROVED":
+        fail("completed CP-03 requires APPROVED evidence")
+    if evidence.get("knownBlockers"):
+        fail("completed CP-03 cannot retain known blockers")
+    if "Status: `COMPLETED`" not in work_order:
+        fail("completed CP-03 requires the Work Order to be marked COMPLETED")
+elif cp03_active:
     if adoption_state != "GEF_V1_CP03_ADMITTED":
         fail("invalid CP-03 adoption state")
     if lock.get("status") not in {"OPEN", "ACTIVE"}:
