@@ -1,7 +1,7 @@
 {
   "schemaVersion": "nexlabs-web-cp05-workstation-transition-v1",
   "transitionId": "NXWEB-CP05-BLENDER-WORKSTATION-TRANSITION",
-  "status": "IN_REVIEW",
+  "status": "AUTHORIZED",
   "sourceDocument": {
     "name": "NEXLABS-CP05-BLENDER-WORKSTATION-TRANSITION-AUTHORIZATION.pdf",
     "sha256": "f39f3cdb3127263094c2b279ffcc6818eaf8ff272259b824f31d719931f71754"
@@ -60,15 +60,17 @@
   },
   "checkpoint": {
     "status": "CP-04 COMPLETE",
-    "reviewState": "CP05_WORKSTATION_TRANSITION_IN_REVIEW",
+    "reviewState": "CP04_HG01_SATISFIED",
     "activeWorkOrder": null,
-    "activeContextLock": null
+    "activeContextLock": null,
+    "nextLegalAction": "RESUME_CP05_FROM_AUTHORIZED_WORKSTATION"
   },
   "hosted": {
-    "status": "NOT_STARTED",
-    "pullRequest": null,
-    "merge": "NOT_EXECUTED",
-    "postMergeChecks": "NOT_CLAIMED",
-    "independentReview": "PENDING"
+    "evidenceMode": "EXTERNAL_EXACT_HEAD",
+    "pullRequest": 25,
+    "exactHeadChecks": "VERIFY_EXTERNALLY",
+    "mergeReceipt": "VERIFY_EXTERNALLY",
+    "postMergeChecks": "VERIFY_EXTERNALLY",
+    "independentReview": "VERIFY_EXTERNALLY"
   }
 }
