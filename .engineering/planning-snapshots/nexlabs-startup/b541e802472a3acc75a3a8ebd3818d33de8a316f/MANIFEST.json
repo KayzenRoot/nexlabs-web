@@ -8,9 +8,9 @@
   },
   "target": {
     "repository": "KayzenRoot/nexlabs-web",
-    "baseSha": "c93da10de103728f3614ac39c09bb74941d79a33"
+    "baseSha": "1c4fed7bd141f341f311c0469909f5518279f981"
   },
-  "scope": "CP-03 institutional pages + CP-04 logo exploration planning source cache",
+  "scope": "CP-03 institutional pages + CP-04 logo exploration + CP-05 Blender Context Core foundation planning source cache",
   "files": [
     {
       "sourcePath": "brand-web/BRAND-WEB-MASTER-PLAN.md",
@@ -107,6 +107,18 @@
       "sourceBlobSha": "6feebc0df320d0194abd305cc6e3659d17553542",
       "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-12-ASSET-PROVENANCE-SCHEMA.md",
       "purpose": "CP-04 logo exploration / brand production source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-05-3D-LANGUAGE.md",
+      "sourceBlobSha": "d1144daeeb6193249c354198baaadc39fc322231",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-05-3D-LANGUAGE.md",
+      "purpose": "CP-05 Blender Context Core foundation source cache"
+    },
+    {
+      "sourcePath": "brand-web/BR-11-CONTEXT-CORE-WORK-ORDERS.md",
+      "sourceBlobSha": "1593b20ffccd8b4af4f39c2cd38a1a690fb221ce",
+      "localPath": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/brand-web/BR-11-CONTEXT-CORE-WORK-ORDERS.md",
+      "purpose": "CP-05 Blender Context Core foundation source cache"
     }
   ],
   "staleWhen": [
@@ -119,6 +131,12 @@
       "addedAtBase": "c93da10de103728f3614ac39c09bb74941d79a33",
       "fileCount": 8,
       "note": "Exact-byte cache for CP-04 logo exploration, visual direction and optional UGAS provenance support."
+    },
+    {
+      "id": "CP05_BLENDER_CONTEXT_CORE_CACHE",
+      "addedAtBase": "1c4fed7bd141f341f311c0469909f5518279f981",
+      "fileCount": 2,
+      "note": "Exact-byte cache for CP-05 BR-05 3D language and BR-11 Context Core Blender work orders."
     }
   ]
 }
