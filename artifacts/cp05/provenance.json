@@ -1,0 +1,54 @@
+{
+  "approval": null,
+  "assetId": "NL_CONTEXT_CORE_CP05",
+  "blender": {
+    "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",
+    "sourceFile": ".local/cp05/context_core_master.blend"
+  },
+  "outputs": [
+    {
+      "format": "png",
+      "path": "artifacts/cp05/renders/context-core-neutral.png",
+      "sha256": "427f623573bd6d2ca9639a90f5a1a43986a92676e8031c3b4bc76813be404a39"
+    },
+    {
+      "format": "png",
+      "path": "artifacts/cp05/renders/context-core-branded.png",
+      "sha256": "e879007162f75154a0fed72e002504055c181690828607879826087bb2cbe834"
+    },
+    {
+      "format": "png",
+      "path": "artifacts/cp05/renders/context-core-macro.png",
+      "sha256": "e80841df715a5695c7c7299373e1a6199594dd18a10ea9f868f4ceb17520b221"
+    }
+  ],
+  "planning": {
+    "BR05BlobSha": "d1144daeeb6193249c354198baaadc39fc322231",
+    "BR11BlobSha": "1593b20ffccd8b4af4f39c2cd38a1a690fb221ce",
+    "BR12SchemaBlobSha": "6feebc0df320d0194abd305cc6e3659d17553542"
+  },
+  "purpose": "Deterministic Blender Context Core foundation source and review evidence",
+  "schemaVersion": "nexlabs-web-cp05-provenance-v1",
+  "selectedLogoDependency": {
+    "candidateId": "NX-C-02",
+    "metadataOnly": true,
+    "revision": "r1",
+    "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+  },
+  "source": {
+    "references": [
+      "scripts/cp05/build_context_core.py",
+      "scripts/cp05/parameters.json",
+      "BR-05-3D-LANGUAGE.md",
+      "BR-11-CONTEXT-CORE-WORK-ORDERS.md"
+    ],
+    "type": "procedural"
+  },
+  "status": "CANDIDATE",
+  "ugas": {
+    "generationAuthorized": false,
+    "notes": "UGAS V1 remains outside this CP-05 production scope.",
+    "providerStarted": false
+  },
+  "version": "v001"
+}

@@ -1,0 +1,41 @@
+{
+  "families": [
+    {
+      "family": "Ceramic",
+      "name": "NL_MAT_Ceramic_A",
+      "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+    },
+    {
+      "family": "Data",
+      "name": "NL_MAT_Data_A",
+      "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+    },
+    {
+      "family": "Mineral",
+      "name": "NL_MAT_Mineral_A",
+      "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+    },
+    {
+      "family": "Optical",
+      "name": "NL_MAT_Optical_A",
+      "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+    },
+    {
+      "family": "Signal_Cyan",
+      "name": "NL_MAT_Signal_Cyan_A",
+      "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+    },
+    {
+      "family": "Signal_Violet",
+      "name": "NL_MAT_Signal_Violet_A",
+      "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+    },
+    {
+      "family": "Signal_Warm",
+      "name": "NL_MAT_Signal_Warm_A",
+      "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+    }
+  ],
+  "schemaVersion": "nexlabs-web-cp05-materials-v1",
+  "webBoundary": "No runtime 3D or Three.js/R3F is introduced by CP-05."
+}

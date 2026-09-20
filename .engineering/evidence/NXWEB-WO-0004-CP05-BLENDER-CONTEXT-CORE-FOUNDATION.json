@@ -87,20 +87,35 @@
     }
   },
   "workOrders": {
-    "WO-B3D-001": "NOT_STARTED_RESUMED",
-    "WO-B3D-002": "NOT_STARTED_RESUMED",
-    "WO-B3D-003": "NOT_STARTED_RESUMED",
-    "WO-B3D-004": "NOT_STARTED_RESUMED",
-    "WO-B3D-005": "NOT_STARTED_RESUMED",
-    "WO-B3D-006": "NOT_STARTED_RESUMED"
+    "WO-B3D-001": "PASS_LOCAL",
+    "WO-B3D-002": "PASS_LOCAL",
+    "WO-B3D-003": "PASS_LOCAL",
+    "WO-B3D-004": "PASS_LOCAL",
+    "WO-B3D-005": "PASS_LOCAL",
+    "WO-B3D-006": "PASS_LOCAL"
   },
   "deterministicScene": {
-    "status": "NOT_CREATED",
+    "status": "PASS_CANDIDATE",
     "sceneId": "NL-SCENE-CONTEXT-CORE-01",
-    "builder": null,
-    "masterBlend": null,
-    "manifests": [],
-    "reviewRenders": []
+    "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",
+    "builder": {"path": "scripts/cp05/build_context_core.py", "sha256": "062fc649d1258d36c5f161c71d3c8a5fe64aee80be8d97e9fb4d76fdc4a783f0"},
+    "validator": {"path": "scripts/cp05/validate_context_core.py", "sha256": "fdce718ffe81b2ed98addf9b5eba8346789a4ade1427968a0551e82218c2f950"},
+    "parameters": {"path": "scripts/cp05/parameters.json", "sha256": "2ce17b12606823deac6889cf23286c28c8c1d3639e6b63e9b6b7fecc640b2986", "seed": 20260920, "dataSeed": 20260920, "routeSeed": 20260921},
+    "masterBlend": {"path": ".local/cp05/context_core_master.blend", "role": "local ignored Blender master", "bytes": 174334, "sha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd"},
+    "manifests": [
+      {"path": "artifacts/cp05/scene-manifest.json", "sha256": "4caa4ffe51f82df5a140e33deb342da1dc56187056f1fde56b787a04dce00c01"},
+      {"path": "artifacts/cp05/primitive-manifest.json", "sha256": "4e7a0b13e8b96a0892e53007fc96ddddaf37ca001b51b2ed41d98be6fc9dac3f"},
+      {"path": "artifacts/cp05/material-manifest.json", "sha256": "9626e3d1e79c21bae2b4e6f14c63d4a13ca2c182c5650faee208c40a002671a5"},
+      {"path": "artifacts/cp05/provenance.json", "sha256": "ec4026e35f11321af609601d80dbb4dffe993c9d5717e571272e475c29078132"},
+      {"path": "artifacts/cp05/validation-report.json", "sha256": "9bbc7d60d891bae5e64fef24c16378f20b5a9479b1d9cb80c420d2ca8737c3f"}
+    ],
+    "reviewRenders": [
+      {"path": "artifacts/cp05/renders/context-core-neutral.png", "bytes": 334068, "sha256": "427f623573bd6d2ca9639a90f5a1a43986a92676e8031c3b4bc76813be404a39"},
+      {"path": "artifacts/cp05/renders/context-core-branded.png", "bytes": 337697, "sha256": "e879007162f75154a0fed72e002504055c181690828607879826087bb2cbe834"},
+      {"path": "artifacts/cp05/renders/context-core-macro.png", "bytes": 430536, "sha256": "e80841df715a5695c7c7299373e1a6199594dd18a10ea9f868f4ceb17520b221"}
+    ],
+    "reviewSheets": ["artifacts/cp05/primitive-review.html", "artifacts/cp05/material-review.html", "artifacts/cp05/safe-area.html"],
+    "counts": {"primitives": 10, "materials": 7, "cameras": 4, "lights": 4, "fragments": 36, "nodes": 12, "routes": 6}
   },
   "outOfScopeConfirmed": {
     "animation": false,

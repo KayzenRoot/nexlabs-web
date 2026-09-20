@@ -1,0 +1,35 @@
+{
+  "scene_id": "NL-SCENE-CONTEXT-CORE-01",
+  "seed": 20260920,
+  "data_seed": 20260920,
+  "route_seed": 20260921,
+  "fragment_count": 36,
+  "node_count": 12,
+  "route_count": 6,
+  "render": {
+    "width": 640,
+    "height": 480,
+    "samples": 32
+  },
+  "primitive_names": [
+    "Core",
+    "Shell",
+    "Route",
+    "Node",
+    "Lattice",
+    "Cell",
+    "Band",
+    "Fragment",
+    "Gate",
+    "Field"
+  ],
+  "material_names": [
+    "Mineral",
+    "Ceramic",
+    "Optical",
+    "Signal_Cyan",
+    "Signal_Violet",
+    "Signal_Warm",
+    "Data"
+  ]
+}
