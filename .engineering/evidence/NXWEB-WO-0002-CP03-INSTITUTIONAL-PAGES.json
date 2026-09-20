@@ -1,42 +1,54 @@
 {
   "schemaVersion": "nexlabs-web-cp03-evidence-v1",
   "sourceDocument": {
-    "filename": "NEXLABS-CP03-PR19-GOVERNANCE-EVIDENCE-CORRECTION.pdf",
-    "sha256": "bb6a86ec2ccaf772e1a506cc672946eddf22333e91af30d7b30fde685c4f9797"
+    "filename": "NEXLABS-CP03-POSTMERGE-SQUASH-GOVERNANCE-CORRECTION.pdf",
+    "sha256": "b9336cffd79bc626a38adf69164c715f56c43a8e3c689c9ca4c41eb4569ecaaf"
   },
-  "verdict": "CORRECTION REQUIRED",
-  "reviewState": "INDEPENDENT_REVIEW_CORRECTION_PENDING",
+  "verdict": "APPROVED",
+  "reviewState": "CP03_COMPLETE_CANDIDATE",
   "workOrder": {
     "id": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
     "path": ".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md",
-    "sha256": "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575",
-    "bytes": 5664,
+    "status": "COMPLETED",
+    "sha256": "1adc9271cbfbeb94dd189536de53dcc71321eba6731753cb7b868b7c354aa32e",
+    "bytes": 5662,
+    "executionSha256": "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575",
     "parsedConstraintCount": 8,
     "parsedAcceptanceCriteriaCount": 12
   },
   "contextLock": {
     "id": "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES",
-    "status": "OPEN",
+    "status": "CLOSED",
     "authorizedBase": "d94f9b5520834ef05d0adc735ac7422068780ae1",
-    "workOrderSha256": "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575",
+    "workOrderSha256": "1adc9271cbfbeb94dd189536de53dcc71321eba6731753cb7b868b7c354aa32e",
+    "executionWorkOrderSha256": "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575",
     "admissionHead": "4e74522efa420841b59d63eb1b8ccd93b5f23922",
-    "candidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
+    "candidateHead": "a16d09a06f8b3e5d9413d3b42dff65fd7740b325",
     "candidateHeadRole": "independent_review_input_head",
-    "reviewedCandidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
-    "reviewReceiptHead": "9529c31b2676b0de0e15acf3568e792de537b0b5",
-    "reviewReceiptHeadRole": "governance_correction_commit_parent_of_evidence_receipt_commit",
+    "reviewedCandidateHead": "a16d09a06f8b3e5d9413d3b42dff65fd7740b325",
+    "reviewReceiptHead": "d8760304bc7b156ae82b725ff787f0be461d45a3",
+    "reviewReceiptHeadRole": "protected_squash_merge_anchor",
+    "promotionAnchor": "d8760304bc7b156ae82b725ff787f0be461d45a3",
+    "promotionAnchorRole": "protected_squash_merge_anchor",
+    "reviewedHeadTree": "e2479cd9a57b73603d7b9ca9842096a1edfb4749",
+    "promotionAnchorTree": "e2479cd9a57b73603d7b9ca9842096a1edfb4749",
     "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
     "workstationPolicy": "BLENDER_MCP_READY/UGAS_CORE_INSTALLED/UGAS_GENERATION_PROVIDER_NOT_READY/CP03_STATIC_ONLY"
   },
   "git": {
     "repository": "KayzenRoot/nexlabs-web",
     "baseSha": "d94f9b5520834ef05d0adc735ac7422068780ae1",
-    "branch": "codex/cp03-institutional-pages",
-    "proofHead": "61be13d087a8309196c49ad89914111b5f0ea545",
-    "proofHeadRole": "independent_review_input_head",
-    "reviewedCandidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
-    "reviewReceiptHead": "9529c31b2676b0de0e15acf3568e792de537b0b5",
-    "reviewReceiptHeadRole": "governance_correction_commit_parent_of_evidence_receipt_commit",
+    "branch": "codex/cp03-postmerge-governance-closure",
+    "proofHead": "d8760304bc7b156ae82b725ff787f0be461d45a3",
+    "proofHeadRole": "protected_squash_merge_anchor_parent_of_correction_candidate",
+    "reviewedCandidateHead": "a16d09a06f8b3e5d9413d3b42dff65fd7740b325",
+    "reviewedCandidateHeadRole": "approved_pr_head",
+    "reviewReceiptHead": "d8760304bc7b156ae82b725ff787f0be461d45a3",
+    "reviewReceiptHeadRole": "protected_squash_merge_anchor",
+    "promotionAnchor": "d8760304bc7b156ae82b725ff787f0be461d45a3",
+    "promotionAnchorRole": "protected_squash_merge_anchor",
+    "reviewedHeadTree": "e2479cd9a57b73603d7b9ca9842096a1edfb4749",
+    "promotionAnchorTree": "e2479cd9a57b73603d7b9ca9842096a1edfb4749",
     "workingTreeCleanAtProof": true,
     "commitsSinceBase": [
       "4e74522 chore: admit CP-03 institutional pages",
@@ -97,12 +109,12 @@
       "name": "NEXLABS-WEB",
       "relativePath": "nexlabs-web",
       "state": "READY",
-      "head": "9f21280ba55c3cbb4bf6c203b96408eae8d128d9",
+      "head": "a16d09a06f8b3e5d9413d3b42dff65fd7740b325",
       "workingTreeClean": true,
       "index": "COMPLETED",
       "corpus": "CURRENT",
-      "indexRunId": "eac95eed-9943-40c2-b0cc-c26f586424d8",
-      "corpusRunId": "9affd916-152a-493c-a229-a20dafb43672"
+      "indexRunId": "91bbaa64-8aae-4714-8f15-9cc3bb23626f",
+      "corpusRunId": "089daf02-7eb7-4ac9-979f-52fe586bda45"
     },
     "task": {
       "id": "cdd5f992-da9c-4f1b-9d04-a4db34f3624d",
@@ -125,23 +137,23 @@
         "request": {"top_k": 1, "disclosure_level": "L0"},
         "status": "PASS",
         "checkpointFirst": true,
-        "outputFingerprint": "5246b071c3744aa6c29ef1f4aeb3591ac7c7288102c2611a6277cd7971816cdc",
-        "finalContextTokenEstimate": 5171,
+        "outputFingerprint": "0caf1e29bb6f5275fc860fb4131bd2c4e2cc2647f3ee9f9e314a818d86cff092",
+        "finalContextTokenEstimate": 5197,
         "effectiveBudgetTokens": 5888,
         "hardMaxBudgetTokens": 6144,
         "requiredContextExceedsHardBudget": false,
-        "serializedCapsuleCharacters": 22156
+        "serializedCapsuleCharacters": 22261
       },
       "default": {
         "request": {},
         "status": "PASS",
         "checkpointFirst": true,
-        "outputFingerprint": "39f9d9c4a06258ecc81342bcdd32d890cc2b3da225a96cbc4d3eaf2c81e35775",
-        "finalContextTokenEstimate": 5171,
+        "outputFingerprint": "ed471ce6d7c24cac286994c3d4cdc91224afa26934946ee63366a06cee085614",
+        "finalContextTokenEstimate": 5198,
         "effectiveBudgetTokens": 5888,
         "hardMaxBudgetTokens": 6144,
         "requiredContextExceedsHardBudget": false,
-        "serializedCapsuleCharacters": 22157
+        "serializedCapsuleCharacters": 22262
       }
     },
     "mcp": {
@@ -158,12 +170,30 @@
         "rerankState": "RERANK_FALLBACK_DISABLED"
       },
       "contextBuild": {
-        "minimal": {"status": "PASS", "checkpointFirst": true, "outputFingerprint": "5246b071c3744aa6c29ef1f4aeb3591ac7c7288102c2611a6277cd7971816cdc"},
-        "default": {"status": "PASS", "checkpointFirst": true, "outputFingerprint": "39f9d9c4a06258ecc81342bcdd32d890cc2b3da225a96cbc4d3eaf2c81e35775"}
+        "minimal": {"status": "PASS", "checkpointFirst": true, "outputFingerprint": "0caf1e29bb6f5275fc860fb4131bd2c4e2cc2647f3ee9f9e314a818d86cff092"},
+        "default": {"status": "PASS", "checkpointFirst": true, "outputFingerprint": "ed471ce6d7c24cac286994c3d4cdc91224afa26934946ee63366a06cee085614"}
       },
       "outputBoundExceeded": false,
       "requiredContextExceedsTokenBudget": false
     }
+  },
+  "correctionCandidateHiveReceipt": {
+    "receiptHead": "96ae5567de50e3c1b76f73b3f62e4713e5fa464e",
+    "receiptHeadRole": "hive_prepare_exact_candidate_receipt",
+    "api": "http://localhost:8000",
+    "projectId": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
+    "projectName": "NEXLABS-WEB",
+    "projectRelativePath": "nexlabs-web",
+    "projectState": "READY",
+    "projectHead": "96ae5567de50e3c1b76f73b3f62e4713e5fa464e",
+    "workingTreeClean": true,
+    "indexStatus": "COMPLETED",
+    "corpusStatus": "COMPLETED",
+    "taskId": "5527aef4-49eb-4f9f-88c5-3b4692e24342",
+    "taskStatus": "READY",
+    "taskReused": false,
+    "extractedTextAvailable": true,
+    "workOrderSha256": "1adc9271cbfbeb94dd189536de53dcc71321eba6731753cb7b868b7c354aa32e"
   },
   "product": {
     "staticRoutes": ["/", "/hive", "/technology", "/open-source", "/about", "/contact", "/privacy", "/_not-found", "/robots.txt", "/sitemap.xml"],
@@ -187,41 +217,66 @@
   },
   "hosted": {
     "remoteBranch": {
-      "name": "codex/cp03-institutional-pages",
-      "status": "PUBLISHED",
-      "reviewedHead": "61be13d087a8309196c49ad89914111b5f0ea545"
+      "name": "codex/cp03-postmerge-governance-closure",
+      "status": "LOCAL_CORRECTION_CANDIDATE"
     },
-    "pullRequest": {
+    "mergedPullRequest": {
       "number": 19,
       "url": "https://github.com/KayzenRoot/nexlabs-web/pull/19",
-      "status": "OPEN",
+      "status": "MERGED",
+      "mergeMethod": "SQUASH",
       "baseSha": "d94f9b5520834ef05d0adc735ac7422068780ae1",
-      "reviewedHead": "61be13d087a8309196c49ad89914111b5f0ea545"
+      "reviewedHead": "a16d09a06f8b3e5d9413d3b42dff65fd7740b325",
+      "mergeSha": "d8760304bc7b156ae82b725ff787f0be461d45a3"
     },
-    "reviewedCandidateChecks": {
-      "head": "61be13d087a8309196c49ad89914111b5f0ea545",
+    "promotion": {
+      "reviewedHead": "a16d09a06f8b3e5d9413d3b42dff65fd7740b325",
+      "promotionAnchor": "d8760304bc7b156ae82b725ff787f0be461d45a3",
+      "reviewedHeadTree": "e2479cd9a57b73603d7b9ca9842096a1edfb4749",
+      "promotionAnchorTree": "e2479cd9a57b73603d7b9ca9842096a1edfb4749",
+      "treeEquivalent": true
+    },
+    "preMergeChecks": {
+      "head": "a16d09a06f8b3e5d9413d3b42dff65fd7740b325",
       "quality": {
         "status": "PASS",
-        "runId": 35481492458,
-        "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35481492458"
+        "runId": 35482929848,
+        "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35482929848"
       },
       "Governance": {
         "status": "PASS",
-        "runId": 35481492398,
-        "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35481492398"
+        "runId": 35482930167,
+        "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35482930167"
       }
     },
-    "merge": "NOT_EXECUTED",
-    "postMergeChecks": "NOT_CLAIMED"
+    "initialPostMergeChecks": {
+      "head": "d8760304bc7b156ae82b725ff787f0be461d45a3",
+      "classification": "SQUASH_PROMOTION_LINEAGE_FALSE_NEGATIVE",
+      "quality": {
+        "status": "FAILURE",
+        "runId": 35483218489,
+        "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35483218489"
+      },
+      "Governance": {
+        "status": "FAILURE",
+        "runId": 35483218498,
+        "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35483218498"
+      }
+    },
+    "correctionPullRequest": {
+      "status": "TO_BE_OPENED_FROM_THIS_CANDIDATE",
+      "merge": "NOT_EXECUTED",
+      "postMergeChecks": "NOT_CLAIMED"
+    }
   },
   "residualRisks": [
-    "Independent review, protected PR checks and merge are still pending.",
     "Semantic retrieval is unavailable; context.search passed through the bounded lexical fallback.",
-    "Production release validation remains intentionally blocked until approved production configuration exists."
+    "Production release validation remains intentionally blocked until approved production configuration exists.",
+    "Correction PR quality, independent review, protected merge and resulting-main checks remain external gates."
   ],
   "checkpointDelta": {
-    "currentStatus": "CP03_IN_REVIEW",
-    "proposedNextStep": "Request independent review of PR #19 on the new exact head; do not merge before independent review, protected merge and post-merge checks.",
+    "currentStatus": "CP03_COMPLETE",
+    "proposedNextStep": "Open the protected correction PR, request independent review after green checks, then merge only through Protect main and verify resulting-main quality/Governance.",
     "cp04Started": false
   }
 }
