@@ -177,6 +177,24 @@
       "requiredContextExceedsTokenBudget": false
     }
   },
+  "correctionCandidateHiveReceipt": {
+    "receiptHead": "96ae5567de50e3c1b76f73b3f62e4713e5fa464e",
+    "receiptHeadRole": "hive_prepare_exact_candidate_receipt",
+    "api": "http://localhost:8000",
+    "projectId": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
+    "projectName": "NEXLABS-WEB",
+    "projectRelativePath": "nexlabs-web",
+    "projectState": "READY",
+    "projectHead": "96ae5567de50e3c1b76f73b3f62e4713e5fa464e",
+    "workingTreeClean": true,
+    "indexStatus": "COMPLETED",
+    "corpusStatus": "COMPLETED",
+    "taskId": "5527aef4-49eb-4f9f-88c5-3b4692e24342",
+    "taskStatus": "READY",
+    "taskReused": false,
+    "extractedTextAvailable": true,
+    "workOrderSha256": "1adc9271cbfbeb94dd189536de53dcc71321eba6731753cb7b868b7c354aa32e"
+  },
   "product": {
     "staticRoutes": ["/", "/hive", "/technology", "/open-source", "/about", "/contact", "/privacy", "/_not-found", "/robots.txt", "/sitemap.xml"],
     "typedContent": "PASS",
