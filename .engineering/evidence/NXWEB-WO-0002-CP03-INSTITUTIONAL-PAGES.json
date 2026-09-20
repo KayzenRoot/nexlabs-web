@@ -1,10 +1,11 @@
 {
   "schemaVersion": "nexlabs-web-cp03-evidence-v1",
   "sourceDocument": {
-    "filename": "NEXLABS-CP03-LOCAL-EVIDENCE-RECOVERY-AND-RESUME.pdf",
-    "sha256": "b95d59f7c4cb1ec9f80d12b33c03ff18778baeeb8c8c4ca5c9c44f692ddb3253"
+    "filename": "NEXLABS-CP03-PR19-GOVERNANCE-EVIDENCE-CORRECTION.pdf",
+    "sha256": "bb6a86ec2ccaf772e1a506cc672946eddf22333e91af30d7b30fde685c4f9797"
   },
   "verdict": "CORRECTION REQUIRED",
+  "reviewState": "INDEPENDENT_REVIEW_CORRECTION_PENDING",
   "workOrder": {
     "id": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
     "path": ".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md",
@@ -17,7 +18,13 @@
     "id": "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES",
     "status": "OPEN",
     "authorizedBase": "d94f9b5520834ef05d0adc735ac7422068780ae1",
+    "workOrderSha256": "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575",
     "admissionHead": "4e74522efa420841b59d63eb1b8ccd93b5f23922",
+    "candidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
+    "candidateHeadRole": "independent_review_input_head",
+    "reviewedCandidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
+    "reviewReceiptHead": "61be13d087a8309196c49ad89914111b5f0ea545",
+    "reviewReceiptHeadRole": "governance_correction_receipt_ancestor",
     "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
     "workstationPolicy": "BLENDER_MCP_READY/UGAS_CORE_INSTALLED/UGAS_GENERATION_PROVIDER_NOT_READY/CP03_STATIC_ONLY"
   },
@@ -25,8 +32,11 @@
     "repository": "KayzenRoot/nexlabs-web",
     "baseSha": "d94f9b5520834ef05d0adc735ac7422068780ae1",
     "branch": "codex/cp03-institutional-pages",
-    "proofHead": "9f21280ba55c3cbb4bf6c203b96408eae8d128d9",
-    "proofHeadRole": "implementation_commit_parent_of_receipt_commit",
+    "proofHead": "61be13d087a8309196c49ad89914111b5f0ea545",
+    "proofHeadRole": "independent_review_input_head",
+    "reviewedCandidateHead": "61be13d087a8309196c49ad89914111b5f0ea545",
+    "reviewReceiptHead": "61be13d087a8309196c49ad89914111b5f0ea545",
+    "reviewReceiptHeadRole": "governance_correction_receipt_ancestor",
     "workingTreeCleanAtProof": true,
     "commitsSinceBase": [
       "4e74522 chore: admit CP-03 institutional pages",
@@ -174,10 +184,33 @@
     }
   },
   "hosted": {
-    "remoteBranch": "NOT_PUBLISHED_AT_PROOF_HEAD",
-    "pullRequest": "NONE_AT_PROOF_HEAD",
-    "requiredChecks": "NOT_RUN",
-    "merge": "NOT_EXECUTED"
+    "remoteBranch": {
+      "name": "codex/cp03-institutional-pages",
+      "status": "PUBLISHED",
+      "reviewedHead": "61be13d087a8309196c49ad89914111b5f0ea545"
+    },
+    "pullRequest": {
+      "number": 19,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/pull/19",
+      "status": "OPEN",
+      "baseSha": "d94f9b5520834ef05d0adc735ac7422068780ae1",
+      "reviewedHead": "61be13d087a8309196c49ad89914111b5f0ea545"
+    },
+    "reviewedCandidateChecks": {
+      "head": "61be13d087a8309196c49ad89914111b5f0ea545",
+      "quality": {
+        "status": "PASS",
+        "runId": 35481492458,
+        "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35481492458"
+      },
+      "Governance": {
+        "status": "PASS",
+        "runId": 35481492398,
+        "url": "https://github.com/KayzenRoot/nexlabs-web/actions/runs/35481492398"
+      }
+    },
+    "merge": "NOT_EXECUTED",
+    "postMergeChecks": "NOT_CLAIMED"
   },
   "residualRisks": [
     "Independent review, protected PR checks and merge are still pending.",
@@ -185,8 +218,8 @@
     "Production release validation remains intentionally blocked until approved production configuration exists."
   ],
   "checkpointDelta": {
-    "currentStatus": "CP-03 ADMITTED - IN PROGRESS",
-    "proposedNextStep": "Publish codex/cp03-institutional-pages, open one protected PR, run quality and Governance on the exact PR head, then request independent review.",
+    "currentStatus": "CP03_IN_REVIEW",
+    "proposedNextStep": "Request independent review of PR #19 on the new exact head; do not merge before independent review, protected merge and post-merge checks.",
     "cp04Started": false
   }
 }

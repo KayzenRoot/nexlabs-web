@@ -2,11 +2,11 @@
   "schemaVersion": "nexlabs-web-gef-checkpoint-bridge-v1",
   "viewStatus": "DERIVED_VIEW",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "CP-03 ADMITTED - IN PROGRESS",
-  "version": "NEXLABS-WEB CP-03 IN PROGRESS",
-  "phase": "CP-03 implementation candidate qualification",
+  "status": "CP-03 IN REVIEW - CORRECTION PENDING",
+  "version": "NEXLABS-WEB CP-03 REVIEW",
+  "phase": "CP-03 protected PR review; exact-head checks green; correction in progress",
   "objective": "Implement the static institutional content surface with typed canonical content, verified evidence, route metadata and exact-head validation.",
   "inProgress": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
-  "blockers": "NONE",
-  "nextStep": "Run exact-head qualification and independent review before any protected PR or merge."
+  "blockers": "INDEPENDENT_REVIEW_PENDING",
+  "nextStep": "Request independent review of PR #19 on the exact correction head; do not merge before independent review, protected merge and post-merge checks."
 }

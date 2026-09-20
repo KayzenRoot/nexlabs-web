@@ -1,6 +1,6 @@
 # NexLabs Web Source Hierarchy
 
-Status: `READY_FOR_CP03_ADMISSION`
+Status: `CP03_IN_REVIEW`
 
 Authority is domain-specific. HIVE indexes, memories and GEF metadata accelerate work but cannot override tracked Git sources.
 

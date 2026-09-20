@@ -115,7 +115,7 @@ for domain, path in {"PROJECT_STATE": "docs/project-brain/13-CHECKPOINT.md", "DE
 if cp03_active:
     work_order = read(".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md")
     lock = data(".engineering/context-locks/NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES.json")
-    evidence = {}
+    evidence = data(".engineering/evidence/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.json")
     if current.get("activeWorkOrder") != "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES" or current.get("activeContextLock") != "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES":
         fail("CP-03 active Work Order and Context Lock identity mismatch")
     if lock.get("workOrder") != current.get("activeWorkOrder") or lock.get("lockId") != current.get("activeContextLock"):
@@ -125,17 +125,63 @@ if cp03_active:
     expected_digest = hashlib.sha256((ROOT / ".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md").read_bytes()).hexdigest()
     if lock.get("workOrderSha256") != expected_digest:
         fail("CP-03 Context Lock Work Order digest mismatch")
+    if evidence.get("workOrder", {}).get("id") != current.get("activeWorkOrder") or evidence.get("contextLock", {}).get("id") != current.get("activeContextLock"):
+        fail("CP-03 evidence Work Order and Context Lock identity mismatch")
+    if evidence.get("workOrder", {}).get("sha256") != expected_digest or evidence.get("contextLock", {}).get("workOrderSha256") != expected_digest:
+        fail("CP-03 evidence Work Order digest mismatch")
     try:
         head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     except (OSError, subprocess.CalledProcessError) as exc:
         fail(f"cannot resolve Git HEAD: {exc}")
     candidate = lock.get("candidateHead")
-    if not isinstance(candidate, str) or not candidate:
+    reviewed = lock.get("reviewedCandidateHead")
+    receipt = lock.get("reviewReceiptHead")
+    if not isinstance(candidate, str) or not candidate or not isinstance(reviewed, str) or not reviewed:
         fail("CP-03 Context Lock candidate head is missing")
+    if candidate != reviewed or lock.get("candidateHeadRole") != "independent_review_input_head":
+        fail("CP-03 Context Lock candidate/review lineage role mismatch")
+    if not isinstance(receipt, str) or not receipt or lock.get("reviewReceiptHeadRole") != "governance_correction_receipt_ancestor":
+        fail("CP-03 Context Lock review receipt head is missing or untyped")
+
+    def is_ancestor(ancestor: str, descendant: str) -> bool:
+        try:
+            subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return True
+        except subprocess.CalledProcessError:
+            return False
+
     try:
-        subprocess.run(["git", "merge-base", "--is-ancestor", candidate, head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    except subprocess.CalledProcessError:
-        fail(f"CP-03 candidate head {candidate} is not an ancestor of exact Git HEAD {head}")
+        if not is_ancestor(candidate, head):
+            fail(f"CP-03 candidate head {candidate} is not an ancestor of exact Git HEAD {head}")
+        if not is_ancestor(receipt, head):
+            fail(f"CP-03 review receipt head {receipt} is not an ancestor of exact Git HEAD {head}")
+    except (OSError, subprocess.CalledProcessError):
+        fail("CP-03 candidate/review receipt lineage could not be resolved")
+    if current.get("productStage") != "CP03_IN_REVIEW" or current.get("reviewState") != "INDEPENDENT_REVIEW_CORRECTION_PENDING":
+        fail("CP-03 GEF state is not the independent-review correction state")
+    if current.get("nextLegalAction") in {None, "", "PREPARE_HIVE_TASK"}:
+        fail("CP-03 GEF next legal action is stale after HIVE preparation")
+    if lock.get("status") not in {"OPEN", "ACTIVE"}:
+        fail("CP-03 review state requires an OPEN or ACTIVE Context Lock")
+    if "Status: `IN_PROGRESS`" not in work_order:
+        fail("CP-03 review state requires an IN_PROGRESS Work Order")
+    hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
+    if "Status: `CP03_IN_REVIEW`" not in hierarchy:
+        fail("CP-03 Source Hierarchy is still pre-admission or has an unknown review state")
+    if evidence.get("verdict") != "CORRECTION REQUIRED" or evidence.get("reviewState") != "INDEPENDENT_REVIEW_CORRECTION_PENDING":
+        fail("CP-03 evidence does not describe the pending independent-review correction")
+    if evidence.get("git", {}).get("proofHead") != reviewed or evidence.get("git", {}).get("reviewedCandidateHead") != reviewed:
+        fail("CP-03 evidence reviewed candidate head mismatch")
+    if evidence.get("git", {}).get("reviewReceiptHead") != receipt:
+        fail("CP-03 evidence review receipt head mismatch")
+    hosted = evidence.get("hosted", {})
+    if hosted.get("remoteBranch", {}).get("status") != "PUBLISHED" or hosted.get("pullRequest", {}).get("number") != 19 or hosted.get("pullRequest", {}).get("status") != "OPEN":
+        fail("CP-03 hosted branch or PR evidence is not published/open")
+    checks = hosted.get("reviewedCandidateChecks", {})
+    if checks.get("head") != reviewed or checks.get("quality", {}).get("status") != "PASS" or checks.get("Governance", {}).get("status") != "PASS":
+        fail("CP-03 reviewed candidate hosted checks are not PASS on the exact reviewed head")
+    if hosted.get("merge") != "NOT_EXECUTED" or hosted.get("postMergeChecks") != "NOT_CLAIMED":
+        fail("CP-03 evidence claims merge or post-merge checks before protected merge")
     for heading in ("## OBJECTIVE", "## CONTEXT/HIVE PREFLIGHT", "## CANONICAL BASIS", "## SCOPE", "## OUT OF SCOPE", "## FILES/SOURCES TO READ", "## REQUIREMENTS", "## ARCHITECTURE RULES", "## CONSTRAINTS", "## ACCEPTANCE CRITERIA", "## TESTS", "## DELIVERABLES", "## REVIEW FORMAT", "## STOP CONDITION", "## EXECUTION REFERENCES / CANONICAL REFERENCES"):
         if heading not in work_order:
             fail(f"CP-03 Work Order missing section: {heading}")
