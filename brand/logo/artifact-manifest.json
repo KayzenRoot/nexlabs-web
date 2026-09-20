@@ -8,7 +8,7 @@
     },
     {
       "path": "brand/logo/candidate-index.json",
-      "sha256": "4d71e8688929beab50373e2c551c72f18b97e3c812fb8926bc64d2010b9c6e92"
+      "sha256": "951ea71ab9f80b02097e9e8192c4ae15accce03312253a1a890f76c12ffa9d2d"
     },
     {
       "path": "brand/logo/candidates/NX-B-01.svg",
@@ -48,7 +48,7 @@
     },
     {
       "path": "brand/logo/evaluation.md",
-      "sha256": "fc863424429298b97569ec226f8a814f760d6c5c59f3a58fa2d7afbf8fcaf0ea"
+      "sha256": "bf6bb99012d091469fd21532d5fb80432fed0a4c459bfe930675e39a4375f0de"
     },
     {
       "path": "brand/logo/provenance/NX-B-01.json",
@@ -88,11 +88,19 @@
     },
     {
       "path": "brand/logo/review/blender-mcp-receipt.json",
-      "sha256": "566db76650bd96622e7e6160a832426ba839e3d0f2f23576b1f4c2c6b9bdaed6"
+      "sha256": "215ace42071c608d7e5bd9eba33d2300bd6d9eb86ce2adbf04c9c72c16e41899"
     },
     {
       "path": "brand/logo/review/blender-projection-blocked.svg",
       "sha256": "4def93f64aec5b51293925ff687af0b58d387b1c749645278412946ebaf67173"
+    },
+    {
+      "path": "brand/logo/review/blur-squint.png",
+      "sha256": "4bdffe7b60bf5fdb684b3a2eff0b49dd865c0458babe9b9d2bffbdb15c3742cd"
+    },
+    {
+      "path": "brand/logo/review/blur-squint.svg",
+      "sha256": "d0a6ba8c56852d8206140623a228072eed4eb0aefa41bd5c0000e0d8d8c1cc67"
     },
     {
       "path": "brand/logo/review/contact-sheet.png",
@@ -101,6 +109,18 @@
     {
       "path": "brand/logo/review/contact-sheet.svg",
       "sha256": "2062f53390c7094e0c32618faf187eb38756e0d357497d9ae82a7ab2db101038"
+    },
+    {
+      "path": "brand/logo/review/horizontal-lockups.png",
+      "sha256": "ba3324c68ed9cfab514daceb85483e026ec484e768d2df7b8434029a98d8f756"
+    },
+    {
+      "path": "brand/logo/review/horizontal-lockups.svg",
+      "sha256": "73245037763143d2ddbd96f96c0c524c771f2c475ff643b8e6b18c3f5444efe4"
+    },
+    {
+      "path": "brand/logo/review/review-coverage.json",
+      "sha256": "359d4112b94913757df06bf6ec4e63fbfcb374144051c6486af494fc41e22fbd"
     },
     {
       "path": "brand/logo/review/small-size.png",
@@ -119,8 +139,12 @@
       "sha256": "ffec1d80b1f77359c104eeb348bdd71c6f544de85cfac2a4461e25474b9edd0b"
     },
     {
+      "path": "brand/logo/review/website-context.png",
+      "sha256": "d84a7da014b166dd38e7b632e22dc77e0ac36efc63f4bf4ba5a0135581f8ef43"
+    },
+    {
       "path": "brand/logo/review/website-context.svg",
-      "sha256": "6a81adc4a19bf82752a8e2ac0aaafc9007e96052d35623d9714c96054e98ce1c"
+      "sha256": "f6cf18f0176b551c2763355907724358346d2e6bb7b13b0218ed21f03f071bf0"
     }
   ]
 }

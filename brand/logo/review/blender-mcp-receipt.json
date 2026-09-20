@@ -2,11 +2,18 @@
   "status": "BLOCKED_EXTERNAL",
   "attempts": [
     {
+      "phase": "CP04_INITIAL_REVIEW",
       "tool": "get_addon_status",
       "result": "Could not connect to Blender. Make sure the Blender addon is running."
     },
     {
+      "phase": "CP04_INITIAL_REVIEW",
       "tool": "get_scene_info",
+      "result": "Could not connect to Blender. Make sure the Blender addon is running."
+    },
+    {
+      "phase": "CP04_HG01_CORRECTION_RETRY",
+      "tool": "get_addon_status",
       "result": "Could not connect to Blender. Make sure the Blender addon is running."
     }
   ],

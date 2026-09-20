@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "nexlabs-cp04-review-coverage-v1",
+  "generatedBy": "scripts/logo_lab.py",
+  "candidateIndex": "brand/logo/candidate-index.json",
+  "candidateIds": [
+    "NX-D-01",
+    "NX-D-02",
+    "NX-D-03",
+    "NX-C-01",
+    "NX-C-02",
+    "NX-C-03",
+    "NX-B-01",
+    "NX-B-02",
+    "NX-B-03"
+  ],
+  "websiteContext": {
+    "artifact": "brand/logo/review/website-context.svg",
+    "contexts": {
+      "HEADER / LIGHT": [
+        "NX-D-01",
+        "NX-D-02",
+        "NX-D-03",
+        "NX-C-01",
+        "NX-C-02",
+        "NX-C-03",
+        "NX-B-01",
+        "NX-B-02",
+        "NX-B-03"
+      ],
+      "HERO / DARK": [
+        "NX-D-01",
+        "NX-D-02",
+        "NX-D-03",
+        "NX-C-01",
+        "NX-C-02",
+        "NX-C-03",
+        "NX-B-01",
+        "NX-B-02",
+        "NX-B-03"
+      ],
+      "FOOTER / MINERAL": [
+        "NX-D-01",
+        "NX-D-02",
+        "NX-D-03",
+        "NX-C-01",
+        "NX-C-02",
+        "NX-C-03",
+        "NX-B-01",
+        "NX-B-02",
+        "NX-B-03"
+      ],
+      "SQUARE AVATAR": [
+        "NX-D-01",
+        "NX-D-02",
+        "NX-D-03",
+        "NX-C-01",
+        "NX-C-02",
+        "NX-C-03",
+        "NX-B-01",
+        "NX-B-02",
+        "NX-B-03"
+      ]
+    }
+  },
+  "horizontalLockups": {
+    "artifact": "brand/logo/review/horizontal-lockups.svg",
+    "variants": {
+      "LIGHT": [
+        "NX-D-01",
+        "NX-D-02",
+        "NX-D-03",
+        "NX-C-01",
+        "NX-C-02",
+        "NX-C-03",
+        "NX-B-01",
+        "NX-B-02",
+        "NX-B-03"
+      ],
+      "DARK": [
+        "NX-D-01",
+        "NX-D-02",
+        "NX-D-03",
+        "NX-C-01",
+        "NX-C-02",
+        "NX-C-03",
+        "NX-B-01",
+        "NX-B-02",
+        "NX-B-03"
+      ]
+    }
+  },
+  "blurSquint": {
+    "artifact": "brand/logo/review/blur-squint.svg",
+    "results": [
+      {
+        "id": "NX-D-01",
+        "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+        "retainedPixels": 945,
+        "peak": 255,
+        "threshold": {
+          "retainedPixelsMin": 6,
+          "peakMin": 16
+        },
+        "result": "PASS"
+      },
+      {
+        "id": "NX-D-02",
+        "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+        "retainedPixels": 801,
+        "peak": 252,
+        "threshold": {
+          "retainedPixelsMin": 6,
+          "peakMin": 16
+        },
+        "result": "PASS"
+      },
+      {
+        "id": "NX-D-03",
+        "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+        "retainedPixels": 792,
+        "peak": 255,
+        "threshold": {
+          "retainedPixelsMin": 6,
+          "peakMin": 16
+        },
+        "result": "PASS"
+      },
+      {
+        "id": "NX-C-01",
+        "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+        "retainedPixels": 882,
+        "peak": 255,
+        "threshold": {
+          "retainedPixelsMin": 6,
+          "peakMin": 16
+        },
+        "result": "PASS"
+      },
+      {
+        "id": "NX-C-02",
+        "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+        "retainedPixels": 1080,
+        "peak": 255,
+        "threshold": {
+          "retainedPixelsMin": 6,
+          "peakMin": 16
+        },
+        "result": "PASS"
+      },
+      {
+        "id": "NX-C-03",
+        "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+        "retainedPixels": 1044,
+        "peak": 255,
+        "threshold": {
+          "retainedPixelsMin": 6,
+          "peakMin": 16
+        },
+        "result": "PASS"
+      },
+      {
+        "id": "NX-B-01",
+        "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+        "retainedPixels": 792,
+        "peak": 249,
+        "threshold": {
+          "retainedPixelsMin": 6,
+          "peakMin": 16
+        },
+        "result": "PASS"
+      },
+      {
+        "id": "NX-B-02",
+        "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+        "retainedPixels": 882,
+        "peak": 242,
+        "threshold": {
+          "retainedPixelsMin": 6,
+          "peakMin": 16
+        },
+        "result": "PASS"
+      },
+      {
+        "id": "NX-B-03",
+        "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+        "retainedPixels": 972,
+        "peak": 248,
+        "threshold": {
+          "retainedPixelsMin": 6,
+          "peakMin": 16
+        },
+        "result": "PASS"
+      }
+    ]
+  }
+}

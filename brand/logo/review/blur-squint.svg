@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780">
+<defs><filter id="squint-blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5"/></filter></defs>
+<rect width="1200" height="780" fill="#202833"/>
+<text x="36" y="42" font-family="Arial, sans-serif" font-size="22px" font-weight="700" fill="#f5f7f9">CP04 / deterministic blur-squint silhouette review</text>
+<text x="36" y="68" font-family="Arial, sans-serif" font-size="11px" font-weight="400" fill="#cdd7e1">48px raster -&gt; Gaussian blur radius 1.5 -&gt; 16px LANCZOS downsample -&gt; nearest preview</text>
+<rect x="36" y="88" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>
+<text x="54" y="116" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-D-01</text>
+<g filter="url(#squint-blur)"><g transform="translate(64 130) scale(0.833333)"><path d="M 30 90 L 30 30 L 90 90 L 90 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/></g></g>
+<text x="186" y="160" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">SQUINT</text>
+<text x="186" y="186" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">retained pixels: 945</text>
+<text x="186" y="208" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">peak: 255</text>
+<text x="186" y="236" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#a7f3d0">PASS</text>
+<rect x="426" y="88" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>
+<text x="444" y="116" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-D-02</text>
+<g filter="url(#squint-blur)"><g transform="translate(454 130) scale(0.833333)"><path d="M 30 90 L 30 30 L 90 90" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 90 90 L 90 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 30 60 L 60 60" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g></g>
+<text x="576" y="160" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">SQUINT</text>
+<text x="576" y="186" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">retained pixels: 801</text>
+<text x="576" y="208" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">peak: 252</text>
+<text x="576" y="236" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#a7f3d0">PASS</text>
+<rect x="816" y="88" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>
+<text x="834" y="116" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-D-03</text>
+<g filter="url(#squint-blur)"><g transform="translate(844 130) scale(0.833333)"><path d="M 30 90 L 30 30 L 50 30 L 90 70 L 90 30 L 100 30 L 100 90 L 80 90 L 40 50 L 40 90 Z" fill="#f5f7f9"/></g></g>
+<text x="966" y="160" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">SQUINT</text>
+<text x="966" y="186" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">retained pixels: 792</text>
+<text x="966" y="208" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">peak: 255</text>
+<text x="966" y="236" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#a7f3d0">PASS</text>
+<rect x="36" y="308" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>
+<text x="54" y="336" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-C-01</text>
+<g filter="url(#squint-blur)"><g transform="translate(64 350) scale(0.833333)"><path d="M 25 25 L 48 25 L 48 48 L 25 48 Z" fill="#f5f7f9"/><path d="M 72 25 L 95 25 L 95 48 L 72 48 Z" fill="#f5f7f9"/><path d="M 25 72 L 48 72 L 48 95 L 25 95 Z" fill="#f5f7f9"/><path d="M 72 72 L 95 72 L 95 95 L 72 95 Z" fill="#f5f7f9"/><path d="M 48 48 L 72 48 L 72 72 L 48 72 Z" fill="#f5f7f9"/></g></g>
+<text x="186" y="380" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">SQUINT</text>
+<text x="186" y="406" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">retained pixels: 882</text>
+<text x="186" y="428" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">peak: 255</text>
+<text x="186" y="456" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#a7f3d0">PASS</text>
+<rect x="426" y="308" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>
+<text x="444" y="336" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-C-02</text>
+<g filter="url(#squint-blur)"><g transform="translate(454 350) scale(0.833333)"><path d="M 25 25 L 55 25 L 55 42 L 42 42 L 42 78 L 55 78 L 55 95 L 25 95 Z" fill="#f5f7f9"/><path d="M 95 25 L 65 25 L 65 42 L 78 42 L 78 78 L 65 78 L 65 95 L 95 95 Z" fill="#f5f7f9"/><path d="M 55 42 L 65 42 L 65 78 L 55 78 Z" fill="#f5f7f9"/></g></g>
+<text x="576" y="380" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">SQUINT</text>
+<text x="576" y="406" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">retained pixels: 1080</text>
+<text x="576" y="428" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">peak: 255</text>
+<text x="576" y="456" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#a7f3d0">PASS</text>
+<rect x="816" y="308" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>
+<text x="834" y="336" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-C-03</text>
+<g filter="url(#squint-blur)"><g transform="translate(844 350) scale(0.833333)"><path d="M 25 25 L 55 25 L 55 38 L 38 38 L 38 82 L 55 82 L 55 95 L 25 95 Z" fill="#f5f7f9"/><path d="M 95 25 L 65 25 L 65 38 L 82 38 L 82 82 L 65 82 L 65 95 L 95 95 Z" fill="#f5f7f9"/><path d="M 55 48 L 65 48 L 65 72 L 55 72 Z" fill="#f5f7f9"/></g></g>
+<text x="966" y="380" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">SQUINT</text>
+<text x="966" y="406" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">retained pixels: 1044</text>
+<text x="966" y="428" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">peak: 255</text>
+<text x="966" y="456" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#a7f3d0">PASS</text>
+<rect x="36" y="528" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>
+<text x="54" y="556" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-B-01</text>
+<g filter="url(#squint-blur)"><g transform="translate(64 570) scale(0.833333)"><path d="M 28 90 L 28 30 L 44 30 L 92 78 L 92 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/><path d="M 28 60 L 54 60" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g></g>
+<text x="186" y="600" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">SQUINT</text>
+<text x="186" y="626" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">retained pixels: 792</text>
+<text x="186" y="648" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">peak: 249</text>
+<text x="186" y="676" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#a7f3d0">PASS</text>
+<rect x="426" y="528" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>
+<text x="444" y="556" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-B-02</text>
+<g filter="url(#squint-blur)"><g transform="translate(454 570) scale(0.833333)"><path d="M 28 90 L 28 30 L 46 30 L 92 76 L 92 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M 28 60 L 58 60 L 58 48" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><path d="M 74 90 L 92 90" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></g></g>
+<text x="576" y="600" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">SQUINT</text>
+<text x="576" y="626" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">retained pixels: 882</text>
+<text x="576" y="648" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">peak: 242</text>
+<text x="576" y="676" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#a7f3d0">PASS</text>
+<rect x="816" y="528" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>
+<text x="834" y="556" font-family="Arial, sans-serif" font-size="13px" font-weight="700" fill="#f5f7f9">NX-B-03</text>
+<g filter="url(#squint-blur)"><g transform="translate(844 570) scale(0.833333)"><path d="M 28 90 L 28 30 L 42 30 L 92 80 L 92 30" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="11"/><path d="M 42 90 L 42 58 L 74 90" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/><path d="M 28 60 L 56 60" fill="none" stroke="#f5f7f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/></g></g>
+<text x="966" y="600" font-family="Arial, sans-serif" font-size="10px" font-weight="700" fill="#cdd7e1">SQUINT</text>
+<text x="966" y="626" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">retained pixels: 972</text>
+<text x="966" y="648" font-family="Arial, sans-serif" font-size="10px" font-weight="400" fill="#cdd7e1">peak: 248</text>
+<text x="966" y="676" font-family="Arial, sans-serif" font-size="11px" font-weight="700" fill="#a7f3d0">PASS</text>
+</svg>

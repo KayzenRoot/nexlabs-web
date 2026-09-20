@@ -94,12 +94,18 @@
   "reviewArtifacts": [
     "brand/logo/review/blender-mcp-receipt.json",
     "brand/logo/review/blender-projection-blocked.svg",
+    "brand/logo/review/blur-squint.png",
+    "brand/logo/review/blur-squint.svg",
     "brand/logo/review/contact-sheet.png",
     "brand/logo/review/contact-sheet.svg",
+    "brand/logo/review/horizontal-lockups.png",
+    "brand/logo/review/horizontal-lockups.svg",
+    "brand/logo/review/review-coverage.json",
     "brand/logo/review/small-size.png",
     "brand/logo/review/small-size.svg",
     "brand/logo/review/theme-lockups.png",
     "brand/logo/review/theme-lockups.svg",
+    "brand/logo/review/website-context.png",
     "brand/logo/review/website-context.svg",
     "brand/logo/evaluation.md",
     "brand/logo/artifact-manifest.json"

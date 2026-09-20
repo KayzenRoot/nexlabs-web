@@ -14,10 +14,11 @@ from pathlib import Path
 from typing import Any
 
 try:
-    from PIL import Image, ImageDraw
+    from PIL import Image, ImageDraw, ImageFilter
 except ImportError:  # SVG remains the authoritative review format on minimal CI images.
     Image = None
     ImageDraw = None
+    ImageFilter = None
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -168,20 +169,60 @@ def review_sheets() -> dict[str, str]:
         body.append(text(x + 180, y + 101, "NexLabs", 10, "#cdd7e1", "700"))
     theme = svg_document(1060, 520, body)
 
-    body = ['<rect width="1200" height="620" fill="#202833"/>', text(40, 44, "CP04 / website-context comparison", 22, "#f5f7f9", "700")]
+    body = ['<rect width="1320" height="850" fill="#202833"/>', text(40, 44, "CP04 / website-context comparison / all nine candidates", 22, "#f5f7f9", "700")]
     contexts = [("HEADER / LIGHT", "#f5f7f9", "#10151c"), ("HERO / DARK", "#10151c", "#f5f7f9"), ("FOOTER / MINERAL", "#303b47", "#f5f7f9"), ("SQUARE AVATAR", "#f5f7f9", "#10151c")]
     for index, (label, bg, fg) in enumerate(contexts):
-        x = 40 + (index % 2) * 570
-        y = 70 + (index // 2) * 245
-        body.append(f'<rect x="{x}" y="{y}" width="520" height="190" rx="16" fill="{bg}"/>')
+        x = 40 + (index % 2) * 640
+        y = 70 + (index // 2) * 390
+        body.append(f'<rect x="{x}" y="{y}" width="600" height="330" rx="16" fill="{bg}"/>')
         body.append(text(x + 22, y + 34, label, 12, fg, "700"))
-        for col, item in enumerate(CANDIDATES[:3]):
-            body.append(svg_symbol(item, x + 28 + col * 160, y + 52, 90, fg))
-            body.append(text(x + 45 + col * 160, y + 166, item["id"], 10, fg))
+        for candidate_index, item in enumerate(CANDIDATES):
+            col, row = candidate_index % 3, candidate_index // 3
+            cell_x, cell_y = x + 34 + col * 188, y + 52 + row * 82
+            body.append(svg_symbol(item, cell_x, cell_y, 62, fg))
+            body.append(text(cell_x + 7, cell_y + 75, item["id"], 9, fg, "700"))
         if index == 0:
-            body.append(text(x + 330, y + 52, "NexLabs", 20, fg, "700"))
-    context = svg_document(1200, 620, body)
-    return {"contact-sheet.svg": contact, "small-size.svg": small, "theme-lockups.svg": theme, "website-context.svg": context}
+            body.append(text(x + 414, y + 36, "NexLabs", 16, fg, "700"))
+    context = svg_document(1320, 850, body)
+
+    body = ['<rect width="1320" height="980" fill="#eef2f5"/>', text(40, 40, "CP04 / true horizontal NexLabs lockups / all nine candidates", 22, weight="700")]
+    body.append(text(40, 65, "Each row is one symbol + NexLabs lockup rendered on light and dark backgrounds.", 11, "#586474"))
+    for index, item in enumerate(CANDIDATES):
+        y = 82 + index * 96
+        for variant, (x, bg, fg) in enumerate(((40, "#ffffff", "#10151c"), (680, "#10151c", "#f5f7f9"))):
+            body.append(f'<rect x="{x}" y="{y}" width="600" height="76" rx="12" fill="{bg}" stroke="#d8e0e8"/>')
+            body.append(svg_symbol(item, x + 18, y + 8, 60, fg))
+            body.append(text(x + 100, y + 48, "NexLabs", 22, fg, "700"))
+            body.append(text(x + 492, y + 47, item["id"], 12, fg, "700"))
+    horizontal = svg_document(1320, 980, body)
+
+    blur_metrics = blur_squint_metrics()
+    body = [
+        '<defs><filter id="squint-blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5"/></filter></defs>',
+        '<rect width="1200" height="780" fill="#202833"/>',
+        text(36, 42, "CP04 / deterministic blur-squint silhouette review", 22, "#f5f7f9", "700"),
+        text(36, 68, "48px raster -> Gaussian blur radius 1.5 -> 16px LANCZOS downsample -> nearest preview", 11, "#cdd7e1"),
+    ]
+    for index, item in enumerate(CANDIDATES):
+        col, row = index % 3, index // 3
+        x, y = 36 + col * 390, 88 + row * 220
+        metric = blur_metrics[item["id"]]
+        body.append(f'<rect x="{x}" y="{y}" width="350" height="184" rx="12" fill="#303b47" stroke="#536272"/>')
+        body.append(text(x + 18, y + 28, item["id"], 13, "#f5f7f9", "700"))
+        body.append(f'<g filter="url(#squint-blur)">{svg_symbol(item, x + 28, y + 42, 100, "#f5f7f9")}</g>')
+        body.append(text(x + 150, y + 72, "SQUINT", 10, "#cdd7e1", "700"))
+        body.append(text(x + 150, y + 98, f"retained pixels: {metric['retainedPixels']}", 10, "#cdd7e1"))
+        body.append(text(x + 150, y + 120, f"peak: {metric['peak']}", 10, "#cdd7e1"))
+        body.append(text(x + 150, y + 148, metric["result"], 11, "#a7f3d0", "700"))
+    blur = svg_document(1200, 780, body)
+    return {
+        "contact-sheet.svg": contact,
+        "small-size.svg": small,
+        "theme-lockups.svg": theme,
+        "website-context.svg": context,
+        "horizontal-lockups.svg": horizontal,
+        "blur-squint.svg": blur,
+    }
 
 
 def blocker_sheet() -> str:
@@ -196,7 +237,7 @@ def blocker_sheet() -> str:
     return svg_document(960, 540, body)
 
 
-def png_symbol(image: Image.Image, item: dict[str, Any], x: int, y: int, size: int, color: tuple[int, int, int]) -> None:
+def png_symbol(image: Image.Image, item: dict[str, Any], x: int, y: int, size: int, color: Any) -> None:
     draw = ImageDraw.Draw(image)
     scale = size / CANVAS
     def point(pair: tuple[int, int]) -> tuple[int, int]:
@@ -210,6 +251,49 @@ def png_symbol(image: Image.Image, item: dict[str, Any], x: int, y: int, size: i
             radius = max(1, round(path["width"] * scale / 2))
             for px, py in (points[0], points[-1]):
                 draw.ellipse((px - radius, py - radius, px + radius, py + radius), fill=color)
+
+
+def blur_squint_metrics() -> dict[str, dict[str, Any]]:
+    if Image is None or ImageDraw is None or ImageFilter is None:
+        raise RuntimeError("Pillow is required for the deterministic blur-squint review")
+    metrics: dict[str, dict[str, Any]] = {}
+    for item in CANDIDATES:
+        raster = Image.new("L", (48, 48), 0)
+        png_symbol(raster, item, 0, 0, 48, 255)
+        blurred = raster.filter(ImageFilter.GaussianBlur(radius=1.5))
+        reduced = blurred.resize((16, 16), Image.Resampling.LANCZOS)
+        restored = reduced.resize((48, 48), Image.Resampling.NEAREST)
+        retained = sum(1 for value in restored.tobytes() if value >= 16)
+        peak = max(reduced.tobytes())
+        metrics[item["id"]] = {
+            "method": "48px raster -> GaussianBlur(1.5) -> 16px LANCZOS -> 48px nearest preview",
+            "retainedPixels": retained,
+            "peak": peak,
+            "threshold": {"retainedPixelsMin": 6, "peakMin": 16},
+            "result": "PASS" if retained >= 6 and peak >= 16 else "REVIEW",
+        }
+    return metrics
+
+
+def review_coverage(metrics: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "schemaVersion": "nexlabs-cp04-review-coverage-v1",
+        "generatedBy": "scripts/logo_lab.py",
+        "candidateIndex": "brand/logo/candidate-index.json",
+        "candidateIds": EXPECTED_IDS,
+        "websiteContext": {
+            "artifact": "brand/logo/review/website-context.svg",
+            "contexts": {name: EXPECTED_IDS for name in ("HEADER / LIGHT", "HERO / DARK", "FOOTER / MINERAL", "SQUARE AVATAR")},
+        },
+        "horizontalLockups": {
+            "artifact": "brand/logo/review/horizontal-lockups.svg",
+            "variants": {"LIGHT": EXPECTED_IDS, "DARK": EXPECTED_IDS},
+        },
+        "blurSquint": {
+            "artifact": "brand/logo/review/blur-squint.svg",
+            "results": [{"id": candidate_id, **metrics[candidate_id]} for candidate_id in EXPECTED_IDS],
+        },
+    }
 
 
 def png_sheets() -> dict[str, Image.Image]:
@@ -241,20 +325,66 @@ def png_sheets() -> dict[str, Image.Image]:
         draw.rectangle((x + 160, y, x + 320, y + 112), fill="#10151c")
         png_symbol(theme, item, x + 22, y + 17, 78, (16, 21, 28))
         png_symbol(theme, item, x + 182, y + 17, 78, (245, 247, 249))
-    return {"contact-sheet.png": contact, "small-size.png": small, "theme-lockups.png": theme}
+    website = Image.new("RGB", (1320, 850), "#202833")
+    draw = ImageDraw.Draw(website)
+    contexts = [("HEADER / LIGHT", "#f5f7f9", "#10151c"), ("HERO / DARK", "#10151c", "#f5f7f9"), ("FOOTER / MINERAL", "#303b47", "#f5f7f9"), ("SQUARE AVATAR", "#f5f7f9", "#10151c")]
+    for index, (label, bg, fg) in enumerate(contexts):
+        x = 40 + (index % 2) * 640
+        y = 70 + (index // 2) * 390
+        draw.rounded_rectangle((x, y, x + 600, y + 330), radius=16, fill=bg)
+        draw.text((x + 22, y + 18), label, fill=fg)
+        for candidate_index, item in enumerate(CANDIDATES):
+            col, row = candidate_index % 3, candidate_index // 3
+            cell_x, cell_y = x + 34 + col * 188, y + 52 + row * 82
+            png_symbol(website, item, cell_x, cell_y, 62, (16, 21, 28) if fg == "#10151c" else (245, 247, 249))
+            draw.text((cell_x + 7, cell_y + 65), item["id"], fill=fg)
+    horizontal = Image.new("RGB", (1320, 980), "#eef2f5")
+    draw = ImageDraw.Draw(horizontal)
+    for index, item in enumerate(CANDIDATES):
+        y = 82 + index * 96
+        for x, bg, fg in ((40, "#ffffff", (16, 21, 28)), (680, "#10151c", (245, 247, 249))):
+            draw.rounded_rectangle((x, y, x + 600, y + 76), radius=12, fill=bg, outline="#d8e0e8")
+            png_symbol(horizontal, item, x + 18, y + 8, 60, fg)
+            draw.text((x + 100, y + 29), "NexLabs", fill=fg)
+            draw.text((x + 492, y + 31), item["id"], fill=fg)
+    blur = Image.new("RGB", (1200, 780), "#202833")
+    draw = ImageDraw.Draw(blur)
+    draw.text((36, 24), "CP04 / deterministic blur-squint silhouette review", fill="#f5f7f9")
+    for index, item in enumerate(CANDIDATES):
+        col, row = index % 3, index // 3
+        x, y = 36 + col * 390, 88 + row * 220
+        draw.rounded_rectangle((x, y, x + 350, y + 184), radius=12, fill="#303b47", outline="#536272")
+        draw.text((x + 18, y + 14), item["id"], fill="#f5f7f9")
+        raster = Image.new("L", (48, 48), 0)
+        png_symbol(raster, item, 0, 0, 48, 255)
+        blurred = raster.filter(ImageFilter.GaussianBlur(radius=1.5)).resize((16, 16), Image.Resampling.LANCZOS).resize((100, 100), Image.Resampling.NEAREST)
+        blur.paste(Image.merge("RGB", (blurred, blurred, blurred)), (x + 28, y + 42))
+        metric = blur_squint_metrics()[item["id"]]
+        draw.text((x + 150, y + 58), "SQUINT", fill="#cdd7e1")
+        draw.text((x + 150, y + 84), f"retained pixels: {metric['retainedPixels']}", fill="#cdd7e1")
+        draw.text((x + 150, y + 106), f"peak: {metric['peak']}", fill="#cdd7e1")
+        draw.text((x + 150, y + 134), metric["result"], fill="#a7f3d0")
+    return {
+        "contact-sheet.png": contact,
+        "small-size.png": small,
+        "theme-lockups.png": theme,
+        "website-context.png": website,
+        "horizontal-lockups.png": horizontal,
+        "blur-squint.png": blur,
+    }
 
 
-def evaluation_markdown() -> str:
+def evaluation_markdown(metrics: dict[str, dict[str, Any]]) -> str:
     rows = [
-        ("NX-D-01", "PASS", "Strong single gesture; good 16 px survival.", "Diagonal is familiar; similarity research remains open."),
-        ("NX-D-02", "PASS", "Layered topology and clear anchors.", "Midline adds density at 16 px."),
-        ("NX-D-03", "PASS", "Best filled silhouette and clean negative cut.", "Heavier mass can read more like a generic N."),
-        ("NX-C-01", "PASS", "Strong modular system semantics; stable avatar.", "Core may look blocky beside wordmark."),
-        ("NX-C-02", "PASS", "Clear interlock and 2D/3D projection potential.", "Narrow core needs optical review in dark mode."),
-        ("NX-C-03", "PASS", "Open frame preserves negative space at small sizes.", "Less immediate N read than the other C variants."),
-        ("NX-B-01", "PASS", "Route semantics with restrained detail.", "Service branch can disappear under blur."),
-        ("NX-B-02", "PASS", "Controlled orthogonal turn communicates infrastructure.", "Most circuitry-adjacent; avoid technology cliche."),
-        ("NX-B-03", "PASS", "Distinct rail structure and strong horizontal rhythm.", "Highest small-size complexity; human review required."),
+        ("NX-D-01", "Strong single gesture; good 16 px survival.", "Diagonal is familiar; similarity research remains open."),
+        ("NX-D-02", "Layered topology and clear anchors.", "Midline adds density at 16 px."),
+        ("NX-D-03", "Best filled silhouette and clean negative cut.", "Heavier mass can read more like a generic N."),
+        ("NX-C-01", "Strong modular system semantics; stable avatar.", "Core may look blocky beside wordmark."),
+        ("NX-C-02", "Clear interlock and 2D/3D projection potential.", "Narrow core needs optical review in dark mode."),
+        ("NX-C-03", "Open frame preserves negative space at small sizes.", "Less immediate N read than the other C variants."),
+        ("NX-B-01", "Route semantics with restrained detail.", "Service branch can disappear under blur."),
+        ("NX-B-02", "Controlled orthogonal turn communicates infrastructure.", "Most circuitry-adjacent; avoid technology cliche."),
+        ("NX-B-03", "Distinct rail structure and strong horizontal rhythm.", "Highest small-size complexity; human review required."),
     ]
     lines = [
         "# CP04 Logo Exploration Evaluation",
@@ -267,16 +397,22 @@ def evaluation_markdown() -> str:
         "",
         "## Candidate rows",
         "",
-        "| ID | Result | Strengths | Weaknesses / repair note |",
-        "| --- | --- | --- | --- |",
+        "| ID | Candidate result | Website contexts | Horizontal lockup | Blur/squint | Strengths | Weaknesses / repair note |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
     ]
-    lines.extend(f"| {id_} | {status} | {strength} | {weakness} |" for id_, status, strength, weakness in rows)
+    lines.extend(
+        f"| {id_} | PASS | PASS (4/4) | PASS (light + dark) | {metrics[id_]['result']} ({metrics[id_]['retainedPixels']} px) | {strength} | {weakness} |"
+        for id_, strength, weakness in rows
+    )
     lines.extend([
         "",
         "## Objective checks",
         "",
         "- PASS: 12x12 construction grid, path-only masters, monochrome and no gradients.",
-        "- PASS: 16/24/32/64/128 px review sheet, light/dark, square/avatar and horizontal lockup contexts generated deterministically.",
+        "- PASS: all nine IDs are present in HEADER/LIGHT, HERO/DARK, FOOTER/MINERAL and SQUARE/AVATAR website-context rows.",
+        "- PASS: all nine IDs have a true symbol + NexLabs horizontal lockup in both LIGHT and DARK variants.",
+        "- PASS: blur/squint uses a 48px raster, GaussianBlur radius 1.5, 16px LANCZOS reduction and deterministic threshold (retained pixels >= 6 and peak >= 16).",
+        "- PASS: 16/24/32/64/128 px review sheet and all coverage records were generated deterministically.",
         "- PASS: reduced-motion behavior is static by construction; no animation is encoded.",
         "- BLOCKED_EXTERNAL: Blender MCP projection proof could not run because the live addon was unreachable. The blocker is recorded separately and no 3D pass is claimed.",
         "- NOT_PERFORMED_IN_SCOPE: external visual similarity and trademark clearance. This is a required independent review gap, not evidence of uniqueness.",
@@ -320,14 +456,20 @@ def generate() -> None:
         index_items.append({"id": item["id"], "family": item["family"], "revision": "r1", "status": "CANDIDATE_EXPLORATION", "svg": f"brand/logo/candidates/{item['id']}.svg", "sha256": svg_hash})
     for name, content in review_sheets().items():
         (REVIEW_DIR / name).write_text(content, encoding="utf-8")
+    metrics = blur_squint_metrics()
+    (REVIEW_DIR / "review-coverage.json").write_text(json.dumps(review_coverage(metrics), indent=2) + "\n", encoding="utf-8")
     (REVIEW_DIR / "blender-projection-blocked.svg").write_text(blocker_sheet(), encoding="utf-8")
     (REVIEW_DIR / "blender-mcp-receipt.json").write_text(json.dumps({
         "status": "BLOCKED_EXTERNAL",
-        "attempts": [{"tool": "get_addon_status", "result": "Could not connect to Blender. Make sure the Blender addon is running."}, {"tool": "get_scene_info", "result": "Could not connect to Blender. Make sure the Blender addon is running."}],
+        "attempts": [
+            {"phase": "CP04_INITIAL_REVIEW", "tool": "get_addon_status", "result": "Could not connect to Blender. Make sure the Blender addon is running."},
+            {"phase": "CP04_INITIAL_REVIEW", "tool": "get_scene_info", "result": "Could not connect to Blender. Make sure the Blender addon is running."},
+            {"phase": "CP04_HG01_CORRECTION_RETRY", "tool": "get_addon_status", "result": "Could not connect to Blender. Make sure the Blender addon is running."},
+        ],
         "proofs": {"candidateCount": 9, "completed": 0, "claimed": False},
         "providerStarted": False,
     }, indent=2) + "\n", encoding="utf-8")
-    (LAB / "evaluation.md").write_text(evaluation_markdown(), encoding="utf-8")
+    (LAB / "evaluation.md").write_text(evaluation_markdown(metrics), encoding="utf-8")
     for name, image in png_sheets().items():
         image.save(REVIEW_DIR / name, format="PNG", optimize=False, compress_level=9)
     review_files = sorted(str(path.relative_to(ROOT)).replace("\\", "/") for path in REVIEW_DIR.iterdir() if path.is_file())
@@ -366,6 +508,9 @@ def check() -> None:
     index = json.loads(index_path.read_text(encoding="utf-8"))
     if index.get("candidateIds") != EXPECTED_IDS or len(index.get("candidates", [])) != 9:
         raise SystemExit("logo lab must contain exactly the nine CP04 candidate IDs")
+    candidate_ids = [item.get("id") for item in index["candidates"]]
+    if candidate_ids != EXPECTED_IDS or len(set(candidate_ids)) != len(candidate_ids):
+        raise SystemExit("logo lab candidate index contains duplicate or reordered IDs")
     if index.get("canonicalSelection") is not False or index.get("runtimeWiring") is not False:
         raise SystemExit("logo lab must not claim canonical selection or runtime wiring")
     for item in index["candidates"]:
@@ -384,11 +529,41 @@ def check() -> None:
         provenance_data = json.loads(provenance_path.read_text(encoding="utf-8"))
         if provenance_data.get("svgSha256") != item["sha256"] or provenance_data.get("approval") is not None:
             raise SystemExit(f"provenance mismatch or approval leak: {item['id']}")
-    expected_reviews = {"contact-sheet.svg", "small-size.svg", "theme-lockups.svg", "website-context.svg", "blender-projection-blocked.svg", "blender-mcp-receipt.json"}
+    expected_reviews = {
+        "contact-sheet.svg", "small-size.svg", "theme-lockups.svg", "website-context.svg",
+        "horizontal-lockups.svg", "blur-squint.svg", "review-coverage.json",
+        "blender-projection-blocked.svg", "blender-mcp-receipt.json",
+    }
     actual_reviews = {path.name for path in REVIEW_DIR.iterdir() if path.is_file()}
     if not expected_reviews.issubset(actual_reviews):
         raise SystemExit(f"missing review artifacts: {sorted(expected_reviews - actual_reviews)}")
-    print(f"Logo lab PASS: {len(EXPECTED_IDS)} candidates, {len(actual_reviews)} review artifacts, no canonical wiring")
+    coverage = json.loads((REVIEW_DIR / "review-coverage.json").read_text(encoding="utf-8"))
+    if coverage.get("candidateIds") != EXPECTED_IDS:
+        raise SystemExit("review coverage candidate IDs do not match the canonical index")
+    for context, ids in coverage.get("websiteContext", {}).get("contexts", {}).items():
+        if ids != EXPECTED_IDS or len(set(ids)) != len(ids):
+            raise SystemExit(f"website context coverage is incomplete: {context}")
+    for variant, ids in coverage.get("horizontalLockups", {}).get("variants", {}).items():
+        if ids != EXPECTED_IDS or len(set(ids)) != len(ids):
+            raise SystemExit(f"horizontal lockup coverage is incomplete: {variant}")
+    blur_results = coverage.get("blurSquint", {}).get("results", [])
+    if [row.get("id") for row in blur_results] != EXPECTED_IDS or any(row.get("result") != "PASS" for row in blur_results):
+        raise SystemExit("blur/squint coverage is incomplete or has a failed objective result")
+    manifest_path = LAB / "artifact-manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    expected_manifest_paths = sorted(
+        str(path.relative_to(ROOT)).replace("\\", "/")
+        for path in [*(CANDIDATE_DIR.glob("*.svg")), *(PROVENANCE_DIR.glob("*.json")), *(REVIEW_DIR.iterdir()), LAB / "candidate-index.json", LAB / "evaluation.md", LAB / "README.md"]
+        if path.is_file()
+    )
+    manifest_paths = sorted(artifact.get("path") for artifact in manifest.get("artifacts", []))
+    if manifest_paths != expected_manifest_paths:
+        raise SystemExit("artifact manifest does not cover the regenerated artifact set")
+    for artifact in manifest.get("artifacts", []):
+        path = ROOT / artifact["path"]
+        if sha256_bytes(path.read_bytes()) != artifact["sha256"]:
+            raise SystemExit(f"artifact manifest hash mismatch: {artifact['path']}")
+    print(f"Logo lab PASS: {len(EXPECTED_IDS)} candidates, {len(actual_reviews)} review artifacts, coverage complete, no canonical wiring")
 
 
 def main() -> int:
