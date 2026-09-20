@@ -184,8 +184,16 @@ if cp05_active:
     project = hive.get("project", {})
     task = hive.get("task", {})
     mcp = hive.get("mcp", {})
-    if project.get("state") != "READY" or project.get("head") != head or project.get("workingTreeClean") is not True:
-        fail("CP-05 HIVE project receipt is not READY at the exact head")
+    if project.get("state") != "READY" or project.get("workingTreeClean") is not True:
+        fail("CP-05 HIVE project receipt is not READY with a clean candidate tree")
+    hive_candidate_head = project.get("head")
+    if hive_candidate_head != head:
+        try:
+            receipt_parent = subprocess.check_output(["git", "rev-parse", "HEAD^"], cwd=ROOT, text=True).strip()
+        except (OSError, subprocess.CalledProcessError) as exc:
+            fail(f"cannot resolve CP-05 HIVE receipt parent: {exc}")
+        if receipt_parent != hive_candidate_head:
+            fail("CP-05 HIVE receipt is not bound to the exact candidate or its receipt commit")
     if task.get("intakeStatus") != "READY" or task.get("extractedTextAvailable") is not True or task.get("originalBlobSha256") != expected_digest:
         fail("CP-05 HIVE task receipt is not READY, extracted and digest-bound")
     if project.get("indexRunId") in {None, ""} or project.get("corpusRunId") in {None, ""}:
