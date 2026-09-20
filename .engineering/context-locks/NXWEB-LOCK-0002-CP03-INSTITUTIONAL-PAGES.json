@@ -5,7 +5,8 @@
   "status": "OPEN",
   "repository": "KayzenRoot/nexlabs-web",
   "authorizedBase": "d94f9b5520834ef05d0adc735ac7422068780ae1",
-  "candidateHead": "d94f9b5520834ef05d0adc735ac7422068780ae1",
+  "candidateHead": "4e74522efa420841b59d63eb1b8ccd93b5f23922",
+  "workOrderSha256": "a73c512ab90fc8162e7d562cdbfd1d2ae30e2059c99b6ee0a37cbcf94d23c575",
   "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
   "planningCache": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/",
   "upstream": {

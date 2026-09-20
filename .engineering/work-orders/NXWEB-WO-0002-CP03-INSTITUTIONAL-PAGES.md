@@ -4,79 +4,107 @@ Status: `IN_PROGRESS`
 
 ## OBJECTIVE
 
-Resume CP-03 from the synchronized protected-main base and implement the complete static institutional content surface for NexLabs: typed canonical content, all planned institutional routes, route metadata, verified evidence links, responsive composition, and route-level/E2E validation.
+Ship CP-03 factual static institutional pages after corrected HIVE preflight.
 
-## HIVE PREFLIGHT
+## CONTEXT/HIVE PREFLIGHT
 
-Project name: `NEXLABS-WEB`.
-Default API: `http://localhost:8000`.
-Relative path: `nexlabs-web` below the machine-local HIVE projects root.
-Required read-only context tools: `project.list`, `project.status`, `context.build`, `context.search`, `memory.search`, `memory.get`, `checkpoint.read`.
-The Work Order task must be READY, extracted, project-scoped and bound to this file's exact UTF-8 SHA-256 before context retrieval.
+- Project `NEXLABS-WEB`; relative path `nexlabs-web`; API `http://localhost:8000`.
+- Resolve this active Work Order from `GEF-CURRENT.json`; bind exact UTF-8 SHA-256.
+- Require a READY/extracted/project-scoped HIVE task before retrieval.
+- Prove `project.list`, `project.status`, `checkpoint.read`, `context.search`, Core/MCP `context.build`.
+- Prove `top_k=1`/`L0`, then default; default failure stops CP-03.
+- Required context <=6,144 tokens; MCP output <=64 KiB; never raise limits or bypass `context.build`.
 
 ## CANONICAL BASIS
 
-- Repository: `KayzenRoot/nexlabs-web`.
-- Authorized base: `d94f9b5520834ef05d0adc735ac7422068780ae1`.
-- Planning source: `KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f`.
-- Planning cache: `.engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/`, verified by `MANIFEST.json` and source blob SHA.
-- GEF: v1.0.0 @ `866fe3af8cccc65c929aaf6a47a924401fa448b3`.
-- HIVE: v1.0.0 @ `a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf`.
-- Workstation: `BLENDER_MCP_READY=true`, `UGAS_CORE_INSTALLED=true`, `UGAS_GENERATION_PROVIDER_READY=false`.
-
-## CONTEXT BUDGET
-
-Use the target Project Brain, verified planning cache, current HIVE documentation and the minimum read-only HIVE context required for the admitted routes. Do not import planning cache files into the website build.
-
-## RISK / ASSURANCE
-
-Fail closed for stale base, cache mismatch, missing HIVE task evidence, exact-head mismatch, false product/company claims, placeholder links, secrets, absolute machine paths and HIGH/CRITICAL findings. Local tests are not approval or merge evidence.
+- Repo/base: `KayzenRoot/nexlabs-web` / `d94f9b5520834ef05d0adc735ac7422068780ae1`.
+- Planning/cache: `KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f`; manifest/SHA verified.
+- GEF `866fe3af8cccc65c929aaf6a47a924401fa448b3`; HIVE `a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf`.
+- Workstation: Blender MCP ready; UGAS core installed; generation provider not ready.
 
 ## SCOPE
 
-1. Canonicalize the workstation capability layers without recording machine-specific paths.
-2. Implement `/`, `/hive`, `/technology`, `/open-source`, `/about`, `/contact`, `/privacy` and not-found.
-3. Compose Home sections H00-H10 with static semantic content and a stable future visual boundary.
-4. Separate typed canonical content from page presentation and validate required fields, routes and evidence links.
-5. Reconcile HIVE claims and license wording against the pinned HIVE repository before publishing.
-6. Add route metadata/SEO while keeping production origin and canonical URLs fail-closed.
-7. Add route/content/link tests and extend E2E coverage for navigation, mobile menu, theme persistence and 404.
-8. Record exact-head evidence and a CP-03 checkpoint delta.
+- Keep workstation capability layers truthful without machine paths.
+- Implement `/`, `/hive`, `/technology`, `/open-source`, `/about`, `/contact`, `/privacy`, and 404.
+- Compose Home H00-H10 with semantic static content and neutral visual slots.
+- Separate typed content/presentation; validate fields, routes, metadata, and evidence links.
+- Reconcile HIVE claims/license; add route/content/link tests, E2E, exact-head evidence, and checkpoint delta.
 
 ## OUT OF SCOPE
 
-No final logo selection or production; no Blender asset production; no Three.js/R3F runtime; no canonical 3D; no UGAS derivative media or generation; no production domain, DNS, email approval, backend, auth, database, analytics, CRM or contact capture; no fabricated founder, customer, pricing, legal, traction, protocol, token, TVL or audit claims; no force-push, history rewrite, ruleset bypass, merge or deployment without the required gates.
+- No logo selection, Blender assets, Three.js/R3F, canonical 3D, or UGAS media generation.
+- No domain/DNS/email approval, backend/auth/database/analytics/CRM/contact capture, or CP-04+ work.
+- No fabricated facts, placeholders, dead links, secrets, HIGH/CRITICAL defects, force-push, bypass, merge, or deployment.
+
+## FILES/SOURCES TO READ
+
+- Brain: `docs/project-brain/{02-REQUIREMENTS,03-SCOPE,04-ARCHITECTURE,13-CHECKPOINT,15-DEFINITION-OF-DONE,16-DECISIONS-LEDGER}.md`.
+- Governance: `.engineering/SOURCE-HIERARCHY.md`, active GEF/Lock, verified planning `MANIFEST.json`.
+- Seams/sources: `scripts/{hive_prepare,hive_mcp}.py`, cache BR-07/08/13, pinned HIVE docs/license.
+
+## REQUIREMENTS
+
+- Static/server-first; core content works without JavaScript.
+- Every route is factual, typed, accessible, responsive, and uniquely metadated.
+- Canonical/indexability fail closed without approved production origin.
+- Verify internal evidence; reject missing fields, placeholders, false claims, and dead links.
+- Test mobile menu, theme, 404, reduced motion, static export, security, E2E, and Wrangler.
+- Core content never depends on 3D, UGAS, live providers, or unresolved legal/business facts.
+- Pinned HIVE v1.0.0 is not Apache-2.0/open-source; verified license is All Rights Reserved.
+- Reuse CP-02 tokens/components; preserve Cloudflare static-export compatibility.
 
 ## ARCHITECTURE RULES
 
-Keep the site static/server-first and useful with JavaScript disabled. Reuse CP-02 tokens and semantic components. Keep client JavaScript limited to required interaction. Keep `VisualSlot`/`HeroVisualSlot` as future enhancement boundaries. Use one H1 per page composition, accessible headings, meaningful internal links, responsive composition, reduced-motion behavior and Cloudflare static-export compatibility.
+- Prefer server/static rendering; client JavaScript only for required interaction.
+- Separate content, metadata, presentation, validators, and visual slots.
+- Use semantic accessible headings/names, internal links, responsive and reduced-motion behavior.
+- Keep origins and business/legal facts configuration-driven and fail-closed.
 
-## CONTENT / TRUTH RULES
+## CONSTRAINTS
 
-English-first V1. Omit unresolved founder and public-business-contact facts. Render only verified contact channels. Treat the pinned HIVE repository as the current evidence source; its v1.0.0 checkout is public but `LICENSE` states All Rights Reserved, so do not publish an Apache-2.0/open-source license claim unless a newer verified source changes that fact. Do not render placeholder tokens or `href="#"`.
+- Preserve Work Order ID, Lock ID, CP-03 scope, and lineage.
+- Reduce duplication, never requirements or governance.
+- Use verified repo/cache/GEF/HIVE/workstation facts only.
+- Do not mutate pinned HIVE source or budget/transport constants.
+- Keep media neutral until separately admitted.
+- Bind receipts to exact Work Order digest and Git SHA.
+- No PR before product gates and independent review.
+- Local tests or CI alone never mean approval.
 
 ## ACCEPTANCE CRITERIA
 
-- Planning cache manifest and all required local Git blob SHAs match.
-- Work Order, Context Lock and HIVE task preparation are exact-head and digest bound.
-- Workstation status is truthful: Blender MCP ready, UGAS core installed, generation provider not ready.
-- All institutional routes render useful factual content and remain usable without live 3D or JavaScript-dependent core content.
-- Typed content is separated from page presentation and required fields fail deterministically.
-- HIVE claims and evidence links are verifiable against the pinned repository.
-- No unresolved placeholder leaks to users; no fake metrics or dead production links exist.
-- Every route has unique metadata and production canonical/indexability remains fail-closed without an approved origin.
-- Accessibility, mobile navigation, theme persistence and 404 behavior are tested.
-- Static export, build, security, E2E, governance and Wrangler dry-run pass, with `validate:release` remaining an expected fail-closed gate without production config.
-- No HIGH/CRITICAL defect remains and no CP-04+ scope is introduced.
+- Cache manifest and source SHAs match.
+- HIVE task is READY, extracted, scoped, and digest-bound.
+- Minimal Core/MCP builds pass without prior errors.
+- Default Core/MCP builds pass within 6,144 tokens/64 KiB.
+- Project status matches HEAD; checkpoint/search receipts exist.
+- All routes render factual content without live 3D or JS-dependent core content.
+- Typed validation rejects missing fields deterministically.
+- HIVE claims, license, and evidence links match pinned sources.
+- Metadata is unique; canonical/indexability fail closed without origin.
+- Accessibility, mobile/theme/404, static, security, E2E, and Wrangler checks pass.
+- `validate:release` fails closed without approved production configuration.
+- No HIGH/CRITICAL or CP-04+ scope; evidence and checkpoint delta exist.
 
 ## TESTS
 
-Run `npm ci`, `npm run typecheck`, `npm run lint`, `npm run test`, `npm run validate`, `python scripts/validate_governance.py`, `python -m unittest discover -s tests -p "test_hive*.py" -v`, `npm run check`, `npm run test:e2e`, `npm run security`, expected-failing `npm run validate:release`, and `npx wrangler deploy --config wrangler.jsonc --dry-run`. Run focused route/content/link/metadata tests directly when useful.
+Run Python compile/governance/HIVE tests; `npm ci`; typecheck, lint, test, validate, check, E2E, security; expected-failing release validation; Wrangler dry-run.
 
-## EVIDENCE / DELIVERABLES
+## DELIVERABLES
 
-Bind evidence to this Work Order, `NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES`, authorized base, final candidate head, GEF/HIVE/planning pins, HIVE project/task/head receipts, changed files, route inventory, evidence-link inventory, tests, hosted checks, known risks and proposed checkpoint delta.
+- CP-03 routes, typed content, metadata, validators, tests, neutral slots.
+- Digest/task/context receipts, route/evidence inventory, tests, risks, checkpoint delta.
+- PT-BR report separating product, HIVE, local, hosted, review, merge, post-merge status.
+
+## REVIEW FORMAT
+
+PT-BR report with exactly one verdict: `APPROVED`, `CORRECTION REQUIRED`, or `BLOCKED`.
 
 ## STOP CONDITION
 
-Stop with `APPROVED` only after the implemented CP-03 candidate is validated, reviewed, merged through protected main, post-merge quality and Governance pass on the exact resulting main SHA, no HIGH/CRITICAL issue remains and canonical docs match reality. Otherwise report `CORRECTION REQUIRED` or `BLOCKED`. Do not start CP-04 or any logo, 3D, Blender asset or UGAS media work.
+If compaction cannot make Core and MCP default builds pass, stop `BLOCKED` with `HIVE_CORE_CORRECTION_REQUIRED`; otherwise resume only after both pass. `APPROVED` requires implementation, independent review, protected merge, post-merge checks, and resulting-main proof.
+
+## EXECUTION REFERENCES / CANONICAL REFERENCES
+
+- Planning cache, Project Brain, governance paths, Git, and exact-head receipts are authoritative.
+- Pinned HIVE checkout/license is authoritative for HIVE capability and licensing claims.
