@@ -51,15 +51,16 @@
     "sourceUnchanged": true
   },
   "hive": {
-    "status": "DEGRADED_CURRENT_CANDIDATE",
-    "priorReceiptStatus": "PASS",
-    "currentCandidateHead": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
-    "currentCandidateInspection": "DEGRADED_GIT_TIMEOUT",
-    "lastKnownReadyCandidateHead": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494",
+    "status": "PASS",
+    "priorReceiptStatus": "DEGRADED_GIT_TIMEOUT_RECOVERED",
+    "currentCandidateHead": "b8769b08595deb343b6024102a466ba615dec825",
+    "currentCandidateInspection": "READY",
+    "lastKnownReadyCandidateHead": "b8769b08595deb343b6024102a466ba615dec825",
+    "historicalDegradedInspection": {"status": "DEGRADED", "inspectionError": "git_timeout", "preRecoveryCandidateHead": "fe1419fd850d5aa75cdbb362c9432da622c122d7", "recoveredAfter": "hive-api restart", "hostGitTimingsMs": {"branch": 164.35, "head": 110.95, "symbolicRef": 120.41, "status": 157.03}, "containerGitStatusBeforeRestartMs": 6832.52, "containerGitStatusAfterRestartMs": 1911.79},
     "api": "http://localhost:8000",
-    "project": {"name": "NEXLABS-WEB", "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea", "relativePath": "nexlabs-web", "state": "READY", "head": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494", "branch": "codex/cp06-blender-motion-logo-web-assets", "workingTreeClean": true, "indexRunId": "431ecea4-dbde-45e9-8e1f-29d107351b31", "corpusRunId": "a2862734-0520-440d-98e0-591e010f6afb"},
+    "project": {"name": "NEXLABS-WEB", "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea", "relativePath": "nexlabs-web", "state": "READY", "head": "b8769b08595deb343b6024102a466ba615dec825", "branch": "codex/cp06-blender-motion-logo-web-assets", "workingTreeClean": true, "indexRunId": "a687ab47-93fa-4ce0-a91a-be02e51e446a", "corpusRunId": "8161f282-b032-452c-8c0f-1807d0098894"},
     "task": {"id": "abea746b-763e-4cd0-9476-5b522dbdc0d0", "intakeStatus": "READY", "extractedTextAvailable": true, "originalBlobSha256": "7ebbb7b00124c64f8c066bccc134eccfdf933c25dbafca59eae3461412fbcbd7"},
-    "mcp": {"projectStatus": "PASS", "checkpointRead": "PASS", "contextSearch": "PASS", "contextSearchCorpusRunId": "a2862734-0520-440d-98e0-591e010f6afb", "contextSearchCandidatePool": 2, "semanticState": "UNAVAILABLE", "contextSearchQuery": "CP06 Blender MCP recovered WO-B3D-007 WO-B3D-012 NX-C-02 static fallback", "coreContextBuild": "PASS", "mcpContextBuild": "PASS", "contextBuildMinimal": {"status": "PASS", "requestedLevel": "L2", "finalLevel": "L3", "inputFingerprint": "a848fff3e67cf2b5d1e43852a81b2fead25819084046b7026a195f084f3dea04", "outputFingerprint": "18fbe107437f347904a4f85a4cf4c0d8f2138152bcc8d63076485cfe97dfc18b", "finalContextTokenEstimate": 4648, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}, "contextBuildDefault": {"status": "PASS", "requestedLevel": "L3", "finalLevel": "L3", "inputFingerprint": "44c1ce3046bdd099a9fb7ca197716cdc0c4c26c2eef8859287b53180e062e133", "outputFingerprint": "72f4142495acdac40d34cf3b4347a50c891c3a6d202c8f86ba1c5c22141722f1", "finalContextTokenEstimate": 4613, "effectiveBudgetTokens": 5248, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}}
+    "mcp": {"projectStatus": "PASS", "checkpointRead": "PASS", "contextSearch": "PASS", "contextSearchCorpusRunId": "8161f282-b032-452c-8c0f-1807d0098894", "contextSearchCandidatePool": 3, "semanticState": "UNAVAILABLE", "contextSearchQuery": "CP06 Blender MCP recovered WO-B3D-007 WO-B3D-012 NX-C-02 static fallback", "coreContextBuild": "PASS", "mcpContextBuild": "PASS", "contextBuildMinimal": {"status": "PASS", "requestedLevel": "L2", "finalLevel": "L3", "inputFingerprint": "8fe9afba53b9a28b7cce0d614b8c8426d093af82cdc73a6d7a36075c8df22dc8", "outputFingerprint": "56ad9ea9a8f5f09563754ac8faf6257db4353002c17c5ff3aabe4d99299716cb", "finalContextTokenEstimate": 4711, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}, "contextBuildDefault": {"status": "PASS", "requestedLevel": "L3", "finalLevel": "L3", "inputFingerprint": "a660455ae02f0c79fdf71c4505c0c072ee4cac2a78abfba37b7cd2933550ed11", "outputFingerprint": "8d02ff35f9d45accf3b272cb44782ec8e3640ee53a344626a3cb5aaa5bde50a6", "finalContextTokenEstimate": 4676, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}}
   },
   "workOrders": {
     "WO-B3D-007": "PASS",
@@ -72,9 +73,9 @@
   "receipts": {"SSAC": "PASS", "PFR": "PASS", "LIPG": "PASS", "EBL": "PASS", "glbInspection": "artifacts/cp06/reports/glb-inspection.json"},
   "gates": {"G1": "PASS", "G2": "PASS", "G3": "PASS", "G4": "PASS", "G5": "PASS", "G6": "PASS", "G7": "PASS", "G8": "PASS", "G9": "PASS", "G10": "PASS"},
   "outOfScopeConfirmed": {"runtimeThree": false, "brandMarkChange": false, "ugasProviderStarted": false, "ugasGeneration": false, "deployment": false, "cp08Media": false},
-  "hosted": {"status": "NOT_PUBLISHED_EXTERNAL_BLOCKER", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
-  "historicalBlockers": ["BLENDER_MCP_DISCONNECTED_WINERROR_10053", "BLENDER_MCP_NOT_CONNECTED_AFTER_BOUNDED_RECOVERY"],
-  "knownBlockers": ["BLENDER_MCP_TRANSPORT_PERSISTENT", "HIVE_CURRENT_CANDIDATE_GIT_TIMEOUT"],
+  "hosted": {"status": "READY_FOR_PUBLICATION", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
+  "historicalBlockers": ["BLENDER_MCP_DISCONNECTED_WINERROR_10053", "BLENDER_MCP_NOT_CONNECTED_AFTER_BOUNDED_RECOVERY", "HIVE_GIT_TIMEOUT_AFTER_PRODUCTION"],
+  "knownBlockers": ["BLENDER_MCP_TRANSPORT_PERSISTENT"],
   "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
   "researchGaps": []
 }
