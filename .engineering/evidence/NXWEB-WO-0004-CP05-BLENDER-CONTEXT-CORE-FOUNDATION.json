@@ -45,7 +45,45 @@
     "detail": "The repository contract keeps this workstation static-only and forbids canonical Blender production; the attached CP-05 Work Order does not explicitly authorize changing that higher-priority policy.",
     "requiredAction": "Explicitly authorize and record the workstation policy transition before scene mutation."
   },
-  "hive": {"status": "PENDING"},
+  "hive": {
+    "status": "PASS",
+    "api": "http://localhost:8000",
+    "project": {
+      "name": "NEXLABS-WEB",
+      "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
+      "relativePath": "nexlabs-web",
+      "state": "READY",
+      "head": "fff883b3edbfb024497ddae5ca5afbf902a2baa3",
+      "headRole": "cp05_admission_head",
+      "workingTreeClean": true,
+      "indexRunId": "91636401-ed6f-4bb6-be40-00740d1220c1",
+      "corpusRunId": "1fe4e82c-53b0-4d56-8354-362c8b163c5c"
+    },
+    "task": {
+      "id": "b24a0a72-35b7-4a67-a770-f661e1e6178f",
+      "intakeStatus": "READY",
+      "extractedTextAvailable": true,
+      "reused": true,
+      "originalBlobSha256": "0e4a323eb64834034d836cb7fb138bfa025979e03303c4d65720ae3de248d4b0"
+    },
+    "indexStatus": "COMPLETED",
+    "corpusStatus": "COMPLETED",
+    "mcp": {
+      "projectStatus": "PASS",
+      "checkpointRead": "PASS",
+      "contextSearch": "PASS",
+      "coreContextBuild": "PASS",
+      "mcpContextBuild": "PASS",
+      "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK",
+      "contextSearchQuery": "CP-05 Blender Context Core foundation",
+      "contextSearchCandidatePool": 5,
+      "contextSearchCorpusRunId": "1fe4e82c-53b0-4d56-8354-362c8b163c5c",
+      "contextBuildDefault": {"status": "PASS", "disclosureLevel": "DEFAULT", "topK": 5, "inputFingerprint": "e8ca16ebc3081711b17e5a05205e066c859d77dff2fdc54079c0fb20237edda4", "outputFingerprint": "815baccf7bea89179527b36e7e531ce0ecfe3464a3b1081f50519779e917791d", "finalContextTokenEstimate": 3384, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+      "contextBuildMinimal": {"status": "PASS", "disclosureLevel": "L0", "topK": 1, "inputFingerprint": "0ee75daaa1131b502354e3b8d244f9501483874086b6bc9b45de6355566999fc", "outputFingerprint": "822c063bd9d2e60ce6a88c20b0db9e9b0ad40418d609d44284604d39e9eb4c7b", "finalContextTokenEstimate": 3384, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+      "coreContextBuildDefault": {"status": "PASS", "disclosureLevel": "DEFAULT", "topK": 5, "inputFingerprint": "e8ca16ebc3081711b17e5a05205e066c859d77dff2fdc54079c0fb20237edda4", "outputFingerprint": "815baccf7bea89179527b36e7e531ce0ecfe3464a3b1081f50519779e917791d", "finalContextTokenEstimate": 3384, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+      "coreContextBuildMinimal": {"status": "PASS", "disclosureLevel": "L0", "topK": 1, "inputFingerprint": "0ee75daaa1131b502354e3b8d244f9501483874086b6bc9b45de6355566999fc", "outputFingerprint": "822c063bd9d2e60ce6a88c20b0db9e9b0ad40418d609d44284604d39e9eb4c7b", "finalContextTokenEstimate": 3384, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}
+    }
+  },
   "workOrders": {
     "WO-B3D-001": "NOT_STARTED_POLICY_BLOCK",
     "WO-B3D-002": "NOT_STARTED_POLICY_BLOCK",
