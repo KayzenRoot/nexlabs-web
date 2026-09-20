@@ -134,7 +134,12 @@ if cp05_active:
     evidence = data(f".engineering/evidence/{CP05_WORK_ORDER}.json")
     try:
         head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-        branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=ROOT, text=True).strip()
+        local_branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=ROOT, text=True).strip()
+        branch = (
+            local_branch
+            or os.environ.get("GITHUB_HEAD_REF", "").strip()
+            or os.environ.get("GITHUB_REF_NAME", "").strip()
+        )
     except (OSError, subprocess.CalledProcessError) as exc:
         fail(f"cannot resolve CP-05 resumed Git state: {exc}")
     if branch != "codex/cp05-blender-context-core":
