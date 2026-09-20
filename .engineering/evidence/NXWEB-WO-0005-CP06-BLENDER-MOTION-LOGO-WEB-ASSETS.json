@@ -25,7 +25,7 @@
   "planningManifestSha256": "97d09a4af77e2addcbad49d321c33437db4ec6ad46ebfb00d9ec28189087601f",
   "git": {
     "admissionHead": "9b502c1d618e93e1be45864acf19648e132515c6",
-    "candidateHead": "f4cc9aba5efacb5515715719230595efa0d0bdd6",
+    "candidateHead": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494",
     "reviewedCandidateHead": null,
     "reviewReceiptHead": null,
     "sceneMutationHead": null
@@ -50,9 +50,9 @@
   "hive": {
     "status": "PASS",
     "api": "http://localhost:8000",
-    "project": {"name": "NEXLABS-WEB", "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea", "relativePath": "nexlabs-web", "state": "READY", "head": "234bcaaab5e8d56ca2796972b809e7d6b2fa320bd", "branch": "codex/cp06-blender-motion-logo-web-assets", "workingTreeClean": true, "indexRunId": "a2bd6be2-4fc3-456f-b974-0dc140b82dda", "corpusRunId": "b3543d66-a7c1-4b98-b24a-bbeb461e4c54"},
+    "project": {"name": "NEXLABS-WEB", "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea", "relativePath": "nexlabs-web", "state": "READY", "head": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494", "branch": "codex/cp06-blender-motion-logo-web-assets", "workingTreeClean": true, "indexRunId": "431ecea4-dbde-45e9-8e1f-29d107351b31", "corpusRunId": "a2862734-0520-440d-98e0-591e010f6afb"},
     "task": {"id": "abea746b-763e-4cd0-9476-5b522dbdc0d0", "intakeStatus": "READY", "extractedTextAvailable": true, "originalBlobSha256": "7ebbb7b00124c64f8c066bccc134eccfdf933c25dbafca59eae3461412fbcbd7"},
-    "mcp": {"projectStatus": "PASS", "checkpointRead": "PASS", "contextSearch": "PASS", "contextSearchCorpusRunId": "b3543d66-a7c1-4b98-b24a-bbeb461e4c54", "contextSearchCandidatePool": 5, "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK", "coreContextBuild": "PASS", "mcpContextBuild": "PASS", "contextBuildMinimal": {"status": "PASS", "inputFingerprint": "b8deb1d853c5080e9507d292e3ef4afc3de7956a7fbbcccd9ef856a464841417", "outputFingerprint": "b1c628d217273c11fa6b42181c5519f634b6b3c4314d9b49a7e533859e28e868", "finalContextTokenEstimate": 4551, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}, "contextBuildDefault": {"status": "PASS", "inputFingerprint": "0a9f9bed98bd3e0aa65cacaba096b0a7d9cf636d4649a5258bd55dd334c6c5d3", "outputFingerprint": "cc8e21173cb5d065210d46f8328ef1548a0d8151104ad7ac373c7b4f90648372", "finalContextTokenEstimate": 4551, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}}
+    "mcp": {"projectStatus": "PASS", "checkpointRead": "PASS", "contextSearch": "PASS", "contextSearchCorpusRunId": "a2862734-0520-440d-98e0-591e010f6afb", "contextSearchCandidatePool": 2, "semanticState": "UNAVAILABLE", "contextSearchQuery": "CP06 Blender MCP recovered WO-B3D-007 WO-B3D-012 NX-C-02 static fallback", "coreContextBuild": "PASS", "mcpContextBuild": "PASS", "contextBuildMinimal": {"status": "PASS", "requestedLevel": "L2", "finalLevel": "L3", "inputFingerprint": "a848fff3e67cf2b5d1e43852a81b2fead25819084046b7026a195f084f3dea04", "outputFingerprint": "18fbe107437f347904a4f85a4cf4c0d8f2138152bcc8d63076485cfe97dfc18b", "finalContextTokenEstimate": 4648, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}, "contextBuildDefault": {"status": "PASS", "requestedLevel": "L3", "finalLevel": "L3", "inputFingerprint": "44c1ce3046bdd099a9fb7ca197716cdc0c4c26c2eef8859287b53180e062e133", "outputFingerprint": "72f4142495acdac40d34cf3b4347a50c891c3a6d202c8f86ba1c5c22141722f1", "finalContextTokenEstimate": 4613, "effectiveBudgetTokens": 5248, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}}
   },
   "workOrders": {
     "WO-B3D-007": "IN_PROGRESS_AFTER_MCP_RECOVERY",

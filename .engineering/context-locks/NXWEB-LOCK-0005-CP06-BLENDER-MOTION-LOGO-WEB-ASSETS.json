@@ -16,8 +16,8 @@
   "admissionHead": "9b502c1d618e93e1be45864acf19648e132515c6",
   "resumeBase": "9b502c1d618e93e1be45864acf19648e132515c6",
   "resumeBaseRole": "protected_main_cp05_complete",
-  "candidateHead": "f4cc9aba5efacb5515715719230595efa0d0bdd6",
-  "candidateHeadRole": "cp06_mcp_recovered_resume_candidate",
+  "candidateHead": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494",
+  "candidateHeadRole": "cp06_hive_resume_candidate",
   "reviewedCandidateHead": null,
   "reviewReceiptHead": null,
   "sceneMutationHead": null,
@@ -61,7 +61,7 @@
     "diagnostics": ["Codex MCP configuration verified with full path: blender enabled, uvx mcp-for-blender, BLENDER_HOST=127.0.0.1, BLENDER_PORT=9876", "Before recovery: no blender process, no listener on 127.0.0.1:9876, TCP probe failed", "After R3: Blender PID 39332 is the sole listener owner on 127.0.0.1:9876"]
   },
   "policyGate": {
-    "status": "BLOCKED_LIVE_PREFLIGHT",
+    "status": "PASS_LIVE_PREFLIGHT",
     "code": "BLENDER_PRODUCTION_AUTHORIZED",
     "source": "AGENTS.md and docs/WORKSTATION-MODE.md",
     "sceneWorkAuthorized": true,
@@ -74,11 +74,11 @@
     "api": "http://localhost:8000",
     "projectId": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
     "projectState": "READY",
-    "projectHead": "234bcaaab5e8d56ca2796972b809e7d6b2fa320bd",
+    "projectHead": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494",
     "projectBranch": "codex/cp06-blender-motion-logo-web-assets",
     "workingTreeClean": true,
-    "indexRunId": "a2bd6be2-4fc3-456f-b974-0dc140b82dda",
-    "corpusRunId": "b3543d66-a7c1-4b98-b24a-bbeb461e4c54",
+    "indexRunId": "431ecea4-dbde-45e9-8e1f-29d107351b31",
+    "corpusRunId": "a2862734-0520-440d-98e0-591e010f6afb",
     "taskId": "abea746b-763e-4cd0-9476-5b522dbdc0d0",
     "taskDigest": "7ebbb7b00124c64f8c066bccc134eccfdf933c25dbafca59eae3461412fbcbd7",
     "taskIntakeStatus": "READY",
@@ -87,16 +87,16 @@
       "projectStatus": "PASS",
       "checkpointRead": "PASS",
       "contextSearch": "PASS",
-      "contextSearchCorpusRunId": "b3543d66-a7c1-4b98-b24a-bbeb461e4c54",
-      "contextSearchCandidatePool": 5,
-      "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK",
+      "contextSearchCorpusRunId": "a2862734-0520-440d-98e0-591e010f6afb",
+      "contextSearchCandidatePool": 2,
+      "semanticState": "UNAVAILABLE",
       "coreContextBuild": "PASS",
       "mcpContextBuild": "PASS",
-      "contextBuildMinimal": {"status": "PASS", "inputFingerprint": "b8deb1d853c5080e9507d292e3ef4afc3de7956a7fbbcccd9ef856a464841417", "outputFingerprint": "b1c628d217273c11fa6b42181c5519f634b6b3c4314d9b49a7e533859e28e868", "finalContextTokenEstimate": 4551, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
-      "contextBuildDefault": {"status": "PASS", "inputFingerprint": "0a9f9bed98bd3e0aa65cacaba096b0a7d9cf636d4649a5258bd55dd334c6c5d3", "outputFingerprint": "cc8e21173cb5d065210d46f8328ef1548a0d8151104ad7ac373c7b4f90648372", "finalContextTokenEstimate": 4551, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}
+      "contextBuildMinimal": {"status": "PASS", "requestedLevel": "L2", "finalLevel": "L3", "inputFingerprint": "a848fff3e67cf2b5d1e43852a81b2fead25819084046b7026a195f084f3dea04", "outputFingerprint": "18fbe107437f347904a4f85a4cf4c0d8f2138152bcc8d63076485cfe97dfc18b", "finalContextTokenEstimate": 4648, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+      "contextBuildDefault": {"status": "PASS", "requestedLevel": "L3", "finalLevel": "L3", "inputFingerprint": "44c1ce3046bdd099a9fb7ca197716cdc0c4c26c2eef8859287b53180e062e133", "outputFingerprint": "72f4142495acdac40d34cf3b4347a50c891c3a6d202c8f86ba1c5c22141722f1", "finalContextTokenEstimate": 4613, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}
     }
   },
   "externalBlockers": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false"],
   "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
-  "stopState": "CP06_BLOCKED_BEFORE_SCENE_MUTATION"
+  "stopState": "CP06_RESUMED_BEFORE_SCENE_MUTATION"
 }
