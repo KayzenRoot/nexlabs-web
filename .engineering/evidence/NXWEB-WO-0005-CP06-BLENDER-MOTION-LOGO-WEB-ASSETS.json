@@ -25,7 +25,7 @@
   "planningManifestSha256": "97d09a4af77e2addcbad49d321c33437db4ec6ad46ebfb00d9ec28189087601f",
   "git": {
     "admissionHead": "9b502c1d618e93e1be45864acf19648e132515c6",
-    "candidateHead": null,
+    "candidateHead": "234bcaaab5e8d56ca2796972b809e7d6b2fa320bd",
     "reviewedCandidateHead": null,
     "reviewReceiptHead": null,
     "sceneMutationHead": null
@@ -47,7 +47,13 @@
     "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165",
     "sourceUnchanged": true
   },
-  "hive": {"status": "PENDING", "project": {}, "task": {}, "mcp": {}},
+  "hive": {
+    "status": "PASS",
+    "api": "http://localhost:8000",
+    "project": {"name": "NEXLABS-WEB", "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea", "relativePath": "nexlabs-web", "state": "READY", "head": "234bcaaab5e8d56ca2796972b809e7d6b2fa320bd", "branch": "codex/cp06-blender-motion-logo-web-assets", "workingTreeClean": true, "indexRunId": "a2bd6be2-4fc3-456f-b974-0dc140b82dda", "corpusRunId": "b3543d66-a7c1-4b98-b24a-bbeb461e4c54"},
+    "task": {"id": "abea746b-763e-4cd0-9476-5b522dbdc0d0", "intakeStatus": "READY", "extractedTextAvailable": true, "originalBlobSha256": "7ebbb7b00124c64f8c066bccc134eccfdf933c25dbafca59eae3461412fbcbd7"},
+    "mcp": {"projectStatus": "PASS", "checkpointRead": "PASS", "contextSearch": "PASS", "contextSearchCorpusRunId": "b3543d66-a7c1-4b98-b24a-bbeb461e4c54", "contextSearchCandidatePool": 5, "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK", "coreContextBuild": "PASS", "mcpContextBuild": "PASS", "contextBuildMinimal": {"status": "PASS", "inputFingerprint": "b8deb1d853c5080e9507d292e3ef4afc3de7956a7fbbcccd9ef856a464841417", "outputFingerprint": "b1c628d217273c11fa6b42181c5519f634b6b3c4314d9b49a7e533859e28e868", "finalContextTokenEstimate": 4551, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}, "contextBuildDefault": {"status": "PASS", "inputFingerprint": "0a9f9bed98bd3e0aa65cacaba096b0a7d9cf636d4649a5258bd55dd334c6c5d3", "outputFingerprint": "cc8e21173cb5d065210d46f8328ef1548a0d8151104ad7ac373c7b4f90648372", "finalContextTokenEstimate": 4551, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}}
+  },
   "workOrders": {
     "WO-B3D-007": "PENDING",
     "WO-B3D-008": "PENDING",
