@@ -1,6 +1,6 @@
 # NexLabs Web Source Hierarchy
 
-Status: `CP05_IN_PROGRESS_BLENDER_AUTHORIZED`
+Status: `CP05_COMPLETE_READY_FOR_CP06_ADMISSION`
 
 Authority is domain-specific. HIVE indexes, memories and GEF metadata accelerate work but cannot override tracked Git sources.
 
@@ -39,4 +39,4 @@ Executor access to the private parent repository is optional once the pinned loc
 
 The protected repository policy authorizes governed Blender production on this workstation for CP-05 and later Work Orders that explicitly require Blender and pass the live MCP preflight. This authorization does not enable UGAS generation, provider startup, runtime 3D, logo promotion or CP-06+ scope by itself.
 
-The preserved local branch `codex/cp05-blender-context-core` is resumed from protected `main` without rewriting the blocked ancestry; its Work Order/Context Lock/HIVE fingerprints are refreshed against the merged exact HEAD before scene mutation.
+The preserved local branch `codex/cp05-blender-context-core` completed CP-05 from protected `main` without rewriting the blocked ancestry; its Work Order, Context Lock and HIVE proof lineage are closed and bound to the independent review receipt, while CP-06 requires a new Work Order.

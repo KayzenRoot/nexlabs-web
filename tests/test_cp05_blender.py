@@ -23,6 +23,22 @@ class CP05BlenderContractTests(unittest.TestCase):
         self.assertIn("brand-web/BR-05-3D-LANGUAGE.md", paths)
         self.assertIn("brand-web/BR-11-CONTEXT-CORE-WORK-ORDERS.md", paths)
 
+    def test_final_closure_keeps_review_and_hive_lineage_typed(self):
+        current = json.loads((ROOT / ".engineering/gef/GEF-CURRENT.json").read_text())
+        lock = json.loads((ROOT / ".engineering/context-locks/NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.json").read_text())
+        evidence = json.loads((ROOT / ".engineering/evidence/NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.json").read_text())
+        self.assertEqual(current["productStage"], "CP05_COMPLETE")
+        self.assertIsNone(current["activeWorkOrder"])
+        self.assertEqual(lock["status"], "CLOSED")
+        self.assertEqual(lock["candidateHead"], "de5a35db79521fca740f909982cc69ffd2033dc3")
+        self.assertEqual(lock["reviewedCandidateHead"], "da97a702797078ff1de119065e4fc80e943d1984")
+        self.assertEqual(lock["sceneMutationHead"], "da97a702797078ff1de119065e4fc80e943d1984")
+        self.assertEqual(evidence["verdict"], "APPROVED")
+        self.assertFalse(evidence["blender"]["preflight"]["sceneMutationBeforeGate"])
+        self.assertTrue(evidence["blender"]["production"]["sceneMutationPerformed"])
+        self.assertTrue(evidence["blender"]["production"]["mutationAfterPolicyAndMcpGate"])
+        self.assertEqual(evidence["hosted"]["checks"]["status"], "PENDING_VERIFY_EXTERNALLY")
+
 
 if __name__ == "__main__":
     unittest.main()
