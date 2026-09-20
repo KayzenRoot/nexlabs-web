@@ -4,8 +4,8 @@
     "name": "NEXLABS-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS-WORK-ORDER.pdf",
     "sha256": "158779a40882f2a5ff270c84164482d68ea6d82a2eb846fad2d285ef97c8408c"
   },
-  "verdict": "IN_PROGRESS",
-  "reviewState": "CP06_IN_PROGRESS",
+  "verdict": "READY_FOR_REVIEW",
+  "reviewState": "CP06_BLOCKED",
   "workOrder": {
     "id": "NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
     "path": ".engineering/work-orders/NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS.md",
@@ -25,15 +25,16 @@
   "planningManifestSha256": "97d09a4af77e2addcbad49d321c33437db4ec6ad46ebfb00d9ec28189087601f",
   "git": {
     "admissionHead": "9b502c1d618e93e1be45864acf19648e132515c6",
-    "candidateHead": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494",
+    "candidateHead": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
     "reviewedCandidateHead": null,
     "reviewReceiptHead": null,
-    "sceneMutationHead": null
+    "sceneMutationHead": "fe1419fd850d5aa75cdbb362c9432da622c122d7"
   },
   "blender": {
     "preflight": {"status": "PASS_LIVE_MCP_STABILITY_GATE", "executable": "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe", "version": "5.2.1 LTS", "addon": {"status": "PASS", "version": "1.7", "protocolVersion": 7, "expectedProtocolVersion": 7}, "tools": {"getAddonStatus": "PASS", "getSceneInfo": "PASS"}, "recovery": {"attempts": 1, "bounded": true, "ladderStep": "R3_SAME_BLENDER_RESTART", "status": "MCP_RECOVERED"}, "host": "127.0.0.1", "port": 9876, "blenderPid": 39332, "listenerPid": 39332, "capturedAt": "2026-09-20T15:42:06.1327547-03:00", "stabilityGate": {"A_getAddonStatus": "PASS", "B_getSceneInfo": "PASS", "C_getAddonStatusAfterPause": "PASS", "D_getSceneInfoAgain": "PASS", "sameBlenderPid": true, "transportErrors": []}, "historicalBlockedReceipt": {"status": "BLOCKED_LIVE_MCP_UNAVAILABLE", "initialTransportError": "[WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host", "boundedRecoveryAddon": "Not connected to Blender", "boundedRecoveryScene": "Not connected to Blender", "sceneMutationBeforeGate": false, "listenerObserved": "127.0.0.1:8765 owned by com.docker.backend PID 17120"}, "diagnostics": ["Codex MCP configuration verified with full path: blender enabled, uvx mcp-for-blender, BLENDER_HOST=127.0.0.1, BLENDER_PORT=9876", "Before recovery: no blender process, no listener on 127.0.0.1:9876, TCP probe failed", "After R3: Blender PID 39332 is the sole listener owner on 127.0.0.1:9876"]},
-    "production": {"status": "NOT_STARTED", "sceneMutationPerformed": false, "mutationAfterPolicyAndMcpGate": false}
+    "production": {"status": "PASS_LOCAL", "sceneMutationPerformed": true, "mutationAfterPolicyAndMcpGate": true, "workOrders": ["WO-B3D-007", "WO-B3D-008", "WO-B3D-009", "WO-B3D-010", "WO-B3D-011", "WO-B3D-012"], "sceneId": "NL-SCENE-CONTEXT-CORE-01", "assetManifest": "artifacts/cp06/cp06-asset-manifest.json", "provenance": "artifacts/cp06/cp06-provenance.json", "gateReport": "artifacts/cp06/cp06-gate-report.md", "glbInspection": "artifacts/cp06/reports/glb-inspection.json"}
   },
+  "transportRecoveryFollowUp": {"status": "PASS", "ladderStep": "R3_REPEAT_AFTER_PROCESS_EXIT", "blenderPid": 25232, "listenerPid": 25232, "stabilityGate": {"A_getAddonStatus": "PASS", "B_getSceneInfo": "PASS", "C_getAddonStatusAfterPause": "PASS", "D_getSceneInfoAgain": "PASS", "sameBlenderPid": true, "transportErrors": []}, "sceneMutationBeforeGate": false},
   "cp05Source": {
     "sceneId": "NL-SCENE-CONTEXT-CORE-01",
     "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",
@@ -48,26 +49,30 @@
     "sourceUnchanged": true
   },
   "hive": {
-    "status": "PASS",
+    "status": "DEGRADED_CURRENT_CANDIDATE",
+    "priorReceiptStatus": "PASS",
+    "currentCandidateHead": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
+    "currentCandidateInspection": "DEGRADED_GIT_TIMEOUT",
+    "lastKnownReadyCandidateHead": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494",
     "api": "http://localhost:8000",
     "project": {"name": "NEXLABS-WEB", "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea", "relativePath": "nexlabs-web", "state": "READY", "head": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494", "branch": "codex/cp06-blender-motion-logo-web-assets", "workingTreeClean": true, "indexRunId": "431ecea4-dbde-45e9-8e1f-29d107351b31", "corpusRunId": "a2862734-0520-440d-98e0-591e010f6afb"},
     "task": {"id": "abea746b-763e-4cd0-9476-5b522dbdc0d0", "intakeStatus": "READY", "extractedTextAvailable": true, "originalBlobSha256": "7ebbb7b00124c64f8c066bccc134eccfdf933c25dbafca59eae3461412fbcbd7"},
     "mcp": {"projectStatus": "PASS", "checkpointRead": "PASS", "contextSearch": "PASS", "contextSearchCorpusRunId": "a2862734-0520-440d-98e0-591e010f6afb", "contextSearchCandidatePool": 2, "semanticState": "UNAVAILABLE", "contextSearchQuery": "CP06 Blender MCP recovered WO-B3D-007 WO-B3D-012 NX-C-02 static fallback", "coreContextBuild": "PASS", "mcpContextBuild": "PASS", "contextBuildMinimal": {"status": "PASS", "requestedLevel": "L2", "finalLevel": "L3", "inputFingerprint": "a848fff3e67cf2b5d1e43852a81b2fead25819084046b7026a195f084f3dea04", "outputFingerprint": "18fbe107437f347904a4f85a4cf4c0d8f2138152bcc8d63076485cfe97dfc18b", "finalContextTokenEstimate": 4648, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}, "contextBuildDefault": {"status": "PASS", "requestedLevel": "L3", "finalLevel": "L3", "inputFingerprint": "44c1ce3046bdd099a9fb7ca197716cdc0c4c26c2eef8859287b53180e062e133", "outputFingerprint": "72f4142495acdac40d34cf3b4347a50c891c3a6d202c8f86ba1c5c22141722f1", "finalContextTokenEstimate": 4613, "effectiveBudgetTokens": 5248, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}}
   },
   "workOrders": {
-    "WO-B3D-007": "IN_PROGRESS_AFTER_MCP_RECOVERY",
-    "WO-B3D-008": "IN_PROGRESS_AFTER_MCP_RECOVERY",
-    "WO-B3D-009": "IN_PROGRESS_AFTER_MCP_RECOVERY",
-    "WO-B3D-010": "IN_PROGRESS_AFTER_MCP_RECOVERY",
-    "WO-B3D-011": "IN_PROGRESS_AFTER_MCP_RECOVERY",
-    "WO-B3D-012": "IN_PROGRESS_AFTER_MCP_RECOVERY"
+    "WO-B3D-007": "PASS",
+    "WO-B3D-008": "PASS",
+    "WO-B3D-009": "PASS",
+    "WO-B3D-010": "PASS",
+    "WO-B3D-011": "PASS",
+    "WO-B3D-012": "PASS"
   },
-  "receipts": {"SSAC": "PENDING", "PFR": "PENDING", "LIPG": "PENDING", "EBL": "PENDING"},
-  "gates": {"G1": "PENDING", "G2": "PENDING", "G3": "PENDING", "G4": "PENDING", "G5": "PENDING", "G6": "PENDING", "G7": "PENDING", "G8": "PENDING", "G9": "PENDING", "G10": "PENDING"},
+  "receipts": {"SSAC": "PASS", "PFR": "PASS", "LIPG": "PASS", "EBL": "PASS", "glbInspection": "artifacts/cp06/reports/glb-inspection.json"},
+  "gates": {"G1": "PASS", "G2": "PASS", "G3": "PASS", "G4": "PASS", "G5": "PASS", "G6": "PASS", "G7": "PASS", "G8": "PASS", "G9": "PASS", "G10": "PASS"},
   "outOfScopeConfirmed": {"runtimeThree": false, "brandMarkChange": false, "ugasProviderStarted": false, "ugasGeneration": false, "deployment": false, "cp08Media": false},
   "hosted": {"status": "NOT_PUBLISHED_EXTERNAL_BLOCKER", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
   "historicalBlockers": ["BLENDER_MCP_DISCONNECTED_WINERROR_10053", "BLENDER_MCP_NOT_CONNECTED_AFTER_BOUNDED_RECOVERY"],
-  "knownBlockers": [],
+  "knownBlockers": ["HIVE_CURRENT_CANDIDATE_GIT_TIMEOUT"],
   "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
   "researchGaps": []
 }

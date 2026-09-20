@@ -13,10 +13,10 @@ CP-06 is admitted from protected main `9b502c1d618e93e1be45864acf19648e132515c6`
 Execute WO-B3D-007 through WO-B3D-012 as a deterministic, auditable Blender motion, selected-logo projection, LOD, GLB and static fallback package for CP-07 consumption.
 
 ## IN PROGRESS
-NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS remains active and is resumed after the live MCP stability gate. The existing HIVE task and Work Order digest remain bound; refreshed project/task/index/corpus and context receipts must remain exact-head bound as execution advances.
+NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS completed its local Blender production package: WO-B3D-007 through WO-B3D-012, G1-G10, GLB round-trip and static fallback receipts are PASS at candidate `fe1419fd850d5aa75cdbb362c9432da622c122d7`. The branch remains before protected PR publication because the current HIVE inspection degraded with `git_timeout`.
 
 ## BLOCKERS
-Historical transport blocker `BLENDER_MCP_DISCONNECTED_WINERROR_10053` was preserved in the CP06 evidence. Recovery is recorded as `MCP_RECOVERED` after the same Blender process became the sole owner of `127.0.0.1:9876` and four sequential addon/scene probes passed. UGAS generation remains unauthorized/unready and CP-07 runtime integration is out of scope.
+Historical transport blocker `BLENDER_MCP_DISCONNECTED_WINERROR_10053` was preserved in the CP06 evidence. Two bounded same-install restarts were recorded; each recovery passed the four sequential addon/scene probes before mutation. Current blocker: HIVE cannot inspect the production candidate (`git_timeout`), so no hosted PR or approval is claimed. UGAS generation remains unauthorized/unready and CP-07 runtime integration is out of scope.
 
 ## NEXT STEP
-Execute WO-B3D-007 through WO-B3D-012 under the resumed hard preflight, collect exact-head evidence, and stop before CP-07; do not start runtime integration or UGAS generation.
+Recover HIVE exact-head inspection, then publish one protected PR and await exact-head hosted checks; do not merge, start CP-07 runtime integration or UGAS generation.

@@ -2,7 +2,7 @@
   "schemaVersion": "nexlabs-web-cp06-asset-manifest-v1",
   "status": "PASS",
   "sceneId": "NL-SCENE-CONTEXT-CORE-01",
-  "sourceRevision": "9f9fbf5",
+  "sourceRevision": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
   "sourceBlend": {"path": ".local/cp06/context_core_cp06_master.blend", "bytes": 198842, "sha256": "8eb0b543e592f68dff3cc6bc6919ea84c2bb8d2c2f0626cbb9ad2290519df200", "role": "CP06 canonical Blender source"},
   "cp05Source": {"masterPath": ".local/cp05/context_core_master.blend", "masterSha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd", "cp06CopySha256BeforeMutation": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd", "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61", "mutatedInPlace": false},
   "selectedLogo": {"candidateId": "NX-C-02", "revision": "r1", "sourcePath": "brand/logo/candidates/NX-C-02.svg", "sourceSha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165", "projection": "ORTHOGRAPHIC_CONTROLLED", "sourceUnchanged": true},
@@ -22,6 +22,6 @@
   "receipts": {"SSAC": "PASS", "PFR": "PASS", "LIPG": "PASS", "EBL": "PASS", "glbInspection": "artifacts/cp06/reports/glb-inspection.json"},
   "gates": {"G1": "PASS", "G2": "PASS", "G3": "PASS", "G4": "PASS", "G5": "PASS", "G6": "PASS", "G7": "PASS", "G8": "PASS", "G9": "PASS", "G10": "PASS"},
   "browserParity": {"status": "PASS_ISOLATED_GLTF_STRUCTURE", "runtimeThree": false, "browserRuntimeWiring": false, "notes": "GLB self-contained structure and names inspected without introducing CP-07 runtime code."},
-  "provenance": {"sourceRevision": "9f9fbf5", "sourceSvgSha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165", "generatedBy": "Blender 5.2.1 LTS + Blender MCP protocol 7", "addonVersion": "1.7", "deterministicSeed": 20260920},
+  "provenance": {"sourceRevision": "fe1419fd850d5aa75cdbb362c9432da622c122d7", "sourceSvgSha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165", "generatedBy": "Blender 5.2.1 LTS + Blender MCP protocol 7", "addonVersion": "1.7", "deterministicSeed": 20260920},
   "outOfScope": {"runtimeThree": false, "brandMarkChange": false, "ugasProviderStarted": false, "ugasGeneration": false, "deployment": false, "cp07": false, "cp08Media": false}
 }

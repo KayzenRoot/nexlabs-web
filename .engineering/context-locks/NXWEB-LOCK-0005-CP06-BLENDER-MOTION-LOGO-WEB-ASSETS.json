@@ -16,11 +16,11 @@
   "admissionHead": "9b502c1d618e93e1be45864acf19648e132515c6",
   "resumeBase": "9b502c1d618e93e1be45864acf19648e132515c6",
   "resumeBaseRole": "protected_main_cp05_complete",
-  "candidateHead": "cceb51dbf3f95e2c4064f424f6aa9a179ff01494",
-  "candidateHeadRole": "cp06_hive_resume_candidate",
+  "candidateHead": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
+  "candidateHeadRole": "cp06_production_candidate",
   "reviewedCandidateHead": null,
   "reviewReceiptHead": null,
-  "sceneMutationHead": null,
+  "sceneMutationHead": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
   "scope": {
     "workOrders": ["WO-B3D-007", "WO-B3D-008", "WO-B3D-009", "WO-B3D-010", "WO-B3D-011", "WO-B3D-012"],
     "sceneId": "NL-SCENE-CONTEXT-CORE-01",
@@ -48,7 +48,7 @@
     "addonStatus": "PASS",
     "sceneInfo": "PASS",
     "protocolVersion": 7,
-    "recoveryAttempts": 1,
+    "recoveryAttempts": 2,
     "sceneMutationBeforeGate": false,
     "host": "127.0.0.1",
     "port": 9876,
@@ -60,6 +60,7 @@
     "transportRecovery": {"status": "MCP_RECOVERED", "ladderStep": "R3_SAME_BLENDER_RESTART", "action": "Reopened the same validated Blender installation after confirming no Blender process and no listener on configured port", "configuredCommand": "uvx mcp-for-blender", "configuredHost": "127.0.0.1", "configuredPort": 9876},
     "diagnostics": ["Codex MCP configuration verified with full path: blender enabled, uvx mcp-for-blender, BLENDER_HOST=127.0.0.1, BLENDER_PORT=9876", "Before recovery: no blender process, no listener on 127.0.0.1:9876, TCP probe failed", "After R3: Blender PID 39332 is the sole listener owner on 127.0.0.1:9876"]
   },
+  "subsequentTransportRecovery": {"status": "PASS", "ladderStep": "R3_REPEAT_AFTER_PROCESS_EXIT", "blenderPid": 25232, "listenerPid": 25232, "blenderVersion": "5.2.1 LTS", "addonVersion": "1.7", "protocolVersion": 7, "stabilityGate": {"A_getAddonStatus": "PASS", "B_getSceneInfo": "PASS", "C_getAddonStatusAfterPause": "PASS", "D_getSceneInfoAgain": "PASS", "sameBlenderPid": true, "transportErrors": []}, "sceneLoadedReadOnlyAfterRecovery": true, "sceneMutationBeforeGate": false},
   "policyGate": {
     "status": "PASS_LIVE_PREFLIGHT",
     "code": "BLENDER_PRODUCTION_AUTHORIZED",
@@ -98,5 +99,5 @@
   },
   "externalBlockers": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false"],
   "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
-  "stopState": "CP06_RESUMED_BEFORE_SCENE_MUTATION"
+  "stopState": "CP06_PRODUCTION_LOCAL_READY_FOR_REVIEW"
 }
