@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "nexlabs-cp04-logo-provenance-v1",
+  "candidateId": "NX-B-03",
+  "family": "Routed N",
+  "revision": "r1",
+  "status": "CANDIDATE_EXPLORATION",
+  "constructionGrid": "12x12",
+  "source": {
+    "type": "deterministic-procedural",
+    "generator": "scripts/logo_lab.py",
+    "references": [
+      "BR-03-LOGO-SYSTEM",
+      "BR-03-LOGO-EVALUATION",
+      "BR-12-UGAS-ASSET-PIPELINE"
+    ]
+  },
+  "svgPath": "brand/logo/candidates/NX-B-03.svg",
+  "svgSha256": "1ec78db174012bf50642e0d382a303bff83811dbe3d6df569052a81fd8fb117c",
+  "ugAS": {
+    "mode": "REFERENCE_ONLY",
+    "generation": "NOT_PERFORMED",
+    "canonical": false
+  },
+  "blender": {
+    "mode": "LIGHTWEIGHT_PROJECTION_ATTEMPTED",
+    "status": "BLOCKED_EXTERNAL",
+    "canonical": false
+  },
+  "approval": null,
+  "canonicalRuntimeWiring": false
+}

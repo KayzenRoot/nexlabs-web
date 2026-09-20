@@ -89,8 +89,12 @@ for field, heading in field_map.items():
 current = data(".engineering/gef/GEF-CURRENT.json")
 CP03_WORK_ORDER = "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES"
 CP03_LOCK = "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES"
+CP04_WORK_ORDER = "NXWEB-WO-0003-CP04-LOGO-EXPLORATION"
+CP04_LOCK = "NXWEB-LOCK-0003-CP04-LOGO-EXPLORATION"
 cp03_closed = current.get("lastCompletedWorkOrder") == CP03_WORK_ORDER and current.get("productStage") == "CP03_COMPLETE"
 cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED" and current.get("activeWorkOrder") == CP03_WORK_ORDER
+cp04_active = current.get("adoptionState") == "GEF_V1_CP04_ADMITTED" and current.get("activeWorkOrder") == CP04_WORK_ORDER
+cp04_closed = current.get("lastCompletedWorkOrder") == CP04_WORK_ORDER and current.get("productStage") == "CP04_COMPLETE"
 
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
 if manifest.get("project") != "KayzenRoot/nexlabs-web" or manifest.get("mode") != "EXISTING_PROJECT / BROWNFIELD":
@@ -115,7 +119,170 @@ for domain, path in {"PROJECT_STATE": "docs/project-brain/13-CHECKPOINT.md", "DE
     if source_bridge.get("domains", {}).get(domain) != path:
         fail(f"source bridge mismatch: {domain}")
 
-if cp03_closed:
+if cp04_active:
+    work_order = read(f".engineering/work-orders/{CP04_WORK_ORDER}.md")
+    lock = data(f".engineering/context-locks/{CP04_LOCK}.json")
+    evidence = data(f".engineering/evidence/{CP04_WORK_ORDER}.json")
+    if current.get("activeWorkOrder") != CP04_WORK_ORDER or current.get("activeContextLock") != CP04_LOCK:
+        fail("CP-04 active Work Order and Context Lock identity mismatch")
+    if lock.get("workOrder") != CP04_WORK_ORDER or lock.get("lockId") != CP04_LOCK:
+        fail("CP-04 Work Order and Context Lock pairing mismatch")
+    if lock.get("authorizedBase") != "b989606949bd362a2bd63d039448505f3220918e" or lock.get("planningSource") != PLANNING:
+        fail("CP-04 Context Lock base/source mismatch")
+    expected_digest = hashlib.sha256((ROOT / f".engineering/work-orders/{CP04_WORK_ORDER}.md").read_bytes()).hexdigest()
+    if lock.get("workOrderSha256") != expected_digest or lock.get("executionWorkOrderSha256") != expected_digest:
+        fail("CP-04 Context Lock Work Order digest mismatch")
+    if evidence.get("workOrder", {}).get("id") != CP04_WORK_ORDER or evidence.get("contextLock", {}).get("id") != CP04_LOCK:
+        fail("CP-04 evidence Work Order and Context Lock identity mismatch")
+    if evidence.get("workOrder", {}).get("sha256") != expected_digest or evidence.get("contextLock", {}).get("workOrderSha256") != expected_digest:
+        fail("CP-04 evidence Work Order digest mismatch")
+    try:
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve Git HEAD: {exc}")
+    if lock.get("admissionHead") != "b989606949bd362a2bd63d039448505f3220918e":
+        fail("CP-04 admission head is not bound to the expected synchronized base")
+    if lock.get("status") not in {"OPEN", "ACTIVE"}:
+        fail("CP-04 requires an OPEN or ACTIVE Context Lock")
+    if current.get("productStage") != "CP04_IN_PROGRESS" or current.get("reviewState") not in {"CP04_IMPLEMENTATION_IN_PROGRESS", "CP04_HUMAN_SELECTION_PENDING"}:
+        fail("CP-04 GEF state is not an admitted implementation or human-selection state")
+    if "Status: `IN_PROGRESS`" not in work_order:
+        fail("CP-04 requires an IN_PROGRESS Work Order")
+    if evidence.get("verdict") not in {"IN_PROGRESS", "HUMAN_SELECTION_REQUIRED", "BLOCKED"}:
+        fail("CP-04 evidence verdict is not a bounded lifecycle state")
+    for heading in ("## OBJECTIVE", "## CONTEXT/HIVE PREFLIGHT", "## CANONICAL BASIS", "## SCOPE", "## OUT OF SCOPE", "## FILES/SOURCES TO READ", "## REQUIREMENTS", "## ARCHITECTURE RULES", "## CONSTRAINTS", "## ACCEPTANCE CRITERIA", "## TESTS", "## DELIVERABLES", "## REVIEW FORMAT", "## STOP CONDITION", "## EXECUTION REFERENCES / CANONICAL REFERENCES"):
+        if heading not in work_order:
+            fail(f"CP-04 Work Order missing section: {heading}")
+    if current.get("reviewState") == "CP04_HUMAN_SELECTION_PENDING":
+        if evidence.get("verdict") != "HUMAN_SELECTION_REQUIRED" or evidence.get("candidateIds") != ["NX-D-01", "NX-D-02", "NX-D-03", "NX-C-01", "NX-C-02", "NX-C-03", "NX-B-01", "NX-B-02", "NX-B-03"]:
+            fail("CP-04 human-selection evidence is missing the exact nine-candidate batch")
+        if evidence.get("hive", {}).get("status") != "PASS" or evidence.get("local", {}).get("status") != "PASS":
+            fail("CP-04 human-selection state requires passing HIVE and local evidence")
+        if evidence.get("canonicalSelection") is not False or evidence.get("runtimeWiring") is not False:
+            fail("CP-04 human-selection state must not claim canonical selection or runtime wiring")
+        candidate_head = lock.get("candidateHead")
+        reviewed_head = lock.get("reviewedCandidateHead")
+        receipt_head = lock.get("reviewReceiptHead")
+        proof_head = evidence.get("git", {}).get("proofHead")
+        if not all(isinstance(value, str) and value for value in (candidate_head, reviewed_head, receipt_head, proof_head)):
+            fail("CP-04 human-selection state requires candidate, reviewed, receipt and proof heads")
+        if candidate_head != reviewed_head:
+            fail("CP-04 human-selection state must keep candidate and reviewed heads aligned")
+        hive = evidence.get("hive", {})
+        hive_project = hive.get("project", {})
+        hive_mcp = hive.get("mcp", {})
+        if hive_project.get("head") != candidate_head or hive_mcp.get("checkpointHead") != candidate_head:
+            fail("CP-04 HIVE project and checkpoint receipt heads must match the corrected candidate head")
+        if hive_project.get("state") != "READY" or hive_project.get("workingTreeClean") is not True:
+            fail("CP-04 HIVE project receipt must be READY with a clean working tree")
+        if hive_project.get("indexRunId") in {None, ""} or hive_project.get("corpusRunId") in {None, ""}:
+            fail("CP-04 HIVE project receipt is missing current index/corpus run identifiers")
+        if hive_mcp.get("checkpointBlobSha") in {None, ""} or hive_mcp.get("contextFingerprint") in {None, ""}:
+            fail("CP-04 HIVE MCP receipt is missing the corrected checkpoint blob or context fingerprint")
+        for build_name in ("contextBuildDefault", "contextBuildMinimal"):
+            build = hive_mcp.get(build_name, {})
+            if build.get("status") != "PASS" or build.get("budgetSatisfied") is not True or build.get("requiredContextExceedsHardBudget") is not False:
+                fail(f"CP-04 HIVE {build_name} receipt is not a bounded PASS")
+        def is_cp04_ancestor(ancestor: str, descendant: str) -> bool:
+            try:
+                subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                return True
+            except (OSError, subprocess.CalledProcessError):
+                return False
+        for role, value in (("candidate", candidate_head), ("reviewed", reviewed_head), ("receipt", receipt_head), ("proof", proof_head)):
+            if not is_cp04_ancestor(value, head):
+                fail(f"CP-04 {role} head is not an ancestor of exact Git HEAD {head}")
+        if evidence.get("hosted", {}).get("status") != "PASS":
+            fail("CP-04 human-selection state requires hosted checks evidence")
+    else:
+        if lock.get("candidateHead") not in {None, ""}:
+            try:
+                subprocess.run(["git", "merge-base", "--is-ancestor", lock["candidateHead"], head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            except (OSError, subprocess.CalledProcessError):
+                fail("CP-04 in-progress candidate head must be an ancestor of exact Git HEAD")
+        if evidence.get("git", {}).get("proofHead") not in {None, "", head}:
+            fail("CP-04 in-progress evidence proof head mismatch")
+elif cp04_closed:
+    work_order = read(f".engineering/work-orders/{CP04_WORK_ORDER}.md")
+    lock = data(f".engineering/context-locks/{CP04_LOCK}.json")
+    evidence = data(f".engineering/evidence/{CP04_WORK_ORDER}.json")
+    try:
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve CP-04 closure Git HEAD: {exc}")
+    if current.get("lastCompletedWorkOrder") != CP04_WORK_ORDER or current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("CP-04 closure must have no active Work Order or Context Lock")
+    if lock.get("workOrder") != CP04_WORK_ORDER or lock.get("lockId") != CP04_LOCK:
+        fail("CP-04 closed Work Order and Context Lock pairing mismatch")
+    expected_digest = hashlib.sha256((ROOT / f".engineering/work-orders/{CP04_WORK_ORDER}.md").read_bytes()).hexdigest()
+    execution_digest = "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361"
+    if lock.get("workOrderSha256") != expected_digest or lock.get("executionWorkOrderSha256") != execution_digest:
+        fail("CP-04 closed Context Lock Work Order digest or execution digest mismatch")
+    if evidence.get("workOrder", {}).get("id") != CP04_WORK_ORDER or evidence.get("contextLock", {}).get("id") != CP04_LOCK:
+        fail("CP-04 closure evidence Work Order and Context Lock identity mismatch")
+    if evidence.get("workOrder", {}).get("sha256") != expected_digest or evidence.get("workOrder", {}).get("executionSha256") != execution_digest:
+        fail("CP-04 closure evidence Work Order digest mismatch")
+    if evidence.get("contextLock", {}).get("workOrderSha256") != expected_digest or evidence.get("contextLock", {}).get("executionWorkOrderSha256") != execution_digest:
+        fail("CP-04 closure evidence Context Lock digest mismatch")
+    if lock.get("status") != "CLOSED" or "Status: `COMPLETED`" not in work_order:
+        fail("CP-04 closure requires a CLOSED Context Lock and COMPLETED Work Order")
+    if current.get("reviewState") != "CP04_HG01_SATISFIED" or current.get("nextLegalAction") != "ADMIT_CP05_WITH_NEW_WORK_ORDER_AFTER_PR23_CLOSE":
+        fail("CP-04 GEF closure vocabulary is incomplete")
+    hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
+    if "Status: `CP04_COMPLETE_READY_FOR_CP05_ADMISSION`" not in hierarchy:
+        fail("CP-04 Source Hierarchy is not closed for CP-05 admission")
+    if section(canonical, "## STATUS") != "CP-04 COMPLETE" or section(canonical, "## VERSION") != "NEXLABS-WEB CP-04 HG-01 CLOSURE":
+        fail("CP-04 canonical checkpoint is not in the closure state")
+    if evidence.get("verdict") != "APPROVED" or evidence.get("reviewState") != "CP04_HG01_SATISFIED":
+        fail("CP-04 closure evidence does not describe HG-01 satisfaction")
+    if evidence.get("candidateIds") != ["NX-D-01", "NX-D-02", "NX-D-03", "NX-C-01", "NX-C-02", "NX-C-03", "NX-B-01", "NX-B-02", "NX-B-03"]:
+        fail("CP-04 closure evidence lost the exact nine-candidate history")
+    selection = evidence.get("selectionDecision", {})
+    if selection.get("status") != "SATISFIED" or selection.get("gate") != "HG-01" or selection.get("candidateId") != "NX-C-02" or selection.get("candidateRevision") != "r1" or selection.get("candidateSha256") != "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165":
+        fail("CP-04 closure evidence does not bind the selected NX-C-02 candidate")
+    if evidence.get("canonicalSelection") is not False or evidence.get("runtimeWiring") is not False:
+        fail("CP-04 closure must not claim runtime canonical promotion")
+    if any("PENDING" in str(item) or "HUMAN_GATE_HG_01" in str(item) for item in evidence.get("knownBlockers", [])):
+        fail("CP-04 closure retains a stale HG-01 pending blocker")
+    closure_head = lock.get("reviewedCandidateHead")
+    closure_candidate_head = evidence.get("git", {}).get("closureCandidateHead")
+    if not isinstance(closure_candidate_head, str) or not closure_candidate_head:
+        fail("CP-04 closure is missing the closure candidate head")
+    if closure_head != "b7c2e8f8f08a196c37dc0e070e3a228e2c742f3d" or lock.get("candidateHead") != closure_head or lock.get("reviewReceiptHead") != closure_head:
+        fail("CP-04 closure head bindings do not match the independently reviewed exact head")
+    proof_head = evidence.get("git", {}).get("proofHead")
+    if proof_head != closure_head or evidence.get("git", {}).get("reviewedCandidateHead") != closure_head or evidence.get("git", {}).get("reviewReceiptHead") != closure_head:
+        fail("CP-04 closure Git evidence does not bind the reviewed exact head")
+    def is_cp04_closure_ancestor(ancestor: str, descendant: str) -> bool:
+        try:
+            subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return True
+        except (OSError, subprocess.CalledProcessError):
+            return False
+    if not is_cp04_closure_ancestor(closure_head, head) or not is_cp04_closure_ancestor(closure_candidate_head, head):
+        fail(f"CP-04 closure reviewed head {closure_head} is not an ancestor of exact Git HEAD {head}")
+    hosted = evidence.get("hosted", {})
+    hosted_pr = hosted.get("pullRequest", {})
+    if hosted.get("status") != "PASS" or hosted_pr.get("number") != 23 or hosted_pr.get("status") != "OPEN" or hosted_pr.get("observedHead") != closure_candidate_head:
+        fail("CP-04 hosted closure evidence is not bound to the reviewed exact head")
+    if hosted_pr.get("quality", {}).get("status") != "PASS" or hosted_pr.get("quality", {}).get("head") != closure_candidate_head or hosted_pr.get("Governance", {}).get("status") != "PASS" or hosted_pr.get("Governance", {}).get("head") != closure_candidate_head:
+        fail("CP-04 hosted quality/Governance checks are not PASS on the reviewed exact head")
+    if hosted.get("merge") != "NOT_EXECUTED" or hosted.get("postMergeChecks") != "NOT_CLAIMED":
+        fail("CP-04 closure evidence claims merge or post-merge checks")
+    hive = evidence.get("hive", {})
+    hive_project = hive.get("project", {})
+    hive_mcp = hive.get("mcp", {})
+    if hive.get("status") != "PASS" or hive_project.get("state") != "READY" or hive_project.get("workingTreeClean") is not True:
+        fail("CP-04 closure requires a READY clean HIVE project receipt")
+    if hive_project.get("head") != closure_candidate_head or hive_mcp.get("checkpointHead") != closure_candidate_head:
+        fail("CP-04 HIVE closure receipt head mismatch")
+    if hive_mcp.get("projectStatus") != "PASS" or hive_mcp.get("checkpointRead") != "PASS" or hive_mcp.get("contextSearch") != "PASS" or hive_mcp.get("coreContextBuild") != "PASS" or hive_mcp.get("mcpContextBuild") != "PASS":
+        fail("CP-04 HIVE closure read-only validation receipts are incomplete")
+    for build_name in ("contextBuildDefault", "contextBuildMinimal"):
+        build = hive_mcp.get(build_name, {})
+        if build.get("status") != "PASS" or build.get("budgetSatisfied") is not True or build.get("requiredContextExceedsHardBudget") is not False:
+            fail(f"CP-04 HIVE closure {build_name} receipt is not a bounded PASS")
+elif cp03_closed:
     work_order = read(".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md")
     lock = data(".engineering/context-locks/NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES.json")
     evidence = data(".engineering/evidence/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.json")
@@ -366,7 +533,25 @@ for path in governance_files:
         fail(f"machine-specific absolute path in {path.relative_to(ROOT)}")
 
 adoption_state = current.get("adoptionState")
-if cp03_closed:
+if cp04_active:
+    if adoption_state != "GEF_V1_CP04_ADMITTED":
+        fail("invalid CP-04 adoption state")
+    if lock.get("status") not in {"OPEN", "ACTIVE"}:
+        fail("active CP-04 requires an OPEN or ACTIVE Context Lock")
+    if "Status: `IN_PROGRESS`" not in work_order:
+        fail("active CP-04 requires an IN_PROGRESS Work Order")
+elif cp04_closed:
+    if adoption_state != "GEF_V1_CP04_ADMITTED":
+        fail("invalid CP-04 completion adoption state")
+    if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("completed CP-04 cannot retain an active Work Order or Context Lock")
+    if lock.get("status") != "CLOSED":
+        fail("completed CP-04 requires a CLOSED Context Lock")
+    if evidence.get("verdict") != "APPROVED":
+        fail("completed CP-04 requires APPROVED evidence")
+    if "Status: `COMPLETED`" not in work_order:
+        fail("completed CP-04 requires the Work Order to be marked COMPLETED")
+elif cp03_closed:
     if adoption_state != "GEF_V1_CP03_ADMITTED":
         fail("invalid CP-03 completion adoption state")
     if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:

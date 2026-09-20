@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "nexlabs-cp04-logo-provenance-v1",
+  "candidateId": "NX-C-02",
+  "family": "Modular Core",
+  "revision": "r1",
+  "status": "CANDIDATE_EXPLORATION",
+  "constructionGrid": "12x12",
+  "source": {
+    "type": "deterministic-procedural",
+    "generator": "scripts/logo_lab.py",
+    "references": [
+      "BR-03-LOGO-SYSTEM",
+      "BR-03-LOGO-EVALUATION",
+      "BR-12-UGAS-ASSET-PIPELINE"
+    ]
+  },
+  "svgPath": "brand/logo/candidates/NX-C-02.svg",
+  "svgSha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165",
+  "ugAS": {
+    "mode": "REFERENCE_ONLY",
+    "generation": "NOT_PERFORMED",
+    "canonical": false
+  },
+  "blender": {
+    "mode": "LIGHTWEIGHT_PROJECTION_ATTEMPTED",
+    "status": "BLOCKED_EXTERNAL",
+    "canonical": false
+  },
+  "approval": null,
+  "canonicalRuntimeWiring": false
+}
