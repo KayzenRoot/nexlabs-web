@@ -1,6 +1,7 @@
 import rawSite from "./site.json";
 import { assertValidContent } from "@/lib/content/validation";
 import type { SiteContent } from "@/lib/content/types";
+import { homeSections, institutionalPages } from "./pages";
 
 const typedSite = {
   ...rawSite,
@@ -16,6 +17,8 @@ const typedSite = {
     ...item,
     kind: item.kind as SiteContent["evidence"][number]["kind"],
   })),
+  pages: institutionalPages,
+  homeSections,
 } satisfies SiteContent;
 
 export const siteContent = assertValidContent(typedSite);

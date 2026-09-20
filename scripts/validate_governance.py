@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 import subprocess
 import sys
@@ -85,6 +86,9 @@ for field, heading in field_map.items():
     if machine.get(field) != section(canonical, heading):
         fail(f"machine checkpoint drift: {field}")
 
+current = data(".engineering/gef/GEF-CURRENT.json")
+cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED"
+
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
 if manifest.get("project") != "KayzenRoot/nexlabs-web" or manifest.get("mode") != "EXISTING_PROJECT / BROWNFIELD":
     fail("bootstrap identity mismatch")
@@ -108,56 +112,75 @@ for domain, path in {"PROJECT_STATE": "docs/project-brain/13-CHECKPOINT.md", "DE
     if source_bridge.get("domains", {}).get(domain) != path:
         fail(f"source bridge mismatch: {domain}")
 
-lock = data(".engineering/context-locks/NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION.json")
-evidence = data(".engineering/evidence/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.json")
-if lock.get("lockId") != LOCK or lock.get("workOrder") != WORK_ORDER or evidence.get("contextLock") != LOCK or evidence.get("workOrder") != WORK_ORDER:
-    fail("Work Order and Context Lock pairing mismatch")
-if lock.get("authorizedBase") != BASE or lock.get("planningSource") != PLANNING:
-    fail("Context Lock base/source mismatch")
-if evidence.get("authorizedBase") != BASE or evidence.get("planningSource") != PLANNING:
-    fail("evidence base/source mismatch")
-try:
-    head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-except (OSError, subprocess.CalledProcessError) as exc:
-    fail(f"cannot resolve Git HEAD: {exc}")
-try:
-    parent_head = subprocess.check_output(["git", "rev-parse", "HEAD^"], cwd=ROOT, text=True).strip()
-except (OSError, subprocess.CalledProcessError) as exc:
-    fail(f"cannot resolve the receipt parent Git HEAD: {exc}")
-candidate_values = {manifest.get("candidateHead"), lock.get("candidateHead"), evidence.get("candidateHead")}
-promotion_anchor = evidence.get("github", {}).get("promotionAnchor")
-
-def is_ancestor(ancestor: str, descendant: str) -> bool:
+if cp03_active:
+    work_order = read(".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md")
+    lock = data(".engineering/context-locks/NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES.json")
+    evidence = {}
+    if current.get("activeWorkOrder") != "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES" or current.get("activeContextLock") != "NXWEB-LOCK-0002-CP03-INSTITUTIONAL-PAGES":
+        fail("CP-03 active Work Order and Context Lock identity mismatch")
+    if lock.get("workOrder") != current.get("activeWorkOrder") or lock.get("lockId") != current.get("activeContextLock"):
+        fail("CP-03 Work Order and Context Lock pairing mismatch")
+    if lock.get("authorizedBase") != "d94f9b5520834ef05d0adc735ac7422068780ae1" or lock.get("planningSource") != PLANNING:
+        fail("CP-03 Context Lock base/source mismatch")
+    expected_digest = hashlib.sha256((ROOT / ".engineering/work-orders/NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES.md").read_bytes()).hexdigest()
+    if lock.get("workOrderSha256") != expected_digest:
+        fail("CP-03 Context Lock Work Order digest mismatch")
     try:
-        subprocess.run(
-            ["git", "merge-base", "--is-ancestor", ancestor, descendant],
-            cwd=ROOT,
-            check=True,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-        )
-        return True
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve Git HEAD: {exc}")
+    candidate = lock.get("candidateHead")
+    if not isinstance(candidate, str) or not candidate:
+        fail("CP-03 Context Lock candidate head is missing")
+    try:
+        subprocess.run(["git", "merge-base", "--is-ancestor", candidate, head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except subprocess.CalledProcessError:
-        return False
-
-if candidate_values == {head}:
-    pass
-elif candidate_values == {parent_head} and evidence.get("candidateHeadRole") == "implementation_commit_parent_of_receipt_commit":
-    print(f"Receipt commit: {head}; implementation candidate: {parent_head}")
-elif isinstance(promotion_anchor, str) and promotion_anchor and is_ancestor(promotion_anchor, head):
-    print(f"Post-merge lineage: promotion anchor {promotion_anchor} is an ancestor of {head}")
+        fail(f"CP-03 candidate head {candidate} is not an ancestor of exact Git HEAD {head}")
+    for heading in ("## OBJECTIVE", "## CONTEXT/HIVE PREFLIGHT", "## CANONICAL BASIS", "## SCOPE", "## OUT OF SCOPE", "## FILES/SOURCES TO READ", "## REQUIREMENTS", "## ARCHITECTURE RULES", "## CONSTRAINTS", "## ACCEPTANCE CRITERIA", "## TESTS", "## DELIVERABLES", "## REVIEW FORMAT", "## STOP CONDITION", "## EXECUTION REFERENCES / CANONICAL REFERENCES"):
+        if heading not in work_order:
+            fail(f"CP-03 Work Order missing section: {heading}")
 else:
-    fail(
-        f"candidate heads {candidate_values!r} do not bind to exact Git HEAD {head}, "
-        f"its declared receipt parent {parent_head}, or a verified promotion anchor"
-    )
+    lock = data(".engineering/context-locks/NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION.json")
+    evidence = data(".engineering/evidence/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.json")
+    if lock.get("lockId") != LOCK or lock.get("workOrder") != WORK_ORDER or evidence.get("contextLock") != LOCK or evidence.get("workOrder") != WORK_ORDER:
+        fail("Work Order and Context Lock pairing mismatch")
+    if lock.get("authorizedBase") != BASE or lock.get("planningSource") != PLANNING:
+        fail("Context Lock base/source mismatch")
+    if evidence.get("authorizedBase") != BASE or evidence.get("planningSource") != PLANNING:
+        fail("evidence base/source mismatch")
+    try:
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve Git HEAD: {exc}")
+    try:
+        parent_head = subprocess.check_output(["git", "rev-parse", "HEAD^"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve the receipt parent Git HEAD: {exc}")
+    candidate_values = {manifest.get("candidateHead"), lock.get("candidateHead"), evidence.get("candidateHead")}
+    promotion_anchor = evidence.get("github", {}).get("promotionAnchor")
 
-work_order = read(".engineering/work-orders/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.md")
-for heading in ("## OBJECTIVE", "## HIVE PREFLIGHT", "## CANONICAL BASIS", "## CONTEXT BUDGET", "## RISK / ASSURANCE", "## SCOPE", "## OUT OF SCOPE", "## FILES / SEAMS", "## REQUIREMENTS", "## ARCHITECTURE RULES", "## CONSTRAINTS", "## ACCEPTANCE CRITERIA", "## TESTS", "## EVIDENCE", "## DELIVERABLES", "## REVIEW FORMAT PT-BR", "## STOP CONDITION"):
-    if heading not in work_order:
-        fail(f"Work Order missing section: {heading}")
-if WORK_ORDER not in work_order:
-    fail("active Work Order identity missing")
+    def is_ancestor(ancestor: str, descendant: str) -> bool:
+        try:
+            subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return True
+        except subprocess.CalledProcessError:
+            return False
+
+    if candidate_values == {head}:
+        pass
+    elif candidate_values == {parent_head} and evidence.get("candidateHeadRole") == "implementation_commit_parent_of_receipt_commit":
+        print(f"Receipt commit: {head}; implementation candidate: {parent_head}")
+    elif isinstance(promotion_anchor, str) and promotion_anchor and is_ancestor(promotion_anchor, head):
+        print(f"Post-merge lineage: promotion anchor {promotion_anchor} is an ancestor of {head}")
+    else:
+        fail(f"candidate heads {candidate_values!r} do not bind to exact Git HEAD {head}, its declared receipt parent {parent_head}, or a verified promotion anchor")
+
+    work_order = read(".engineering/work-orders/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.md")
+    for heading in ("## OBJECTIVE", "## HIVE PREFLIGHT", "## CANONICAL BASIS", "## CONTEXT BUDGET", "## RISK / ASSURANCE", "## SCOPE", "## OUT OF SCOPE", "## FILES / SEAMS", "## REQUIREMENTS", "## ARCHITECTURE RULES", "## CONSTRAINTS", "## ACCEPTANCE CRITERIA", "## TESTS", "## EVIDENCE", "## DELIVERABLES", "## REVIEW FORMAT PT-BR", "## STOP CONDITION"):
+        if heading not in work_order:
+            fail(f"Work Order missing section: {heading}")
+    if WORK_ORDER not in work_order:
+        fail("active Work Order identity missing")
 
 try:
     config = tomllib.loads(read(".codex/config.toml"))
@@ -189,9 +212,15 @@ for path in governance_files:
     if path.name != "validate_governance.py" and re.search(r"(?<![A-Za-z])(?:[A-Za-z]:[\\/]|/Users/|/home/|/mnt/)", text):
         fail(f"machine-specific absolute path in {path.relative_to(ROOT)}")
 
-current = data(".engineering/gef/GEF-CURRENT.json")
 adoption_state = current.get("adoptionState")
-if adoption_state == "GEF_V1_ADOPTION_IN_PROGRESS":
+if cp03_active:
+    if adoption_state != "GEF_V1_CP03_ADMITTED":
+        fail("invalid CP-03 adoption state")
+    if lock.get("status") not in {"OPEN", "ACTIVE"}:
+        fail("active CP-03 requires an OPEN or ACTIVE Context Lock")
+    if "Status: `IN_PROGRESS`" not in work_order:
+        fail("active CP-03 requires an IN_PROGRESS Work Order")
+elif adoption_state == "GEF_V1_ADOPTION_IN_PROGRESS":
     if current.get("activeWorkOrder") != WORK_ORDER or current.get("activeContextLock") != LOCK:
         fail("GEF current active identity mismatch")
     if lock.get("status") != "ACTIVE":

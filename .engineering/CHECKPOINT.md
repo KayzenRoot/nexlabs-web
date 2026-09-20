@@ -4,22 +4,22 @@ Status: `DERIVED_VIEW`
 Canonical source: `docs/project-brain/13-CHECKPOINT.md`
 
 ## STATUS
-CP-02 COMPLETE - GEF V1 + HIVE V1 OPERATIONAL
+CP-03 ADMITTED - IN PROGRESS
 
 ## VERSION
-NEXLABS-WEB CP-02 COMPLETE
+NEXLABS-WEB CP-03 IN PROGRESS
 
 ## PHASE
-Governed development ready
+CP-03 implementation candidate qualification
 
 ## OBJECTIVE
-GEF v1.0.0 and HIVE v1.0.0 adopted and operational for governed NexLabs Web development.
+Implement the static institutional content surface with typed canonical content, verified evidence, route metadata and exact-head validation.
 
 ## IN PROGRESS
-NONE
+NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES
 
 ## BLOCKERS
 NONE
 
 ## NEXT STEP
-Admit CP-03 through a new GEF Work Order and Context Lock.
+Run exact-head qualification and independent review before any protected PR or merge.

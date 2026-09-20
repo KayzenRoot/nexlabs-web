@@ -4,9 +4,9 @@
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "CP-03 ADMITTED - IN PROGRESS",
   "version": "NEXLABS-WEB CP-03 IN PROGRESS",
-  "phase": "Governed institutional page implementation",
+  "phase": "CP-03 implementation candidate qualification",
   "objective": "Implement the static institutional content surface with typed canonical content, verified evidence, route metadata and exact-head validation.",
   "inProgress": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
   "blockers": "NONE",
-  "nextStep": "Prepare the active CP-03 Work Order through HIVE before product edits."
+  "nextStep": "Run exact-head qualification and independent review before any protected PR or merge."
 }

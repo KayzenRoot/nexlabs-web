@@ -12,11 +12,36 @@
       "label": "Home",
       "href": "/",
       "external": false
+    },
+    {
+      "label": "Technology",
+      "href": "/technology",
+      "external": false
+    },
+    {
+      "label": "HIVE",
+      "href": "/hive",
+      "external": false
+    },
+    {
+      "label": "Open Source",
+      "href": "/open-source",
+      "external": false
+    },
+    {
+      "label": "About",
+      "href": "/about",
+      "external": false
+    },
+    {
+      "label": "Contact",
+      "href": "/contact",
+      "external": false
     }
   ],
   "hero": {
     "eyebrow": "NEXLABS TECHNOLOGY",
-    "heading": "Build with AI. Keep the system coherent.",
+      "heading": "Infrastructure for AI-native software.",
     "body": "NexLabs builds developer infrastructure for complex AI-assisted software development, beginning with systems for durable context, retrieval, memory, efficiency and governed execution.",
     "primaryAction": {
       "label": "Explore HIVE",
@@ -33,9 +58,16 @@
     {
       "id": "E-HIVE",
       "label": "HIVE",
-      "description": "Open-source infrastructure for durable project context and AI-assisted development workflows.",
+      "description": "Local-first infrastructure for project context, memory, retrieval, token optimization and governed execution.",
       "href": "https://github.com/KayzenRoot/hive",
       "kind": "github"
+    },
+    {
+      "id": "E-HIVE-LICENSE",
+      "label": "HIVE LICENSE",
+      "description": "The pinned HIVE repository states All Rights Reserved and grants viewing and evaluation rights only.",
+      "href": "https://github.com/KayzenRoot/hive/blob/main/LICENSE",
+      "kind": "evidence"
     }
   ],
   "contact": {
@@ -51,6 +83,42 @@
       "path": "/",
       "title": "NexLabs - Infrastructure for AI-native software",
       "description": "NexLabs builds developer infrastructure for complex AI-assisted software development, beginning with HIVE.",
+      "indexable": true
+    },
+    {
+      "path": "/hive",
+      "title": "HIVE - Durable Context Infrastructure | NexLabs",
+      "description": "Explore HIVE, NexLabs' local-first system for project context, retrieval and governed AI-assisted development workflows.",
+      "indexable": true
+    },
+    {
+      "path": "/technology",
+      "title": "Technology | NexLabs",
+      "description": "Explore the NexLabs thesis on context, retrieval, efficiency and governance as infrastructure for AI-assisted software development.",
+      "indexable": true
+    },
+    {
+      "path": "/open-source",
+      "title": "Public Engineering | NexLabs",
+      "description": "Inspect NexLabs public engineering evidence and the current rights statement for the HIVE repository.",
+      "indexable": true
+    },
+    {
+      "path": "/about",
+      "title": "About NexLabs",
+      "description": "Learn about NexLabs Technology, an early-stage developer-infrastructure initiative being built from Brazil for a global market.",
+      "indexable": true
+    },
+    {
+      "path": "/contact",
+      "title": "Contact NexLabs",
+      "description": "Find the verified public channel for technical conversations and open-source collaboration with NexLabs.",
+      "indexable": true
+    },
+    {
+      "path": "/privacy",
+      "title": "Privacy | NexLabs",
+      "description": "Learn how the NexLabs institutional website handles theme preference and current third-party behavior.",
       "indexable": true
     }
   ]

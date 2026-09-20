@@ -29,3 +29,14 @@
 .diagram-node-active { fill: var(--nx-semantic-diagram-active); }
 .diagram-edge { fill: none; stroke: var(--nx-semantic-diagram-edge); stroke-width: 2; }
 .diagram-label { fill: var(--nx-semantic-text-inverse); font-family: var(--nx-font-family-mono); font-size: 14px; }
+.home-story-section, .institutional-section { background: var(--nx-semantic-surface-page); }
+.system-story-section, .institutional-section-alt, .final-cta-section { background: var(--nx-semantic-surface-primary); }
+.institutional-hero { min-height: 48vh; padding-block-start: clamp(var(--nx-space-8), 10vw, var(--nx-space-10)); }
+.institutional-hero h1 { max-width: 14ch; }
+.content-section-view { max-width: var(--nx-container-reading); }
+.section-copy { color: var(--nx-semantic-text-secondary); font-size: var(--nx-font-size-body-lg); max-width: 65ch; }
+.content-items { display: grid; gap: var(--nx-space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); margin-block-start: var(--nx-space-7); }
+.content-item { border-block-start: var(--nx-border-thin) solid var(--nx-component-card-border); padding-block-start: var(--nx-space-4); }
+.content-item h3 { margin-block-end: var(--nx-space-2); }
+.content-item p { color: var(--nx-component-card-body); margin-block-end: 0; }
+@media (max-width: 48rem) { .content-items { grid-template-columns: 1fr; } }

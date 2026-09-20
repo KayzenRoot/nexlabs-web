@@ -20,6 +20,29 @@ export interface EvidenceLink {
   kind: ExternalLinkKind;
 }
 
+export interface ContentItem {
+  label: string;
+  body: string;
+}
+
+export interface ContentSection {
+  id: string;
+  eyebrow?: string;
+  heading: string;
+  body?: string;
+  items?: ContentItem[];
+  links?: ActionLink[];
+}
+
+export interface InstitutionalPage {
+  path: string;
+  eyebrow: string;
+  heading: string;
+  body: string;
+  actions: ActionLink[];
+  sections: ContentSection[];
+}
+
 export interface SiteContent {
   identity: {
     brand: string;
@@ -52,4 +75,6 @@ export interface SiteContent {
     description: string;
     indexable: boolean;
   }>;
+  pages: Record<string, InstitutionalPage>;
+  homeSections: ContentSection[];
 }

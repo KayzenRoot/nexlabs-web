@@ -7,7 +7,7 @@ CP-03 ADMITTED - IN PROGRESS
 NEXLABS-WEB CP-03 IN PROGRESS
 
 ## PHASE
-Governed institutional page implementation
+CP-03 implementation candidate qualification
 
 ## OBJECTIVE
 Implement the static institutional content surface with typed canonical content, verified evidence, route metadata and exact-head validation.
@@ -19,4 +19,4 @@ NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES
 NONE
 
 ## NEXT STEP
-Prepare the active CP-03 Work Order through HIVE before product edits.
+Run exact-head qualification and independent review before any protected PR or merge.
