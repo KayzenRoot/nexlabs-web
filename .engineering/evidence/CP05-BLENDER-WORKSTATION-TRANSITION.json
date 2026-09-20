@@ -14,7 +14,9 @@
     "transitionCandidateHead": "c95c7b18891e360caaee48a040ffc160d173cc43",
     "transitionCandidateHeadRole": "workstation_policy_transition_candidate",
     "receiptCommitParent": "c95c7b18891e360caaee48a040ffc160d173cc43",
-    "receiptCommitParentRole": "transition_receipt_parent"
+    "receiptCommitParentRole": "transition_receipt_parent",
+    "protectedMainHead": "b2737e66d890dff206ac541b4da8b9f42b09c0b1",
+    "protectedMainHeadRole": "merged_transition_pr_result"
   },
   "localState": {
     "preserved": true,

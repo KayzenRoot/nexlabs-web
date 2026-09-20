@@ -1,0 +1,2008 @@
+{
+  "builder": "scripts/cp05/build_context_core.py",
+  "masterBlend": {
+    "bytes": 174334,
+    "path": ".local/cp05/context_core_master.blend",
+    "role": "local ignored Blender master",
+    "sha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd"
+  },
+  "renders": [
+    {
+      "path": "artifacts/cp05/renders/context-core-neutral.png",
+      "role": "monochrome material-neutral pass"
+    },
+    {
+      "path": "artifacts/cp05/renders/context-core-branded.png",
+      "role": "restrained Dark Mineral Laboratory pass"
+    },
+    {
+      "path": "artifacts/cp05/renders/context-core-macro.png",
+      "role": "macro material/detail pass"
+    }
+  ],
+  "scene": {
+    "blenderVersion": "5.2.1 LTS",
+    "cameras": [
+      "NL_CAM_Hero_A",
+      "NL_CAM_Macro_A",
+      "NL_CAM_Projection_A",
+      "NL_CAM_Review_A"
+    ],
+    "collections": [
+      "NL_CONTEXT_CORE"
+    ],
+    "complexity": {
+      "fragmentCount": 36,
+      "materialCount": 7,
+      "meshCount": 56,
+      "nodeCount": 12,
+      "objectCount": 72,
+      "routeCount": 6
+    },
+    "lights": [
+      "NL_LIGHT_Environment",
+      "NL_LIGHT_Key_Sculpt",
+      "NL_LIGHT_Rim_Structure",
+      "NL_LIGHT_Signal_Emission"
+    ],
+    "materialSummary": [
+      {
+        "family": "Ceramic",
+        "name": "NL_MAT_Ceramic_A",
+        "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+      },
+      {
+        "family": "Data",
+        "name": "NL_MAT_Data_A",
+        "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+      },
+      {
+        "family": "Mineral",
+        "name": "NL_MAT_Mineral_A",
+        "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+      },
+      {
+        "family": "Optical",
+        "name": "NL_MAT_Optical_A",
+        "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+      },
+      {
+        "family": "Signal_Cyan",
+        "name": "NL_MAT_Signal_Cyan_A",
+        "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+      },
+      {
+        "family": "Signal_Violet",
+        "name": "NL_MAT_Signal_Violet_A",
+        "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+      },
+      {
+        "family": "Signal_Warm",
+        "name": "NL_MAT_Signal_Warm_A",
+        "webApproximation": "Principled BSDF with bounded color/emission; no runtime dependency"
+      }
+    ],
+    "objects": [
+      {
+        "dimensions": [
+          4.45896,
+          0.88434,
+          0.24883
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "NL_BAND_Stream_A",
+        "primitive": "BAND",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "CURVE"
+      },
+      {
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "location": [
+          7.4,
+          -7.4,
+          5.2
+        ],
+        "name": "NL_CAM_Hero_A",
+        "primitive": "CAMERA",
+        "rotation": [
+          1.1329,
+          -0.0,
+          0.7854
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "CAMERA"
+      },
+      {
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "location": [
+          3.5,
+          -3.7,
+          2.4
+        ],
+        "name": "NL_CAM_Macro_A",
+        "primitive": "CAMERA",
+        "rotation": [
+          1.17971,
+          0.0,
+          0.75763
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "CAMERA"
+      },
+      {
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "location": [
+          0.0,
+          -9.0,
+          2.7
+        ],
+        "name": "NL_CAM_Projection_A",
+        "primitive": "CAMERA",
+        "rotation": [
+          1.31019,
+          -0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "CAMERA"
+      },
+      {
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "location": [
+          9.0,
+          0.0,
+          6.8
+        ],
+        "name": "NL_CAM_Review_A",
+        "primitive": "CAMERA",
+        "rotation": [
+          0.94531,
+          -0.0,
+          1.5708
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "CAMERA"
+      },
+      {
+        "dimensions": [
+          0.96,
+          0.96,
+          0.2
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.22
+        ],
+        "name": "NL_CELL_Module_A",
+        "primitive": "CELL",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          1.64,
+          1.64,
+          1.64
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.2
+        ],
+        "name": "NL_CORE_Context_A",
+        "primitive": "CORE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.13513,
+          0.12852,
+          0.15109
+        ],
+        "location": [
+          -3.01492,
+          -1.81906,
+          -0.08287
+        ],
+        "name": "NL_DATA_Fragment_001",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260920,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.06431,
+          0.06116,
+          0.0719
+        ],
+        "location": [
+          -2.32009,
+          1.47276,
+          0.44487
+        ],
+        "name": "NL_DATA_Fragment_002",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260921,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.14003,
+          0.13317,
+          0.15655
+        ],
+        "location": [
+          -0.54398,
+          -3.1464,
+          0.49979
+        ],
+        "name": "NL_DATA_Fragment_003",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260922,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.09717,
+          0.09242,
+          0.10864
+        ],
+        "location": [
+          1.71159,
+          -1.89734,
+          0.01895
+        ],
+        "name": "NL_DATA_Fragment_004",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260923,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.13496,
+          0.12835,
+          0.15089
+        ],
+        "location": [
+          1.25602,
+          2.90387,
+          0.51221
+        ],
+        "name": "NL_DATA_Fragment_005",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260924,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.10285,
+          0.09781,
+          0.11499
+        ],
+        "location": [
+          -1.51809,
+          3.07444,
+          0.58941
+        ],
+        "name": "NL_DATA_Fragment_006",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260925,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.06537,
+          0.06217,
+          0.07308
+        ],
+        "location": [
+          -3.18277,
+          0.67344,
+          0.75416
+        ],
+        "name": "NL_DATA_Fragment_007",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260926,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.1113,
+          0.10585,
+          0.12444
+        ],
+        "location": [
+          -2.04255,
+          2.56698,
+          0.60361
+        ],
+        "name": "NL_DATA_Fragment_008",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260927,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.0863,
+          0.08208,
+          0.09649
+        ],
+        "location": [
+          -1.27968,
+          -2.48146,
+          0.03106
+        ],
+        "name": "NL_DATA_Fragment_009",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260928,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.14131,
+          0.13439,
+          0.15799
+        ],
+        "location": [
+          -1.02683,
+          -2.26889,
+          0.07312
+        ],
+        "name": "NL_DATA_Fragment_010",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260929,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.06858,
+          0.06522,
+          0.07668
+        ],
+        "location": [
+          -0.411,
+          3.4849,
+          1.22433
+        ],
+        "name": "NL_DATA_Fragment_011",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260930,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.06944,
+          0.06604,
+          0.07764
+        ],
+        "location": [
+          2.79332,
+          0.14253,
+          0.46279
+        ],
+        "name": "NL_DATA_Fragment_012",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260931,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.11403,
+          0.10845,
+          0.12749
+        ],
+        "location": [
+          -1.29772,
+          -2.99574,
+          0.19767
+        ],
+        "name": "NL_DATA_Fragment_013",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260932,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.12149,
+          0.11555,
+          0.13583
+        ],
+        "location": [
+          1.01997,
+          3.36971,
+          -0.19182
+        ],
+        "name": "NL_DATA_Fragment_014",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260933,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.10261,
+          0.09759,
+          0.11472
+        ],
+        "location": [
+          3.59429,
+          0.56308,
+          0.51369
+        ],
+        "name": "NL_DATA_Fragment_015",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260934,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.13073,
+          0.12433,
+          0.14616
+        ],
+        "location": [
+          -3.14086,
+          1.21511,
+          0.52653
+        ],
+        "name": "NL_DATA_Fragment_016",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260935,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.13292,
+          0.12642,
+          0.14861
+        ],
+        "location": [
+          1.40463,
+          -2.18795,
+          0.75954
+        ],
+        "name": "NL_DATA_Fragment_017",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260936,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.13855,
+          0.13177,
+          0.1549
+        ],
+        "location": [
+          2.63882,
+          1.55291,
+          0.22903
+        ],
+        "name": "NL_DATA_Fragment_018",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260937,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.07981,
+          0.0759,
+          0.08923
+        ],
+        "location": [
+          -2.46855,
+          -0.32324,
+          1.35853
+        ],
+        "name": "NL_DATA_Fragment_019",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260938,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.09221,
+          0.08769,
+          0.10309
+        ],
+        "location": [
+          -0.56321,
+          3.05232,
+          0.14272
+        ],
+        "name": "NL_DATA_Fragment_020",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260939,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.1305,
+          0.12411,
+          0.1459
+        ],
+        "location": [
+          3.50094,
+          -1.63583,
+          1.03281
+        ],
+        "name": "NL_DATA_Fragment_021",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260940,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.06368,
+          0.06057,
+          0.0712
+        ],
+        "location": [
+          -1.61608,
+          2.98731,
+          0.52818
+        ],
+        "name": "NL_DATA_Fragment_022",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260941,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.06884,
+          0.06547,
+          0.07697
+        ],
+        "location": [
+          -1.02362,
+          -2.69338,
+          -0.20329
+        ],
+        "name": "NL_DATA_Fragment_023",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260942,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.10648,
+          0.10127,
+          0.11905
+        ],
+        "location": [
+          -1.7331,
+          1.77367,
+          -0.27217
+        ],
+        "name": "NL_DATA_Fragment_024",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260943,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.09398,
+          0.08938,
+          0.10507
+        ],
+        "location": [
+          -2.09035,
+          -1.74258,
+          0.27456
+        ],
+        "name": "NL_DATA_Fragment_025",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260944,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.07129,
+          0.0678,
+          0.0797
+        ],
+        "location": [
+          0.81237,
+          3.48251,
+          0.13715
+        ],
+        "name": "NL_DATA_Fragment_026",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260945,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.06434,
+          0.06119,
+          0.07193
+        ],
+        "location": [
+          -3.34225,
+          2.00951,
+          0.7199
+        ],
+        "name": "NL_DATA_Fragment_027",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260946,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.10492,
+          0.09978,
+          0.1173
+        ],
+        "location": [
+          -3.19547,
+          -0.50077,
+          -0.21035
+        ],
+        "name": "NL_DATA_Fragment_028",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260947,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.07819,
+          0.07437,
+          0.08742
+        ],
+        "location": [
+          -2.23977,
+          -3.09111,
+          0.91395
+        ],
+        "name": "NL_DATA_Fragment_029",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260948,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.11307,
+          0.10753,
+          0.12641
+        ],
+        "location": [
+          1.22115,
+          -2.3745,
+          0.03695
+        ],
+        "name": "NL_DATA_Fragment_030",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260949,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.13228,
+          0.12581,
+          0.1479
+        ],
+        "location": [
+          -2.42687,
+          -1.5727,
+          0.12898
+        ],
+        "name": "NL_DATA_Fragment_031",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260950,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.11045,
+          0.10505,
+          0.12349
+        ],
+        "location": [
+          0.50192,
+          -2.64299,
+          1.17839
+        ],
+        "name": "NL_DATA_Fragment_032",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260951,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.09156,
+          0.08708,
+          0.10237
+        ],
+        "location": [
+          2.13083,
+          -1.21541,
+          0.44706
+        ],
+        "name": "NL_DATA_Fragment_033",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260952,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.13117,
+          0.12475,
+          0.14665
+        ],
+        "location": [
+          -2.00254,
+          -1.88293,
+          -0.23419
+        ],
+        "name": "NL_DATA_Fragment_034",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260953,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.11143,
+          0.10597,
+          0.12458
+        ],
+        "location": [
+          -3.66825,
+          0.17348,
+          0.56957
+        ],
+        "name": "NL_DATA_Fragment_035",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260954,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.09555,
+          0.09087,
+          0.10683
+        ],
+        "location": [
+          -2.53457,
+          1.18389,
+          1.30177
+        ],
+        "name": "NL_DATA_Fragment_036",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260955,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          8.8,
+          8.8,
+          0.06
+        ],
+        "location": [
+          0.0,
+          0.0,
+          -0.25
+        ],
+        "name": "NL_FIELD_Outer_A",
+        "primitive": "FIELD",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.28622,
+          0.2722,
+          0.32
+        ],
+        "location": [
+          2.3,
+          1.2,
+          1.0
+        ],
+        "name": "NL_FRAGMENT_Data_A",
+        "primitive": "FRAGMENT",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260920,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16,
+          1.0,
+          1.5
+        ],
+        "location": [
+          -1.55,
+          0.35,
+          0.75
+        ],
+        "name": "NL_GATE_Transition_A",
+        "primitive": "GATE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          4.1,
+          0.05,
+          0.05
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.25
+        ],
+        "name": "NL_LATTICE_Context_A",
+        "primitive": "LATTICE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.7854
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "location": [
+          0.0,
+          0.0,
+          7.0
+        ],
+        "name": "NL_LIGHT_Environment",
+        "primitive": "LIGHT",
+        "rotation": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "LIGHT"
+      },
+      {
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "location": [
+          4.5,
+          -4.0,
+          6.5
+        ],
+        "name": "NL_LIGHT_Key_Sculpt",
+        "primitive": "LIGHT",
+        "rotation": [
+          0.77074,
+          0.0,
+          0.84415
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "LIGHT"
+      },
+      {
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "location": [
+          -4.0,
+          2.5,
+          4.8
+        ],
+        "name": "NL_LIGHT_Rim_Structure",
+        "primitive": "LIGHT",
+        "rotation": [
+          0.80894,
+          0.0,
+          -2.1294
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "LIGHT"
+      },
+      {
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "location": [
+          0.0,
+          0.0,
+          2.5
+        ],
+        "name": "NL_LIGHT_Signal_Emission",
+        "primitive": "LIGHT",
+        "rotation": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "LIGHT"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          1.65,
+          0.0,
+          0.24
+        ],
+        "name": "NL_NODE_Anchor_01",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260920,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          1.53286,
+          0.885,
+          0.415
+        ],
+        "name": "NL_NODE_Anchor_02",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260921,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          0.945,
+          1.63679,
+          0.54311
+        ],
+        "name": "NL_NODE_Anchor_03",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260922,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          0.0,
+          1.65,
+          0.59
+        ],
+        "name": "NL_NODE_Anchor_04",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260923,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          -0.885,
+          1.53286,
+          0.54311
+        ],
+        "name": "NL_NODE_Anchor_05",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260924,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          -1.63679,
+          0.945,
+          0.415
+        ],
+        "name": "NL_NODE_Anchor_06",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260925,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          -1.65,
+          0.0,
+          0.24
+        ],
+        "name": "NL_NODE_Anchor_07",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260926,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          -1.53286,
+          -0.885,
+          0.065
+        ],
+        "name": "NL_NODE_Anchor_08",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260927,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          -0.945,
+          -1.63679,
+          -0.06311
+        ],
+        "name": "NL_NODE_Anchor_09",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260928,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          -0.0,
+          -1.65,
+          -0.11
+        ],
+        "name": "NL_NODE_Anchor_10",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260929,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          0.885,
+          -1.53286,
+          -0.06311
+        ],
+        "name": "NL_NODE_Anchor_11",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260930,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          0.16168,
+          0.17,
+          0.17
+        ],
+        "location": [
+          1.63679,
+          -0.945,
+          0.065
+        ],
+        "name": "NL_NODE_Anchor_12",
+        "primitive": "NODE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260931,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          3.11247,
+          0.33793,
+          0.54177
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "NL_ROUTE_Field_01",
+        "primitive": "ROUTE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260921,
+        "type": "CURVE"
+      },
+      {
+        "dimensions": [
+          1.58329,
+          2.70334,
+          0.54094
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "NL_ROUTE_Field_02",
+        "primitive": "ROUTE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260922,
+        "type": "CURVE"
+      },
+      {
+        "dimensions": [
+          1.57946,
+          2.70957,
+          0.75491
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "NL_ROUTE_Field_03",
+        "primitive": "ROUTE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260923,
+        "type": "CURVE"
+      },
+      {
+        "dimensions": [
+          3.11247,
+          0.33793,
+          0.54177
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "NL_ROUTE_Field_04",
+        "primitive": "ROUTE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260924,
+        "type": "CURVE"
+      },
+      {
+        "dimensions": [
+          1.58329,
+          2.70334,
+          0.54094
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "NL_ROUTE_Field_05",
+        "primitive": "ROUTE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260925,
+        "type": "CURVE"
+      },
+      {
+        "dimensions": [
+          1.57946,
+          2.70957,
+          0.75491
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "NL_ROUTE_Field_06",
+        "primitive": "ROUTE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260926,
+        "type": "CURVE"
+      },
+      {
+        "dimensions": [
+          3.43205,
+          1.66221,
+          0.8245
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "NL_ROUTE_Primary_01",
+        "primitive": "ROUTE",
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": 20260921,
+        "type": "CURVE"
+      },
+      {
+        "dimensions": [
+          2.55,
+          2.55,
+          0.11
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.2
+        ],
+        "name": "NL_SHELL_Context_A",
+        "primitive": "SHELL",
+        "rotation": [
+          1.18682,
+          -0.0,
+          0.31416
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "MESH"
+      },
+      {
+        "dimensions": [
+          3.37,
+          3.37,
+          0.06657
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.2
+        ],
+        "name": "NL_SHELL_Context_B",
+        "primitive": "SHELL",
+        "rotation": [
+          0.38397,
+          0.90757,
+          -0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seed": null,
+        "type": "MESH"
+      }
+    ],
+    "primitiveSummary": [
+      {
+        "objectCount": 1,
+        "primitive": "CORE"
+      },
+      {
+        "objectCount": 2,
+        "primitive": "SHELL"
+      },
+      {
+        "objectCount": 7,
+        "primitive": "ROUTE"
+      },
+      {
+        "objectCount": 12,
+        "primitive": "NODE"
+      },
+      {
+        "objectCount": 1,
+        "primitive": "LATTICE"
+      },
+      {
+        "objectCount": 1,
+        "primitive": "CELL"
+      },
+      {
+        "objectCount": 1,
+        "primitive": "BAND"
+      },
+      {
+        "objectCount": 37,
+        "primitive": "FRAGMENT"
+      },
+      {
+        "objectCount": 1,
+        "primitive": "GATE"
+      },
+      {
+        "objectCount": 1,
+        "primitive": "FIELD"
+      }
+    ],
+    "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",
+    "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+    "seed": 20260920
+  },
+  "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+  "schemaVersion": "nexlabs-web-cp05-scene-manifest-v1",
+  "scope": "WO-B3D-001..006"
+}

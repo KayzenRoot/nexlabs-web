@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "nexlabs-web-cp05-evidence-v1",
+  "sourceDocument": {
+    "name": "NEXLABS-CP05-BLENDER-CONTEXT-CORE-FOUNDATION-WORK-ORDER.pdf",
+    "sha256": "183ae223bb01fdac47f20ff1359657b63011e8a51ec3885f04f8b24e4e6bada1"
+  },
+  "closureSourceDocument": {
+    "name": "NEXLABS-CP05-FINAL-CLOSURE-AFTER-INDEPENDENT-REVIEW.pdf",
+    "sha256": "f842f34243c60c84399fde19d020a182a8ba780ae76958371620bf71e737efd1"
+  },
+  "verdict": "APPROVED",
+  "reviewState": "CP05_COMPLETE",
+  "workOrder": {
+    "id": "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
+    "path": ".engineering/work-orders/NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.md",
+    "status": "COMPLETED",
+    "sha256": "95d24d6f3175e10880467e4328bf9b916aad2175e2c803ef262ace90e6a18327"
+  },
+  "contextLock": {
+    "id": "NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
+    "path": ".engineering/context-locks/NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.json",
+    "status": "CLOSED",
+    "workOrderSha256": "95d24d6f3175e10880467e4328bf9b916aad2175e2c803ef262ace90e6a18327"
+  },
+  "authorizedBase": "b2737e66d890dff206ac541b4da8b9f42b09c0b1",
+  "admissionHead": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+  "resumeBase": "b2737e66d890dff206ac541b4da8b9f42b09c0b1",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "planningManifestSha256": "ac32a18d9c935c9cc8b7bb1e947bb4426774e2e1e4acd6fc4d60d72ebe2fcf1e",
+  "git": {
+    "admissionHead": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+    "candidateHead": "de5a35db79521fca740f909982cc69ffd2033dc3",
+    "historicalCandidateHead": "c3587cf227c578433340f9acdf006def70240a7a",
+    "reviewedCandidateHead": "da97a702797078ff1de119065e4fc80e943d1984",
+    "reviewedCandidateHeadRole": "independently_reviewed_cp05_foundation_head",
+    "reviewReceiptHead": "da97a702797078ff1de119065e4fc80e943d1984",
+    "reviewReceiptHeadRole": "independent_review_receipt_for_reviewed_head",
+    "sceneMutationHead": "da97a702797078ff1de119065e4fc80e943d1984",
+    "sceneMutationHeadRole": "production_scene_package_on_reviewed_head"
+  },
+  "blender": {
+    "preflight": {
+      "status": "PASS_LIVE_PREFLIGHT",
+      "executable": "blender.exe",
+      "version": "5.2.1 LTS",
+      "addon": {"status": "PASS", "version": "1.7", "protocolVersion": 7, "expectedProtocolVersion": 7},
+      "tools": {"getAddonStatus": "PASS", "getSceneInfo": "PASS"},
+      "recovery": {"attempts": 1, "bounded": true},
+      "sceneMutationBeforeGate": false
+    },
+    "production": {
+      "status": "PASS",
+      "sceneMutationPerformed": true,
+      "mutationAfterPolicyAndMcpGate": true,
+      "workOrders": ["WO-B3D-001", "WO-B3D-002", "WO-B3D-003", "WO-B3D-004", "WO-B3D-005", "WO-B3D-006"],
+      "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+      "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",
+      "builder": {"path": "scripts/cp05/build_context_core.py", "sha256": "062fc649d1258d36c5f161c71d3c8a5fe64aee80be8d97e9fb4d76fdc4a783f0"},
+      "validator": {"path": "scripts/cp05/validate_context_core.py", "sha256": "fdce718ffe81b2ed98addf9b5eba8346789a4ade1427968a0551e82218c2f950"},
+      "parameters": {"path": "scripts/cp05/parameters.json", "sha256": "2ce17b12606823deac6889cf23286c28c8c1d3639e6b63e9b6b7fecc640b2986"},
+      "masterBlend": {"path": ".local/cp05/context_core_master.blend", "bytes": 174334, "sha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd"},
+      "reviewRenders": [
+        {"path": "artifacts/cp05/renders/context-core-neutral.png", "bytes": 334068, "sha256": "427f623573bd6d2ca9639a90f5a1a43986a92676e8031c3b4bc76813be404a39"},
+        {"path": "artifacts/cp05/renders/context-core-branded.png", "bytes": 337697, "sha256": "e879007162f75154a0fed72e002504055c181690828607879826087bb2cbe834"},
+        {"path": "artifacts/cp05/renders/context-core-macro.png", "bytes": 430536, "sha256": "e80841df715a5695c7c7299373e1a6199594dd18a10ea9f868f4ceb17520b221"}
+      ]
+    }
+  },
+  "policyGate": {
+    "status": "AUTHORIZED",
+    "code": "BLENDER_PRODUCTION_AUTHORIZED",
+    "sources": ["AGENTS.md", "docs/WORKSTATION-MODE.md"],
+    "detail": "Protected main merged the workstation transition; CP-05 production is authorized only for this active Work Order after the live MCP gate.",
+    "requiredAction": "Pass the live MCP hard preflight immediately before scene mutation."
+  },
+  "hive": {
+    "status": "PASS",
+    "api": "http://localhost:8000",
+    "project": {
+      "name": "NEXLABS-WEB",
+      "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
+      "relativePath": "nexlabs-web",
+      "state": "READY",
+    "head": "de5a35db79521fca740f909982cc69ffd2033dc3",
+    "headRole": "cp05_exact_hive_checkpoint_candidate",
+      "workingTreeClean": true,
+      "indexRunId": "8d34469f-ee16-41e9-afc2-738d1ac0985b",
+      "corpusRunId": "ce33feb8-68a6-4643-a323-9331156ceb17"
+    },
+    "task": {
+      "id": "b24a0a72-35b7-4a67-a770-f661e1e6178f",
+      "intakeStatus": "READY",
+      "extractedTextAvailable": true,
+      "reused": true,
+      "originalBlobSha256": "0e4a323eb64834034d836cb7fb138bfa025979e03303c4d65720ae3de248d4b0"
+    },
+    "indexStatus": "COMPLETED",
+    "corpusStatus": "COMPLETED",
+    "mcp": {
+      "projectStatus": "PASS",
+      "checkpointRead": "PASS",
+      "contextSearch": "PASS",
+      "coreContextBuild": "PASS",
+      "mcpContextBuild": "PASS",
+      "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK",
+      "contextSearchQuery": "CP-05 Blender Context Core foundation",
+      "contextSearchCandidatePool": 5,
+      "contextSearchCorpusRunId": "ce33feb8-68a6-4643-a323-9331156ceb17",
+       "contextBuildDefault": {"status": "PASS", "disclosureLevel": "DEFAULT", "topK": 5, "inputFingerprint": "393185e08ba1daecd0ae65ccc896fdb585592ec8ba3c69067bc7b766a724e935", "outputFingerprint": "b0cf174ab2f9dcc8a86c20e56686fef8166b3014cc8e82190cd8bbda3c23cf6b", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudget": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+       "contextBuildMinimal": {"status": "PASS", "disclosureLevel": "L0", "topK": 1, "inputFingerprint": "c70324827ccbe7821cd889cb589aa53f70fd4d668046c53f0db2d722c7bbfdba", "outputFingerprint": "774d2fd8ac552a2cac15abe4777855ff56a22f3155ca6d9078b33681764900da", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+       "coreContextBuildDefault": {"status": "PASS", "disclosureLevel": "DEFAULT", "topK": 5, "inputFingerprint": "393185e08ba1daecd0ae65ccc896fdb585592ec8ba3c69067bc7b766a724e935", "outputFingerprint": "b0cf174ab2f9dcc8a86c20e56686fef8166b3014cc8e82190cd8bbda3c23cf6b", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+       "coreContextBuildMinimal": {"status": "PASS", "disclosureLevel": "L0", "topK": 1, "inputFingerprint": "c70324827ccbe7821cd889cb589aa53f70fd4d668046c53f0db2d722c7bbfdba", "outputFingerprint": "774d2fd8ac552a2cac15abe4777855ff56a22f3155ca6d9078b33681764900da", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}
+    }
+  },
+  "workOrders": {
+    "WO-B3D-001": "PASS",
+    "WO-B3D-002": "PASS",
+    "WO-B3D-003": "PASS",
+    "WO-B3D-004": "PASS",
+    "WO-B3D-005": "PASS",
+    "WO-B3D-006": "PASS"
+  },
+  "deterministicScene": {
+    "status": "APPROVED_SOURCE",
+    "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+    "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",
+    "builder": {"path": "scripts/cp05/build_context_core.py", "sha256": "062fc649d1258d36c5f161c71d3c8a5fe64aee80be8d97e9fb4d76fdc4a783f0"},
+    "validator": {"path": "scripts/cp05/validate_context_core.py", "sha256": "fdce718ffe81b2ed98addf9b5eba8346789a4ade1427968a0551e82218c2f950"},
+    "parameters": {"path": "scripts/cp05/parameters.json", "sha256": "2ce17b12606823deac6889cf23286c28c8c1d3639e6b63e9b6b7fecc640b2986", "seed": 20260920, "dataSeed": 20260920, "routeSeed": 20260921},
+    "masterBlend": {"path": ".local/cp05/context_core_master.blend", "role": "local ignored Blender master", "bytes": 174334, "sha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd"},
+    "manifests": [
+      {"path": "artifacts/cp05/scene-manifest.json", "sha256": "4caa4ffe51f82df5a140e33deb342da1dc56187056f1fde56b787a04dce00c01"},
+      {"path": "artifacts/cp05/primitive-manifest.json", "sha256": "4e7a0b13e8b96a0892e53007fc96ddddaf37ca001b51b2ed41d98be6fc9dac3f"},
+      {"path": "artifacts/cp05/material-manifest.json", "sha256": "9626e3d1e79c21bae2b4e6f14c63d4a13ca2c182c5650faee208c40a002671a5"},
+      {"path": "artifacts/cp05/provenance.json", "sha256": "ec4026e35f11321af609601d80dbb4dffe993c9d5717e571272e475c29078132"},
+      {"path": "artifacts/cp05/validation-report.json", "sha256": "9bbc7d60d891bae5e64fef24c16378f20b5a9479b1d9cb80c420d2ca8737c3f"}
+    ],
+    "reviewRenders": [
+      {"path": "artifacts/cp05/renders/context-core-neutral.png", "bytes": 334068, "sha256": "427f623573bd6d2ca9639a90f5a1a43986a92676e8031c3b4bc76813be404a39"},
+      {"path": "artifacts/cp05/renders/context-core-branded.png", "bytes": 337697, "sha256": "e879007162f75154a0fed72e002504055c181690828607879826087bb2cbe834"},
+      {"path": "artifacts/cp05/renders/context-core-macro.png", "bytes": 430536, "sha256": "e80841df715a5695c7c7299373e1a6199594dd18a10ea9f868f4ceb17520b221"}
+    ],
+    "reviewSheets": ["artifacts/cp05/primitive-review.html", "artifacts/cp05/material-review.html", "artifacts/cp05/safe-area.html"],
+    "counts": {"primitives": 10, "materials": 7, "cameras": 4, "lights": 4, "fragments": 36, "nodes": 12, "routes": 6}
+  },
+  "outOfScopeConfirmed": {
+    "animation": false,
+    "selectedLogoIntegration": false,
+    "glbLodExport": false,
+    "runtimeThree": false,
+    "brandMarkChange": false,
+    "ugasProviderStarted": false
+  },
+  "hosted": {
+    "status": "PENDING_VERIFY_EXTERNALLY",
+    "remoteBranch": {"status": "PENDING_AFTER_PUSH", "name": "codex/cp05-blender-context-core", "headRole": "closure_commit"},
+    "pullRequest": {"number": 26, "status": "OPEN", "url": "https://github.com/KayzenRoot/nexlabs-web/pull/26", "base": "main", "headRole": "closure_commit"},
+    "historicalPreFinalReceipt": {
+      "head": "d55819da01c2390ff4342c9ea0968e5915cb0028",
+      "Governance": {"status": "PASS", "runId": 35521658010, "runNumber": 87},
+      "quality": {"status": "PASS", "runId": 35521658086, "runNumber": 124}
+    },
+    "reviewedHead": "da97a702797078ff1de119065e4fc80e943d1984",
+    "reviewedHeadChecks": {
+      "Governance": {"status": "PASS", "runId": 35522285772, "runNumber": 88, "head": "da97a702797078ff1de119065e4fc80e943d1984"},
+      "quality": {"status": "PASS", "runId": 35522285852, "runNumber": 125, "head": "da97a702797078ff1de119065e4fc80e943d1984"}
+    },
+    "checks": {
+      "status": "PENDING_VERIFY_EXTERNALLY",
+      "Governance": {"status": "PENDING", "headRole": "closure_commit"},
+      "quality": {"status": "PENDING", "headRole": "closure_commit"}
+    },
+    "independentReview": {"status": "APPROVED_FOR_CP05_CLOSURE", "head": "da97a702797078ff1de119065e4fc80e943d1984", "source": "independent project review"},
+    "merge": "NOT_EXECUTED",
+    "receiptScope": "Reviewed implementation evidence is bound to da97a702; closure-head hosted checks remain external until GitHub completes them."
+  },
+  "knownBlockers": ["RUNTIME_BRAND_PROMOTION_PENDING", "EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED"],
+  "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
+  "researchGaps": []
+}

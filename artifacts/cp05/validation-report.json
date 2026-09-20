@@ -1,0 +1,45 @@
+{
+  "blendBytes": 174334,
+  "blendSha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd",
+  "boundaries": {
+    "animation": false,
+    "cp06": false,
+    "glbLodExport": false,
+    "logoIntegration": false,
+    "runtimeThree": false,
+    "ugasGeneration": false
+  },
+  "cameras": 4,
+  "lights": 4,
+  "materialFamilies": [
+    "Ceramic",
+    "Data",
+    "Mineral",
+    "Optical",
+    "Signal_Cyan",
+    "Signal_Violet",
+    "Signal_Warm"
+  ],
+  "materials": 7,
+  "objects": 72,
+  "primitives": [
+    "BAND",
+    "CELL",
+    "CORE",
+    "FIELD",
+    "FRAGMENT",
+    "GATE",
+    "LATTICE",
+    "NODE",
+    "ROUTE",
+    "SHELL"
+  ],
+  "renders": [
+    "artifacts/cp05/renders/context-core-neutral.png",
+    "artifacts/cp05/renders/context-core-branded.png",
+    "artifacts/cp05/renders/context-core-macro.png"
+  ],
+  "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+  "schemaVersion": "nexlabs-web-cp05-validation-v1",
+  "status": "PASS"
+}

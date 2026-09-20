@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "nexlabs-web-context-lock-v1",
+  "lockId": "NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
+  "workOrder": "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
+  "status": "CLOSED",
+  "authorizedBase": "b2737e66d890dff206ac541b4da8b9f42b09c0b1",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "planningCache": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/",
+  "planningManifestSha256": "ac32a18d9c935c9cc8b7bb1e947bb4426774e2e1e4acd6fc4d60d72ebe2fcf1e",
+  "sourceDocument": {
+    "name": "NEXLABS-CP05-BLENDER-CONTEXT-CORE-FOUNDATION-WORK-ORDER.pdf",
+    "sha256": "183ae223bb01fdac47f20ff1359657b63011e8a51ec3885f04f8b24e4e6bada1"
+  },
+  "gef": {"version": "1.0.0", "releaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"},
+  "hive": {"version": "1.0.0", "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"},
+  "workOrderSha256": "95d24d6f3175e10880467e4328bf9b916aad2175e2c803ef262ace90e6a18327",
+  "admissionHead": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+  "resumeBase": "b2737e66d890dff206ac541b4da8b9f42b09c0b1",
+  "resumeBaseRole": "protected_main_after_workstation_transition_merge",
+  "candidateHead": "de5a35db79521fca740f909982cc69ffd2033dc3",
+  "candidateHeadRole": "cp05_exact_hive_proof_candidate",
+  "historicalCandidateHead": "c3587cf227c578433340f9acdf006def70240a7a",
+  "historicalCandidateHeadRole": "historical_earlier_hive_checkpoint_candidate",
+  "reviewedCandidateHead": "da97a702797078ff1de119065e4fc80e943d1984",
+  "reviewedCandidateHeadRole": "independently_reviewed_cp05_foundation_head",
+  "reviewReceiptHead": "da97a702797078ff1de119065e4fc80e943d1984",
+  "reviewReceiptHeadRole": "independent_review_receipt_for_reviewed_head",
+  "sceneMutationHead": "da97a702797078ff1de119065e4fc80e943d1984",
+  "sceneMutationHeadRole": "production_scene_package_on_reviewed_head",
+  "scope": {
+    "workOrders": ["WO-B3D-001", "WO-B3D-002", "WO-B3D-003", "WO-B3D-004", "WO-B3D-005", "WO-B3D-006"],
+    "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+    "canonicalSelection": false,
+    "runtimeWiring": false
+  },
+  "selectedLogoDependency": {
+    "candidateId": "NX-C-02",
+    "revision": "r1",
+    "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165",
+    "metadataOnly": true
+  },
+  "preflight": {
+    "blenderExecutableRecorded": "blender.exe",
+    "blenderVersion": "5.2.1 LTS",
+    "addonStatus": "PASS",
+    "sceneInfo": "PASS",
+    "protocolVersion": 7,
+    "recoveryAttempts": 1,
+    "sceneMutationBeforeGate": false
+  },
+  "policyGate": {
+    "status": "AUTHORIZED",
+    "code": "BLENDER_PRODUCTION_AUTHORIZED",
+    "source": "AGENTS.md and docs/WORKSTATION-MODE.md",
+    "sceneWorkAuthorized": true
+  },
+  "hive": {
+    "status": "PASS",
+    "projectId": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea",
+    "taskId": "b24a0a72-35b7-4a67-a770-f661e1e6178f",
+    "taskDigest": "0e4a323eb64834034d836cb7fb138bfa025979e03303c4d65720ae3de248d4b0",
+    "projectHead": "de5a35db79521fca740f909982cc69ffd2033dc3",
+    "projectState": "READY",
+    "workingTreeClean": true,
+    "indexRunId": "8d34469f-ee16-41e9-afc2-738d1ac0985b",
+    "corpusRunId": "ce33feb8-68a6-4643-a323-9331156ceb17",
+    "taskIntakeStatus": "READY",
+    "extractedTextAvailable": true,
+    "mcp": {
+      "projectStatus": "PASS",
+      "checkpointRead": "PASS",
+      "contextSearch": "PASS",
+      "coreContextBuild": "PASS",
+      "mcpContextBuild": "PASS",
+      "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK",
+      "contextSearchCandidatePool": 5,
+      "contextSearchCorpusRunId": "ce33feb8-68a6-4643-a323-9331156ceb17",
+      "contextBuildDefault": {"status": "PASS", "inputFingerprint": "393185e08ba1daecd0ae65ccc896fdb585592ec8ba3c69067bc7b766a724e935", "outputFingerprint": "b0cf174ab2f9dcc8a86c20e56686fef8166b3014cc8e82190cd8bbda3c23cf6b", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+      "contextBuildMinimal": {"status": "PASS", "inputFingerprint": "c70324827ccbe7821cd889cb589aa53f70fd4d668046c53f0db2d722c7bbfdba", "outputFingerprint": "774d2fd8ac552a2cac15abe4777855ff56a22f3155ca6d9078b33681764900da", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+      "coreContextBuildDefault": {"status": "PASS", "inputFingerprint": "393185e08ba1daecd0ae65ccc896fdb585592ec8ba3c69067bc7b766a724e935", "outputFingerprint": "b0cf174ab2f9dcc8a86c20e56686fef8166b3014cc8e82190cd8bbda3c23cf6b", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false},
+      "coreContextBuildMinimal": {"status": "PASS", "inputFingerprint": "c70324827ccbe7821cd889cb589aa53f70fd4d668046c53f0db2d722c7bbfdba", "outputFingerprint": "774d2fd8ac552a2cac15abe4777855ff56a22f3155ca6d9078b33681764900da", "finalContextTokenEstimate": 3443, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}
+    }
+  },
+  "externalBlockers": ["RUNTIME_BRAND_PROMOTION_PENDING", "EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED"],
+  "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
+  "stopState": "CP05_COMPLETE_AFTER_INDEPENDENT_REVIEW"
+}
