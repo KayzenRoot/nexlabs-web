@@ -42,11 +42,18 @@
     "mutatedInPlace": false
   },
   "preflight": {
-    "status": "PENDING",
-    "sceneMutationBeforeGate": false
+    "status": "BLOCKED_LIVE_MCP_UNAVAILABLE",
+    "blenderExecutableRecorded": "blender.exe",
+    "blenderVersion": null,
+    "addonStatus": "FAIL_NOT_CONNECTED",
+    "sceneInfo": "FAIL_NOT_CONNECTED",
+    "protocolVersion": null,
+    "recoveryAttempts": 1,
+    "sceneMutationBeforeGate": false,
+    "diagnostics": ["Initial get_addon_status: Addon handshake failed: Connection to Blender lost: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host", "Bounded recovery get_addon_status: Addon handshake failed: Not connected to Blender", "Bounded recovery get_scene_info: Error getting scene info: Not connected to Blender", "No blender/blender-launcher process was present; listener 127.0.0.1:8765 belonged to com.docker.backend PID 17120"]
   },
   "policyGate": {
-    "status": "AUTHORIZED_PENDING_LIVE_PREFLIGHT",
+    "status": "BLOCKED_LIVE_PREFLIGHT",
     "code": "BLENDER_PRODUCTION_AUTHORIZED",
     "source": "AGENTS.md and docs/WORKSTATION-MODE.md",
     "sceneWorkAuthorized": true,
@@ -83,5 +90,5 @@
   },
   "externalBlockers": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false"],
   "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
-  "stopState": "CP06_ADMITTED_PENDING_HIVE_AND_BLENDER_PREFLIGHT"
+  "stopState": "CP06_BLOCKED_BEFORE_SCENE_MUTATION"
 }
