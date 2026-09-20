@@ -4,7 +4,7 @@
     "name": "NEXLABS-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS-WORK-ORDER.pdf",
     "sha256": "158779a40882f2a5ff270c84164482d68ea6d82a2eb846fad2d285ef97c8408c"
   },
-  "verdict": "READY_FOR_REVIEW",
+  "verdict": "BLOCKED",
   "reviewState": "CP06_BLOCKED",
   "workOrder": {
     "id": "NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
@@ -36,6 +36,7 @@
   },
   "transportRecoveryFollowUp": {"status": "PASS", "ladderStep": "R3_REPEAT_AFTER_PROCESS_EXIT", "blenderPid": 25232, "listenerPid": 25232, "stabilityGate": {"A_getAddonStatus": "PASS", "B_getSceneInfo": "PASS", "C_getAddonStatusAfterPause": "PASS", "D_getSceneInfoAgain": "PASS", "sameBlenderPid": true, "transportErrors": []}, "sceneMutationBeforeGate": false},
   "transportFinalKeepAlive": {"status": "PASS", "blenderPid": 8364, "listenerPid": 8364, "host": "127.0.0.1", "port": 9876, "blenderVersion": "5.2.1 LTS", "addonVersion": "1.7", "protocolVersion": 7, "stabilityGate": {"A_getAddonStatus": "PASS", "B_getSceneInfo": "PASS", "C_getAddonStatusAfterPause": "PASS", "D_getSceneInfoAgain": "PASS", "sameBlenderPid": true, "transportErrors": []}},
+  "postKeepAliveFailure": {"status": "BLOCKED", "code": "BLENDER_MCP_TRANSPORT_PERSISTENT", "observedAt": "2026-09-20T20:43:39.408028+00:00", "blenderProcess": "ABSENT", "listener": "ABSENT", "probe": {"status": "FAIL", "host": "127.0.0.1", "port": 9876, "error": "TimeoutError: timed out"}, "sceneMutationAfterGate": true, "workingMasterSavedAndHashed": true},
   "cp05Source": {
     "sceneId": "NL-SCENE-CONTEXT-CORE-01",
     "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",
@@ -73,7 +74,7 @@
   "outOfScopeConfirmed": {"runtimeThree": false, "brandMarkChange": false, "ugasProviderStarted": false, "ugasGeneration": false, "deployment": false, "cp08Media": false},
   "hosted": {"status": "NOT_PUBLISHED_EXTERNAL_BLOCKER", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
   "historicalBlockers": ["BLENDER_MCP_DISCONNECTED_WINERROR_10053", "BLENDER_MCP_NOT_CONNECTED_AFTER_BOUNDED_RECOVERY"],
-  "knownBlockers": ["HIVE_CURRENT_CANDIDATE_GIT_TIMEOUT"],
+  "knownBlockers": ["BLENDER_MCP_TRANSPORT_PERSISTENT", "HIVE_CURRENT_CANDIDATE_GIT_TIMEOUT"],
   "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
   "researchGaps": []
 }
