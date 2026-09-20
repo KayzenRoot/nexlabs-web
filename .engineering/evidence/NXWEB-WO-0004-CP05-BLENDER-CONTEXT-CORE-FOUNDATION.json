@@ -125,7 +125,18 @@
     "brandMarkChange": false,
     "ugasProviderStarted": false
   },
-  "hosted": {"status": "NOT_STARTED", "pullRequest": null},
+  "hosted": {
+    "status": "PR_OPEN_PRIOR_HEAD_CHECKS_PASS_FINAL_HEAD_RECHECK_PENDING",
+    "remoteBranch": {"status": "PUBLISHED", "name": "codex/cp05-blender-context-core", "head": "d55819da01c2390ff4342c9ea0968e5915cb0028"},
+    "pullRequest": {"number": 26, "status": "OPEN", "url": "https://github.com/KayzenRoot/nexlabs-web/pull/26", "base": "main", "head": "d55819da01c2390ff4342c9ea0968e5915cb0028"},
+    "checks": {
+      "Governance": {"status": "PASS", "runId": 35521658010, "runNumber": 87, "head": "d55819da01c2390ff4342c9ea0968e5915cb0028"},
+      "quality": {"status": "PASS", "runId": 35521658086, "runNumber": 124, "head": "d55819da01c2390ff4342c9ea0968e5915cb0028"}
+    },
+    "independentReview": "PENDING",
+    "merge": "NOT_EXECUTED",
+    "receiptScope": "Observed on d55819d before this evidence-only receipt; final PR head must be rechecked after publication."
+  },
   "knownBlockers": ["RUNTIME_BRAND_PROMOTION_PENDING", "EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED", "UGAS_GENERATION_PROVIDER_READY=false and UGAS_GENERATION_AUTHORIZED=false"],
-  "researchGaps": ["No CP-05 scene evidence exists yet; execution resumes after the protected workstation transition."]
+  "researchGaps": ["Independent review of the CP-05 scene package is not yet recorded."]
 }
