@@ -22,7 +22,7 @@
   "humanGate": "HG-01",
   "reviewCorrection": {"status": "CORRECTED", "reviewedHead": "5c9e46e2b54bfec79a8e8957d73ccb0f22c3cb87", "correctionHead": "325116be0f8623c5896c2a168bc52f697fd3f907"},
   "selectionRevision": {"status": "COMPLETED", "candidateId": "NX-B-01", "fromRevision": "r1", "revision": "r2", "implementationHead": "76cda49c205a03cb55de87359c4ae88b9686d33b", "canonicalSelection": false, "supersededByHumanSelection": "NX-C-02"},
-  "selectionDecision": {"status": "RECORDED", "gate": "HG-01", "candidateId": "NX-C-02", "candidateRevision": "r1", "candidateSha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165", "decisionHead": "2df9db2e6346266da306cdefe8cf9c39ae04d5d5", "decisionHeadRole": "candidate_batch_receipt_head", "canonicalPromotion": "PENDING", "runtimeWiring": false, "merge": "NOT_AUTHORIZED", "source": "direct user decision"},
+  "selectionDecision": {"status": "RECORDED", "gate": "HG-01", "candidateId": "NX-C-02", "candidateRevision": "r1", "candidateSha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165", "decisionHead": "040c18b079bce168ae38af92153d2cc51ddc6844", "decisionHeadRole": "human_selection_receipt_head", "canonicalPromotion": "PENDING", "runtimeWiring": false, "merge": "NOT_AUTHORIZED", "source": "direct user decision"},
   "hiveReceiptCorrection": {"status": "CORRECTED", "proofHead": "76cda49c205a03cb55de87359c4ae88b9686d33b", "checkpointHead": "76cda49c205a03cb55de87359c4ae88b9686d33b", "checkpointBlobSha": "bab57f07ef841496c9e15cc7428c84b2444d18c2", "indexRunId": "d8277c25-828b-4510-849f-61b5208d86c1", "corpusRunId": "355519eb-54e2-452b-b38f-23b7ae3b7a98"},
   "stopState": "CP04_HUMAN_SELECTION_PENDING"
 }
