@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "nexlabs-web-cp06-evidence-v1",
+  "sourceDocument": {
+    "name": "NEXLABS-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS-WORK-ORDER.pdf",
+    "sha256": "158779a40882f2a5ff270c84164482d68ea6d82a2eb846fad2d285ef97c8408c"
+  },
+  "verdict": "IN_PROGRESS",
+  "reviewState": "CP06_IN_PROGRESS",
+  "workOrder": {
+    "id": "NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
+    "path": ".engineering/work-orders/NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS.md",
+    "status": "IN_PROGRESS",
+    "sha256": "7ebbb7b00124c64f8c066bccc134eccfdf933c25dbafca59eae3461412fbcbd7"
+  },
+  "contextLock": {
+    "id": "NXWEB-LOCK-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
+    "path": ".engineering/context-locks/NXWEB-LOCK-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS.json",
+    "status": "ACTIVE",
+    "workOrderSha256": "7ebbb7b00124c64f8c066bccc134eccfdf933c25dbafca59eae3461412fbcbd7"
+  },
+  "authorizedBase": "9b502c1d618e93e1be45864acf19648e132515c6",
+  "admissionHead": "9b502c1d618e93e1be45864acf19648e132515c6",
+  "resumeBase": "9b502c1d618e93e1be45864acf19648e132515c6",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "planningManifestSha256": "97d09a4af77e2addcbad49d321c33437db4ec6ad46ebfb00d9ec28189087601f",
+  "git": {
+    "admissionHead": "9b502c1d618e93e1be45864acf19648e132515c6",
+    "candidateHead": null,
+    "reviewedCandidateHead": null,
+    "reviewReceiptHead": null,
+    "sceneMutationHead": null
+  },
+  "blender": {
+    "preflight": {"status": "PENDING", "sceneMutationBeforeGate": false},
+    "production": {"status": "PENDING", "sceneMutationPerformed": false}
+  },
+  "cp05Source": {
+    "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+    "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",
+    "masterBlend": {"path": ".local/cp05/context_core_master.blend", "sha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd"},
+    "cp06Copy": {"path": ".local/cp06/context_core_cp06_master.blend", "status": "PENDING"}
+  },
+  "selectedLogo": {
+    "candidateId": "NX-C-02",
+    "revision": "r1",
+    "path": "brand/logo/candidates/NX-C-02.svg",
+    "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165",
+    "sourceUnchanged": true
+  },
+  "hive": {"status": "PENDING", "project": {}, "task": {}, "mcp": {}},
+  "workOrders": {
+    "WO-B3D-007": "PENDING",
+    "WO-B3D-008": "PENDING",
+    "WO-B3D-009": "PENDING",
+    "WO-B3D-010": "PENDING",
+    "WO-B3D-011": "PENDING",
+    "WO-B3D-012": "PENDING"
+  },
+  "receipts": {"SSAC": "PENDING", "PFR": "PENDING", "LIPG": "PENDING", "EBL": "PENDING"},
+  "gates": {"G1": "PENDING", "G2": "PENDING", "G3": "PENDING", "G4": "PENDING", "G5": "PENDING", "G6": "PENDING", "G7": "PENDING", "G8": "PENDING", "G9": "PENDING", "G10": "PENDING"},
+  "outOfScopeConfirmed": {"runtimeThree": false, "brandMarkChange": false, "ugasProviderStarted": false, "ugasGeneration": false, "deployment": false, "cp08Media": false},
+  "hosted": {"status": "NOT_PUBLISHED", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
+  "knownBlockers": [],
+  "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
+  "researchGaps": []
+}

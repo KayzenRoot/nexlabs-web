@@ -4,22 +4,22 @@ Status: `DERIVED_VIEW`
 Canonical source: `docs/project-brain/13-CHECKPOINT.md`
 
 ## STATUS
-CP-05 COMPLETE
+CP-06 IN PROGRESS
 
 ## VERSION
-NEXLABS-WEB CP-05 BLENDER CONTEXT CORE FOUNDATION COMPLETE
+NEXLABS-WEB CP-06 BLENDER MOTION + LOGO + WEB ASSETS IN PROGRESS
 
 ## PHASE
-CP-05 deterministic Blender Context Core foundation completed and independently reviewed; the delivered scope is limited to WO-B3D-001 through WO-B3D-006 and is not a final runtime or brand promotion.
+CP-06 is admitted from protected main `9b502c1d618e93e1be45864acf19648e132515c6` under the new governed Work Order and extends the approved CP-05 Context Core through WO-B3D-012. The phase stops before CP-07 runtime integration and does not promote the production BrandMark.
 
 ## OBJECTIVE
-Execute WO-B3D-001 through WO-B3D-006 as a deterministic, auditable Blender foundation without logo integration or runtime 3D promotion.
+Execute WO-B3D-007 through WO-B3D-012 as a deterministic, auditable Blender motion, selected-logo projection, LOD, GLB and static fallback package for CP-07 consumption.
 
 ## IN PROGRESS
-NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION is completed from protected main b2737e66d890dff206ac541b4da8b9f42b09c0b1; independent review approved reviewed head da97a702797078ff1de119065e4fc80e943d1984, while the final closure head remains subject to its own hosted checks.
+NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS is active from protected main `9b502c1d618e93e1be45864acf19648e132515c6`; HIVE preparation, live Blender MCP preflight and CP-06 production evidence are pending.
 
 ## BLOCKERS
-RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open. UGAS generation remains an explicit capability boundary and was not required for CP-05 closure.
+CP06_GATES_PENDING: HIVE preparation and the live Blender MCP hard preflight must pass before scene mutation. UGAS generation remains unauthorized/unready and CP-07 runtime integration is out of scope.
 
 ## NEXT STEP
-Admit CP-06 only through a new Work Order after protected merge and post-merge verification; do not begin WO-B3D-007 through WO-B3D-012 or promote BrandMark from this CP-05 closure.
+Prepare the exact active Work Order through HIVE, recover the CP-05 source without mutation, pass live Blender MCP preflight, then execute WO-B3D-007 through WO-B3D-012 and collect exact-head evidence.

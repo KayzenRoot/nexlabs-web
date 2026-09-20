@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "nexlabs-web-context-lock-v1",
+  "lockId": "NXWEB-LOCK-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
+  "workOrder": "NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
+  "status": "ACTIVE",
+  "authorizedBase": "9b502c1d618e93e1be45864acf19648e132515c6",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "planningCache": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/",
+  "planningManifestSha256": "97d09a4af77e2addcbad49d321c33437db4ec6ad46ebfb00d9ec28189087601f",
+  "sourceDocument": {
+    "name": "NEXLABS-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS-WORK-ORDER.pdf",
+    "sha256": "158779a40882f2a5ff270c84164482d68ea6d82a2eb846fad2d285ef97c8408c"
+  },
+  "gef": {"version": "1.0.0", "releaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"},
+  "workOrderSha256": "7ebbb7b00124c64f8c066bccc134eccfdf933c25dbafca59eae3461412fbcbd7",
+  "admissionHead": "9b502c1d618e93e1be45864acf19648e132515c6",
+  "resumeBase": "9b502c1d618e93e1be45864acf19648e132515c6",
+  "resumeBaseRole": "protected_main_cp05_complete",
+  "candidateHead": null,
+  "candidateHeadRole": "pending_cp06_hive_proof_candidate",
+  "reviewedCandidateHead": null,
+  "reviewReceiptHead": null,
+  "sceneMutationHead": null,
+  "scope": {
+    "workOrders": ["WO-B3D-007", "WO-B3D-008", "WO-B3D-009", "WO-B3D-010", "WO-B3D-011", "WO-B3D-012"],
+    "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+    "cp05SceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61",
+    "canonicalSelection": true,
+    "runtimeWiring": false
+  },
+  "selectedLogoDependency": {
+    "candidateId": "NX-C-02",
+    "revision": "r1",
+    "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165",
+    "metadataOnly": false,
+    "sourceImmutable": true
+  },
+  "cp05Source": {
+    "path": ".local/cp05/context_core_master.blend",
+    "sha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd",
+    "copyTarget": ".local/cp06/context_core_cp06_master.blend",
+    "mutatedInPlace": false
+  },
+  "preflight": {
+    "status": "PENDING",
+    "sceneMutationBeforeGate": false
+  },
+  "policyGate": {
+    "status": "AUTHORIZED_PENDING_LIVE_PREFLIGHT",
+    "code": "BLENDER_PRODUCTION_AUTHORIZED",
+    "source": "AGENTS.md and docs/WORKSTATION-MODE.md",
+    "sceneWorkAuthorized": true,
+    "ugasGenerationAuthorized": false
+  },
+  "hive": {
+    "version": "1.0.0",
+    "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+    "status": "PENDING",
+    "projectState": "PENDING",
+    "taskIntakeStatus": "PENDING",
+    "extractedTextAvailable": false,
+    "mcp": {}
+  },
+  "externalBlockers": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false"],
+  "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
+  "stopState": "CP06_ADMITTED_PENDING_HIVE_AND_BLENDER_PREFLIGHT"
+}
