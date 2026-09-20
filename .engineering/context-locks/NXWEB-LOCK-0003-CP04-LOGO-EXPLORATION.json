@@ -10,7 +10,7 @@
   "workOrderSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361",
   "executionWorkOrderSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361",
   "admissionHead": "b989606949bd362a2bd63d039448505f3220918e",
-  "candidateHead": null,
+  "candidateHead": "09861fde5422408d8b79c756ca90c67554351983",
   "candidateHeadRole": "implementation_candidate_head",
   "reviewedCandidateHead": null,
   "reviewReceiptHead": null,

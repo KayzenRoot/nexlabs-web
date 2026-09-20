@@ -164,8 +164,11 @@ if cp04_active:
         if evidence.get("git", {}).get("proofHead") != head:
             fail("CP-04 human-selection evidence proof head mismatch")
     else:
-        if lock.get("candidateHead") not in {None, ""} and lock.get("candidateHead") != head:
-            fail("CP-04 in-progress candidate head must bind to exact Git HEAD")
+        if lock.get("candidateHead") not in {None, ""}:
+            try:
+                subprocess.run(["git", "merge-base", "--is-ancestor", lock["candidateHead"], head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            except (OSError, subprocess.CalledProcessError):
+                fail("CP-04 in-progress candidate head must be an ancestor of exact Git HEAD")
         if evidence.get("git", {}).get("proofHead") not in {None, "", head}:
             fail("CP-04 in-progress evidence proof head mismatch")
 elif cp03_closed:

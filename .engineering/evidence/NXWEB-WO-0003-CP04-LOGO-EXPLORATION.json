@@ -18,11 +18,11 @@
     "status": "PASS",
     "version": "1.0.0",
     "api": "http://localhost:8000",
-    "project": {"name": "NEXLABS-WEB", "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea", "relativePath": "nexlabs-web", "state": "READY", "head": "8de5910a8201fb9fb31e532e191e11d936d2aea8", "workingTreeClean": true},
+    "project": {"name": "NEXLABS-WEB", "id": "fc528b4b-0ae9-4cb5-a6f8-94205e0d91ea", "relativePath": "nexlabs-web", "state": "READY", "head": "09861fde5422408d8b79c756ca90c67554351983", "workingTreeClean": true, "indexRunId": "bb997bdd-eb79-4670-855f-0af30b39b28c", "corpusRunId": "7deaa49b-ba10-43ed-a426-b66e5f80bc64"},
     "task": {"id": "fa795367-dbb0-4917-a0f1-62e7a48f90cb", "intakeStatus": "READY", "extractedTextAvailable": true, "reused": true, "originalBlobSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361"},
     "indexStatus": "COMPLETED",
     "corpusStatus": "COMPLETED",
-    "mcp": {"projectList": "PASS", "projectStatus": "PASS", "contextBuild": "PASS", "contextSearch": "PASS", "checkpointRead": "PASS", "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK", "contextFingerprint": "4b1434e549a4060cead3c3dc2f78ffe8d3cf4973ed1583dff5404b648e4d7f5a", "checkpointHead": "8de5910a8201fb9fb31e532e191e11d936d2aea8"}
+    "mcp": {"projectList": "PASS", "projectStatus": "PASS", "contextBuild": "PASS", "contextSearch": "PASS", "checkpointRead": "PASS", "semanticState": "UNAVAILABLE_LEXICAL_FALLBACK", "contextFingerprint": "29ff3c1bf469e9efd2272d1c650446226ad892fa863401fee96ad1e767a45f5b", "checkpointHead": "09861fde5422408d8b79c756ca90c67554351983", "checkpointBlobSha": "aa084eaf46f9e5dfd7923514eedfc2beaa48ea7f"}
   },
   "blender": {"status": "BLOCKED_EXTERNAL", "reason": "BLENDER_MCP_UNAVAILABLE", "addonStatus": "Could not connect to Blender. Make sure the Blender addon is running."},
   "ugas": {"status": "INSPECTED_UNAVAILABLE", "reason": "CLI_INSPECTION_TIMED_OUT_NO_OUTPUT; frozen global bridge is present", "providerStarted": false, "generationPerformed": false, "frozenSha": "0169f84248703931bb7578177d9773bce319c14e"},
@@ -39,7 +39,7 @@
     "wranglerDryRun": "PASS"
   },
   "hosted": {"status": "PENDING", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
-  "git": {"proofHead": null, "candidateHead": null, "reviewedCandidateHead": null, "reviewReceiptHead": null},
+  "git": {"proofHead": null, "candidateHead": "09861fde5422408d8b79c756ca90c67554351983", "reviewedCandidateHead": null, "reviewReceiptHead": null},
   "knownBlockers": ["BLENDER_MCP_UNAVAILABLE", "HUMAN_GATE_HG_01_PENDING"],
   "researchGaps": ["External visual similarity and trademark clearance were not performed; independent human review remains required."]
 }
