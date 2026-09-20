@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import hashlib
 import re
 import subprocess
@@ -10,6 +11,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "7dac49b7d9182333e58dd1267c33489631d7e65d"
+CP05_TRANSITION_BASE = "affd133d9f8650ab91d2f0dd5871220306a3bba0"
+CP05_TRANSITION_PDF_SHA256 = "f39f3cdb3127263094c2b279ffcc6818eaf8ff272259b824f31d719931f71754"
 PLANNING = "b541e802472a3acc75a3a8ebd3818d33de8a316f"
 GEF = "866fe3af8cccc65c929aaf6a47a924401fa448b3"
 HIVE = "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
@@ -25,9 +28,7 @@ REQUIRED = (
     ".engineering/gef/GEF-POLICY.md", ".engineering/gef/GEF-PROJECT-PROFILE.json", ".engineering/gef/GEF-REVIEW-PROTOCOL.md",
     ".engineering/gef/GEF-SOURCE-BRIDGE.json", ".engineering/work-orders/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.md",
     ".engineering/context-locks/NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION.json", ".engineering/evidence/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.json",
-    ".engineering/work-orders/NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.md",
-    ".engineering/context-locks/NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.json",
-    ".engineering/evidence/NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.json",
+    ".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json", "docs/WORKSTATION-MODE.md",
     "docs/project-brain/00-README-UPLOAD-ORDER.md", "docs/project-brain/01-PROJECT-OVERVIEW.md", "docs/project-brain/02-REQUIREMENTS.md",
     "docs/project-brain/03-SCOPE.md", "docs/project-brain/04-ARCHITECTURE.md", "docs/project-brain/10-SECURITY-GOVERNANCE.md",
     "docs/project-brain/11-TEST-PLAN.md", "docs/project-brain/12-LOCAL-DEPLOYMENT.md", "docs/project-brain/13-CHECKPOINT.md",
@@ -96,11 +97,13 @@ CP04_WORK_ORDER = "NXWEB-WO-0003-CP04-LOGO-EXPLORATION"
 CP04_LOCK = "NXWEB-LOCK-0003-CP04-LOGO-EXPLORATION"
 CP05_WORK_ORDER = "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION"
 CP05_LOCK = "NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION"
+CP05_RESUME_BASE = "b2737e66d890dff206ac541b4da8b9f42b09c0b1"
 cp03_closed = current.get("lastCompletedWorkOrder") == CP03_WORK_ORDER and current.get("productStage") == "CP03_COMPLETE"
 cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED" and current.get("activeWorkOrder") == CP03_WORK_ORDER
 cp04_active = current.get("adoptionState") == "GEF_V1_CP04_ADMITTED" and current.get("activeWorkOrder") == CP04_WORK_ORDER
-cp04_closed = current.get("lastCompletedWorkOrder") == CP04_WORK_ORDER and current.get("productStage") == "CP04_COMPLETE"
-cp05_active = current.get("adoptionState") == "GEF_V1_CP05_ADMITTED" and current.get("activeWorkOrder") == CP05_WORK_ORDER
+cp04_closed = current.get("lastCompletedWorkOrder") == CP04_WORK_ORDER and current.get("productStage") == "CP04_COMPLETE" and current.get("reviewState") == "CP04_HG01_SATISFIED" and current.get("nextLegalAction") == "RESUME_CP05_FROM_AUTHORIZED_WORKSTATION"
+workstation_transition_active = current.get("adoptionState") == "GEF_V1_CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("productStage") == "CP04_COMPLETE" and current.get("reviewState") == "CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("nextLegalAction") == "RESUME_CP05_AFTER_WORKSTATION_TRANSITION_MERGE" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
+cp05_active = current.get("adoptionState") == "GEF_V1_CP05_ADMITTED" and current.get("activeWorkOrder") == CP05_WORK_ORDER and current.get("activeContextLock") == CP05_LOCK
 
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
 if manifest.get("project") != "KayzenRoot/nexlabs-web" or manifest.get("mode") != "EXISTING_PROJECT / BROWNFIELD":
@@ -129,85 +132,91 @@ if cp05_active:
     work_order = read(f".engineering/work-orders/{CP05_WORK_ORDER}.md")
     lock = data(f".engineering/context-locks/{CP05_LOCK}.json")
     evidence = data(f".engineering/evidence/{CP05_WORK_ORDER}.json")
-    if current.get("activeWorkOrder") != CP05_WORK_ORDER or current.get("activeContextLock") != CP05_LOCK:
-        fail("CP-05 active Work Order and Context Lock identity mismatch")
-    if lock.get("workOrder") != CP05_WORK_ORDER or lock.get("lockId") != CP05_LOCK:
-        fail("CP-05 Work Order and Context Lock pairing mismatch")
-    if lock.get("authorizedBase") != "affd133d9f8650ab91d2f0dd5871220306a3bba0" or lock.get("planningSource") != PLANNING:
-        fail("CP-05 Context Lock base/source mismatch")
-    expected_digest = hashlib.sha256((ROOT / f".engineering/work-orders/{CP05_WORK_ORDER}.md").read_bytes()).hexdigest()
-    if lock.get("workOrderSha256") != expected_digest:
-        fail("CP-05 Context Lock Work Order digest mismatch")
-    if evidence.get("workOrder", {}).get("id") != CP05_WORK_ORDER or evidence.get("contextLock", {}).get("id") != CP05_LOCK:
-        fail("CP-05 evidence Work Order and Context Lock identity mismatch")
-    if evidence.get("workOrder", {}).get("sha256") != expected_digest or evidence.get("contextLock", {}).get("workOrderSha256") != expected_digest:
-        fail("CP-05 evidence Work Order digest mismatch")
     try:
         head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
         branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=ROOT, text=True).strip()
     except (OSError, subprocess.CalledProcessError) as exc:
-        fail(f"cannot resolve CP-05 Git state: {exc}")
+        fail(f"cannot resolve CP-05 resumed Git state: {exc}")
     if branch != "codex/cp05-blender-context-core":
-        fail("CP-05 must execute on codex/cp05-blender-context-core")
-    def is_cp05_ancestor(ancestor: str, descendant: str) -> bool:
+        fail("resumed CP-05 must execute on codex/cp05-blender-context-core")
+    if current.get("activeWorkOrder") != CP05_WORK_ORDER or current.get("activeContextLock") != CP05_LOCK:
+        fail("CP-05 resumed Work Order and Context Lock identity mismatch")
+    if lock.get("workOrder") != CP05_WORK_ORDER or lock.get("lockId") != CP05_LOCK:
+        fail("CP-05 resumed Work Order and Context Lock pairing mismatch")
+    if lock.get("authorizedBase") != CP05_RESUME_BASE or lock.get("admissionHead") != CP05_TRANSITION_BASE or lock.get("planningSource") != PLANNING:
+        fail("CP-05 resumed Context Lock base/source lineage mismatch")
+    expected_digest = hashlib.sha256((ROOT / f".engineering/work-orders/{CP05_WORK_ORDER}.md").read_bytes()).hexdigest()
+    if expected_digest != "0e4a323eb64834034d836cb7fb138bfa025979e03303c4d65720ae3de248d4b0":
+        fail("CP-05 Work Order changed unexpectedly during resume")
+    if lock.get("workOrderSha256") != expected_digest:
+        fail("CP-05 resumed Context Lock Work Order digest mismatch")
+    if evidence.get("workOrder", {}).get("id") != CP05_WORK_ORDER or evidence.get("contextLock", {}).get("id") != CP05_LOCK:
+        fail("CP-05 resumed evidence Work Order and Context Lock identity mismatch")
+    if evidence.get("workOrder", {}).get("sha256") != expected_digest or evidence.get("contextLock", {}).get("workOrderSha256") != expected_digest:
+        fail("CP-05 resumed evidence Work Order digest mismatch")
+    if current.get("productStage") != "CP05_IN_PROGRESS" or current.get("reviewState") != "CP05_RESUMED_AFTER_BLENDER_AUTHORIZATION" or current.get("nextLegalAction") != "EXECUTE_CP05_WO_B3D_001_THROUGH_006":
+        fail("CP-05 GEF state is not the resumed execution state")
+    if lock.get("status") not in {"OPEN", "ACTIVE"} or "Status: `IN_PROGRESS`" not in work_order:
+        fail("CP-05 resumed lifecycle requires an OPEN/ACTIVE lock and IN_PROGRESS Work Order")
+    if not subprocess.run(["git", "merge-base", "--is-ancestor", CP05_RESUME_BASE, head], cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0:
+        fail("CP-05 resumed protected main is not an ancestor of exact Git HEAD")
+    for historical_head in ("e6eef9346f72ff6bb4f0350a6cd765bcf665346f", "e0794aea77aaca34b19baf2adeb153d3df24774c"):
         try:
-            subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            return True
+            subprocess.run(["git", "cat-file", "-e", historical_head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         except (OSError, subprocess.CalledProcessError):
-            return False
-    if lock.get("admissionHead") != "affd133d9f8650ab91d2f0dd5871220306a3bba0" or not is_cp05_ancestor("affd133d9f8650ab91d2f0dd5871220306a3bba0", head):
-        fail("CP-05 admission head is not the exact synchronized base ancestor")
-    if current.get("productStage") != "CP05_IN_PROGRESS" or current.get("reviewState") != "CP05_PREFLIGHT_BLOCKED_BY_WORKSTATION_POLICY":
-        fail("CP-05 GEF state is not the admitted policy-blocked preflight state")
-    if lock.get("status") not in {"OPEN", "ACTIVE"}:
-        fail("CP-05 requires an OPEN or ACTIVE Context Lock")
-    if "Status: `IN_PROGRESS`" not in work_order:
-        fail("CP-05 requires an IN_PROGRESS Work Order")
+            fail(f"CP-05 historical blocked head is missing: {historical_head}")
     for heading in ("## OBJECTIVE", "## CONTEXT/HIVE PREFLIGHT", "## CANONICAL BASIS", "## SCOPE", "## OUT OF SCOPE", "## BLENDER/MCP GATE", "## REPOSITORY AND DETERMINISM", "## SELECTED-LOGO BOUNDARY", "## ACCEPTANCE CRITERIA", "## TESTS", "## DELIVERABLES", "## REVIEW FORMAT", "## STOP CONDITION", "## EXECUTION REFERENCES"):
         if heading not in work_order:
             fail(f"CP-05 Work Order missing section: {heading}")
-    if evidence.get("verdict") != "BLOCKED" or evidence.get("reviewState") != "CP05_PREFLIGHT_BLOCKED_BY_WORKSTATION_POLICY":
-        fail("CP-05 evidence must preserve the policy-blocked preflight verdict")
+    transition = data(".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json")
+    if transition.get("status") != "AUTHORIZED" or transition.get("git", {}).get("protectedMainHead") != CP05_RESUME_BASE:
+        fail("CP-05 resumed workstation authorization is not bound to protected main")
+    capabilities = transition.get("capabilities", {})
+    if capabilities.get("BLENDER_MCP_READY") is not True or capabilities.get("BLENDER_PRODUCTION_AUTHORIZED") is not True or capabilities.get("UGAS_CORE_INSTALLED") is not True or capabilities.get("UGAS_GENERATION_PROVIDER_READY") is not False or capabilities.get("UGAS_GENERATION_AUTHORIZED") is not False:
+        fail("CP-05 resumed capability split is incomplete or unsafe")
+    for policy_name in ("AGENTS.md", "docs/WORKSTATION-MODE.md"):
+        policy = read(policy_name)
+        for fact in ("BLENDER_MCP_READY=true", "BLENDER_PRODUCTION_AUTHORIZED=true", "UGAS_CORE_INSTALLED=true", "UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false"):
+            if fact not in policy:
+                fail(f"{policy_name} is missing resumed capability fact: {fact}")
     blender = evidence.get("blender", {})
-    if blender.get("status") != "PASS_LIVE_PREFLIGHT" or blender.get("version") != "5.2.1 LTS" or blender.get("addon", {}).get("protocolVersion") != 7:
-        fail("CP-05 live Blender preflight receipt is incomplete")
-    if blender.get("tools", {}).get("getAddonStatus") != "PASS" or blender.get("tools", {}).get("getSceneInfo") != "PASS" or blender.get("sceneMutationPerformed") is not False:
-        fail("CP-05 Blender MCP gate receipt is incomplete or claims scene mutation")
-    policy = evidence.get("policyGate", {})
-    if policy.get("status") != "BLOCKED" or policy.get("code") != "REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION":
-        fail("CP-05 workstation policy blocker is missing")
-    if evidence.get("deterministicScene", {}).get("status") != "NOT_CREATED" or evidence.get("hosted", {}).get("status") != "NOT_STARTED":
-        fail("CP-05 blocked preflight must not claim scene or hosted candidate evidence")
+    if blender.get("status") != "PASS_LIVE_PREFLIGHT" or blender.get("version") != "5.2.1 LTS" or blender.get("addon", {}).get("protocolVersion") != 7 or blender.get("tools", {}).get("getAddonStatus") != "PASS" or blender.get("tools", {}).get("getSceneInfo") != "PASS" or blender.get("sceneMutationPerformed") is not False:
+        fail("CP-05 resumed Blender/MCP preflight receipt is incomplete")
+    policy_gate = evidence.get("policyGate", {})
+    if policy_gate.get("status") not in {"AUTHORIZED", "PASS"} or policy_gate.get("code") not in {"BLENDER_PRODUCTION_AUTHORIZED", "REPOSITORY_WORKSTATION_POLICY_AUTHORIZED"}:
+        fail("CP-05 resumed policy gate is not authorized")
+    if evidence.get("outOfScopeConfirmed", {}).get("selectedLogoIntegration") is not False or evidence.get("outOfScopeConfirmed", {}).get("runtimeThree") is not False or evidence.get("outOfScopeConfirmed", {}).get("ugasProviderStarted") is not False:
+        fail("CP-05 resumed evidence claims forbidden out-of-scope work")
+    if evidence.get("verdict") not in {"IN_PROGRESS", "READY_FOR_REVIEW", "BLOCKED"} or evidence.get("reviewState") != "CP05_RESUMED_AFTER_BLENDER_AUTHORIZATION":
+        fail("CP-05 resumed evidence verdict/state is not bounded")
     hive = evidence.get("hive", {})
-    if hive.get("status") != "PASS":
-        fail("CP-05 admission requires completed HIVE preparation and read-only receipts")
     project = hive.get("project", {})
     task = hive.get("task", {})
     mcp = hive.get("mcp", {})
-    if project.get("state") != "READY" or project.get("workingTreeClean") is not True:
-        fail("CP-05 HIVE project receipt is not READY with a clean candidate tree")
+    if hive.get("status") != "PASS" or project.get("state") != "READY" or project.get("workingTreeClean") is not True:
+        fail("CP-05 resumed HIVE project receipt is not READY with a clean tree")
     hive_candidate_head = project.get("head")
     if hive_candidate_head != head:
         try:
             receipt_parent = subprocess.check_output(["git", "rev-parse", "HEAD^"], cwd=ROOT, text=True).strip()
         except (OSError, subprocess.CalledProcessError) as exc:
-            fail(f"cannot resolve CP-05 HIVE receipt parent: {exc}")
+            fail(f"cannot resolve CP-05 resumed HIVE receipt parent: {exc}")
         if receipt_parent != hive_candidate_head:
-            fail("CP-05 HIVE receipt is not bound to the exact candidate or its receipt commit")
+            fail("CP-05 resumed HIVE receipt is not bound to exact candidate or receipt parent")
     if task.get("intakeStatus") != "READY" or task.get("extractedTextAvailable") is not True or task.get("originalBlobSha256") != expected_digest:
-        fail("CP-05 HIVE task receipt is not READY, extracted and digest-bound")
+        fail("CP-05 resumed HIVE task is not READY, extracted and digest-bound")
     if project.get("indexRunId") in {None, ""} or project.get("corpusRunId") in {None, ""}:
-        fail("CP-05 HIVE project receipt is missing index/corpus runs")
+        fail("CP-05 resumed HIVE project receipt is missing index/corpus runs")
     for receipt in ("projectStatus", "checkpointRead", "contextSearch", "coreContextBuild", "mcpContextBuild"):
         if mcp.get(receipt) != "PASS":
-            fail(f"CP-05 HIVE MCP receipt missing PASS: {receipt}")
+            fail(f"CP-05 resumed HIVE MCP receipt missing PASS: {receipt}")
     for build_name in ("contextBuildDefault", "contextBuildMinimal"):
         build = mcp.get(build_name, {})
         if build.get("status") != "PASS" or build.get("budgetSatisfied") is not True or build.get("requiredContextExceedsHardBudget") is not False:
-            fail(f"CP-05 HIVE {build_name} receipt is not a bounded PASS")
+            fail(f"CP-05 resumed HIVE {build_name} receipt is not a bounded PASS")
     hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
-    if "Status: `CP05_IN_PROGRESS_WORKSTATION_POLICY_BLOCKED`" not in hierarchy:
-        fail("CP-05 Source Hierarchy is not in the admitted policy-blocked state")
+    if "Status: `CP05_IN_PROGRESS_BLENDER_AUTHORIZED`" not in hierarchy:
+        fail("CP-05 Source Hierarchy is not in the resumed authorized state")
 elif cp04_active:
     work_order = read(f".engineering/work-orders/{CP04_WORK_ORDER}.md")
     lock = data(f".engineering/context-locks/{CP04_LOCK}.json")
@@ -291,6 +300,65 @@ elif cp04_active:
                 fail("CP-04 in-progress candidate head must be an ancestor of exact Git HEAD")
         if evidence.get("git", {}).get("proofHead") not in {None, "", head}:
             fail("CP-04 in-progress evidence proof head mismatch")
+elif workstation_transition_active:
+    transition = data(".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json")
+    try:
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+        local_branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=ROOT, text=True).strip()
+        branch = local_branch or os.environ.get("GITHUB_HEAD_REF", "").strip()
+        remote_main_head = subprocess.check_output(["git", "rev-parse", "origin/main"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve workstation transition Git state: {exc}")
+    if branch != "codex/cp05-blender-workstation-transition":
+        fail("workstation transition must execute on codex/cp05-blender-workstation-transition")
+    if remote_main_head != CP05_TRANSITION_BASE:
+        fail("workstation transition origin/main is not the synchronized protected base")
+    git_receipt = transition.get("git", {})
+    candidate_head = git_receipt.get("transitionCandidateHead")
+    if candidate_head != git_receipt.get("receiptCommitParent"):
+        fail("workstation transition receipt candidate and receipt-parent bindings disagree")
+    try:
+        subprocess.run(["git", "merge-base", "--is-ancestor", CP05_TRANSITION_BASE, candidate_head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "merge-base", "--is-ancestor", candidate_head, head], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except (OSError, subprocess.CalledProcessError):
+        fail("workstation transition candidate is not based on protected main")
+    if transition.get("schemaVersion") != "nexlabs-web-cp05-workstation-transition-v1" or transition.get("status") != "IN_REVIEW":
+        fail("workstation transition receipt is not in the bounded IN_REVIEW state")
+    source = transition.get("sourceDocument", {})
+    if source.get("name") != "NEXLABS-CP05-BLENDER-WORKSTATION-TRANSITION-AUTHORIZATION.pdf" or source.get("sha256") != CP05_TRANSITION_PDF_SHA256:
+        fail("workstation transition source binding is incomplete")
+    if transition.get("base", {}).get("mainSha") != CP05_TRANSITION_BASE or transition.get("base", {}).get("branch") != branch:
+        fail("workstation transition base/branch receipt mismatch")
+    local_state = transition.get("localState", {})
+    if local_state.get("preservedBlockedBranch") != "codex/cp05-blender-context-core" or local_state.get("preserved") is not True:
+        fail("workstation transition did not preserve the blocked CP-05 branch")
+    if local_state.get("blockedCandidateHead") != "e6eef9346f72ff6bb4f0350a6cd765bcf665346f" or local_state.get("blockedReceiptHead") != "e0794aea77aaca34b19baf2adeb153d3df24774c":
+        fail("workstation transition preserved-branch receipt is incomplete")
+    capabilities = transition.get("capabilities", {})
+    if capabilities.get("BLENDER_MCP_READY") is not True or capabilities.get("BLENDER_PRODUCTION_AUTHORIZED") is not True:
+        fail("workstation transition Blender capability split is incomplete")
+    if capabilities.get("UGAS_CORE_INSTALLED") is not True or capabilities.get("UGAS_GENERATION_PROVIDER_READY") is not False or capabilities.get("UGAS_GENERATION_AUTHORIZED") is not False:
+        fail("workstation transition UGAS capability split is unsafe or incomplete")
+    blender = capabilities.get("blender", {})
+    if blender.get("version") != "5.2.1 LTS" or blender.get("addonVersion") != "1.7" or blender.get("protocolVersion") != 7 or blender.get("getAddonStatus") != "PASS" or blender.get("getSceneInfo") != "PASS":
+        fail("workstation transition Blender/MCP capability evidence is incomplete")
+    agents_source = read("AGENTS.md")
+    workstation_source = read("docs/WORKSTATION-MODE.md")
+    for policy_name, policy_source in (("AGENTS.md", agents_source), ("docs/WORKSTATION-MODE.md", workstation_source)):
+        if "BLENDER_MCP_READY=true" not in policy_source or "BLENDER_PRODUCTION_AUTHORIZED=true" not in policy_source:
+            fail(f"{policy_name} does not declare the authorized Blender capability split")
+        if "UGAS_CORE_INSTALLED=true" not in policy_source or "UGAS_GENERATION_PROVIDER_READY=false" not in policy_source or "UGAS_GENERATION_AUTHORIZED=false" not in policy_source:
+            fail(f"{policy_name} does not preserve the fail-closed UGAS capability split")
+    if transition.get("scope", {}).get("sceneMutation") is not False or transition.get("scope", {}).get("cp05ProductImplementation") is not False or transition.get("scope", {}).get("ugasGeneration") is not False:
+        fail("workstation transition claims forbidden product or generation work")
+    if transition.get("hosted", {}).get("status") != "NOT_STARTED" or transition.get("hosted", {}).get("merge") != "NOT_EXECUTED" or transition.get("hosted", {}).get("postMergeChecks") != "NOT_CLAIMED":
+        fail("workstation transition cannot claim hosted or post-merge evidence before the PR exists")
+    if section(canonical, "## STATUS") != "CP-04 COMPLETE" or section(canonical, "## VERSION") != "NEXLABS-WEB CP-05 BLENDER WORKSTATION TRANSITION":
+        fail("workstation transition checkpoint does not preserve CP-04 completion")
+    if "BLENDER_MCP_UNAVAILABLE" in section(canonical, "## BLOCKERS") or "RUNTIME_BRAND_PROMOTION_PENDING" not in section(canonical, "## BLOCKERS") or "EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED" not in section(canonical, "## BLOCKERS"):
+        fail("workstation transition checkpoint blocker vocabulary is incorrect")
+    if "Status: `CP05_BLENDER_WORKSTATION_TRANSITION_IN_REVIEW`" not in read(".engineering/SOURCE-HIERARCHY.md"):
+        fail("Source Hierarchy is not in the workstation transition review state")
 elif cp04_closed:
     work_order = read(f".engineering/work-orders/{CP04_WORK_ORDER}.md")
     lock = data(f".engineering/context-locks/{CP04_LOCK}.json")
@@ -315,11 +383,26 @@ elif cp04_closed:
         fail("CP-04 closure evidence Context Lock digest mismatch")
     if lock.get("status") != "CLOSED" or "Status: `COMPLETED`" not in work_order:
         fail("CP-04 closure requires a CLOSED Context Lock and COMPLETED Work Order")
-    if current.get("reviewState") != "CP04_HG01_SATISFIED" or current.get("nextLegalAction") != "ADMIT_CP05_WITH_NEW_WORK_ORDER_AFTER_PR23_CLOSE":
-        fail("CP-04 GEF closure vocabulary is incomplete")
+    if current.get("reviewState") != "CP04_HG01_SATISFIED" or current.get("nextLegalAction") != "RESUME_CP05_FROM_AUTHORIZED_WORKSTATION":
+        fail("CP-04 GEF closure/workstation-resume vocabulary is incomplete")
     hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
     if "Status: `CP04_COMPLETE_READY_FOR_CP05_ADMISSION`" not in hierarchy:
         fail("CP-04 Source Hierarchy is not closed for CP-05 admission")
+    transition = data(".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json")
+    if transition.get("status") != "AUTHORIZED":
+        fail("CP-05 Blender workstation transition is not authorized")
+    capabilities = transition.get("capabilities", {})
+    if capabilities.get("BLENDER_MCP_READY") is not True or capabilities.get("BLENDER_PRODUCTION_AUTHORIZED") is not True:
+        fail("authorized workstation is missing Blender readiness/authorization")
+    if capabilities.get("UGAS_GENERATION_PROVIDER_READY") is not False or capabilities.get("UGAS_GENERATION_AUTHORIZED") is not False:
+        fail("authorized workstation must keep UGAS generation fail-closed")
+    if transition.get("scope", {}).get("sceneMutation") is not False or transition.get("scope", {}).get("cp05ProductImplementation") is not False:
+        fail("workstation authorization transition must remain non-product")
+    agents_policy = read("AGENTS.md")
+    workstation_policy = read("docs/WORKSTATION-MODE.md")
+    for policy_name, policy_source in (("AGENTS.md", agents_policy), ("docs/WORKSTATION-MODE.md", workstation_policy)):
+        if "BLENDER_PRODUCTION_AUTHORIZED=true" not in policy_source or "UGAS_GENERATION_AUTHORIZED=false" not in policy_source:
+            fail(f"{policy_name} does not reflect the authorized Blender / fail-closed UGAS policy")
     if section(canonical, "## STATUS") != "CP-04 COMPLETE" or section(canonical, "## VERSION") != "NEXLABS-WEB CP-04 HG-01 CLOSURE":
         fail("CP-04 canonical checkpoint is not in the closure state")
     if evidence.get("verdict") != "APPROVED" or evidence.get("reviewState") != "CP04_HG01_SATISFIED":
@@ -622,13 +705,20 @@ for path in governance_files:
         fail(f"machine-specific absolute path in {path.relative_to(ROOT)}")
 
 adoption_state = current.get("adoptionState")
-if cp05_active:
+if workstation_transition_active:
+    if adoption_state != "GEF_V1_CP05_WORKSTATION_TRANSITION_IN_REVIEW":
+        fail("invalid workstation transition adoption state")
+    if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("workstation transition cannot retain an active product Work Order or Context Lock")
+    if transition.get("status") != "IN_REVIEW" or transition.get("scope", {}).get("cp05ProductImplementation") is not False:
+        fail("workstation transition requires bounded non-product evidence")
+elif cp05_active:
     if adoption_state != "GEF_V1_CP05_ADMITTED":
-        fail("invalid CP-05 adoption state")
+        fail("invalid resumed CP-05 adoption state")
     if lock.get("status") not in {"OPEN", "ACTIVE"}:
-        fail("active CP-05 requires an OPEN or ACTIVE Context Lock")
+        fail("resumed CP-05 requires an OPEN or ACTIVE Context Lock")
     if "Status: `IN_PROGRESS`" not in work_order:
-        fail("active CP-05 requires an IN_PROGRESS Work Order")
+        fail("resumed CP-05 requires an IN_PROGRESS Work Order")
 elif cp04_active:
     if adoption_state != "GEF_V1_CP04_ADMITTED":
         fail("invalid CP-04 adoption state")

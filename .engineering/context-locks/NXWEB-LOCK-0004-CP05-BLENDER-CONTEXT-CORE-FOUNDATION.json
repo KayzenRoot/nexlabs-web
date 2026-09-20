@@ -3,7 +3,7 @@
   "lockId": "NXWEB-LOCK-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
   "workOrder": "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
   "status": "OPEN",
-  "authorizedBase": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+  "authorizedBase": "b2737e66d890dff206ac541b4da8b9f42b09c0b1",
   "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
   "planningCache": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/",
   "planningManifestSha256": "ac32a18d9c935c9cc8b7bb1e947bb4426774e2e1e4acd6fc4d60d72ebe2fcf1e",
@@ -15,6 +15,8 @@
   "hive": {"version": "1.0.0", "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"},
   "workOrderSha256": "0e4a323eb64834034d836cb7fb138bfa025979e03303c4d65720ae3de248d4b0",
   "admissionHead": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+  "resumeBase": "b2737e66d890dff206ac541b4da8b9f42b09c0b1",
+  "resumeBaseRole": "protected_main_after_workstation_transition_merge",
   "candidateHead": null,
   "candidateHeadRole": null,
   "reviewedCandidateHead": null,
@@ -43,10 +45,10 @@
     "sceneMutationBeforeGate": false
   },
   "policyGate": {
-    "status": "BLOCKED",
-    "code": "REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION",
+    "status": "AUTHORIZED",
+    "code": "BLENDER_PRODUCTION_AUTHORIZED",
     "source": "AGENTS.md and docs/WORKSTATION-MODE.md",
-    "sceneWorkAuthorized": false
+    "sceneWorkAuthorized": true
   },
   "hive": {
     "status": "PASS",
@@ -75,6 +77,6 @@
       "coreContextBuildMinimal": {"status": "PASS", "inputFingerprint": "dbf61de3c59cba803f1b79b9abff8dd9be9724323bbb340c42321da00fff53d5", "outputFingerprint": "2d7f2153cfcfc4cd991789c2b92b35603ce08f35af9a7cae966ee45fbb7cbb5d", "finalContextTokenEstimate": 3384, "effectiveBudgetTokens": 4864, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}
     }
   },
-  "externalBlockers": ["REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION"],
-  "stopState": "CP05_ADMITTED_PREFLIGHT_PASSED_SCENE_WORK_POLICY_BLOCKED"
+  "externalBlockers": ["RUNTIME_BRAND_PROMOTION_PENDING", "EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED", "UGAS_GENERATION_PROVIDER_READY=false"],
+  "stopState": "CP05_RESUMED_AFTER_BLENDER_AUTHORIZATION"
 }

@@ -3,10 +3,10 @@
   "viewStatus": "DERIVED_VIEW",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "CP-05 IN PROGRESS",
-  "version": "NEXLABS-WEB CP-05 BLENDER CONTEXT CORE FOUNDATION",
-  "phase": "CP-05 Blender Context Core foundation admitted from exact main base; live Blender MCP preflight passed, but scene production is blocked by the repository workstation policy",
+  "version": "NEXLABS-WEB CP-05 BLENDER CONTEXT CORE FOUNDATION - RESUMED",
+  "phase": "CP-05 Blender Context Core foundation resumed after the protected workstation transition; Blender production is authorized, with no scene mutation performed yet",
   "objective": "Execute WO-B3D-001 through WO-B3D-006 as a deterministic, auditable Blender foundation without logo integration or runtime 3D promotion.",
-  "inProgress": "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION is admitted at base affd133d9f8650ab91d2f0dd5871220306a3bba0; Blender 5.2.1/MCP protocol 7 preflight passed; no scene mutation occurred.",
-  "blockers": "REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION: AGENTS.md and docs/WORKSTATION-MODE.md keep this workstation static-only and do not authorize canonical Blender production. RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open.",
-  "nextStep": "Explicitly authorize and record the workstation policy transition, then resume CP-05 scene work; do not begin WO-B3D-007 or CP-06 and do not promote BrandMark before its separate gate."
+  "inProgress": "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION is resumed from protected main b2737e66d890dff206ac541b4da8b9f42b09c0b1; the original blocked admission/HIVE history is preserved and no scene mutation has occurred in the resumed execution.",
+  "blockers": "RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open. UGAS_GENERATION_PROVIDER_READY=false and UGAS_GENERATION_AUTHORIZED=false remain intentional fail-closed boundaries for CP-05 Blender work.",
+  "nextStep": "Refresh exact-head HIVE receipts, pass the live Blender/MCP hard preflight, then execute WO-B3D-001 through WO-B3D-006; do not begin WO-B3D-007, WO-B3D-008 or CP-06 and do not promote BrandMark before its separate gate."
 }

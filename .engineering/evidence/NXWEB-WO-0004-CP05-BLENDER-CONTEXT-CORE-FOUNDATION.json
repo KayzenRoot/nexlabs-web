@@ -4,8 +4,8 @@
     "name": "NEXLABS-CP05-BLENDER-CONTEXT-CORE-FOUNDATION-WORK-ORDER.pdf",
     "sha256": "183ae223bb01fdac47f20ff1359657b63011e8a51ec3885f04f8b24e4e6bada1"
   },
-  "verdict": "BLOCKED",
-  "reviewState": "CP05_PREFLIGHT_BLOCKED_BY_WORKSTATION_POLICY",
+  "verdict": "IN_PROGRESS",
+  "reviewState": "CP05_RESUMED_AFTER_BLENDER_AUTHORIZATION",
   "workOrder": {
     "id": "NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION",
     "path": ".engineering/work-orders/NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION.md",
@@ -18,7 +18,9 @@
     "status": "OPEN",
     "workOrderSha256": "0e4a323eb64834034d836cb7fb138bfa025979e03303c4d65720ae3de248d4b0"
   },
-  "authorizedBase": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+  "authorizedBase": "b2737e66d890dff206ac541b4da8b9f42b09c0b1",
+  "admissionHead": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+  "resumeBase": "b2737e66d890dff206ac541b4da8b9f42b09c0b1",
   "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
   "planningManifestSha256": "ac32a18d9c935c9cc8b7bb1e947bb4426774e2e1e4acd6fc4d60d72ebe2fcf1e",
   "git": {
@@ -39,11 +41,11 @@
     "renderEvidence": []
   },
   "policyGate": {
-    "status": "BLOCKED",
-    "code": "REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION",
+    "status": "AUTHORIZED",
+    "code": "BLENDER_PRODUCTION_AUTHORIZED",
     "sources": ["AGENTS.md", "docs/WORKSTATION-MODE.md"],
-    "detail": "The repository contract keeps this workstation static-only and forbids canonical Blender production; the attached CP-05 Work Order does not explicitly authorize changing that higher-priority policy.",
-    "requiredAction": "Explicitly authorize and record the workstation policy transition before scene mutation."
+    "detail": "Protected main merged the workstation transition; CP-05 production is authorized only for this active Work Order after the live MCP gate.",
+    "requiredAction": "Pass the live MCP hard preflight immediately before scene mutation."
   },
   "hive": {
     "status": "PASS",
@@ -85,12 +87,12 @@
     }
   },
   "workOrders": {
-    "WO-B3D-001": "NOT_STARTED_POLICY_BLOCK",
-    "WO-B3D-002": "NOT_STARTED_POLICY_BLOCK",
-    "WO-B3D-003": "NOT_STARTED_POLICY_BLOCK",
-    "WO-B3D-004": "NOT_STARTED_POLICY_BLOCK",
-    "WO-B3D-005": "NOT_STARTED_POLICY_BLOCK",
-    "WO-B3D-006": "NOT_STARTED_POLICY_BLOCK"
+    "WO-B3D-001": "NOT_STARTED_RESUMED",
+    "WO-B3D-002": "NOT_STARTED_RESUMED",
+    "WO-B3D-003": "NOT_STARTED_RESUMED",
+    "WO-B3D-004": "NOT_STARTED_RESUMED",
+    "WO-B3D-005": "NOT_STARTED_RESUMED",
+    "WO-B3D-006": "NOT_STARTED_RESUMED"
   },
   "deterministicScene": {
     "status": "NOT_CREATED",
@@ -109,6 +111,6 @@
     "ugasProviderStarted": false
   },
   "hosted": {"status": "NOT_STARTED", "pullRequest": null},
-  "knownBlockers": ["REPOSITORY_WORKSTATION_POLICY_FORBIDS_CP05_PRODUCTION"],
-  "researchGaps": ["No CP-05 scene evidence exists because policy blocked scene mutation before builder execution."]
+  "knownBlockers": ["RUNTIME_BRAND_PROMOTION_PENDING", "EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED", "UGAS_GENERATION_PROVIDER_READY=false and UGAS_GENERATION_AUTHORIZED=false"],
+  "researchGaps": ["No CP-05 scene evidence exists yet; execution resumes after the protected workstation transition."]
 }
