@@ -1,7 +1,7 @@
 {
   "schemaVersion": "nexlabs-web-cp04-evidence-v1",
-  "verdict": "IN_PROGRESS",
-  "reviewState": "CP04_IMPLEMENTATION_IN_PROGRESS",
+  "verdict": "HUMAN_SELECTION_REQUIRED",
+  "reviewState": "CP04_HUMAN_SELECTION_PENDING",
   "workOrder": {"id": "NXWEB-WO-0003-CP04-LOGO-EXPLORATION", "sha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361", "executionSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361"},
   "contextLock": {"id": "NXWEB-LOCK-0003-CP04-LOGO-EXPLORATION", "workOrderSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361", "executionWorkOrderSha256": "7923e12c03ec892e985d3f8c37d40428b08486c6cfdd3c6f91cb6c420edf7361"},
   "authorizedBase": "b989606949bd362a2bd63d039448505f3220918e",
@@ -38,8 +38,8 @@
     "releaseValidation": {"status": "EXPECTED_FAIL_CLOSED", "reason": "NEXLABS_ENV=PRODUCTION is intentionally absent"},
     "wranglerDryRun": "PASS"
   },
-  "hosted": {"status": "PENDING", "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
-  "git": {"proofHead": null, "candidateHead": "09861fde5422408d8b79c756ca90c67554351983", "reviewedCandidateHead": null, "reviewReceiptHead": null},
+  "hosted": {"status": "PASS", "pullRequest": {"number": 23, "status": "OPEN", "base": "b989606949bd362a2bd63d039448505f3220918e", "observedHead": "4db9a4e0f9bb83afb8149d193bdc981030d7666b", "quality": {"status": "PASS", "workflow": "CI", "run": 99}, "Governance": {"status": "PASS", "workflow": "Governance", "run": 62}}, "merge": "NOT_EXECUTED", "postMergeChecks": "NOT_CLAIMED"},
+  "git": {"proofHead": "4db9a4e0f9bb83afb8149d193bdc981030d7666b", "candidateHead": "09861fde5422408d8b79c756ca90c67554351983", "reviewedCandidateHead": "09861fde5422408d8b79c756ca90c67554351983", "reviewReceiptHead": "4db9a4e0f9bb83afb8149d193bdc981030d7666b"},
   "knownBlockers": ["BLENDER_MCP_UNAVAILABLE", "HUMAN_GATE_HG_01_PENDING"],
   "researchGaps": ["External visual similarity and trademark clearance were not performed; independent human review remains required."]
 }

@@ -13,10 +13,10 @@ CP-04 governed candidate exploration; canonical selection is held at HG-01
 Produce exactly nine deterministic NexLabs logo candidates with review evidence while preserving the existing runtime identity and stopping before canonical selection.
 
 ## IN PROGRESS
-NXWEB-WO-0003-CP04-LOGO-EXPLORATION; HIVE preparation and candidate evidence in progress.
+NXWEB-WO-0003-CP04-LOGO-EXPLORATION; nine-candidate package and protected PR are reviewable; HG-01 pending.
 
 ## BLOCKERS
 BLENDER_MCP_UNAVAILABLE: the live Blender addon was not reachable for the lightweight projection proof.
 
 ## NEXT STEP
-Complete the nine-candidate evidence package, run local gates, open the protected PR if green, then stop for HG-01 human selection.
+Founder/human gate HG-01 must select or reject candidates; do not merge or wire a canonical BrandMark.
