@@ -167,6 +167,21 @@ if cp04_active:
             fail("CP-04 human-selection state requires candidate, reviewed, receipt and proof heads")
         if candidate_head != reviewed_head:
             fail("CP-04 human-selection state must keep candidate and reviewed heads aligned")
+        hive = evidence.get("hive", {})
+        hive_project = hive.get("project", {})
+        hive_mcp = hive.get("mcp", {})
+        if hive_project.get("head") != candidate_head or hive_mcp.get("checkpointHead") != candidate_head:
+            fail("CP-04 HIVE project and checkpoint receipt heads must match the corrected candidate head")
+        if hive_project.get("state") != "READY" or hive_project.get("workingTreeClean") is not True:
+            fail("CP-04 HIVE project receipt must be READY with a clean working tree")
+        if hive_project.get("indexRunId") in {None, ""} or hive_project.get("corpusRunId") in {None, ""}:
+            fail("CP-04 HIVE project receipt is missing current index/corpus run identifiers")
+        if hive_mcp.get("checkpointBlobSha") in {None, ""} or hive_mcp.get("contextFingerprint") in {None, ""}:
+            fail("CP-04 HIVE MCP receipt is missing the corrected checkpoint blob or context fingerprint")
+        for build_name in ("contextBuildDefault", "contextBuildMinimal"):
+            build = hive_mcp.get(build_name, {})
+            if build.get("status") != "PASS" or build.get("budgetSatisfied") is not True or build.get("requiredContextExceedsHardBudget") is not False:
+                fail(f"CP-04 HIVE {build_name} receipt is not a bounded PASS")
         def is_cp04_ancestor(ancestor: str, descendant: str) -> bool:
             try:
                 subprocess.run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)

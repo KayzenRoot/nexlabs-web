@@ -21,5 +21,6 @@
   "externalBlockers": ["BLENDER_MCP_UNAVAILABLE"],
   "humanGate": "HG-01",
   "reviewCorrection": {"status": "CORRECTED", "reviewedHead": "5c9e46e2b54bfec79a8e8957d73ccb0f22c3cb87", "correctionHead": "325116be0f8623c5896c2a168bc52f697fd3f907"},
+  "hiveReceiptCorrection": {"status": "CORRECTED", "proofHead": "325116be0f8623c5896c2a168bc52f697fd3f907", "checkpointHead": "325116be0f8623c5896c2a168bc52f697fd3f907", "checkpointBlobSha": "3fd1c1c1e8e2670f4cd430923de2e00667f5bef5", "indexRunId": "019e75bf-176a-48e4-b4b0-c6e5598d2583", "corpusRunId": "6e6b31f1-4d6b-4f5d-937d-92c978fa9ae5"},
   "stopState": "CP04_HUMAN_SELECTION_PENDING"
 }
