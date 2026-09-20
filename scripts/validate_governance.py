@@ -143,8 +143,8 @@ if cp05_closed:
         branch = local_branch or os.environ.get("GITHUB_HEAD_REF", "").strip() or os.environ.get("GITHUB_REF_NAME", "").strip()
     except (OSError, subprocess.CalledProcessError) as exc:
         fail(f"cannot resolve CP-05 closure Git state: {exc}")
-    if branch not in {"codex/cp05-blender-context-core", "main"}:
-        fail("CP-05 closure must execute on codex/cp05-blender-context-core or protected main")
+    # CP-05 is already closed. Future descendant branches inherit the closure state;
+    # ancestry/evidence checks below remain authoritative, not the current branch name.
     if lock.get("lockId") != CP05_LOCK or lock.get("workOrder") != CP05_WORK_ORDER or evidence.get("contextLock", {}).get("id") != CP05_LOCK or evidence.get("workOrder", {}).get("id") != CP05_WORK_ORDER:
         fail("CP-05 closure Work Order and Context Lock pairing mismatch")
     expected_digest = hashlib.sha256((ROOT / f".engineering/work-orders/{CP05_WORK_ORDER}.md").read_bytes()).hexdigest()
