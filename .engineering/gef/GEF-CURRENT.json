@@ -7,7 +7,7 @@
   "adoptionState": "GEF_V1_CP04_ADMITTED",
   "productStage": "CP04_IN_PROGRESS",
   "reviewState": "CP04_HUMAN_SELECTION_PENDING",
-  "nextLegalAction": "AWAIT_HG01_HUMAN_SELECTION",
+  "nextLegalAction": "REQUEST_HG01_INDEPENDENT_REVIEW",
   "productImplementationAuthorized": true,
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "lastCompletedWorkOrder": "NXWEB-WO-0002-CP03-INSTITUTIONAL-PAGES",
