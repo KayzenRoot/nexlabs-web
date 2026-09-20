@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "nexlabs-web-cp05-workstation-transition-v1",
+  "transitionId": "NXWEB-CP05-BLENDER-WORKSTATION-TRANSITION",
+  "status": "IN_REVIEW",
+  "sourceDocument": {
+    "name": "NEXLABS-CP05-BLENDER-WORKSTATION-TRANSITION-AUTHORIZATION.pdf",
+    "sha256": "f39f3cdb3127263094c2b279ffcc6818eaf8ff272259b824f31d719931f71754"
+  },
+  "base": {
+    "mainSha": "affd133d9f8650ab91d2f0dd5871220306a3bba0",
+    "branch": "codex/cp05-blender-workstation-transition"
+  },
+  "git": {
+    "transitionCandidateHead": "c95c7b18891e360caaee48a040ffc160d173cc43",
+    "transitionCandidateHeadRole": "workstation_policy_transition_candidate",
+    "receiptCommitParent": "c95c7b18891e360caaee48a040ffc160d173cc43",
+    "receiptCommitParentRole": "transition_receipt_parent"
+  },
+  "localState": {
+    "preserved": true,
+    "preservedBlockedBranch": "codex/cp05-blender-context-core",
+    "blockedCandidateHead": "e6eef9346f72ff6bb4f0350a6cd765bcf665346f",
+    "blockedReceiptHead": "e0794aea77aaca34b19baf2adeb153d3df24774c",
+    "transitionBranch": "codex/cp05-blender-workstation-transition"
+  },
+  "capabilities": {
+    "BLENDER_MCP_READY": true,
+    "BLENDER_PRODUCTION_AUTHORIZED": true,
+    "UGAS_CORE_INSTALLED": true,
+    "UGAS_GENERATION_PROVIDER_READY": false,
+    "UGAS_GENERATION_AUTHORIZED": false,
+    "blender": {
+      "version": "5.2.1 LTS",
+      "addonVersion": "1.7",
+      "protocolVersion": 7,
+      "getAddonStatus": "PASS",
+      "getSceneInfo": "PASS",
+      "preflight": "NON_MUTATING",
+      "sceneMutation": false
+    }
+  },
+  "policy": {
+    "governedBlenderOnly": true,
+    "activeWorkOrderRequired": true,
+    "mcpPreflightRequired": true,
+    "mcpFailureMode": "FAIL_CLOSED",
+    "ugasProviderStartup": false,
+    "realUgasGeneration": false,
+    "runtimeThreeJsOrR3f": false,
+    "runtimeLogoPromotion": false,
+    "cp06Admission": false
+  },
+  "scope": {
+    "sceneMutation": false,
+    "cp05ProductImplementation": false,
+    "ugasGeneration": false,
+    "sceneBuilder": false,
+    "renderEvidence": false,
+    "blendEvidence": false
+  },
+  "checkpoint": {
+    "status": "CP-04 COMPLETE",
+    "reviewState": "CP05_WORKSTATION_TRANSITION_IN_REVIEW",
+    "activeWorkOrder": null,
+    "activeContextLock": null
+  },
+  "hosted": {
+    "status": "NOT_STARTED",
+    "pullRequest": null,
+    "merge": "NOT_EXECUTED",
+    "postMergeChecks": "NOT_CLAIMED",
+    "independentReview": "PENDING"
+  }
+}
