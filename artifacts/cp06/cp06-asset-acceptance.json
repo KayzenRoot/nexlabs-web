@@ -1,6 +1,6 @@
 {
   "schemaVersion": "nexlabs-web-cp06-asset-acceptance-v1",
-  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "status": "APPROVED_SOURCE_PACKAGE",
   "sourceRevision": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
   "sceneId": "NL-SCENE-CONTEXT-CORE-01",
   "workOrder": "NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
@@ -68,8 +68,11 @@
     "G10": "PASS"
   },
   "independentReview": {
-    "status": "PENDING",
-    "note": "Machine-readable local acceptance only. Independent review and protected merge are external gates."
+    "status": "APPROVED",
+    "reviewedHead": "8ff6d8ded268c5acb56e5147788be971b890a47e",
+    "reviewedHeadRole": "independently_reviewed_cp06_asset_package_head",
+    "Governance": {"status": "PASS", "runId": 35551507829, "runNumber": 100},
+    "quality": {"status": "PASS", "runId": 35551507821, "runNumber": 137}
   },
   "carriedRisk": {
     "blenderTransport": "POST_PRODUCTION_TRANSPORT_UNAVAILABLE",

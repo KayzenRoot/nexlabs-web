@@ -1,22 +1,22 @@
 # 13 - Checkpoint
 
 ## STATUS
-CP-06 IN PROGRESS
+CP-06 COMPLETE
 
 ## VERSION
-NEXLABS-WEB CP-06 BLENDER MOTION + LOGO + WEB ASSETS IN PROGRESS
+NEXLABS-WEB CP-06 BLENDER MOTION + LOGO + WEB ASSETS COMPLETE
 
 ## PHASE
-CP-06 is admitted from protected main `9b502c1d618e93e1be45864acf19648e132515c6` under the governed Work Order and extends the approved CP-05 Context Core through WO-B3D-012. The historical Blender MCP transport failure was recovered by reopening the same Blender 5.2.1 LTS installation; the live MCP stability gate now passes on loopback before scene mutation. The phase remains before CP-07 runtime integration and does not promote the production BrandMark.
+CP-06 frozen asset package is independently reviewed at `8ff6d8ded268c5acb56e5147788be971b890a47e` with hosted Governance and quality PASS; CP-07 has not been admitted and the production BrandMark remains unchanged.
 
 ## OBJECTIVE
 Execute WO-B3D-007 through WO-B3D-012 as a deterministic, auditable Blender motion, selected-logo projection, LOD, GLB and static fallback package for CP-07 consumption.
 
 ## IN PROGRESS
-NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS completed its local Blender production package: WO-B3D-007 through WO-B3D-012, G1-G10, GLB round-trip and static fallback receipts are PASS at candidate `fe1419fd850d5aa75cdbb362c9432da622c122d7`. The recovered HIVE inspection is READY at candidate `b8769b08595deb343b6024102a466ba615dec825` after restarting only the HIVE API container; the frozen package is eligible for protected PR publication without rebuilding assets.
+No CP-06 product implementation is active. Protected main remains unchanged pending the separate protected merge and post-merge verification gate.
 
 ## BLOCKERS
-Historical transport blocker `BLENDER_MCP_DISCONNECTED_WINERROR_10053` was preserved in the CP06 evidence. Multiple bounded same-install recoveries passed the four sequential addon/scene probes, but the endpoint later exited and the follow-up TCP probe failed with `BLENDER_MCP_TRANSPORT_PERSISTENT`; this post-production transport risk does not invalidate the saved/hash-validated package and no Blender relaunch or asset rebuild is required for publication. The earlier HIVE `git_timeout` is retained as a recovered historical blocker with fresh read-only receipts. No hosted PR or approval is claimed. UGAS generation remains unauthorized/unready and CP-07 runtime integration is out of scope.
+No CP-06 closure blocker. Persistent Blender transport remains a carried operational risk for future edits and does not invalidate the frozen, hash-bound package. The earlier HIVE `git_timeout` remains a typed historical recovered receipt. UGAS generation, CP-07 runtime and deployment remain capability boundaries/out of scope.
 
 ## NEXT STEP
-Publish one protected CP-06 PR from the same branch, disclose the recovered HIVE timeout and persistent post-production Blender transport risk, then await independent hosted quality/Governance checks; do not merge, start CP-07 runtime integration or UGAS generation.
+Admit CP-07 through a new Work Order and Context Lock only after protected merge and post-merge verification; do not begin CP-07 from this closure commit.

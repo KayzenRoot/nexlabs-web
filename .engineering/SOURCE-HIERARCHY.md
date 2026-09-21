@@ -1,6 +1,6 @@
 # NexLabs Web Source Hierarchy
 
-Status: `CP06_IN_PROGRESS`
+Status: `CP06_COMPLETE_READY_FOR_CP07_ADMISSION`
 
 Authority is domain-specific. HIVE indexes, memories and GEF metadata accelerate work but cannot override tracked Git sources.
 
@@ -41,6 +41,6 @@ The protected repository policy authorizes governed Blender production on this w
 
 The preserved local branch `codex/cp05-blender-context-core` completed CP-05 from protected `main` without rewriting the blocked ancestry; its Work Order, Context Lock and HIVE proof lineage are closed and bound to the independent review receipt, while CP-06 requires a new Work Order.
 
-## CP-06 active execution
+## CP-06 closure
 
-The active CP-06 Work Order is `NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS` with Context Lock `NXWEB-LOCK-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS`, admitted from protected main `9b502c1d618e93e1be45864acf19648e132515c6`. It extends only the exact CP-05 source fingerprint and keeps CP-07 runtime, BrandMark replacement and UGAS generation outside scope.
+The CP-06 Work Order `NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS` and Context Lock `NXWEB-LOCK-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS` are completed/closed from the independently reviewed asset-package head `8ff6d8ded268c5acb56e5147788be971b890a47e`. The frozen package remains hash-bound; persistent Blender transport is a carried operational risk for future edits, not a CP-06 closure blocker. CP-07 runtime, BrandMark replacement and UGAS generation remain outside scope until a new Work Order and Context Lock are admitted.

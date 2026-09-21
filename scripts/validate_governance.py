@@ -107,6 +107,9 @@ CP06_LOCK = "NXWEB-LOCK-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS"
 CP06_BASE = "9b502c1d618e93e1be45864acf19648e132515c6"
 CP06_SOURCE_DOCUMENT_SHA256 = "158779a40882f2a5ff270c84164482d68ea6d82a2eb846fad2d285ef97c8408c"
 CP06_LOGO_SHA256 = "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+CP06_CLOSURE_WORK_ORDER_SHA256 = "40d35200fdf4279df0b54fd6ad3d0d4b7ee1645336b38750023ef22351772f61"
+CP06_REVIEWED_HEAD = "8ff6d8ded268c5acb56e5147788be971b890a47e"
+CP06_CLOSURE_PDF_SHA256 = "b3c2196ae8e11bf0897e5ff043581c5522246ffe749525d47fab6b2efa418fd8"
 cp03_closed = current.get("lastCompletedWorkOrder") == CP03_WORK_ORDER and current.get("productStage") == "CP03_COMPLETE"
 cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED" and current.get("activeWorkOrder") == CP03_WORK_ORDER
 cp04_active = current.get("adoptionState") == "GEF_V1_CP04_ADMITTED" and current.get("activeWorkOrder") == CP04_WORK_ORDER
@@ -114,6 +117,7 @@ cp04_closed = current.get("lastCompletedWorkOrder") == CP04_WORK_ORDER and curre
 workstation_transition_active = current.get("adoptionState") == "GEF_V1_CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("productStage") == "CP04_COMPLETE" and current.get("reviewState") == "CP05_WORKSTATION_TRANSITION_IN_REVIEW" and current.get("nextLegalAction") == "RESUME_CP05_AFTER_WORKSTATION_TRANSITION_MERGE" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
 cp05_active = current.get("adoptionState") == "GEF_V1_CP05_ADMITTED" and current.get("activeWorkOrder") == CP05_WORK_ORDER and current.get("activeContextLock") == CP05_LOCK
 cp05_closed = current.get("adoptionState") == "GEF_V1_CP05_ADMITTED" and current.get("productStage") == "CP05_COMPLETE" and current.get("reviewState") == "CP05_COMPLETE" and current.get("lastCompletedWorkOrder") == CP05_WORK_ORDER and current.get("nextLegalAction") == "ADMIT_CP06_WITH_NEW_WORK_ORDER" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
+cp06_closed = current.get("adoptionState") == "GEF_V1_CP06_ADMITTED" and current.get("productStage") == "CP06_COMPLETE" and current.get("reviewState") in {"CP06_COMPLETE", "CP06_ASSET_PACKAGE_APPROVED"} and current.get("lastCompletedWorkOrder") == CP06_WORK_ORDER and current.get("nextLegalAction") == "ADMIT_CP07_WITH_NEW_WORK_ORDER" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
 cp06_active = current.get("adoptionState") == "GEF_V1_CP06_ADMITTED" and current.get("productStage") in {"CP06_IN_PROGRESS", "CP06_BLOCKED"} and current.get("reviewState") in {"CP06_IN_PROGRESS", "CP06_BLOCKED"} and current.get("activeWorkOrder") == CP06_WORK_ORDER and current.get("activeContextLock") == CP06_LOCK
 
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
@@ -226,6 +230,62 @@ if cp05_closed:
     for heading in ("## OBJECTIVE", "## CONTEXT/HIVE PREFLIGHT", "## CANONICAL BASIS", "## SCOPE", "## OUT OF SCOPE", "## BLENDER/MCP GATE", "## REPOSITORY AND DETERMINISM", "## SELECTED-LOGO BOUNDARY", "## ACCEPTANCE CRITERIA", "## TESTS", "## DELIVERABLES", "## REVIEW FORMAT", "## STOP CONDITION", "## EXECUTION REFERENCES"):
         if heading not in work_order:
             fail(f"CP-05 Work Order missing section: {heading}")
+elif cp06_closed:
+    work_order = read(f".engineering/work-orders/{CP06_WORK_ORDER}.md")
+    lock = data(f".engineering/context-locks/{CP06_LOCK}.json")
+    evidence = data(f".engineering/evidence/{CP06_WORK_ORDER}.json")
+    acceptance = data("artifacts/cp06/cp06-asset-acceptance.json")
+    try:
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve CP-06 closure Git state: {exc}")
+    if lock.get("lockId") != CP06_LOCK or lock.get("workOrder") != CP06_WORK_ORDER or evidence.get("contextLock", {}).get("id") != CP06_LOCK or evidence.get("workOrder", {}).get("id") != CP06_WORK_ORDER:
+        fail("CP-06 closure Work Order and Context Lock pairing mismatch")
+    expected_digest = hashlib.sha256((ROOT / f".engineering/work-orders/{CP06_WORK_ORDER}.md").read_bytes()).hexdigest()
+    if expected_digest != CP06_CLOSURE_WORK_ORDER_SHA256 or lock.get("workOrderSha256") != expected_digest or evidence.get("workOrder", {}).get("sha256") != expected_digest or evidence.get("contextLock", {}).get("workOrderSha256") != expected_digest:
+        fail("CP-06 closure Work Order digest binding mismatch")
+    if lock.get("status") != "CLOSED" or evidence.get("workOrder", {}).get("status") != "COMPLETED" or evidence.get("contextLock", {}).get("status") != "CLOSED" or "Status: `COMPLETED`" not in work_order:
+        fail("CP-06 closure requires a COMPLETED Work Order and CLOSED Context Lock")
+    if subprocess.run(["git", "merge-base", "--is-ancestor", CP06_REVIEWED_HEAD, head], cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode != 0:
+        fail("CP-06 independently reviewed head is not an ancestor of the closure head")
+    if lock.get("authorizedBase") != CP06_BASE or lock.get("resumeBase") != CP06_BASE or lock.get("admissionHead") != CP06_BASE:
+        fail("CP-06 closure base/admission lineage mismatch")
+    if lock.get("candidateHead") != "fe1419fd850d5aa75cdbb362c9432da622c122d7" or lock.get("reviewedCandidateHead") != CP06_REVIEWED_HEAD or lock.get("reviewedCandidateHeadRole") != "independently_reviewed_cp06_asset_package_head" or lock.get("reviewReceiptHead") != CP06_REVIEWED_HEAD or lock.get("sceneMutationHead") != "fe1419fd850d5aa75cdbb362c9432da622c122d7":
+        fail("CP-06 closure Context Lock proof/review lineage is inconsistent")
+    if evidence.get("verdict") != "APPROVED" or evidence.get("reviewState") != "CP06_COMPLETE" or evidence.get("closureSourceDocument", {}).get("name") != "NEXLABS-CP06-FINAL-CLOSURE-AND-CP07-READINESS.pdf" or evidence.get("closureSourceDocument", {}).get("sha256") != CP06_CLOSURE_PDF_SHA256:
+        fail("CP-06 closure evidence is not APPROVED/CP06_COMPLETE and closure-source bound")
+    if evidence.get("git", {}).get("candidateHead") != "fe1419fd850d5aa75cdbb362c9432da622c122d7" or evidence.get("git", {}).get("reviewedCandidateHead") != CP06_REVIEWED_HEAD or evidence.get("git", {}).get("reviewReceiptHead") != CP06_REVIEWED_HEAD:
+        fail("CP-06 closure evidence Git lineage is inconsistent")
+    if evidence.get("workOrders") != {f"WO-B3D-{index:03d}": "PASS" for index in range(7, 13)}:
+        fail("CP-06 closure requires all six WO-B3D items to be PASS")
+    if evidence.get("gates") != {f"G{i}": "PASS" for i in range(1, 11)} or any(evidence.get("receipts", {}).get(name) != "PASS" for name in ("SSAC", "PFR", "LIPG", "EBL")):
+        fail("CP-06 closure requires PASS gates and required receipts")
+    independent_review = evidence.get("independentReview", {})
+    if independent_review.get("status") != "APPROVED" or independent_review.get("reviewedHead") != CP06_REVIEWED_HEAD or independent_review.get("Governance", {}).get("status") != "PASS" or independent_review.get("Governance", {}).get("runId") != 35551507829 or independent_review.get("quality", {}).get("status") != "PASS" or independent_review.get("quality", {}).get("runId") != 35551507821:
+        fail("CP-06 independent review evidence is incomplete")
+    hive = evidence.get("hive", {})
+    historical_hive = hive.get("historicalDegradedInspection", {})
+    if hive.get("status") != "PASS" or hive.get("currentCandidateInspection") != "READY" or historical_hive.get("status") != "DEGRADED" or historical_hive.get("inspectionError") != "git_timeout" or historical_hive.get("recoveredAfter") != "hive-api restart":
+        fail("CP-06 HIVE recovery evidence is not typed as current PASS plus historical recovery")
+    if evidence.get("knownBlockers") != [] or evidence.get("carriedRisks") != ["BLENDER_MCP_TRANSPORT_PERSISTENT"] or evidence.get("operationalRisks", {}).get("blenderTransport") != "POST_PRODUCTION_TRANSPORT_UNAVAILABLE" or evidence.get("operationalRisks", {}).get("invalidatesFrozenAssets") is not False or evidence.get("operationalRisks", {}).get("requiresRebuild") is not False:
+        fail("CP-06 Blender transport must be a carried operational risk, not a closure blocker")
+    for flag in ("runtimeThree", "brandMarkChange", "ugasProviderStarted", "ugasGeneration", "deployment", "cp08Media"):
+        if evidence.get("outOfScopeConfirmed", {}).get(flag) is not False:
+            fail(f"CP-06 closure evidence claims forbidden scope: {flag}")
+    hosted = evidence.get("hosted", {})
+    if hosted.get("status") != "PENDING_VERIFY_EXTERNALLY" or hosted.get("reviewedHead") != CP06_REVIEWED_HEAD or hosted.get("reviewedHeadChecks", {}).get("Governance", {}).get("status") != "PASS" or hosted.get("reviewedHeadChecks", {}).get("quality", {}).get("status") != "PASS" or hosted.get("checks", {}).get("status") != "PENDING_VERIFY_EXTERNALLY" or hosted.get("checks", {}).get("Governance", {}).get("status") != "PENDING" or hosted.get("checks", {}).get("quality", {}).get("status") != "PENDING" or hosted.get("merge") != "NOT_EXECUTED":
+        fail("CP-06 closure hosted evidence must separate reviewed-head PASS from pending closure-head checks")
+    if acceptance.get("status") != "APPROVED_SOURCE_PACKAGE" or acceptance.get("independentReview", {}).get("status") != "APPROVED" or acceptance.get("independentReview", {}).get("reviewedHead") != CP06_REVIEWED_HEAD:
+        fail("CP-06 machine asset acceptance is not independently approved")
+    asset_validation = subprocess.run([sys.executable, str(ROOT / "scripts/cp06/validate_assets.py")], cwd=ROOT, text=True, capture_output=True)
+    if asset_validation.returncode != 0:
+        fail(f"CP-06 frozen asset validation failed: {asset_validation.stdout.strip() or asset_validation.stderr.strip()}")
+    for heading in ("## OBJECTIVE", "## CONTEXT/HIVE PREFLIGHT", "## CANONICAL BASIS", "## SCOPE", "## OUT OF SCOPE", "## BLENDER/MCP GATE", "## REPOSITORY AND DETERMINISM", "## ACCEPTANCE CRITERIA", "## TESTS", "## DELIVERABLES", "## REVIEW FORMAT", "## STOP CONDITION", "## EXECUTION REFERENCES / CANONICAL REFERENCES"):
+        if heading not in work_order:
+            fail(f"CP-06 Work Order missing section: {heading}")
+    hierarchy = read(".engineering/SOURCE-HIERARCHY.md")
+    if "Status: `CP06_COMPLETE_READY_FOR_CP07_ADMISSION`" not in hierarchy or section(canonical, "## STATUS") != "CP-06 COMPLETE":
+        fail("CP-06 closure canonical lifecycle documents are not complete")
 elif cp06_active:
     work_order = read(f".engineering/work-orders/{CP06_WORK_ORDER}.md")
     lock = data(f".engineering/context-locks/{CP06_LOCK}.json")
@@ -866,6 +926,15 @@ elif cp05_closed:
         fail("completed CP-05 cannot retain an active Work Order or Context Lock")
     if lock.get("status") != "CLOSED" or evidence.get("verdict") != "APPROVED" or "Status: `COMPLETED`" not in work_order:
         fail("completed CP-05 requires APPROVED evidence, COMPLETED Work Order and CLOSED Context Lock")
+elif cp06_closed:
+    if adoption_state != "GEF_V1_CP06_ADMITTED":
+        fail("invalid CP-06 completion adoption state")
+    if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("completed CP-06 cannot retain an active Work Order or Context Lock")
+    if current.get("productImplementationAuthorized") is not False or current.get("nextLegalAction") != "ADMIT_CP07_WITH_NEW_WORK_ORDER":
+        fail("completed CP-06 must disable product implementation and point to CP-07 admission")
+    if lock.get("status") != "CLOSED" or evidence.get("verdict") != "APPROVED" or "Status: `COMPLETED`" not in work_order:
+        fail("completed CP-06 requires APPROVED evidence, COMPLETED Work Order and CLOSED Context Lock")
 elif cp06_active:
     if adoption_state != "GEF_V1_CP06_ADMITTED":
         fail("invalid CP-06 adoption state")

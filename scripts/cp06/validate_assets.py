@@ -8,6 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
+CP06_REVIEWED_HEAD = "8ff6d8ded268c5acb56e5147788be971b890a47e"
 
 
 def fail(message: str) -> None:
@@ -53,8 +54,9 @@ def validate(
 
     acceptance_path = acceptance_path or (ROOT / "artifacts/cp06/cp06-asset-acceptance.json")
     acceptance = read(acceptance_path)
-    if acceptance.get("status") != "READY_FOR_INDEPENDENT_REVIEW":
-        fail("asset acceptance is not READY_FOR_INDEPENDENT_REVIEW")
+    acceptance_status = acceptance.get("status")
+    if acceptance_status not in {"READY_FOR_INDEPENDENT_REVIEW", "APPROVED_SOURCE_PACKAGE"}:
+        fail("asset acceptance status is not a supported source-package state")
     if acceptance.get("sourceRevision") != manifest.get("sourceRevision"):
         fail("asset acceptance source revision mismatch")
     if acceptance.get("sceneId") != manifest.get("sceneId"):
@@ -68,8 +70,20 @@ def validate(
     receipts = acceptance.get("receipts", {})
     if any(receipts.get(name) != "PASS" for name in required_receipts):
         fail("asset acceptance required receipts are not all PASS")
-    if acceptance.get("independentReview", {}).get("status") != "PENDING":
-        fail("pre-review acceptance must not claim independent approval")
+    independent_review = acceptance.get("independentReview", {})
+    if acceptance_status == "READY_FOR_INDEPENDENT_REVIEW":
+        if independent_review.get("status") != "PENDING":
+            fail("pre-review acceptance must not claim independent approval")
+    else:
+        if independent_review.get("status") != "APPROVED" or independent_review.get("reviewedHead") != CP06_REVIEWED_HEAD:
+            fail("approved source package is not bound to the independently reviewed head")
+        for check_name, run_id, run_number in (("Governance", 35551507829, 100), ("quality", 35551507821, 137)):
+            receipt = independent_review.get(check_name, {})
+            if receipt.get("status") != "PASS" or receipt.get("runId") != run_id or receipt.get("runNumber") != run_number:
+                fail(f"approved source package {check_name} receipt is not bound")
+        carried_risk = acceptance.get("carriedRisk", {})
+        if carried_risk.get("blenderTransport") != "POST_PRODUCTION_TRANSPORT_UNAVAILABLE" or carried_risk.get("invalidatesFrozenAssets") is not False or carried_risk.get("requiresRebuild") is not False:
+            fail("approved source package Blender transport risk is not correctly classified")
     boundaries = acceptance.get("boundaries", {})
     for forbidden in ("runtimeThree", "brandMarkChange", "ugasGeneration", "cp07", "deployment"):
         if boundaries.get(forbidden) is not False:

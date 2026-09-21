@@ -2,7 +2,7 @@
   "schemaVersion": "nexlabs-web-context-lock-v1",
   "lockId": "NXWEB-LOCK-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
   "workOrder": "NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
-  "status": "ACTIVE",
+  "status": "CLOSED",
   "authorizedBase": "9b502c1d618e93e1be45864acf19648e132515c6",
   "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
   "planningCache": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/",
@@ -12,14 +12,16 @@
     "sha256": "158779a40882f2a5ff270c84164482d68ea6d82a2eb846fad2d285ef97c8408c"
   },
   "gef": {"version": "1.0.0", "releaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"},
-  "workOrderSha256": "7ebbb7b00124c64f8c066bccc134eccfdf933c25dbafca59eae3461412fbcbd7",
+  "workOrderSha256": "40d35200fdf4279df0b54fd6ad3d0d4b7ee1645336b38750023ef22351772f61",
   "admissionHead": "9b502c1d618e93e1be45864acf19648e132515c6",
   "resumeBase": "9b502c1d618e93e1be45864acf19648e132515c6",
   "resumeBaseRole": "protected_main_cp05_complete",
   "candidateHead": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
   "candidateHeadRole": "cp06_production_candidate",
-  "reviewedCandidateHead": null,
-  "reviewReceiptHead": null,
+  "reviewedCandidateHead": "8ff6d8ded268c5acb56e5147788be971b890a47e",
+  "reviewedCandidateHeadRole": "independently_reviewed_cp06_asset_package_head",
+  "reviewReceiptHead": "8ff6d8ded268c5acb56e5147788be971b890a47e",
+  "reviewReceiptHeadRole": "independent_review_receipt_for_reviewed_head",
   "sceneMutationHead": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
   "scope": {
     "workOrders": ["WO-B3D-007", "WO-B3D-008", "WO-B3D-009", "WO-B3D-010", "WO-B3D-011", "WO-B3D-012"],
@@ -100,7 +102,15 @@
       "contextBuildDefault": {"status": "PASS", "requestedLevel": "L3", "finalLevel": "L3", "inputFingerprint": "68748e68f84dd355e94717bcc29fa93769b959e3b7ea302d1a0ab899b06f9b58", "outputFingerprint": "40c695363390ad3d0f0c7e317caac4ce38245bc8935f048925477bb3319eeba4", "finalContextTokenEstimate": 3756, "effectiveBudgetTokens": 5248, "hardMaxBudgetTokens": 6144, "budgetSatisfied": true, "requiredContextExceedsHardBudget": false}
     }
   },
-  "externalBlockers": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false"],
+  "independentReview": {
+    "status": "APPROVED",
+    "reviewedHead": "8ff6d8ded268c5acb56e5147788be971b890a47e",
+    "Governance": {"status": "PASS", "runId": 35551507829, "runNumber": 100, "head": "8ff6d8ded268c5acb56e5147788be971b890a47e"},
+    "quality": {"status": "PASS", "runId": 35551507821, "runNumber": 137, "head": "8ff6d8ded268c5acb56e5147788be971b890a47e"}
+  },
+  "externalBlockers": [],
+  "carriedRisks": ["BLENDER_MCP_TRANSPORT_PERSISTENT"],
+  "operationalRisks": {"blenderTransport": "POST_PRODUCTION_TRANSPORT_UNAVAILABLE", "invalidatesFrozenAssets": false, "requiresRebuild": false},
   "capabilityBoundaries": ["UGAS_GENERATION_PROVIDER_READY=false", "UGAS_GENERATION_AUTHORIZED=false", "UGAS_PROVIDER_STARTED=false"],
-  "stopState": "CP06_BLOCKED_BLENDER_MCP_TRANSPORT_PERSISTENT"
+  "stopState": "CP06_COMPLETE_AFTER_INDEPENDENT_REVIEW"
 }
