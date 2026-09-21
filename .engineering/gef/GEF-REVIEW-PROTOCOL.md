@@ -28,3 +28,18 @@ When the reviewer applies a correction directly:
 2. document the correction in the PR review trail;
 3. rerun required exact-head checks;
 4. base the final verdict on the corrected exact head.
+
+
+## Stale session policy guard
+
+When a blocked executor report cites repository policy that no longer matches protected `main`, reviewers must verify the current tracked policy first.
+
+If the repository is already correct and the mismatch can only come from instructions cached before a sync, classify the defect as `STALE_EXECUTOR_POLICY_SNAPSHOT` rather than changing valid product policy again.
+
+The repair is:
+1. preserve local work and synchronize the checkout to the intended protected base;
+2. verify the current tracked governance-source fingerprints;
+3. start a fresh executor session from that synchronized checkout;
+4. re-read tracked authority and continue the same legal next action.
+
+Do not ask an already-stale session to override its own cached higher-priority repository instructions.
