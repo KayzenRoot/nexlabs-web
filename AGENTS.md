@@ -67,3 +67,12 @@ Direct reviewer correction is preferred when all of the following are true:
 Escalate to Codex/executor only when the correction cannot be completed safely in the review environment, requires workstation/heavy execution, depends on unavailable capabilities, or would materially expand/alter the admitted Work Order.
 
 Every direct reviewer correction must be disclosed in the review record and must be followed by fresh exact-head required checks before approval or merge.
+
+
+## Session policy refresh
+
+Executor/session instructions loaded before a repository fast-forward can become stale. After any `git fetch` / `git pull --ff-only` that changes HEAD, compare the current tracked governance sources against the instructions assumed at session start.
+
+If `AGENTS.md`, `docs/WORKSTATION-MODE.md`, `.engineering/SOURCE-HIERARCHY.md`, the canonical checkpoint, or `.engineering/gef/GEF-CURRENT.json` changed across the sync, the executor must stop before product edits and start a fresh executor session from the synchronized checkout so the new tracked policy is loaded as session authority.
+
+Do not continue product work under cached/stale repository instructions after a governance-source change. The fresh session must re-read current tracked authority before admitting or resuming a Work Order.
