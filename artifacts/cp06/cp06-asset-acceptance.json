@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "nexlabs-web-cp06-asset-acceptance-v1",
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "sourceRevision": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
+  "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+  "workOrder": "NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS",
+  "selectedLogo": {
+    "candidateId": "NX-C-02",
+    "revision": "r1",
+    "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165",
+    "sourceUnchanged": true
+  },
+  "references": {
+    "assetManifest": "artifacts/cp06/cp06-asset-manifest.json",
+    "provenance": "artifacts/cp06/cp06-provenance.json",
+    "gateReport": "artifacts/cp06/cp06-gate-report.md",
+    "glbInspection": "artifacts/cp06/reports/glb-inspection.json"
+  },
+  "exports": {
+    "HIGH": {
+      "path": "artifacts/cp06/exports/NEXLABS_CP06_HIGH_v001.glb",
+      "sha256": "811ba946fa693c4151df3cb688cc73a4bf178e31a28fb88e39f1c9d18dec3870"
+    },
+    "MED": {
+      "path": "artifacts/cp06/exports/NEXLABS_CP06_MED_v001.glb",
+      "sha256": "016e2704a3c60fc61ccde1084c848330cc0cc8ff8d8961b09d74b83d139ccf2e"
+    },
+    "LOW": {
+      "path": "artifacts/cp06/exports/NEXLABS_CP06_LOW_v001.glb",
+      "sha256": "97421e7c4c961b407f11d78fb924c022391f52731ac09deec2263fdbf94870e7"
+    }
+  },
+  "staticFallback": {
+    "hero16x9": {
+      "path": "artifacts/cp06/static/hero-16x9.png",
+      "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b"
+    },
+    "hero4x5": {
+      "path": "artifacts/cp06/static/hero-4x5.png",
+      "sha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e"
+    },
+    "hero1x1": {
+      "path": "artifacts/cp06/static/hero-1x1.png",
+      "sha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6"
+    },
+    "contactSheet": {
+      "path": "artifacts/cp06/static/contact-sheet.html",
+      "sha256": "cf2041c9f13fa307dd48dd6ffab89494ecf1e61c5798cee84913157ef643fd86"
+    }
+  },
+  "receipts": {
+    "SSAC": "PASS",
+    "PFR": "PASS",
+    "LIPG": "PASS",
+    "EBL": "PASS",
+    "glbInspection": "PASS"
+  },
+  "gates": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "PASS",
+    "G6": "PASS",
+    "G7": "PASS",
+    "G8": "PASS",
+    "G9": "PASS",
+    "G10": "PASS"
+  },
+  "independentReview": {
+    "status": "PENDING",
+    "note": "Machine-readable local acceptance only. Independent review and protected merge are external gates."
+  },
+  "carriedRisk": {
+    "blenderTransport": "POST_PRODUCTION_TRANSPORT_UNAVAILABLE",
+    "invalidatesFrozenAssets": false,
+    "requiresRebuild": false
+  },
+  "boundaries": {
+    "runtimeThree": false,
+    "brandMarkChange": false,
+    "ugasGeneration": false,
+    "cp07": false,
+    "deployment": false
+  }
+}
