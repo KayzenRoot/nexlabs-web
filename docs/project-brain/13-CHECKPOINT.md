@@ -1,22 +1,22 @@
 # 13 - Checkpoint
 
 ## STATUS
-CP-06 COMPLETE
+CP-07 IN PROGRESS
 
 ## VERSION
-NEXLABS-WEB CP-06 BLENDER MOTION + LOGO + WEB ASSETS COMPLETE
+NEXLABS-WEB CP-07 WEB 3D RUNTIME + ADAPTIVE FIDELITY
 
 ## PHASE
-CP-06 is merged and verified on protected main `ca5f859e927732cac2b404df5c07beff4ded5d9c`. The frozen asset package remains independently reviewed and hash-bound; CP-07 has not yet been admitted and the production BrandMark remains unchanged.
+CP-06 is complete and merged. CP-07 is admitted from protected main `d01288967fca590029166e4b8532cdfd7fad5877` on `codex/cp07-web-3d-runtime-adaptive-fidelity` under Work Order `NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY` and Context Lock `NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY`.
 
 ## OBJECTIVE
-Execute WO-B3D-007 through WO-B3D-012 as a deterministic, auditable Blender motion, selected-logo projection, LOD, GLB and static fallback package for CP-07 consumption.
+Integrate the approved hash-bound CP-06 HIGH/MED/LOW/STATIC package into the H01 hero through a static-first, isolated Three.js/React Three Fiber runtime with semantic state, adaptive fidelity, failure isolation, visibility control, reduced-motion behavior and non-home dependency isolation.
 
 ## IN PROGRESS
-No product Work Order is active. CP-06 merge and post-merge verification are complete; the repository is waiting for governed CP-07 admission.
+CP-07 product implementation is authorized under the active Work Order and Context Lock. HIVE preparation, asset promotion, runtime isolation, tests and exact-head evidence are in progress. Blender mutation, UGAS generation, deployment and CP-08 remain out of scope.
 
 ## BLOCKERS
-No CP-06 closure blocker. Persistent Blender transport remains a carried operational risk only for future Blender edits and does not invalidate or block web consumption of the frozen, hash-bound CP-06 package. The earlier HIVE `git_timeout` remains a typed historical recovered receipt. UGAS generation and deployment remain separately governed boundaries.
+No hard blocker. Persistent Blender transport remains a carried operational risk only for future Blender edits and does not block consumption of the frozen CP-06 package. UGAS generation and deployment remain separately governed boundaries.
 
 ## NEXT STEP
-Admit CP-07 Web 3D Runtime + Adaptive Fidelity through a new Work Order and Context Lock from protected main. CP-07 may consume the approved frozen CP-06 assets without a live Blender MCP gate unless it requires new Blender mutation/rebuild work.
+Complete CP-07 local validation, publish one protected PR, obtain exact-head quality and Governance PASS, request independent review, and stop before merge.

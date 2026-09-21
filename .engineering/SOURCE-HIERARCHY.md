@@ -1,6 +1,6 @@
 # NexLabs Web Source Hierarchy
 
-Status: `CP06_COMPLETE_READY_FOR_CP07_ADMISSION`
+Status: `CP07_IN_PROGRESS`
 
 Authority is domain-specific. HIVE indexes, memories and GEF metadata accelerate work but cannot override tracked Git sources.
 
@@ -51,6 +51,10 @@ The CP-06 Work Order `NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS` and Con
 After CP-06 is complete and merged, a dedicated CP-07 Work Order + Context Lock may authorize Three.js/React Three Fiber web runtime work that consumes the approved, hash-bound CP-06 HIGH/MED/LOW/STATIC assets. This runtime consumption does not require Blender MCP to be live unless the admitted CP-07 scope explicitly requires new Blender source mutation or asset rebuild.
 
 Persistent Blender transport issues remain a carried operational risk for future Blender edits, not a blocker to consuming already accepted CP-06 assets. UGAS generation, deployment and unrelated scope remain separately governed.
+
+## CP-07 active execution
+
+`NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY` is active from protected main `d01288967fca590029166e4b8532cdfd7fad5877` on branch `codex/cp07-web-3d-runtime-adaptive-fidelity`, paired with `NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY`. The admitted scope is H01 web runtime consumption of the approved frozen CP-06 package; no Blender mutation, UGAS generation, deployment or CP-08 work is admitted.
 
 
 ## Execution continuity rule

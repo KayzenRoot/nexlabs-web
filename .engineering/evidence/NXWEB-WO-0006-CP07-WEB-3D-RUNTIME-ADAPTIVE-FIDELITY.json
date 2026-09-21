@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "nexlabs-web-cp07-evidence-v1",
+  "verdict": "IN_PROGRESS",
+  "reviewState": "CP07_IN_PROGRESS",
+  "sourceDocument": {
+    "name": "NEXLABS-CP07-ONE-SHOT-AUTOREPAIR-EXECUTION.pdf",
+    "sha256": "a59a9bf9a9652c503c944dcdafcd9bb03e199c79ae7f4a687b11b20755b63bcf"
+  },
+  "workOrder": {
+    "id": "NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY",
+    "path": ".engineering/work-orders/NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY.md",
+    "status": "IN_PROGRESS",
+    "sha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96"
+  },
+  "contextLock": {
+    "id": "NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY",
+    "path": ".engineering/context-locks/NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY.json",
+    "status": "ACTIVE",
+    "workOrderSha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96"
+  },
+  "git": {
+    "authorizedBase": "d01288967fca590029166e4b8532cdfd7fad5877",
+    "admissionHead": "d01288967fca590029166e4b8532cdfd7fad5877",
+    "branch": "codex/cp07-web-3d-runtime-adaptive-fidelity",
+    "head": "d01288967fca590029166e4b8532cdfd7fad5877"
+  },
+  "hive": {
+    "status": "PENDING_PREPARE",
+    "project": "PENDING",
+    "task": "PENDING",
+    "index": "PENDING",
+    "corpus": "PENDING",
+    "mcp": "PENDING"
+  },
+  "assets": {
+    "status": "PENDING_PROMOTION",
+    "sourceAcceptance": "artifacts/cp06/cp06-asset-acceptance.json",
+    "promotedManifest": "PENDING"
+  },
+  "runtime": {
+    "threeBoundary": "PENDING_IMPLEMENTATION",
+    "semanticStateMachine": "PENDING_IMPLEMENTATION",
+    "adaptiveFidelity": "PENDING_IMPLEMENTATION",
+    "failureIsolation": "PENDING_IMPLEMENTATION",
+    "visibilityControl": "PENDING_IMPLEMENTATION",
+    "responsiveComposition": "PENDING_IMPLEMENTATION"
+  },
+  "validation": {
+    "status": "PENDING_IMPLEMENTATION",
+    "local": "PENDING",
+    "hosted": "PENDING",
+    "pr": "PENDING"
+  },
+  "outOfScopeConfirmed": {
+    "blenderMutation": false,
+    "ugasGeneration": false,
+    "deployment": false,
+    "cp08": false,
+    "brandMarkChange": false,
+    "analytics": false
+  },
+  "knownBlockers": [],
+  "carriedRisks": ["BLENDER_MCP_TRANSPORT_PERSISTENT"]
+}

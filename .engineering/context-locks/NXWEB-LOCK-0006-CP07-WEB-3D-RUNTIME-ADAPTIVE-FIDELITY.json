@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "nexlabs-web-context-lock-v1",
+  "lockId": "NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY",
+  "workOrder": "NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY",
+  "status": "ACTIVE",
+  "authorizedBase": "d01288967fca590029166e4b8532cdfd7fad5877",
+  "resumeBase": "d01288967fca590029166e4b8532cdfd7fad5877",
+  "resumeBaseRole": "protected_main_cp06_complete",
+  "admissionHead": "d01288967fca590029166e4b8532cdfd7fad5877",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "planningCache": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/",
+  "planningManifestSha256": "97d09a4af77e2addcbad49d321c33437db4ec6ad46ebfb00d9ec28189087601f",
+  "sourceDocument": {
+    "name": "NEXLABS-CP07-ONE-SHOT-AUTOREPAIR-EXECUTION.pdf",
+    "sha256": "a59a9bf9a9652c503c944dcdafcd9bb03e199c79ae7f4a687b11b20755b63bcf"
+  },
+  "gef": {
+    "version": "1.0.0",
+    "releaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+  },
+  "hive": {
+    "version": "1.0.0",
+    "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
+  },
+  "workOrderSha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96",
+  "candidateHead": null,
+  "scope": {
+    "runtimeTarget": "homepage H01 hero only",
+    "assetPackage": "CP06 approved HIGH/MED/LOW/STATIC frozen package",
+    "semanticStates": ["DORMANT", "INTAKE", "INDEX", "RETRIEVE", "ASSEMBLE", "RESOLVE", "IDLE"],
+    "qualityTiers": ["STATIC", "LOW", "MEDIUM", "HIGH"],
+    "blenderMutation": false,
+    "ugasGeneration": false,
+    "deployment": false,
+    "cp08": false
+  },
+  "approvedAssets": {
+    "HIGH": "811ba946fa693c4151df3cb688cc73a4bf178e31a28fb88e39f1c9d18dec3870",
+    "MED": "016e2704a3c60fc61ccde1084c848330cc0cc8ff8d8961b09d74b83d139ccf2e",
+    "LOW": "97421e7c4c961b407f11d78fb924c022391f52731ac09deec2263fdbf94870e7",
+    "STATIC_16_9": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+    "STATIC_4_5": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e",
+    "STATIC_1_1": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6"
+  },
+  "policyGate": {
+    "status": "AUTHORIZED",
+    "code": "CP07_WEB_RUNTIME_AUTHORIZED",
+    "blenderMcpRequired": false,
+    "ugasGenerationAuthorized": false
+  },
+  "externalBlockers": [],
+  "carriedRisks": ["BLENDER_MCP_TRANSPORT_PERSISTENT"],
+  "stopState": "CP07_IN_PROGRESS"
+}
