@@ -62,12 +62,12 @@
     "pr": "PENDING"
   },
   "outOfScopeConfirmed": {
-    "blenderMutation": true,
-    "ugasGeneration": true,
-    "deployment": true,
-    "cp08": true,
-    "brandMarkChange": true,
-    "analytics": true
+    "blenderMutation": false,
+    "ugasGeneration": false,
+    "deployment": false,
+    "cp08": false,
+    "brandMarkChange": false,
+    "analytics": false
   },
   "knownBlockers": [],
   "carriedRisks": ["BLENDER_MCP_TRANSPORT_PERSISTENT"]
