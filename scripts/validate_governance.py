@@ -902,6 +902,11 @@ if "extracted_text_available" not in prepare_source or "intake_status" not in pr
 agents_source = read("AGENTS.md")
 if "scripts/hive_prepare.py" not in agents_source or "GEF-CURRENT.json" not in agents_source:
     fail("AGENTS HIVE-first preflight must bind preparation to the active GEF Work Order")
+review_protocol_source = read(".engineering/gef/GEF-REVIEW-PROTOCOL.md")
+if "## Review correction ownership" not in agents_source or "direct reviewer correction" not in agents_source:
+    fail("AGENTS must require reviewer-first direct correction for safe small defects")
+if "## Correction ownership" not in review_protocol_source or "Escalate the correction to Codex/executor only" not in review_protocol_source:
+    fail("GEF review protocol must require direct correction before executor escalation")
 
 governance_files = [ROOT / path for path in REQUIRED] + [ROOT / "scripts/validate_governance.py"]
 for path in governance_files:
