@@ -52,7 +52,7 @@ Hold until a separate gate and Work Order authorize it:
 
 ## Web runtime consumption boundary
 
-The CP-06 HIGH/MED/LOW/STATIC asset package is already approved and hash-bound. A CP-07 web/runtime Work Order may consume those frozen assets through Three.js/React Three Fiber without requiring Blender MCP to be live, provided it does not mutate/rebuild Blender-authored source assets.
+The CP-06 HIGH/MED/LOW/STATIC asset package is already approved and hash-bound. CP-07 web runtime consumption of those frozen assets through Three.js/React Three Fiber does not require Blender MCP to be live, provided the active Work Order does not mutate or rebuild Blender-authored source assets.
 
 Three.js/R3F runtime work still requires its own active governed Work Order and Context Lock. If a runtime task discovers that Blender asset mutation is actually required, stop only that Blender-dependent boundary and require a fresh live MCP preflight before mutation. UGAS generation remains separately unauthorized.
 
