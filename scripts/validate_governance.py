@@ -907,6 +907,10 @@ if "## Review correction ownership" not in agents_source or "direct reviewer cor
     fail("AGENTS must require reviewer-first direct correction for safe small defects")
 if "## Correction ownership" not in review_protocol_source or "Escalate the correction to Codex/executor only" not in review_protocol_source:
     fail("GEF review protocol must require direct correction before executor escalation")
+if "## Session policy refresh" not in agents_source or "fresh executor session" not in agents_source:
+    fail("AGENTS must require a fresh executor session after synced governance-source changes")
+if "## Stale session policy guard" not in review_protocol_source or "STALE_EXECUTOR_POLICY_SNAPSHOT" not in review_protocol_source:
+    fail("GEF review protocol must define stale executor policy snapshot recovery")
 workstation_source = read("docs/WORKSTATION-MODE.md")
 source_hierarchy_source = read(".engineering/SOURCE-HIERARCHY.md")
 if current.get("productStage") == "CP06_COMPLETE":
