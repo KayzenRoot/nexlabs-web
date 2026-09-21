@@ -51,3 +51,19 @@ This workstation has verified Blender MCP capability and is authorized for gover
 - `UGAS_GENERATION_PROVIDER_READY=false` and `UGAS_GENERATION_AUTHORIZED=false`: provider startup and real UGAS generation remain prohibited unless separately authorized and ready.
 
 CP-05 Context Core foundation may use Blender only after this transition is merged, the Work Order/Context Lock is resumed or newly admitted, and the live MCP gate passes. This transition branch itself must not mutate a Blender scene. Blender authorization does not permit final logo promotion, Three.js/R3F runtime work, CP-06+, deployment or release. If Blender MCP becomes unavailable, the affected Blender Work Order fails closed rather than falling back to fabricated assets.
+
+
+## Review correction ownership
+
+During every independent review, the reviewer must first attempt to resolve small, deterministic, low-risk, in-scope defects directly through the currently available review/GitHub tools before escalating work back to the executor.
+
+Direct reviewer correction is preferred when all of the following are true:
+
+- the defect is localized and the intended correction is unambiguous;
+- the change does not require workstation-only state, Blender scene authoring, unavailable external services, secrets, destructive actions or heavy local execution;
+- the correction can be applied on the existing review branch/PR without rewriting history or bypassing protected checks;
+- the reviewer can rerun or obtain exact-head validation after the correction.
+
+Escalate to Codex/executor only when the correction cannot be completed safely in the review environment, requires workstation/heavy execution, depends on unavailable capabilities, or would materially expand/alter the admitted Work Order.
+
+Every direct reviewer correction must be disclosed in the review record and must be followed by fresh exact-head required checks before approval or merge.
