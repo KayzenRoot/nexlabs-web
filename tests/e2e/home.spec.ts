@@ -37,3 +37,43 @@ test("mobile menu and theme preference remain usable", async ({ page }) => {
   await page.getByRole("combobox", { name: "Color theme" }).selectOption("dark");
   await expect.poll(() => page.evaluate(() => localStorage.getItem("nexlabs-theme"))).toBe("dark");
 });
+
+test.describe("CP-07 static-first runtime boundary", () => {
+  test("keeps the static Context Core fallback and hero actions functional", async ({ page }) => {
+    const modelRequests: string[] = [];
+    page.on("request", (request) => {
+      if (request.url().includes("/models/context-core/")) modelRequests.push(request.url());
+    });
+    await page.goto("/");
+    await expect(page.locator(".context-core-boundary")).toBeVisible();
+    await expect(page.locator(".context-core-static")).toBeVisible();
+    await expect(page.locator("main")).toContainText("Infrastructure for AI-native software");
+    await expect(page.getByRole("link", { name: "Explore HIVE", exact: true })).toBeVisible();
+    expect(modelRequests.length).toBeLessThanOrEqual(1);
+  });
+
+  test("does not load the hero model on non-home routes", async ({ page }) => {
+    const modelRequests: string[] = [];
+    page.on("request", (request) => {
+      if (request.url().includes("/models/context-core/")) modelRequests.push(request.url());
+    });
+    await page.goto("/technology/");
+    await expect(page.locator("main h1")).toBeVisible();
+    await page.waitForTimeout(250);
+    expect(modelRequests).toHaveLength(0);
+  });
+
+  test("reduced motion remains static and responsive framing stays stable", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    for (const viewport of [{ width: 1440, height: 900 }, { width: 768, height: 900 }, { width: 390, height: 844 }]) {
+      await page.setViewportSize(viewport);
+      await page.goto("/");
+      const boundary = page.locator(".context-core-boundary");
+      await expect(boundary).toBeVisible();
+      await expect(boundary.locator(".context-core-static")).toBeVisible();
+      const box = await boundary.boundingBox();
+      expect(box?.width).toBeGreaterThan(0);
+      expect(box?.height).toBeGreaterThan(0);
+    }
+  });
+});
