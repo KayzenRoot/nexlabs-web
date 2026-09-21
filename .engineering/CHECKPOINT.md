@@ -4,22 +4,22 @@ Status: `DERIVED_VIEW`
 Canonical source: `docs/project-brain/13-CHECKPOINT.md`
 
 ## STATUS
-CP-05 COMPLETE
+CP-06 COMPLETE
 
 ## VERSION
-NEXLABS-WEB CP-05 BLENDER CONTEXT CORE FOUNDATION COMPLETE
+NEXLABS-WEB CP-06 BLENDER MOTION + LOGO + WEB ASSETS COMPLETE
 
 ## PHASE
-CP-05 deterministic Blender Context Core foundation completed and independently reviewed; the delivered scope is limited to WO-B3D-001 through WO-B3D-006 and is not a final runtime or brand promotion.
+CP-06 frozen asset package is independently reviewed at `8ff6d8ded268c5acb56e5147788be971b890a47e` with hosted Governance and quality PASS; CP-07 has not been admitted and the production BrandMark remains unchanged.
 
 ## OBJECTIVE
-Execute WO-B3D-001 through WO-B3D-006 as a deterministic, auditable Blender foundation without logo integration or runtime 3D promotion.
+Execute WO-B3D-007 through WO-B3D-012 as a deterministic, auditable Blender motion, selected-logo projection, LOD, GLB and static fallback package for CP-07 consumption.
 
 ## IN PROGRESS
-NXWEB-WO-0004-CP05-BLENDER-CONTEXT-CORE-FOUNDATION is completed from protected main b2737e66d890dff206ac541b4da8b9f42b09c0b1; independent review approved reviewed head da97a702797078ff1de119065e4fc80e943d1984, while the final closure head remains subject to its own hosted checks.
+No CP-06 product implementation is active. Protected main remains unchanged pending the separate protected merge and post-merge verification gate.
 
 ## BLOCKERS
-RUNTIME_BRAND_PROMOTION_PENDING: BrandMark and public production assets remain unchanged. EXTERNAL_SIMILARITY_RESEARCH_NOT_PERFORMED: trademark and visual-similarity clearance remains open. UGAS generation remains an explicit capability boundary and was not required for CP-05 closure.
+No CP-06 closure blocker. Persistent Blender transport remains a carried operational risk for future edits and does not invalidate the frozen, hash-bound package. The earlier HIVE `git_timeout` remains a typed historical recovered receipt. UGAS generation, CP-07 runtime and deployment remain capability boundaries/out of scope.
 
 ## NEXT STEP
-Admit CP-06 only through a new Work Order after protected merge and post-merge verification; do not begin WO-B3D-007 through WO-B3D-012 or promote BrandMark from this CP-05 closure.
+Admit CP-07 through a new Work Order and Context Lock only after protected merge and post-merge verification; do not begin CP-07 from this closure commit.

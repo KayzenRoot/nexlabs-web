@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "nexlabs-web-cp06-asset-manifest-v1",
+  "status": "PASS",
+  "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+  "sourceRevision": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
+  "sourceBlend": {"path": ".local/cp06/context_core_cp06_master.blend", "bytes": 198842, "sha256": "8eb0b543e592f68dff3cc6bc6919ea84c2bb8d2c2f0626cbb9ad2290519df200", "role": "CP06 canonical Blender source"},
+  "cp05Source": {"masterPath": ".local/cp05/context_core_master.blend", "masterSha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd", "cp06CopySha256BeforeMutation": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd", "sceneFingerprint": "eb409383e8ffab522da6b162940e6bd3a46e44f89f73f3ceeb1cc45c017c0e61", "mutatedInPlace": false},
+  "selectedLogo": {"candidateId": "NX-C-02", "revision": "r1", "sourcePath": "brand/logo/candidates/NX-C-02.svg", "sourceSha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165", "projection": "ORTHOGRAPHIC_CONTROLLED", "sourceUnchanged": true},
+  "workOrders": {"WO-B3D-007": "PASS", "WO-B3D-008": "PASS", "WO-B3D-009": "PASS", "WO-B3D-010": "PASS", "WO-B3D-011": "PASS", "WO-B3D-012": "PASS"},
+  "animation": {"semanticStates": ["DORMANT", "INTAKE", "INDEX", "RETRIEVE", "ASSEMBLE", "RESOLVE", "IDLE"], "clipCountPerTier": 7, "resolvedState": "RESOLVE", "reducedMotionFallback": "NL_STATIC_NX_C_02_R1", "deterministicFrameRange": [1, 24]},
+  "exports": {
+    "HIGH": {"path": "artifacts/cp06/exports/NEXLABS_CP06_HIGH_v001.glb", "sha256": "811ba946fa693c4151df3cb688cc73a4bf178e31a28fb88e39f1c9d18dec3870", "bytes": 73448, "triangles": 1428, "drawCalls": 3, "materials": 3, "animations": 7, "budget": {"maxTriangles": 2000, "maxBytes": 102400, "pass": true}},
+    "MED": {"path": "artifacts/cp06/exports/NEXLABS_CP06_MED_v001.glb", "sha256": "016e2704a3c60fc61ccde1084c848330cc0cc8ff8d8961b09d74b83d139ccf2e", "bytes": 69528, "triangles": 1268, "drawCalls": 3, "materials": 3, "animations": 7, "budget": {"maxTriangles": 1500, "maxBytes": 81920, "pass": true}},
+    "LOW": {"path": "artifacts/cp06/exports/NEXLABS_CP06_LOW_v001.glb", "sha256": "97421e7c4c961b407f11d78fb924c022391f52731ac09deec2263fdbf94870e7", "bytes": 65540, "triangles": 1108, "drawCalls": 3, "materials": 3, "animations": 7, "budget": {"maxTriangles": 1200, "maxBytes": 71680, "pass": true}}
+  },
+  "staticFallback": {
+    "hero16x9": {"path": "artifacts/cp06/static/hero-16x9.png", "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b", "bytes": 83401, "dimensions": [640, 360], "budgetBytes": 256000},
+    "hero4x5": {"path": "artifacts/cp06/static/hero-4x5.png", "sha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e", "bytes": 95512, "dimensions": [480, 600], "budgetBytes": 256000},
+    "hero1x1": {"path": "artifacts/cp06/static/hero-1x1.png", "sha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6", "bytes": 85498, "dimensions": [512, 512], "budgetBytes": 256000},
+    "contactSheet": {"path": "artifacts/cp06/static/contact-sheet.html", "sha256": "cf2041c9f13fa307dd48dd6ffab89494ecf1e61c5798cee84913157ef643fd86", "bytes": 794}
+  },
+  "receipts": {"SSAC": "PASS", "PFR": "PASS", "LIPG": "PASS", "EBL": "PASS", "glbInspection": "artifacts/cp06/reports/glb-inspection.json"},
+  "gates": {"G1": "PASS", "G2": "PASS", "G3": "PASS", "G4": "PASS", "G5": "PASS", "G6": "PASS", "G7": "PASS", "G8": "PASS", "G9": "PASS", "G10": "PASS"},
+  "browserParity": {"status": "PASS_ISOLATED_GLTF_STRUCTURE", "runtimeThree": false, "browserRuntimeWiring": false, "notes": "GLB self-contained structure and names inspected without introducing CP-07 runtime code."},
+  "provenance": {"sourceRevision": "fe1419fd850d5aa75cdbb362c9432da622c122d7", "sourceSvgSha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165", "generatedBy": "Blender 5.2.1 LTS + Blender MCP protocol 7", "addonVersion": "1.7", "deterministicSeed": 20260920},
+  "outOfScope": {"runtimeThree": false, "brandMarkChange": false, "ugasProviderStarted": false, "ugasGeneration": false, "deployment": false, "cp07": false, "cp08Media": false}
+}

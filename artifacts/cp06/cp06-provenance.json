@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "nexlabs-web-cp06-provenance-v1",
+  "status": "PASS",
+  "sceneId": "NL-SCENE-CONTEXT-CORE-01",
+  "sourceRevision": "fe1419fd850d5aa75cdbb362c9432da622c122d7",
+  "blender": {"version": "5.2.1 LTS", "addonVersion": "1.7", "protocolVersion": 7},
+  "source": {"cp05Master": ".local/cp05/context_core_master.blend", "cp05MasterSha256": "8a83889dcf012f1917a2bb2d9286369490ba5d576183aafef586e37a307142dd", "cp06WorkingMaster": ".local/cp06/context_core_cp06_master.blend", "cp06WorkingMasterSha256": "8eb0b543e592f68dff3cc6bc6919ea84c2bb8d2c2f0626cbb9ad2290519df200"},
+  "selectedLogo": {"candidateId": "NX-C-02", "revision": "r1", "sourcePath": "brand/logo/candidates/NX-C-02.svg", "sourceSha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165", "sourceUnchanged": true},
+  "determinism": {"seed": 20260920, "animationFrameRange": [1, 24], "semanticStates": ["DORMANT", "INTAKE", "INDEX", "RETRIEVE", "ASSEMBLE", "RESOLVE", "IDLE"]},
+  "boundaries": {"cp05MasterMutated": false, "runtimeThree": false, "brandMarkChange": false, "ugasProviderStarted": false, "ugasGeneration": false, "deployment": false, "cp07": false}
+}

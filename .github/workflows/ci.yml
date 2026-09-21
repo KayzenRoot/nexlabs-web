@@ -45,6 +45,10 @@ jobs:
         run: python scripts/validate_governance.py
       - name: HIVE bridge tests
         run: python -m unittest discover -s tests -p "test_hive*.py" -v
+      - name: CP06 asset tests
+        run: python -m unittest discover -s tests -p "test_cp06*.py" -v
+      - name: CP06 frozen asset validation
+        run: python scripts/cp06/validate_assets.py
       - name: Production build
         run: npm run build
       - name: Dependency audit

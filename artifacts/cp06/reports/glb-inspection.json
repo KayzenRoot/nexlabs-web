@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "nexlabs-web-cp06-glb-inspection-v1",
+  "status": "PASS",
+  "validator": "scripts/cp06/inspect_glb.py",
+  "exports": {
+    "HIGH": {"path": "artifacts/cp06/exports/NEXLABS_CP06_HIGH_v001.glb", "bytes": 73448, "sha256": "811ba946fa693c4151df3cb688cc73a4bf178e31a28fb88e39f1c9d18dec3870", "assetVersion": "2.0", "nodes": 11, "meshes": 3, "materials": 3, "triangles": 1428, "animationCount": 7, "externalBuffers": false},
+    "MED": {"path": "artifacts/cp06/exports/NEXLABS_CP06_MED_v001.glb", "bytes": 69528, "sha256": "016e2704a3c60fc61ccde1084c848330cc0cc8ff8d8961b09d74b83d139ccf2e", "assetVersion": "2.0", "nodes": 11, "meshes": 3, "materials": 3, "triangles": 1268, "animationCount": 7, "externalBuffers": false},
+    "LOW": {"path": "artifacts/cp06/exports/NEXLABS_CP06_LOW_v001.glb", "bytes": 65540, "sha256": "97421e7c4c961b407f11d78fb924c022391f52731ac09deec2263fdbf94870e7", "assetVersion": "2.0", "nodes": 11, "meshes": 3, "materials": 3, "triangles": 1108, "animationCount": 7, "externalBuffers": false}
+  },
+  "roundTrip": {"status": "PASS", "HIGH": {"importedObjects": 11, "removedAfterInspection": true}, "MED": {"importedObjects": 11, "removedAfterInspection": true}, "LOW": {"importedObjects": 11, "removedAfterInspection": true}},
+  "checks": {"glTFVersion2": true, "selfContainedGLB": true, "sevenSemanticClipsPerTier": true, "tierBudgets": true}
+}
