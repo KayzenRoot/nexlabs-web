@@ -907,6 +907,19 @@ if "## Review correction ownership" not in agents_source or "direct reviewer cor
     fail("AGENTS must require reviewer-first direct correction for safe small defects")
 if "## Correction ownership" not in review_protocol_source or "Escalate the correction to Codex/executor only" not in review_protocol_source:
     fail("GEF review protocol must require direct correction before executor escalation")
+workstation_source = read("docs/WORKSTATION-MODE.md")
+source_hierarchy_source = read(".engineering/SOURCE-HIERARCHY.md")
+if current.get("productStage") == "CP06_COMPLETE":
+    stale_runtime_blocks = (
+        "Blender authorization does not permit final logo promotion, Three.js/R3F runtime work, CP-06+",
+        "Blender authorization does not authorize Three.js/R3F runtime work, logo promotion, CP-06+",
+    )
+    if any(text in agents_source or text in workstation_source for text in stale_runtime_blocks):
+        fail("stale CP-05 workstation policy still blocks governed CP-07 runtime after CP-06 completion")
+    if "## CP-07 runtime admission rule" not in source_hierarchy_source:
+        fail("source hierarchy must define the CP-07 runtime admission boundary after CP-06 completion")
+    if "does not require Blender MCP to be live" not in workstation_source:
+        fail("workstation policy must distinguish frozen CP-06 web consumption from new Blender mutation")
 
 governance_files = [ROOT / path for path in REQUIRED] + [ROOT / "scripts/validate_governance.py"]
 for path in governance_files:
