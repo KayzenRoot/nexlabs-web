@@ -54,3 +54,15 @@ Review findings must be classified before verdict:
 - `BLOCKED`: progress is impossible without external user decision, unavailable mandatory capability, secret/credential, destructive authorization, irreconcilable integrity conflict, or an unrepaired HIGH/CRITICAL issue outside the admitted correction capacity.
 
 A transient Git/HIVE/MCP/CI/policy-snapshot/branch/PR/validator condition is not `BLOCKED` by itself when a bounded repair path exists.
+
+
+## Attachment supersession guard
+
+If an executor blocks on an operational requirement that exists only in an older PDF/Markdown attachment, compare it with:
+1. the user's latest direct instruction;
+2. current protected-main policy;
+3. the active governed Work Order.
+
+When the old attachment detail is superseded at the same instruction priority and current repository policy permits continuation, classify the condition as `SUPERSEDED_ATTACHMENT_INSTRUCTION` and AUTO_REPAIR it by re-reading current tracked authority and continuing.
+
+A stale attachment bootstrap detail is not a hard blocker by itself.
