@@ -50,7 +50,7 @@ This workstation has verified Blender MCP capability and is authorized for gover
 - `UGAS_CORE_INSTALLED=true`: UGAS core is installed, but this does not authorize generation.
 - `UGAS_GENERATION_PROVIDER_READY=false` and `UGAS_GENERATION_AUTHORIZED=false`: provider startup and real UGAS generation remain prohibited unless separately authorized and ready.
 
-CP-05 Context Core foundation may use Blender only after this transition is merged, the Work Order/Context Lock is resumed or newly admitted, and the live MCP gate passes. This transition branch itself must not mutate a Blender scene. Blender authorization does not permit final logo promotion, Three.js/R3F runtime work, CP-06+, deployment or release. If Blender MCP becomes unavailable, the affected Blender Work Order fails closed rather than falling back to fabricated assets.
+The CP-05 transition historically authorized governed Blender scene production. Any future Work Order that mutates or rebuilds Blender-authored assets still requires an active governed Work Order plus a passing live Blender MCP preflight. A web/runtime Work Order that only consumes already approved, hash-bound CP-06 assets does not require Blender MCP to be live. CP-07 Three.js/R3F runtime work is permitted only after CP-06 is complete and a dedicated CP-07 Work Order + Context Lock are admitted. Blender authorization never authorizes UGAS generation, deployment, release, or unrelated scope by itself. If a Work Order actually requires Blender mutation and MCP is unavailable, that Blender-dependent portion fails closed rather than fabricating assets.
 
 
 ## Review correction ownership

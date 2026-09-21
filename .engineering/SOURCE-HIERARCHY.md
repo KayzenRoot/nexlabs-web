@@ -44,3 +44,10 @@ The preserved local branch `codex/cp05-blender-context-core` completed CP-05 fro
 ## CP-06 closure
 
 The CP-06 Work Order `NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS` and Context Lock `NXWEB-LOCK-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS` are completed/closed from the independently reviewed asset-package head `8ff6d8ded268c5acb56e5147788be971b890a47e`. The frozen package remains hash-bound; persistent Blender transport is a carried operational risk for future edits, not a CP-06 closure blocker. CP-07 runtime, BrandMark replacement and UGAS generation remain outside scope until a new Work Order and Context Lock are admitted.
+
+
+## CP-07 runtime admission rule
+
+After CP-06 is complete and merged, a dedicated CP-07 Work Order + Context Lock may authorize Three.js/React Three Fiber web runtime work that consumes the approved, hash-bound CP-06 HIGH/MED/LOW/STATIC assets. This runtime consumption does not require Blender MCP to be live unless the admitted CP-07 scope explicitly requires new Blender source mutation or asset rebuild.
+
+Persistent Blender transport issues remain a carried operational risk for future Blender edits, not a blocker to consuming already accepted CP-06 assets. UGAS generation, deployment and unrelated scope remain separately governed.
