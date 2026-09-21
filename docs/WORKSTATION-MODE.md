@@ -43,15 +43,18 @@ Continue normally with:
 
 The direct execution of the CP-05 workstation transition package is the explicit owner authorization for Blender production. Blender production remains conditional on an active governed Work Order and successful live MCP preflight. If MCP preflight fails, the affected Work Order stops fail-closed and no fabricated asset is substituted.
 
-## Deferred work
+## Deferred / separately governed work
 Hold until a separate gate and Work Order authorize it:
 - UGAS generation/production;
-- final graphical identity production;
-- final logo production/evaluation that depends on graphics tooling;
-- Context Core canonical 3D production before the protected transition merge and CP-05 resumption;
-- high-fidelity motion/3D asset integration.
+- any new Blender mutation/rebuild beyond the already approved CP-06 frozen asset package;
+- BrandMark/header/favicon promotion when not explicitly admitted by the active Work Order;
+- deployment or release.
 
-Blender authorization does not authorize Three.js/R3F runtime work, logo promotion, CP-06+, deployment or release.
+## Web runtime consumption boundary
+
+The CP-06 HIGH/MED/LOW/STATIC asset package is already approved and hash-bound. A CP-07 web/runtime Work Order may consume those frozen assets through Three.js/React Three Fiber without requiring Blender MCP to be live, provided it does not mutate/rebuild Blender-authored source assets.
+
+Three.js/R3F runtime work still requires its own active governed Work Order and Context Lock. If a runtime task discovers that Blender asset mutation is actually required, stop only that Blender-dependent boundary and require a fresh live MCP preflight before mutation. UGAS generation remains separately unauthorized.
 
 ## Handoff rule
 Every placeholder intended for future replacement must have a clear semantic role and stable interface/slot.
