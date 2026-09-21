@@ -71,8 +71,40 @@ Every direct reviewer correction must be disclosed in the review record and must
 
 ## Session policy refresh
 
-Executor/session instructions loaded before a repository fast-forward can become stale. After any `git fetch` / `git pull --ff-only` that changes HEAD, compare the current tracked governance sources against the instructions assumed at session start.
+Executor/session instructions loaded before a repository fast-forward can become stale. After any `git fetch` / `git pull --ff-only` that changes HEAD, compare the current tracked governance sources against the policy assumed at session start.
 
-If `AGENTS.md`, `docs/WORKSTATION-MODE.md`, `.engineering/SOURCE-HIERARCHY.md`, the canonical checkpoint, or `.engineering/gef/GEF-CURRENT.json` changed across the sync, the executor must stop before product edits and start a fresh executor session from the synchronized checkout so the new tracked policy is loaded as session authority.
+If `AGENTS.md`, `docs/WORKSTATION-MODE.md`, `.engineering/SOURCE-HIERARCHY.md`, the canonical checkpoint, or `.engineering/gef/GEF-CURRENT.json` changed across the sync, re-read those tracked files from the synchronized checkout before product edits and continue in the same session when the executor can adopt the refreshed tracked policy.
 
-Do not continue product work under cached/stale repository instructions after a governance-source change. The fresh session must re-read current tracked authority before admitting or resuming a Work Order.
+A fresh executor session is a fallback only when the current harness demonstrably cannot refresh or continues enforcing superseded repository policy after re-read. Do not classify the first stale-policy mismatch as a product blocker.
+
+
+## Execution continuity
+
+The executor must prefer repair-and-continue over stop-and-escalate for recoverable conditions.
+
+Treat these as AUTO-REPAIR conditions when they can be resolved safely within the admitted scope:
+- stale local branch or stale tracked policy after sync;
+- transient Git/HIVE inspection timeout;
+- stale Git lock with no owning process;
+- transient Blender/MCP transport issue when the active Work Order can retry or the affected dependency is no longer needed;
+- fragile validator assumption that contradicts canonical repository state;
+- missing PR/push after otherwise complete local work;
+- CI flake or deterministic test failure with an unambiguous in-scope fix;
+- outdated evidence pointer/receipt that can be reconciled without changing product semantics.
+
+AUTO-REPAIR flow:
+1. diagnose the smallest root cause;
+2. repair it without destructive history rewrite;
+3. rerun the affected local gate;
+4. rerun exact-head required checks;
+5. continue the same Work Order automatically.
+
+Return `BLOCKED` only when progress is genuinely impossible without external input or unsafe action, including:
+- irreconcilable source/integrity mismatch;
+- missing secret/credential or unavailable mandatory external service with no admitted fallback;
+- ambiguous product/legal/business decision that the Work Order cannot resolve;
+- destructive action requiring explicit authorization;
+- required capability unavailable after bounded recovery when no valid degraded path exists;
+- HIGH/CRITICAL finding that cannot be repaired within the admitted scope.
+
+Do not use `BLOCKED` merely because a recoverable preflight, transport, branch, CI, validator, Git or publication issue occurred.
