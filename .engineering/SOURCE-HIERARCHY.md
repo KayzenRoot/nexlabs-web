@@ -51,3 +51,10 @@ The CP-06 Work Order `NXWEB-WO-0005-CP06-BLENDER-MOTION-LOGO-WEB-ASSETS` and Con
 After CP-06 is complete and merged, a dedicated CP-07 Work Order + Context Lock may authorize Three.js/React Three Fiber web runtime work that consumes the approved, hash-bound CP-06 HIGH/MED/LOW/STATIC assets. This runtime consumption does not require Blender MCP to be live unless the admitted CP-07 scope explicitly requires new Blender source mutation or asset rebuild.
 
 Persistent Blender transport issues remain a carried operational risk for future Blender edits, not a blocker to consuming already accepted CP-06 assets. UGAS generation, deployment and unrelated scope remain separately governed.
+
+
+## Execution continuity rule
+
+Missing or conflicting canonical authority remains fail-closed. Transient executor/runtime conditions do not become authority conflicts by themselves.
+
+Stale local branches, stale policy snapshots after sync, transient Git/HIVE/MCP failures, CI flakes, publication gaps and validator defects must be repaired and revalidated in place when a safe bounded path exists. They become hard blockers only when the bounded repair path is exhausted and the active Work Order has no valid degraded continuation.

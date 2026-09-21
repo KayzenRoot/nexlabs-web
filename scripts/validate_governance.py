@@ -907,12 +907,18 @@ if "## Review correction ownership" not in agents_source or "direct reviewer cor
     fail("AGENTS must require reviewer-first direct correction for safe small defects")
 if "## Correction ownership" not in review_protocol_source or "Escalate the correction to Codex/executor only" not in review_protocol_source:
     fail("GEF review protocol must require direct correction before executor escalation")
-if "## Session policy refresh" not in agents_source or "fresh executor session" not in agents_source:
-    fail("AGENTS must require a fresh executor session after synced governance-source changes")
+if "## Session policy refresh" not in agents_source or "re-read those tracked files" not in agents_source or "fresh executor session is a fallback only" not in agents_source:
+    fail("AGENTS must support same-session policy refresh with fresh-session fallback")
+if "## Execution continuity" not in agents_source or "AUTO-REPAIR" not in agents_source or "Do not use `BLOCKED` merely because" not in agents_source:
+    fail("AGENTS must require auto-repair continuity for recoverable executor faults")
 if "## Stale session policy guard" not in review_protocol_source or "STALE_EXECUTOR_POLICY_SNAPSHOT" not in review_protocol_source:
     fail("GEF review protocol must define stale executor policy snapshot recovery")
+if "## Continuity classification" not in review_protocol_source or "`AUTO_REPAIR`" not in review_protocol_source:
+    fail("GEF review protocol must classify recoverable findings as AUTO_REPAIR")
 workstation_source = read("docs/WORKSTATION-MODE.md")
 source_hierarchy_source = read(".engineering/SOURCE-HIERARCHY.md")
+if "## Execution continuity rule" not in source_hierarchy_source:
+    fail("source hierarchy must separate canonical authority conflicts from recoverable runtime faults")
 if current.get("productStage") == "CP06_COMPLETE":
     stale_runtime_blocks = (
         "Blender authorization does not permit final logo promotion, Three.js/R3F runtime work, CP-06+",
