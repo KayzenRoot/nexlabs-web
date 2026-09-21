@@ -158,7 +158,12 @@ if cp07_active:
         branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=ROOT, text=True).strip()
     except (OSError, subprocess.CalledProcessError) as exc:
         fail(f"cannot resolve CP-07 Git state: {exc}")
-    if branch != "codex/cp07-web-3d-runtime-adaptive-fidelity":
+    expected_branch = "codex/cp07-web-3d-runtime-adaptive-fidelity"
+    if not branch:
+        # GitHub Actions checks out the exact candidate SHA in detached HEAD.
+        # Bind that checkout to the PR/ref identity without weakening local branch validation.
+        branch = os.getenv("GITHUB_HEAD_REF") or os.getenv("GITHUB_REF_NAME") or ""
+    if branch != expected_branch:
         fail("CP-07 must execute on codex/cp07-web-3d-runtime-adaptive-fidelity")
     if lock.get("lockId") != CP07_LOCK or lock.get("workOrder") != CP07_WORK_ORDER:
         fail("CP-07 Work Order and Context Lock pairing mismatch")
