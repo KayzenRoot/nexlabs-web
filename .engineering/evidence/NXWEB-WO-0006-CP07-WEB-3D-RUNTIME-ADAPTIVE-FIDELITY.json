@@ -22,7 +22,7 @@
     "authorizedBase": "d01288967fca590029166e4b8532cdfd7fad5877",
     "admissionHead": "d01288967fca590029166e4b8532cdfd7fad5877",
     "branch": "codex/cp07-web-3d-runtime-adaptive-fidelity",
-    "head": "bf7c451f5c77a2ebada817c88fb1adb646082217"
+    "head": "8a7bac84c6a42e740688adc69a86d655f9ed73ff"
   },
   "hive": {
     "status": "READY",
@@ -49,7 +49,7 @@
     "responsiveComposition": "PASS_16X9_4X5_1X1"
   },
   "validation": {
-    "status": "PASS_LOCAL_PENDING_HOSTED",
+    "status": "PASS_LOCAL_AND_HOSTED",
     "local": [
       "npm run check PASS",
       "npm run test:e2e PASS 7/7",
@@ -58,8 +58,25 @@
       "npx wrangler deploy --dry-run PASS",
       "agent-browser home and technology smoke PASS"
     ],
-    "hosted": "PENDING",
-    "pr": "PENDING"
+    "hosted": {
+      "status": "PASS",
+      "reviewedHead": "8a7bac84c6a42e740688adc69a86d655f9ed73ff",
+      "governance": "PASS",
+      "ci": "PASS",
+      "hiveBridge": "PASS",
+      "cp06AssetTests": "PASS",
+      "productionBuild": "PASS",
+      "dependencyAudit": "PASS"
+    },
+    "pr": {
+      "number": 33,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/pull/33",
+      "status": "OPEN",
+      "base": "main",
+      "baseSha": "d01288967fca590029166e4b8532cdfd7fad5877",
+      "head": "8a7bac84c6a42e740688adc69a86d655f9ed73ff",
+      "merge": "NOT_EXECUTED"
+    }
   },
   "outOfScopeConfirmed": {
     "blenderMutation": false,
