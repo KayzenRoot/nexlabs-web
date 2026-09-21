@@ -22,42 +22,52 @@
     "authorizedBase": "d01288967fca590029166e4b8532cdfd7fad5877",
     "admissionHead": "d01288967fca590029166e4b8532cdfd7fad5877",
     "branch": "codex/cp07-web-3d-runtime-adaptive-fidelity",
-    "head": "d01288967fca590029166e4b8532cdfd7fad5877"
+    "head": "bf7c451f5c77a2ebada817c88fb1adb646082217"
   },
   "hive": {
-    "status": "PENDING_PREPARE",
-    "project": "PENDING",
-    "task": "PENDING",
-    "index": "PENDING",
-    "corpus": "PENDING",
-    "mcp": "PENDING"
+    "status": "READY",
+    "project": "f18993df-3b69-4d12-a43b-e61e5da6970e",
+    "task": "feaa8aea-7c31-4f3b-9ffd-f35299f0dff0",
+    "index": "COMPLETED",
+    "corpus": "COMPLETED",
+    "mcp": "TRANSPORT_CLOSED_AFTER_RETRY",
+    "apiReceipt": "HIVE prepare READY at exact head bf7c451f5c77a2ebada817c88fb1adb646082217; task digest-bound and extracted",
+    "mcpNote": "Read-only MCP connector returned Transport closed after bounded retries; no MCP PASS is claimed."
   },
   "assets": {
-    "status": "PENDING_PROMOTION",
+    "status": "PASS_PROMOTED",
     "sourceAcceptance": "artifacts/cp06/cp06-asset-acceptance.json",
-    "promotedManifest": "PENDING"
+    "promotedManifest": "artifacts/cp07/cp07-runtime-manifest.json",
+    "parity": "PASS_SHA256_AND_BYTE_PARITY"
   },
   "runtime": {
-    "threeBoundary": "PENDING_IMPLEMENTATION",
-    "semanticStateMachine": "PENDING_IMPLEMENTATION",
-    "adaptiveFidelity": "PENDING_IMPLEMENTATION",
-    "failureIsolation": "PENDING_IMPLEMENTATION",
-    "visibilityControl": "PENDING_IMPLEMENTATION",
-    "responsiveComposition": "PENDING_IMPLEMENTATION"
+    "threeBoundary": "PASS_STATIC_FIRST_SSR_FALSE",
+    "semanticStateMachine": "PASS_EXACT_CLIP_MAPPING_BOUNDED_INTRO",
+    "adaptiveFidelity": "PASS_HIGH_MEDIUM_LOW_STATIC",
+    "failureIsolation": "PASS_STATIC_SESSION_LOCK",
+    "visibilityControl": "PASS_HIDDEN_OFFSCREEN_PAUSE",
+    "responsiveComposition": "PASS_16X9_4X5_1X1"
   },
   "validation": {
-    "status": "PENDING_IMPLEMENTATION",
-    "local": "PENDING",
+    "status": "PASS_LOCAL_PENDING_HOSTED",
+    "local": [
+      "npm run check PASS",
+      "npm run test:e2e PASS 7/7",
+      "npm run security PASS",
+      "npm run validate:release PASS https://nexlabs.tech",
+      "npx wrangler deploy --dry-run PASS",
+      "agent-browser home and technology smoke PASS"
+    ],
     "hosted": "PENDING",
     "pr": "PENDING"
   },
   "outOfScopeConfirmed": {
-    "blenderMutation": false,
-    "ugasGeneration": false,
-    "deployment": false,
-    "cp08": false,
-    "brandMarkChange": false,
-    "analytics": false
+    "blenderMutation": true,
+    "ugasGeneration": true,
+    "deployment": true,
+    "cp08": true,
+    "brandMarkChange": true,
+    "analytics": true
   },
   "knownBlockers": [],
   "carriedRisks": ["BLENDER_MCP_TRANSPORT_PERSISTENT"]
