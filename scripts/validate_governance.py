@@ -918,7 +918,7 @@ if current.get("productStage") == "CP06_COMPLETE":
         fail("stale CP-05 workstation policy still blocks governed CP-07 runtime after CP-06 completion")
     if "## CP-07 runtime admission rule" not in source_hierarchy_source:
         fail("source hierarchy must define the CP-07 runtime admission boundary after CP-06 completion")
-    if "does not require Blender MCP to be live" not in workstation_source:
+    if "## Web runtime consumption boundary" not in workstation_source or "CP-07 web runtime consumption" not in workstation_source or "does not require Blender MCP to be live" not in workstation_source:
         fail("workstation policy must distinguish frozen CP-06 web consumption from new Blender mutation")
 
 governance_files = [ROOT / path for path in REQUIRED] + [ROOT / "scripts/validate_governance.py"]
