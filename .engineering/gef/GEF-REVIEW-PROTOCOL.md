@@ -32,14 +32,25 @@ When the reviewer applies a correction directly:
 
 ## Stale session policy guard
 
-When a blocked executor report cites repository policy that no longer matches protected `main`, reviewers must verify the current tracked policy first.
+When an executor report cites repository policy that no longer matches protected `main`, reviewers must verify the current tracked policy first.
 
-If the repository is already correct and the mismatch can only come from instructions cached before a sync, classify the defect as `STALE_EXECUTOR_POLICY_SNAPSHOT` rather than changing valid product policy again.
+If protected main is already correct, classify the mismatch as `STALE_EXECUTOR_POLICY_SNAPSHOT` and treat it as AUTO-REPAIR rather than a product blocker.
 
-The repair is:
-1. preserve local work and synchronize the checkout to the intended protected base;
-2. verify the current tracked governance-source fingerprints;
-3. start a fresh executor session from that synchronized checkout;
-4. re-read tracked authority and continue the same legal next action.
+Recovery order:
+1. preserve local work and synchronize to the intended protected base;
+2. re-read current tracked governance sources in the same executor session;
+3. continue immediately if the harness adopts the refreshed policy;
+4. only if the harness demonstrably continues enforcing superseded policy, restart the executor session once and continue from the synchronized checkout.
 
-Do not ask an already-stale session to override its own cached higher-priority repository instructions.
+Do not mutate valid canonical policy merely to satisfy stale cached instructions.
+
+
+## Continuity classification
+
+Review findings must be classified before verdict:
+
+- `AUTO_REPAIR`: small/deterministic/in-scope issue that reviewer or executor can fix safely now. Fix it, rerun gates, and continue.
+- `CORRECTION_REQUIRED`: product or governance defect that requires material executor work but does not require external user input.
+- `BLOCKED`: progress is impossible without external user decision, unavailable mandatory capability, secret/credential, destructive authorization, irreconcilable integrity conflict, or an unrepaired HIGH/CRITICAL issue outside the admitted correction capacity.
+
+A transient Git/HIVE/MCP/CI/policy-snapshot/branch/PR/validator condition is not `BLOCKED` by itself when a bounded repair path exists.
