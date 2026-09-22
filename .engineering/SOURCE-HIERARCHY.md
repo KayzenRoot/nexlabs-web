@@ -1,6 +1,6 @@
 # NexLabs Web Source Hierarchy
 
-Status: `CP07_IN_PROGRESS`
+Status: `CP07_COMPLETE_READY_FOR_CP08_ADMISSION`
 
 Authority is domain-specific. HIVE indexes, memories and GEF metadata accelerate work but cannot override tracked Git sources.
 
@@ -52,9 +52,13 @@ After CP-06 is complete and merged, a dedicated CP-07 Work Order + Context Lock 
 
 Persistent Blender transport issues remain a carried operational risk for future Blender edits, not a blocker to consuming already accepted CP-06 assets. UGAS generation, deployment and unrelated scope remain separately governed.
 
-## CP-07 active execution
+## CP-07 completed runtime
 
-`NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY` is active from protected main `d01288967fca590029166e4b8532cdfd7fad5877` on branch `codex/cp07-web-3d-runtime-adaptive-fidelity`, paired with `NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY`. The admitted scope is H01 web runtime consumption of the approved frozen CP-06 package; no Blender mutation, UGAS generation, deployment or CP-08 work is admitted.
+`NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY` is independently reviewed and complete. Its Context Lock is closed. The canonical runtime baseline is the static-first H01 Three.js/React Three Fiber integration consuming the approved frozen CP-06 HIGH/MED/LOW/STATIC assets with semantic state, adaptive fidelity, reduced-motion fallback, failure isolation, visibility throttling and non-home isolation.
+
+The HIVE product proof remains bound to the recorded API-ready head/task lineage. The later read-only MCP `Transport closed` condition is carried as an operational risk without any false MCP PASS claim. Reviewer corrections after the HIVE product proof are bounded, enumerated and exact-head validated.
+
+No CP-08 work is admitted until a new Work Order + Context Lock are created after protected merge/post-merge verification.
 
 
 ## Execution continuity rule
