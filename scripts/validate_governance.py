@@ -115,6 +115,9 @@ CP07_LOCK = "NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY"
 CP07_BASE = "d01288967fca590029166e4b8532cdfd7fad5877"
 CP07_SOURCE_DOCUMENT_SHA256 = "a59a9bf9a9652c503c944dcdafcd9bb03e199c79ae7f4a687b11b20755b63bcf"
 CP07_WORK_ORDER_SHA256 = "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96"
+CP07_CLOSURE_WORK_ORDER_SHA256 = "b4e37a6432599d82e0abcf98d15feccc113a5f5a8380d4ee518cb12669b54892"
+CP07_HIVE_PROOF_HEAD = "bf7c451f5c77a2ebada817c88fb1adb646082217"
+CP07_REVIEWED_HEAD = "10751005f869705a87b93027230db2a07ce76965"
 cp03_closed = current.get("lastCompletedWorkOrder") == CP03_WORK_ORDER and current.get("productStage") == "CP03_COMPLETE"
 cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED" and current.get("activeWorkOrder") == CP03_WORK_ORDER
 cp04_active = current.get("adoptionState") == "GEF_V1_CP04_ADMITTED" and current.get("activeWorkOrder") == CP04_WORK_ORDER
@@ -125,6 +128,7 @@ cp05_closed = current.get("adoptionState") == "GEF_V1_CP05_ADMITTED" and current
 cp06_closed = current.get("adoptionState") == "GEF_V1_CP06_ADMITTED" and current.get("productStage") == "CP06_COMPLETE" and current.get("reviewState") in {"CP06_COMPLETE", "CP06_ASSET_PACKAGE_APPROVED"} and current.get("lastCompletedWorkOrder") == CP06_WORK_ORDER and current.get("nextLegalAction") == "ADMIT_CP07_WITH_NEW_WORK_ORDER" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
 cp06_active = current.get("adoptionState") == "GEF_V1_CP06_ADMITTED" and current.get("productStage") in {"CP06_IN_PROGRESS", "CP06_BLOCKED"} and current.get("reviewState") in {"CP06_IN_PROGRESS", "CP06_BLOCKED"} and current.get("activeWorkOrder") == CP06_WORK_ORDER and current.get("activeContextLock") == CP06_LOCK
 cp07_active = current.get("adoptionState") == "GEF_V1_CP07_ADMITTED" and current.get("productStage") in {"CP07_IN_PROGRESS", "CP07_BLOCKED"} and current.get("reviewState") in {"CP07_IN_PROGRESS", "CP07_BLOCKED"} and current.get("activeWorkOrder") == CP07_WORK_ORDER and current.get("activeContextLock") == CP07_LOCK
+cp07_closed = current.get("adoptionState") == "GEF_V1_CP07_ADMITTED" and current.get("productStage") == "CP07_COMPLETE" and current.get("reviewState") == "CP07_COMPLETE" and current.get("lastCompletedWorkOrder") == CP07_WORK_ORDER and current.get("nextLegalAction") == "ADMIT_CP08_WITH_NEW_WORK_ORDER" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
 
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
 if manifest.get("project") != "KayzenRoot/nexlabs-web" or manifest.get("mode") != "EXISTING_PROJECT / BROWNFIELD":
@@ -149,7 +153,72 @@ for domain, path in {"PROJECT_STATE": "docs/project-brain/13-CHECKPOINT.md", "DE
     if source_bridge.get("domains", {}).get(domain) != path:
         fail(f"source bridge mismatch: {domain}")
 
-if cp07_active:
+if cp07_closed:
+    work_order = read(f".engineering/work-orders/{CP07_WORK_ORDER}.md")
+    lock = data(f".engineering/context-locks/{CP07_LOCK}.json")
+    evidence = data(f".engineering/evidence/{CP07_WORK_ORDER}.json")
+    try:
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve CP-07 closure Git state: {exc}")
+    if lock.get("lockId") != CP07_LOCK or lock.get("workOrder") != CP07_WORK_ORDER:
+        fail("CP-07 closure Work Order and Context Lock pairing mismatch")
+    if evidence.get("workOrder", {}).get("id") != CP07_WORK_ORDER or evidence.get("contextLock", {}).get("id") != CP07_LOCK:
+        fail("CP-07 closure evidence pairing mismatch")
+    expected_digest = hashlib.sha256((ROOT / f".engineering/work-orders/{CP07_WORK_ORDER}.md").read_bytes()).hexdigest()
+    if expected_digest != CP07_CLOSURE_WORK_ORDER_SHA256 or lock.get("workOrderSha256") != expected_digest or evidence.get("workOrder", {}).get("sha256") != expected_digest or evidence.get("contextLock", {}).get("workOrderSha256") != expected_digest:
+        fail("CP-07 closure Work Order digest binding mismatch")
+    if lock.get("executionWorkOrderSha256") != CP07_WORK_ORDER_SHA256 or evidence.get("workOrder", {}).get("executionSha256") != CP07_WORK_ORDER_SHA256 or evidence.get("contextLock", {}).get("executionWorkOrderSha256") != CP07_WORK_ORDER_SHA256:
+        fail("CP-07 execution Work Order digest lineage is not preserved")
+    if lock.get("status") != "CLOSED" or evidence.get("workOrder", {}).get("status") != "COMPLETED" or evidence.get("contextLock", {}).get("status") != "CLOSED" or "Status: `COMPLETED`" not in work_order:
+        fail("CP-07 closure requires COMPLETED Work Order and CLOSED Context Lock")
+    if subprocess.run(["git", "merge-base", "--is-ancestor", CP07_REVIEWED_HEAD, head], cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode != 0:
+        fail("CP-07 independently reviewed head is not an ancestor of exact Git HEAD")
+    if subprocess.run(["git", "merge-base", "--is-ancestor", CP07_HIVE_PROOF_HEAD, CP07_REVIEWED_HEAD], cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode != 0:
+        fail("CP-07 HIVE product proof head is not an ancestor of the reviewed head")
+    allowed_review_delta = {
+        ".engineering/evidence/NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY.json",
+        "components/three/ContextCoreRuntime.tsx",
+        "scripts/validate_governance.py",
+        "tests/e2e/home.spec.ts",
+        "three/quality/useAdaptiveFidelity.ts",
+    }
+    try:
+        review_delta = set(filter(None, subprocess.check_output(["git", "diff", "--name-only", CP07_HIVE_PROOF_HEAD, CP07_REVIEWED_HEAD], cwd=ROOT, text=True).splitlines()))
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve CP-07 reviewer correction delta: {exc}")
+    if review_delta != allowed_review_delta:
+        fail(f"CP-07 reviewer correction delta mismatch: {sorted(review_delta)!r}")
+    if lock.get("candidateHead") != CP07_HIVE_PROOF_HEAD or lock.get("reviewedCandidateHead") != CP07_REVIEWED_HEAD or lock.get("reviewReceiptHead") != CP07_REVIEWED_HEAD:
+        fail("CP-07 closure Context Lock proof/review lineage mismatch")
+    if evidence.get("git", {}).get("hiveProductProofHead") != CP07_HIVE_PROOF_HEAD or evidence.get("git", {}).get("reviewedCandidateHead") != CP07_REVIEWED_HEAD or evidence.get("git", {}).get("reviewReceiptHead") != CP07_REVIEWED_HEAD:
+        fail("CP-07 closure evidence proof/review lineage mismatch")
+    hive = evidence.get("hive", {})
+    if hive.get("status") != "READY_WITH_MCP_TRANSPORT_RISK" or hive.get("productProofHead") != CP07_HIVE_PROOF_HEAD or hive.get("project") != "f18993df-3b69-4d12-a43b-e61e5da6970e" or hive.get("task") != "feaa8aea-7c31-4f3b-9ffd-f35299f0dff0" or hive.get("executionWorkOrderSha256") != CP07_WORK_ORDER_SHA256 or hive.get("index") != "COMPLETED" or hive.get("corpus") != "COMPLETED":
+        fail("CP-07 closure HIVE API proof is incomplete")
+    if hive.get("mcp") != "TRANSPORT_CLOSED_AFTER_RETRY" or hive.get("mcpPassClaimed") is not False:
+        fail("CP-07 closure must preserve truthful non-PASS HIVE MCP transport evidence")
+    if evidence.get("verdict") != "APPROVED" or evidence.get("reviewState") != "CP07_COMPLETE":
+        fail("CP-07 closure evidence is not APPROVED/CP07_COMPLETE")
+    review = evidence.get("independentReview", {})
+    if review.get("status") != "APPROVED" or review.get("reviewedHead") != CP07_REVIEWED_HEAD or review.get("Governance", {}).get("runId") != 35670656790 or review.get("Governance", {}).get("status") != "PASS" or review.get("quality", {}).get("runId") != 35670656628 or review.get("quality", {}).get("status") != "PASS":
+        fail("CP-07 independent review receipt mismatch")
+    runtime = evidence.get("runtime", {})
+    for field in ("threeBoundary", "semanticStateMachine", "adaptiveFidelity", "failureIsolation", "visibilityControl", "responsiveComposition"):
+        if not str(runtime.get(field, "")).startswith("PASS"):
+            fail(f"CP-07 runtime acceptance missing PASS: {field}")
+    if evidence.get("assets", {}).get("status") != "PASS_PROMOTED" or evidence.get("assets", {}).get("parity") != "PASS_SHA256_AND_BYTE_PARITY":
+        fail("CP-07 promoted asset parity is not PASS")
+    if evidence.get("knownBlockers") != [] or evidence.get("outOfScopeConfirmed", {}).get("blenderMutation") is not False or evidence.get("outOfScopeConfirmed", {}).get("ugasGeneration") is not False or evidence.get("outOfScopeConfirmed", {}).get("deployment") is not False or evidence.get("outOfScopeConfirmed", {}).get("cp08") is not False:
+        fail("CP-07 closure blockers/scope boundaries are inconsistent")
+    if "HIVE_MCP_TRANSPORT_CLOSED_AFTER_RETRY" not in evidence.get("carriedRisks", []) or "HIVE_MCP_TRANSPORT_CLOSED_AFTER_RETRY" not in lock.get("carriedRisks", []):
+        fail("CP-07 closure must carry forward HIVE MCP transport risk")
+    hosted = evidence.get("hostedClosure", {})
+    if hosted.get("status") != "PENDING_VERIFY_EXTERNALLY" or hosted.get("merge") != "NOT_EXECUTED" or hosted.get("postMergeChecks") != "NOT_CLAIMED":
+        fail("CP-07 closure hosted evidence must remain non-self-referential before merge")
+    if "Status: `CP07_COMPLETE_READY_FOR_CP08_ADMISSION`" not in read(".engineering/SOURCE-HIERARCHY.md") or section(canonical, "## STATUS") != "CP-07 COMPLETE":
+        fail("CP-07 closure canonical lifecycle documents are incomplete")
+elif cp07_active:
     work_order = read(f".engineering/work-orders/{CP07_WORK_ORDER}.md")
     lock = data(f".engineering/context-locks/{CP07_LOCK}.json")
     evidence = data(f".engineering/evidence/{CP07_WORK_ORDER}.json")
@@ -992,7 +1061,16 @@ for path in governance_files:
         fail(f"machine-specific absolute path in {path.relative_to(ROOT)}")
 
 adoption_state = current.get("adoptionState")
-if cp07_active:
+if cp07_closed:
+    if adoption_state != "GEF_V1_CP07_ADMITTED":
+        fail("invalid CP-07 completion adoption state")
+    if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:
+        fail("completed CP-07 cannot retain an active Work Order or Context Lock")
+    if current.get("productImplementationAuthorized") is not False or current.get("nextLegalAction") != "ADMIT_CP08_WITH_NEW_WORK_ORDER":
+        fail("completed CP-07 must disable product implementation and point to CP-08 admission")
+    if lock.get("status") != "CLOSED" or evidence.get("verdict") != "APPROVED" or "Status: `COMPLETED`" not in work_order:
+        fail("completed CP-07 requires APPROVED evidence, COMPLETED Work Order and CLOSED Context Lock")
+elif cp07_active:
     if adoption_state != "GEF_V1_CP07_ADMITTED":
         fail("invalid CP-07 adoption state")
     if current.get("activeWorkOrder") != CP07_WORK_ORDER or current.get("activeContextLock") != CP07_LOCK:
