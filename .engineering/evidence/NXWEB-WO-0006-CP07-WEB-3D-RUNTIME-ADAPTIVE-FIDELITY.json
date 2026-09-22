@@ -1,7 +1,7 @@
 {
   "schemaVersion": "nexlabs-web-cp07-evidence-v1",
-  "verdict": "IN_PROGRESS",
-  "reviewState": "CP07_IN_PROGRESS",
+  "verdict": "APPROVED",
+  "reviewState": "CP07_COMPLETE",
   "sourceDocument": {
     "name": "NEXLABS-CP07-ONE-SHOT-AUTOREPAIR-EXECUTION.pdf",
     "sha256": "a59a9bf9a9652c503c944dcdafcd9bb03e199c79ae7f4a687b11b20755b63bcf"
@@ -9,30 +9,49 @@
   "workOrder": {
     "id": "NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY",
     "path": ".engineering/work-orders/NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY.md",
-    "status": "IN_PROGRESS",
-    "sha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96"
+    "status": "COMPLETED",
+    "sha256": "b4e37a6432599d82e0abcf98d15feccc113a5f5a8380d4ee518cb12669b54892",
+    "executionSha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96"
   },
   "contextLock": {
     "id": "NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY",
     "path": ".engineering/context-locks/NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY.json",
-    "status": "ACTIVE",
-    "workOrderSha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96"
+    "status": "CLOSED",
+    "workOrderSha256": "b4e37a6432599d82e0abcf98d15feccc113a5f5a8380d4ee518cb12669b54892",
+    "executionWorkOrderSha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96"
   },
   "git": {
     "authorizedBase": "d01288967fca590029166e4b8532cdfd7fad5877",
     "admissionHead": "d01288967fca590029166e4b8532cdfd7fad5877",
     "branch": "codex/cp07-web-3d-runtime-adaptive-fidelity",
-    "head": "8a7bac84c6a42e740688adc69a86d655f9ed73ff"
+    "hiveProductProofHead": "bf7c451f5c77a2ebada817c88fb1adb646082217",
+    "initialHostedRuntimeHead": "8a7bac84c6a42e740688adc69a86d655f9ed73ff",
+    "reviewedCandidateHead": "10751005f869705a87b93027230db2a07ce76965",
+    "reviewReceiptHead": "10751005f869705a87b93027230db2a07ce76965",
+    "reviewerCorrectionFiles": [
+      ".engineering/evidence/NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY.json",
+      "components/three/ContextCoreRuntime.tsx",
+      "scripts/validate_governance.py",
+      "tests/e2e/home.spec.ts",
+      "three/quality/useAdaptiveFidelity.ts"
+    ]
   },
   "hive": {
-    "status": "READY",
+    "status": "READY_WITH_MCP_TRANSPORT_RISK",
     "project": "f18993df-3b69-4d12-a43b-e61e5da6970e",
     "task": "feaa8aea-7c31-4f3b-9ffd-f35299f0dff0",
+    "executionWorkOrderSha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96",
+    "productProofHead": "bf7c451f5c77a2ebada817c88fb1adb646082217",
     "index": "COMPLETED",
     "corpus": "COMPLETED",
     "mcp": "TRANSPORT_CLOSED_AFTER_RETRY",
+    "mcpPassClaimed": false,
     "apiReceipt": "HIVE prepare READY at exact head bf7c451f5c77a2ebada817c88fb1adb646082217; task digest-bound and extracted",
-    "mcpNote": "Read-only MCP connector returned Transport closed after bounded retries; no MCP PASS is claimed."
+    "acceptanceBasis": [
+      "HIVE API project/task/index/corpus proof at product proof head",
+      "exact-head HIVE bridge tests on final reviewed head",
+      "bounded reviewer correction lineage independently validated by Governance and quality"
+    ]
   },
   "assets": {
     "status": "PASS_PROMOTED",
@@ -49,7 +68,7 @@
     "responsiveComposition": "PASS_16X9_4X5_1X1"
   },
   "validation": {
-    "status": "PASS_LOCAL_AND_HOSTED",
+    "status": "PASS_REVIEWED_HEAD",
     "local": [
       "npm run check PASS",
       "npm run test:e2e PASS 7/7",
@@ -60,9 +79,17 @@
     ],
     "hosted": {
       "status": "PASS",
-      "reviewedHead": "8a7bac84c6a42e740688adc69a86d655f9ed73ff",
-      "governance": "PASS",
-      "ci": "PASS",
+      "reviewedHead": "10751005f869705a87b93027230db2a07ce76965",
+      "Governance": {
+        "status": "PASS",
+        "runId": 35670656790,
+        "runNumber": 122
+      },
+      "quality": {
+        "status": "PASS",
+        "runId": 35670656628,
+        "runNumber": 159
+      },
       "hiveBridge": "PASS",
       "cp06AssetTests": "PASS",
       "productionBuild": "PASS",
@@ -74,7 +101,7 @@
       "status": "OPEN",
       "base": "main",
       "baseSha": "d01288967fca590029166e4b8532cdfd7fad5877",
-      "head": "8a7bac84c6a42e740688adc69a86d655f9ed73ff",
+      "reviewedHead": "10751005f869705a87b93027230db2a07ce76965",
       "merge": "NOT_EXECUTED"
     }
   },
@@ -87,5 +114,39 @@
     "analytics": false
   },
   "knownBlockers": [],
-  "carriedRisks": ["BLENDER_MCP_TRANSPORT_PERSISTENT"]
+  "carriedRisks": [
+    "BLENDER_MCP_TRANSPORT_PERSISTENT",
+    "HIVE_MCP_TRANSPORT_CLOSED_AFTER_RETRY"
+  ],
+  "independentReview": {
+    "status": "APPROVED",
+    "reviewedHead": "10751005f869705a87b93027230db2a07ce76965",
+    "Governance": {
+      "status": "PASS",
+      "runId": 35670656790,
+      "runNumber": 122,
+      "head": "10751005f869705a87b93027230db2a07ce76965"
+    },
+    "quality": {
+      "status": "PASS",
+      "runId": 35670656628,
+      "runNumber": 159,
+      "head": "10751005f869705a87b93027230db2a07ce76965"
+    },
+    "directCorrections": [
+      "pause semantic progression while hero is offscreen/paused",
+      "stop AFC sampling loop while paused or static-failure conditions apply",
+      "prove no-JS fallback and reduced-motion zero-model-request behavior",
+      "repair lint regression caused by the first pause implementation"
+    ]
+  },
+  "hostedClosure": {
+    "status": "PENDING_VERIFY_EXTERNALLY",
+    "reviewedHead": "10751005f869705a87b93027230db2a07ce76965",
+    "closureHead": "PENDING",
+    "Governance": "PENDING",
+    "quality": "PENDING",
+    "merge": "NOT_EXECUTED",
+    "postMergeChecks": "NOT_CLAIMED"
+  }
 }
