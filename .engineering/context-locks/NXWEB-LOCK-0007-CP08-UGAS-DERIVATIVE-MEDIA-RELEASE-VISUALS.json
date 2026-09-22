@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "nexlabs-web-context-lock-v1",
+  "lockId": "NXWEB-LOCK-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS",
+  "workOrder": "NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS",
+  "status": "OPEN",
+  "authorizedBase": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+  "resumeBase": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+  "resumeBaseRole": "protected_main_cp07_post_merge_verified",
+  "admissionHead": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+  "candidateHead": "8226a2a268eb8abfe12e6d4e7de7b7ad17100b52",
+  "candidateHeadRole": "HIVE_PREPARED_IMPLEMENTATION_CANDIDATE",
+  "planningSource": "b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "planningCache": ".engineering/planning-snapshots/nexlabs-startup/b541e802472a3acc75a3a8ebd3818d33de8a316f/",
+  "planningManifestSha256": "97d09a4af77e2addcbad49d321c33437db4ec6ad46ebfb00d9ec28189087601f",
+  "sourceDocument": {
+    "name": "NEXLABS-CP08-DERIVATIVE-MEDIA-RELEASE-VISUALS-WORK-ORDER.pdf",
+    "sha256": "b89cc978f695cd990ae3d4d8a473af5df53b47ea161411d7432e782c65718990"
+  },
+  "gef": {
+    "version": "1.0.0",
+    "releaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+  },
+  "hive": {
+    "version": "1.0.0",
+    "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+    "status": "READY",
+    "projectId": "f18993df-3b69-4d12-a43b-e61e5da6970e",
+    "taskId": "e83ff4a0-deda-4c54-9b1c-0b77aa1c5482",
+    "executionWorkOrderSha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e",
+    "preparationHead": "8226a2a268eb8abfe12e6d4e7de7b7ad17100b52",
+    "index": "COMPLETED",
+    "corpus": "COMPLETED",
+    "extractedTextAvailable": true,
+    "coreContext": "PASS_BOUNDED",
+    "coreContextDisclosureRequested": "L1",
+    "coreContextDisclosureEffective": "L3",
+    "coreContextTokens": 3826,
+    "coreContextBudgetTokens": 5248,
+    "coreContextOutputFingerprint": "894aa5ad5fbf9a93743f73aa0a5f178e34f8524f791d3e57f5be99cd6b80cb96",
+    "mcp": "PASS",
+    "mcpPassClaimed": true,
+    "mcpReceipts": ["project.list", "project.status", "context.build"]
+  },
+  "workOrderSha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e",
+  "executionWorkOrderSha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e",
+  "scope": {
+    "outputs": ["default-og", "hive-og", "technology-og", "github-social-preview", "responsive-hero-derivatives", "generic-social-template"],
+    "formats": ["PNG", "WEBP", "AVIF", "SVG"],
+    "ugasProviderStartup": false,
+    "ugasGeneration": false,
+    "release": false,
+    "deployment": false,
+    "merge": false,
+    "cp09": false
+  },
+  "lifecycle": "PRODUCTION_OR_OPTIMIZED_NOT_RELEASED",
+  "externalInputs": [],
+  "outOfScope": ["UGAS generation", "provider startup", "identity changes", "deployment", "merge", "CP-09"],
+  "carriedRisks": []
+}

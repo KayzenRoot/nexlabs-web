@@ -23,6 +23,7 @@
 .visual-slot-copy > span:last-child { color: var(--nx-semantic-text-secondary); }
 .context-core-boundary { aspect-ratio: 1.25; background: var(--nx-component-card-surface); border: var(--nx-border-thin) solid var(--nx-component-card-border); box-shadow: var(--nx-shadow-soft); isolation: isolate; overflow: hidden; position: relative; }
 .context-core-static, .context-core-runtime { inset: 0; position: absolute; }
+.context-core-static-picture { inset: 0; position: absolute; }
 .context-core-static { opacity: 1; transition: opacity var(--nx-motion-duration-slow) var(--nx-motion-easing-precision); }
 .context-core-boundary.is-live .context-core-static { opacity: .16; }
 .context-core-static-image { object-fit: cover; }

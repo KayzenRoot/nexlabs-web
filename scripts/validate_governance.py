@@ -28,6 +28,9 @@ REQUIRED = (
     ".engineering/gef/GEF-POLICY.md", ".engineering/gef/GEF-PROJECT-PROFILE.json", ".engineering/gef/GEF-REVIEW-PROTOCOL.md",
     ".engineering/gef/GEF-SOURCE-BRIDGE.json", ".engineering/work-orders/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.md",
     ".engineering/context-locks/NXWEB-LOCK-0001-CP02-GEF-HIVE-ADOPTION.json", ".engineering/evidence/NXWEB-WO-0001-CP02-GEF-HIVE-ADOPTION.json",
+    ".engineering/work-orders/NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS.md",
+    ".engineering/context-locks/NXWEB-LOCK-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS.json",
+    ".engineering/evidence/NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS.json",
     ".engineering/evidence/CP05-BLENDER-WORKSTATION-TRANSITION.json", "docs/WORKSTATION-MODE.md",
     "docs/project-brain/00-README-UPLOAD-ORDER.md", "docs/project-brain/01-PROJECT-OVERVIEW.md", "docs/project-brain/02-REQUIREMENTS.md",
     "docs/project-brain/03-SCOPE.md", "docs/project-brain/04-ARCHITECTURE.md", "docs/project-brain/10-SECURITY-GOVERNANCE.md",
@@ -118,6 +121,11 @@ CP07_WORK_ORDER_SHA256 = "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a
 CP07_CLOSURE_WORK_ORDER_SHA256 = "b4e37a6432599d82e0abcf98d15feccc113a5f5a8380d4ee518cb12669b54892"
 CP07_HIVE_PROOF_HEAD = "bf7c451f5c77a2ebada817c88fb1adb646082217"
 CP07_REVIEWED_HEAD = "10751005f869705a87b93027230db2a07ce76965"
+CP07_MERGE_COMMIT = "d971047d25dc01e7338aba369ea1bd7cf7452490"
+CP08_WORK_ORDER = "NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS"
+CP08_LOCK = "NXWEB-LOCK-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS"
+CP08_BASE = CP07_MERGE_COMMIT
+CP08_SOURCE_DOCUMENT_SHA256 = "b89cc978f695cd990ae3d4d8a473af5df53b47ea161411d7432e782c65718990"
 cp03_closed = current.get("lastCompletedWorkOrder") == CP03_WORK_ORDER and current.get("productStage") == "CP03_COMPLETE"
 cp03_active = current.get("adoptionState") == "GEF_V1_CP03_ADMITTED" and current.get("activeWorkOrder") == CP03_WORK_ORDER
 cp04_active = current.get("adoptionState") == "GEF_V1_CP04_ADMITTED" and current.get("activeWorkOrder") == CP04_WORK_ORDER
@@ -129,6 +137,7 @@ cp06_closed = current.get("adoptionState") == "GEF_V1_CP06_ADMITTED" and current
 cp06_active = current.get("adoptionState") == "GEF_V1_CP06_ADMITTED" and current.get("productStage") in {"CP06_IN_PROGRESS", "CP06_BLOCKED"} and current.get("reviewState") in {"CP06_IN_PROGRESS", "CP06_BLOCKED"} and current.get("activeWorkOrder") == CP06_WORK_ORDER and current.get("activeContextLock") == CP06_LOCK
 cp07_active = current.get("adoptionState") == "GEF_V1_CP07_ADMITTED" and current.get("productStage") in {"CP07_IN_PROGRESS", "CP07_BLOCKED"} and current.get("reviewState") in {"CP07_IN_PROGRESS", "CP07_BLOCKED"} and current.get("activeWorkOrder") == CP07_WORK_ORDER and current.get("activeContextLock") == CP07_LOCK
 cp07_closed = current.get("adoptionState") == "GEF_V1_CP07_ADMITTED" and current.get("productStage") == "CP07_COMPLETE" and current.get("reviewState") == "CP07_COMPLETE" and current.get("lastCompletedWorkOrder") == CP07_WORK_ORDER and current.get("nextLegalAction") == "ADMIT_CP08_WITH_NEW_WORK_ORDER" and current.get("activeWorkOrder") in {None, ""} and current.get("activeContextLock") in {None, ""}
+cp08_active = current.get("adoptionState") == "GEF_V1_CP08_ADMITTED" and current.get("productStage") in {"CP08_IN_PROGRESS", "CP08_BLOCKED"} and current.get("reviewState") in {"CP08_IN_PROGRESS", "CP08_READY_FOR_REVIEW", "CP08_BLOCKED"} and current.get("activeWorkOrder") == CP08_WORK_ORDER and current.get("activeContextLock") == CP08_LOCK
 
 manifest = data(".engineering/BOOTSTRAP-MANIFEST.json")
 if manifest.get("project") != "KayzenRoot/nexlabs-web" or manifest.get("mode") != "EXISTING_PROJECT / BROWNFIELD":
@@ -153,7 +162,49 @@ for domain, path in {"PROJECT_STATE": "docs/project-brain/13-CHECKPOINT.md", "DE
     if source_bridge.get("domains", {}).get(domain) != path:
         fail(f"source bridge mismatch: {domain}")
 
-if cp07_closed:
+if cp08_active:
+    work_order = read(f".engineering/work-orders/{CP08_WORK_ORDER}.md")
+    lock = data(f".engineering/context-locks/{CP08_LOCK}.json")
+    evidence = data(f".engineering/evidence/{CP08_WORK_ORDER}.json")
+    try:
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+        branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=ROOT, text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"cannot resolve CP-08 Git state: {exc}")
+    branch = branch or os.getenv("GITHUB_HEAD_REF") or os.getenv("GITHUB_REF_NAME") or ""
+    if branch != "codex/cp08-derivative-media-release-visuals":
+        fail("CP-08 must execute on codex/cp08-derivative-media-release-visuals")
+    if lock.get("lockId") != CP08_LOCK or lock.get("workOrder") != CP08_WORK_ORDER or evidence.get("workOrder", {}).get("id") != CP08_WORK_ORDER or evidence.get("contextLock", {}).get("id") != CP08_LOCK:
+        fail("CP-08 Work Order, Context Lock and evidence pairing mismatch")
+    if lock.get("authorizedBase") != CP08_BASE or lock.get("resumeBase") != CP08_BASE or lock.get("admissionHead") != CP08_BASE or evidence.get("git", {}).get("authorizedBase") != CP08_BASE:
+        fail("CP-08 protected base lineage mismatch")
+    if subprocess.run(["git", "merge-base", "--is-ancestor", CP08_BASE, head], cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode != 0:
+        fail("CP-08 protected base is not an ancestor of exact Git HEAD")
+    expected_digest = hashlib.sha256((ROOT / f".engineering/work-orders/{CP08_WORK_ORDER}.md").read_bytes()).hexdigest()
+    if lock.get("workOrderSha256") != expected_digest or evidence.get("workOrder", {}).get("sha256") != expected_digest or evidence.get("contextLock", {}).get("workOrderSha256") != expected_digest:
+        fail("CP-08 Work Order digest binding mismatch")
+    if lock.get("sourceDocument", {}).get("sha256") != CP08_SOURCE_DOCUMENT_SHA256 or evidence.get("sourceDocument", {}).get("sha256") != CP08_SOURCE_DOCUMENT_SHA256:
+        fail("CP-08 source document digest binding mismatch")
+    if lock.get("status") not in {"OPEN", "ACTIVE"} or evidence.get("contextLock", {}).get("status") not in {"OPEN", "ACTIVE"} or "Status: `IN_PROGRESS`" not in work_order or evidence.get("workOrder", {}).get("status") != "IN_PROGRESS":
+        fail("CP-08 lifecycle requires an active lock and IN_PROGRESS Work Order")
+    if current.get("productImplementationAuthorized") is not True or current.get("lastCompletedWorkOrder") != CP07_WORK_ORDER:
+        fail("CP-08 GEF state must authorize only the active increment and retain CP-07 completion")
+    if current.get("nextLegalAction") not in {"PREPARE_HIVE_TASK", "EXECUTE_CP08", "VALIDATE_CP08", "PUBLISH_CP08_PR", "WAIT_FOR_CP08_CHECKS", "REQUEST_INDEPENDENT_REVIEW", "REPAIR_CP08"}:
+        fail("CP-08 GEF nextLegalAction is outside its admitted lifecycle")
+    for heading in ("## OBJECTIVE", "## AUTHORITY / PREFLIGHT", "## SCOPE", "## OUT OF SCOPE / HARD BOUNDARIES", "## ACCEPTANCE CRITERIA", "## REQUIRED VALIDATION", "## DELIVERABLES / STOP CONDITION"):
+        if heading not in work_order:
+            fail(f"CP-08 Work Order missing section: {heading}")
+    boundaries = evidence.get("boundaries", {})
+    if boundaries.get("generationProviderReady") is not False or boundaries.get("generationAuthorized") is not False or boundaries.get("providerStarted") is not False or boundaries.get("generationPerformed") is not False or boundaries.get("released") is not False or boundaries.get("deployed") is not False or boundaries.get("merged") is not False or boundaries.get("cp09Started") is not False or boundaries.get("externalInputs") != []:
+        fail("CP-08 evidence crosses a forbidden generation/release/deployment/merge/CP-09 boundary")
+    parent = data(f".engineering/evidence/{CP07_WORK_ORDER}.json").get("hostedClosure", {})
+    if parent.get("status") != "POST_MERGE_VERIFIED" or parent.get("merge") != "MERGED" or parent.get("mergeCommitSha") != CP07_MERGE_COMMIT or parent.get("closureHead") != CP07_MERGE_COMMIT or parent.get("postMergeChecks") != "PASS":
+        fail("CP-08 requires verified CP-07 protected merge and post-merge checks")
+    if parent.get("Governance", {}).get("status") != "PASS" or parent.get("Governance", {}).get("runId") != 35671341225 or parent.get("Governance", {}).get("head") != CP07_MERGE_COMMIT or parent.get("quality", {}).get("status") != "PASS" or parent.get("quality", {}).get("runId") != 35671341040 or parent.get("quality", {}).get("head") != CP07_MERGE_COMMIT:
+        fail("CP-07 post-merge exact-head checks are not recorded")
+    if "Status: `CP08_IN_PROGRESS`" not in read(".engineering/SOURCE-HIERARCHY.md") or section(canonical, "## STATUS") != "CP-08 IN PROGRESS":
+        fail("CP-08 canonical lifecycle state is incomplete")
+elif cp07_closed:
     work_order = read(f".engineering/work-orders/{CP07_WORK_ORDER}.md")
     lock = data(f".engineering/context-locks/{CP07_LOCK}.json")
     evidence = data(f".engineering/evidence/{CP07_WORK_ORDER}.json")
@@ -214,8 +265,8 @@ if cp07_closed:
     if "HIVE_MCP_TRANSPORT_CLOSED_AFTER_RETRY" not in evidence.get("carriedRisks", []) or "HIVE_MCP_TRANSPORT_CLOSED_AFTER_RETRY" not in lock.get("carriedRisks", []):
         fail("CP-07 closure must carry forward HIVE MCP transport risk")
     hosted = evidence.get("hostedClosure", {})
-    if hosted.get("status") != "PENDING_VERIFY_EXTERNALLY" or hosted.get("merge") != "NOT_EXECUTED" or hosted.get("postMergeChecks") != "NOT_CLAIMED":
-        fail("CP-07 closure hosted evidence must remain non-self-referential before merge")
+    if hosted.get("status") != "POST_MERGE_VERIFIED" or hosted.get("merge") != "MERGED" or hosted.get("mergeCommitSha") != CP07_MERGE_COMMIT or hosted.get("postMergeChecks") != "PASS":
+        fail("CP-07 closure must reflect its verified protected merge and post-merge checks")
     if "Status: `CP07_COMPLETE_READY_FOR_CP08_ADMISSION`" not in read(".engineering/SOURCE-HIERARCHY.md") or section(canonical, "## STATUS") != "CP-07 COMPLETE":
         fail("CP-07 closure canonical lifecycle documents are incomplete")
 elif cp07_active:
@@ -1061,7 +1112,29 @@ for path in governance_files:
         fail(f"machine-specific absolute path in {path.relative_to(ROOT)}")
 
 adoption_state = current.get("adoptionState")
-if cp07_closed:
+if cp08_active:
+    if adoption_state != "GEF_V1_CP08_ADMITTED" or current.get("activeWorkOrder") != CP08_WORK_ORDER or current.get("activeContextLock") != CP08_LOCK:
+        fail("active CP-08 must retain its Work Order and Context Lock")
+    if lock.get("status") not in {"OPEN", "ACTIVE"}:
+        fail("active CP-08 requires an OPEN or ACTIVE Context Lock")
+    hive = evidence.get("hive", {})
+    if hive.get("status") not in {"READY", "READY_WITH_MCP_TRANSPORT_RISK"} or hive.get("project") != lock.get("hive", {}).get("projectId") or not hive.get("task") or hive.get("executionWorkOrderSha256") != expected_digest or hive.get("index") != "COMPLETED" or hive.get("corpus") != "COMPLETED" or hive.get("extractedTextAvailable") is not True:
+        fail("CP-08 HIVE API task/index/corpus and exact Work Order digest proof is incomplete")
+    if hive.get("coreContext") != "PASS_BOUNDED":
+        fail("CP-08 requires bounded HIVE Core context proof")
+    if hive.get("mcp") == "PASS":
+        if hive.get("mcpPassClaimed") is not True:
+            fail("CP-08 HIVE MCP PASS must be explicitly evidenced")
+    elif hive.get("mcp") == "TRANSPORT_CLOSED_AFTER_RETRY":
+        if hive.get("status") != "READY_WITH_MCP_TRANSPORT_RISK" or hive.get("mcpPassClaimed") is not False or hive.get("onlyReadOnlyMcpTransportFailed") is not True:
+            fail("CP-08 degraded-safe HIVE MCP evidence is not bounded or truthful")
+    else:
+        fail("CP-08 HIVE MCP status is neither verified PASS nor admitted read-only transport degradation")
+    if lock.get("hive", {}).get("taskId") != hive.get("task") or lock.get("hive", {}).get("executionWorkOrderSha256") != expected_digest:
+        fail("CP-08 Context Lock HIVE task/digest binding mismatch")
+    if "Status: `IN_PROGRESS`" not in work_order:
+        fail("active CP-08 requires an IN_PROGRESS Work Order")
+elif cp07_closed:
     if adoption_state != "GEF_V1_CP07_ADMITTED":
         fail("invalid CP-07 completion adoption state")
     if current.get("activeWorkOrder") not in {None, ""} or current.get("activeContextLock") not in {None, ""}:

@@ -32,12 +32,14 @@
     "validate:links": "node scripts/validate-links.mjs",
     "validate:assets": "node scripts/validate-assets.mjs",
     "validate:cp07": "python scripts/cp07/validate_runtime.py",
+    "validate:cp08": "python scripts/cp08/validate_media.py",
     "validate:governance": "python scripts/validate_governance.py",
+    "test:cp08": "python -m unittest discover -s tests -p \"test_cp08*.py\" -v",
     "hive:prepare": "python scripts/hive_prepare.py",
     "validate:release": "node scripts/validate-release.mjs",
     "report:bundle": "node scripts/report-bundle.mjs",
     "security": "node scripts/security-audit.mjs",
-    "check": "node scripts/run-sequence.mjs typecheck lint test validate validate:cp07 validate:governance build",
+    "check": "node scripts/run-sequence.mjs typecheck lint test test:cp08 validate validate:cp07 validate:cp08 validate:governance build",
     "ci": "npm run check"
   },
   "dependencies": {

@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "nexlabs-web-cp08-evidence-v1",
+  "verdict": "IN_PROGRESS",
+  "reviewState": "CP08_IN_PROGRESS",
+  "sourceDocument": {
+    "name": "NEXLABS-CP08-DERIVATIVE-MEDIA-RELEASE-VISUALS-WORK-ORDER.pdf",
+    "sha256": "b89cc978f695cd990ae3d4d8a473af5df53b47ea161411d7432e782c65718990"
+  },
+  "workOrder": {
+    "id": "NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS",
+    "path": ".engineering/work-orders/NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS.md",
+    "status": "IN_PROGRESS",
+    "sha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e"
+  },
+  "contextLock": {
+    "id": "NXWEB-LOCK-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS",
+    "path": ".engineering/context-locks/NXWEB-LOCK-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS.json",
+    "status": "OPEN",
+    "workOrderSha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e"
+  },
+  "git": {
+    "authorizedBase": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+    "admissionHead": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+    "branch": "codex/cp08-derivative-media-release-visuals",
+    "hivePreparationHead": "8226a2a268eb8abfe12e6d4e7de7b7ad17100b52",
+    "candidateHead": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1",
+    "candidateHeadRole": "HOSTED_QUALIFIED_PR_HEAD"
+  },
+  "hive": {
+    "status": "READY",
+    "project": "f18993df-3b69-4d12-a43b-e61e5da6970e",
+    "task": "e83ff4a0-deda-4c54-9b1c-0b77aa1c5482",
+    "executionWorkOrderSha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e",
+    "preparationHead": "8226a2a268eb8abfe12e6d4e7de7b7ad17100b52",
+    "taskIntakeStatus": "READY",
+    "taskReused": true,
+    "index": "COMPLETED",
+    "corpus": "COMPLETED",
+    "extractedTextAvailable": true,
+    "coreContext": "PASS_BOUNDED",
+    "coreContextReceipt": {
+      "tool": "context.build",
+      "requestedDisclosureLevel": "L1",
+      "effectiveDisclosureLevel": "L3",
+      "topK": 5,
+      "checkpointFirst": true,
+      "budgetSatisfied": true,
+      "estimatedTokens": 3826,
+      "effectiveBudgetTokens": 5248,
+      "outputFingerprint": "894aa5ad5fbf9a93743f73aa0a5f178e34f8524f791d3e57f5be99cd6b80cb96"
+    },
+    "mcp": "PASS",
+    "mcpPassClaimed": true,
+    "mcpReceipts": ["project.list", "project.status", "context.build"],
+    "apiVersionObserved": "1.0.2",
+    "recoveredTransient": "HIVE git inspection/index status error recovered by successful bootstrap and preparation retry"
+  },
+  "assets": {
+    "status": "PASS",
+    "manifest": "artifacts/cp08/cp08-asset-manifest.json",
+    "manifestSha256": "b543f062789ec57dfab62c3e8f71643d65adb664f7459d8d23ad7b1f14849f79",
+    "sizeReport": "artifacts/cp08/cp08-size-report.md",
+    "sizeReportSha256": "486b9a524c75e49c5585996a0e504e3a3451f729d3e41f011645f3a1ffe73094",
+    "provenance": "PASS_BR12_ALL_12_OUTPUTS",
+    "sourceParity": "PASS_SOURCE_HASH_AND_BYTE_PARITY",
+    "metadataLocalAssets": "PASS",
+    "productionOrOptimizedOutputCount": 12,
+    "releaseStatus": "NOT_RELEASED"
+  },
+  "qualityGates": {
+    "UG1": "PASS",
+    "UG2": "PASS",
+    "UG3": "PASS",
+    "UG4": "PASS",
+    "UG5": "PASS",
+    "UG6": "PASS",
+    "UG7": "PASS",
+    "UG8": "PASS",
+    "UG9": "PASS",
+    "UG10": "PASS",
+    "machineReport": "artifacts/cp08/cp08-gate-report.json",
+    "machineReportSha256": "e57611e1e92a5b6d2267d234264656f59dd29a24d03db279f8cdfcf422450e0e",
+    "humanReport": "artifacts/cp08/cp08-gate-report.md"
+  },
+  "validation": {
+    "status": "HOSTED_PASS_AWAITING_INDEPENDENT_REVIEW",
+    "local": [
+      {"command": "python -m py_compile scripts/validate_governance.py scripts/hive_bootstrap.py scripts/hive_prepare.py scripts/hive_mcp.py scripts/cp08/generate_media.py scripts/cp08/validate_media.py", "status": "PASS", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      {"command": "python scripts/cp08/generate_media.py and python scripts/cp08/validate_media.py", "status": "PASS", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      {"command": "python -m unittest discover -s tests -p test_cp08*.py -v", "status": "PASS_4_TESTS", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      {"command": "python -m unittest discover -s tests -p test_hive*.py -v", "status": "PASS_17_TESTS", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      {"command": "python -m unittest discover -s tests -p test_cp06*.py -v and python scripts/cp06/validate_assets.py", "status": "PASS_4_TESTS_AND_VALIDATOR", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      {"command": "npm run check", "status": "PASS_47_TESTS_ALL_CHECKS_AND_BUILD", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      {"command": "npm run test:e2e", "status": "PASS_8_TESTS", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      {"command": "npm run security", "status": "PASS_NO_UNAPPROVED_HIGH_CRITICAL", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      {"command": "npm run validate:release with NEXLABS_ENV=PRODUCTION and NEXT_PUBLIC_SITE_ORIGIN=https://nexlabs.tech", "status": "PASS", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      {"command": "npx wrangler deploy --config wrangler.jsonc --dry-run", "status": "PASS_NO_UPLOAD", "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"}
+    ],
+    "hosted": {
+      "status": "PASS",
+      "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1",
+      "Governance": {"status": "PASS", "runId": 35782972568, "runNumber": 138, "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"},
+      "quality": {"status": "PASS", "runId": 35782972444, "runNumber": 175, "head": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1"}
+    },
+    "pr": {
+      "number": 34,
+      "url": "https://github.com/KayzenRoot/nexlabs-web/pull/34",
+      "status": "OPEN",
+      "validatedHead": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1",
+      "baseHead": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+      "merge": "NOT_EXECUTED"
+    }
+  },
+  "independentReview": {
+    "status": "REQUESTED",
+    "requestedHead": "f3f1b571ccc94b267c4e27b0e0338f24d96aa2c1",
+    "channel": "pull_request_comment",
+    "commentId": 5783999770,
+    "assignedReviewer": null,
+    "assignmentNote": "No CODEOWNERS or designated non-author reviewer is configured; no reviewer identity was invented."
+  },
+  "boundaries": {
+    "ugasCoreInstalled": true,
+    "generationProviderReady": false,
+    "generationAuthorized": false,
+    "providerStarted": false,
+    "generationPerformed": false,
+    "identityChanged": false,
+    "released": false,
+    "deployed": false,
+    "merged": false,
+    "cp09Started": false,
+    "externalInputs": []
+  },
+  "knownBlockers": [],
+  "carriedRisks": []
+}
