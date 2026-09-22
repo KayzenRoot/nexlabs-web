@@ -6,6 +6,7 @@ test.describe("static content", () => {
   test("home page exposes semantic content and keyboard entry point", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("main")).toContainText("Infrastructure for AI-native software");
+    await expect(page.locator(".context-core-static")).toBeVisible();
     await page.keyboard.press("Tab");
     await expect(page.locator("a.skip-link")).toBeFocused();
     await expect(page.locator("nav[aria-label='Primary navigation']")).toBeVisible();
@@ -64,6 +65,10 @@ test.describe("CP-07 static-first runtime boundary", () => {
   });
 
   test("reduced motion remains static and responsive framing stays stable", async ({ page }) => {
+    const modelRequests: string[] = [];
+    page.on("request", (request) => {
+      if (request.url().includes("/models/context-core/")) modelRequests.push(request.url());
+    });
     await page.emulateMedia({ reducedMotion: "reduce" });
     for (const viewport of [{ width: 1440, height: 900 }, { width: 768, height: 900 }, { width: 390, height: 844 }]) {
       await page.setViewportSize(viewport);
@@ -75,5 +80,6 @@ test.describe("CP-07 static-first runtime boundary", () => {
       expect(box?.width).toBeGreaterThan(0);
       expect(box?.height).toBeGreaterThan(0);
     }
+    expect(modelRequests).toHaveLength(0);
   });
 });
