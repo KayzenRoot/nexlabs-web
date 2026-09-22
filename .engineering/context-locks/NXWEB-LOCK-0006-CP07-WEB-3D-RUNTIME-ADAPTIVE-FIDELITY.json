@@ -2,7 +2,7 @@
   "schemaVersion": "nexlabs-web-context-lock-v1",
   "lockId": "NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY",
   "workOrder": "NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY",
-  "status": "ACTIVE",
+  "status": "CLOSED",
   "authorizedBase": "d01288967fca590029166e4b8532cdfd7fad5877",
   "resumeBase": "d01288967fca590029166e4b8532cdfd7fad5877",
   "resumeBaseRole": "protected_main_cp06_complete",
@@ -20,15 +20,37 @@
   },
   "hive": {
     "version": "1.0.0",
-    "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
+    "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+    "status": "READY_WITH_MCP_TRANSPORT_RISK",
+    "productProofHead": "bf7c451f5c77a2ebada817c88fb1adb646082217",
+    "projectId": "f18993df-3b69-4d12-a43b-e61e5da6970e",
+    "taskId": "feaa8aea-7c31-4f3b-9ffd-f35299f0dff0",
+    "executionWorkOrderSha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96",
+    "index": "COMPLETED",
+    "corpus": "COMPLETED",
+    "mcp": "TRANSPORT_CLOSED_AFTER_RETRY",
+    "mcpPassClaimed": false
   },
-  "workOrderSha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96",
-  "candidateHead": null,
+  "workOrderSha256": "b4e37a6432599d82e0abcf98d15feccc113a5f5a8380d4ee518cb12669b54892",
+  "candidateHead": "bf7c451f5c77a2ebada817c88fb1adb646082217",
   "scope": {
     "runtimeTarget": "homepage H01 hero only",
     "assetPackage": "CP06 approved HIGH/MED/LOW/STATIC frozen package",
-    "semanticStates": ["DORMANT", "INTAKE", "INDEX", "RETRIEVE", "ASSEMBLE", "RESOLVE", "IDLE"],
-    "qualityTiers": ["STATIC", "LOW", "MEDIUM", "HIGH"],
+    "semanticStates": [
+      "DORMANT",
+      "INTAKE",
+      "INDEX",
+      "RETRIEVE",
+      "ASSEMBLE",
+      "RESOLVE",
+      "IDLE"
+    ],
+    "qualityTiers": [
+      "STATIC",
+      "LOW",
+      "MEDIUM",
+      "HIGH"
+    ],
     "blenderMutation": false,
     "ugasGeneration": false,
     "deployment": false,
@@ -49,6 +71,47 @@
     "ugasGenerationAuthorized": false
   },
   "externalBlockers": [],
-  "carriedRisks": ["BLENDER_MCP_TRANSPORT_PERSISTENT"],
-  "stopState": "CP07_IN_PROGRESS"
+  "carriedRisks": [
+    "BLENDER_MCP_TRANSPORT_PERSISTENT",
+    "HIVE_MCP_TRANSPORT_CLOSED_AFTER_RETRY"
+  ],
+  "stopState": "CP07_COMPLETE_AFTER_INDEPENDENT_REVIEW",
+  "executionWorkOrderSha256": "c19f15330a76e29f5645b99e01960f147d84a40a88f8d70e53ad3a9f2768ba96",
+  "candidateHeadRole": "hive_product_proof_head",
+  "reviewedCandidateHead": "10751005f869705a87b93027230db2a07ce76965",
+  "reviewedCandidateHeadRole": "independently_reviewed_cp07_runtime_head",
+  "reviewReceiptHead": "10751005f869705a87b93027230db2a07ce76965",
+  "reviewReceiptHeadRole": "independent_review_receipt_for_final_runtime_head",
+  "reviewerCorrectionLineage": {
+    "hiveProductProofHead": "bf7c451f5c77a2ebada817c88fb1adb646082217",
+    "initialHostedRuntimeHead": "8a7bac84c6a42e740688adc69a86d655f9ed73ff",
+    "finalReviewedHead": "10751005f869705a87b93027230db2a07ce76965",
+    "changedFilesAfterHiveProof": [
+      ".engineering/evidence/NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY.json",
+      "components/three/ContextCoreRuntime.tsx",
+      "scripts/validate_governance.py",
+      "tests/e2e/home.spec.ts",
+      "three/quality/useAdaptiveFidelity.ts"
+    ],
+    "reviewRepairs": [
+      "pause semantic progression while hero is offscreen/paused",
+      "stop AFC RAF sampling while paused/static-failure conditions apply",
+      "prove no-JS static fallback and reduced-motion zero-model-request behavior",
+      "auto-repair lint regression from the initial pause fix"
+    ]
+  },
+  "independentReview": {
+    "status": "APPROVED",
+    "reviewedHead": "10751005f869705a87b93027230db2a07ce76965",
+    "Governance": {
+      "status": "PASS",
+      "runId": 35670656790,
+      "runNumber": 122
+    },
+    "quality": {
+      "status": "PASS",
+      "runId": 35670656628,
+      "runNumber": 159
+    }
+  }
 }
