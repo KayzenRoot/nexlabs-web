@@ -141,12 +141,28 @@
     ]
   },
   "hostedClosure": {
-    "status": "PENDING_VERIFY_EXTERNALLY",
+    "status": "POST_MERGE_VERIFIED",
     "reviewedHead": "10751005f869705a87b93027230db2a07ce76965",
-    "closureHead": "PENDING",
-    "Governance": "PENDING",
-    "quality": "PENDING",
-    "merge": "NOT_EXECUTED",
-    "postMergeChecks": "NOT_CLAIMED"
+    "closureHead": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+    "Governance": {
+      "status": "PASS",
+      "runId": 35671341225,
+      "runNumber": 132,
+      "head": "d971047d25dc01e7338aba369ea1bd7cf7452490"
+    },
+    "quality": {
+      "status": "PASS",
+      "runId": 35671341040,
+      "runNumber": 169,
+      "head": "d971047d25dc01e7338aba369ea1bd7cf7452490"
+    },
+    "merge": "MERGED",
+    "mergeCommitSha": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+    "pullRequest": {
+      "number": 33,
+      "status": "CLOSED_MERGED",
+      "url": "https://github.com/KayzenRoot/nexlabs-web/pull/33"
+    },
+    "postMergeChecks": "PASS"
   }
 }

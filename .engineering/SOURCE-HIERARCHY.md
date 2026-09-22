@@ -1,6 +1,6 @@
 # NexLabs Web Source Hierarchy
 
-Status: `CP07_COMPLETE_READY_FOR_CP08_ADMISSION`
+Status: `CP08_IN_PROGRESS`
 
 Authority is domain-specific. HIVE indexes, memories and GEF metadata accelerate work but cannot override tracked Git sources.
 
@@ -59,6 +59,12 @@ Persistent Blender transport issues remain a carried operational risk for future
 The HIVE product proof remains bound to the recorded API-ready head/task lineage. The later read-only MCP `Transport closed` condition is carried as an operational risk without any false MCP PASS claim. Reviewer corrections after the HIVE product proof are bounded, enumerated and exact-head validated.
 
 No CP-08 work is admitted until a new Work Order + Context Lock are created after protected merge/post-merge verification.
+
+## CP-08 derivative media admission
+
+CP-07 PR #33 was merged into protected `main` at `d971047d25dc01e7338aba369ea1bd7cf7452490`. Post-merge Governance run `35671341225` and quality run `35671341040` both succeeded on that exact commit. CP-08 is admitted from that protected head under Work Order `NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS` and Context Lock `NXWEB-LOCK-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS`.
+
+The active increment is a deterministic no-generation derivative-media package. It may create provenance-bound OG/repository visuals and optimized responsive static derivatives from accepted CP-06/CP-07 sources. UGAS provider startup and generation remain unavailable and unauthorized; neither is required. CP-08 does not authorize identity changes, release, deployment, merge or CP-09. Its assets remain `PRODUCTION` or `OPTIMIZED`, never `RELEASED`.
 
 
 ## Execution continuity rule

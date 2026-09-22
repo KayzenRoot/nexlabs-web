@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "nexlabs-web-cp08-evidence-v1",
+  "verdict": "IN_PROGRESS",
+  "reviewState": "CP08_IN_PROGRESS",
+  "sourceDocument": {
+    "name": "NEXLABS-CP08-DERIVATIVE-MEDIA-RELEASE-VISUALS-WORK-ORDER.pdf",
+    "sha256": "b89cc978f695cd990ae3d4d8a473af5df53b47ea161411d7432e782c65718990"
+  },
+  "workOrder": {
+    "id": "NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS",
+    "path": ".engineering/work-orders/NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS.md",
+    "status": "IN_PROGRESS",
+    "sha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e"
+  },
+  "contextLock": {
+    "id": "NXWEB-LOCK-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS",
+    "path": ".engineering/context-locks/NXWEB-LOCK-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS.json",
+    "status": "OPEN",
+    "workOrderSha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e"
+  },
+  "git": {
+    "authorizedBase": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+    "admissionHead": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+    "branch": "codex/cp08-derivative-media-release-visuals",
+    "hivePreparationHead": null,
+    "candidateHead": null
+  },
+  "hive": {
+    "status": "PENDING_PREPARE",
+    "project": "f18993df-3b69-4d12-a43b-e61e5da6970e",
+    "task": null,
+    "executionWorkOrderSha256": null,
+    "index": "PENDING",
+    "corpus": "PENDING",
+    "extractedTextAvailable": false,
+    "coreContext": "PENDING",
+    "mcp": "NOT_TESTED",
+    "mcpPassClaimed": false
+  },
+  "assets": {
+    "status": "PENDING",
+    "manifest": "artifacts/cp08/cp08-asset-manifest.json",
+    "provenance": "PENDING",
+    "sourceParity": "PENDING",
+    "metadataLocalAssets": "PENDING"
+  },
+  "qualityGates": {
+    "UG1": "PENDING",
+    "UG2": "PENDING",
+    "UG3": "PENDING",
+    "UG4": "PENDING",
+    "UG5": "PENDING",
+    "UG6": "PENDING",
+    "UG7": "PENDING",
+    "UG8": "PENDING",
+    "UG9": "PENDING",
+    "UG10": "PENDING"
+  },
+  "validation": {
+    "status": "PENDING",
+    "local": [],
+    "hosted": {
+      "status": "PENDING",
+      "head": null,
+      "Governance": null,
+      "quality": null
+    },
+    "pr": {
+      "number": null,
+      "url": null,
+      "status": "NOT_CREATED",
+      "merge": "NOT_EXECUTED"
+    }
+  },
+  "boundaries": {
+    "ugasCoreInstalled": true,
+    "generationProviderReady": false,
+    "generationAuthorized": false,
+    "providerStarted": false,
+    "generationPerformed": false,
+    "identityChanged": false,
+    "released": false,
+    "deployed": false,
+    "merged": false,
+    "cp09Started": false,
+    "externalInputs": []
+  },
+  "knownBlockers": [],
+  "carriedRisks": []
+}
