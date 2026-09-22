@@ -21,17 +21,20 @@
   "hive": {
     "version": "1.0.0",
     "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
-    "status": "PENDING_PREPARE",
+    "status": "READY",
     "projectId": "f18993df-3b69-4d12-a43b-e61e5da6970e",
-    "taskId": null,
-    "executionWorkOrderSha256": null,
-    "index": "PENDING",
-    "corpus": "PENDING",
-    "mcp": "NOT_TESTED",
-    "mcpPassClaimed": false
+    "taskId": "e83ff4a0-deda-4c54-9b1c-0b77aa1c5482",
+    "executionWorkOrderSha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e",
+    "preparationHead": "1903450d741ce43085bc35666e54f4502820b3e9",
+    "index": "COMPLETED",
+    "corpus": "COMPLETED",
+    "extractedTextAvailable": true,
+    "coreContext": "PASS_BOUNDED",
+    "mcp": "PASS",
+    "mcpPassClaimed": true
   },
   "workOrderSha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e",
-  "executionWorkOrderSha256": null,
+  "executionWorkOrderSha256": "ac6034de4eebc17fb281ee0219d6789c04a3a80049173786f59615f6a4f0085e",
   "scope": {
     "outputs": ["default-og", "hive-og", "technology-og", "github-social-preview", "responsive-hero-derivatives", "generic-social-template"],
     "formats": ["PNG", "WEBP", "AVIF", "SVG"],

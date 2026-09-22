@@ -7,7 +7,7 @@
   "adoptionState": "GEF_V1_CP08_ADMITTED",
   "productStage": "CP08_IN_PROGRESS",
   "reviewState": "CP08_IN_PROGRESS",
-  "nextLegalAction": "PREPARE_HIVE_TASK",
+  "nextLegalAction": "EXECUTE_CP08",
   "productImplementationAuthorized": true,
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "lastCompletedWorkOrder": "NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY",
