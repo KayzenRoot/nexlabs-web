@@ -21,6 +21,16 @@
 .visual-slot-grid { background-image: linear-gradient(90deg, var(--nx-semantic-diagram-edge) 1px, transparent 1px), linear-gradient(var(--nx-semantic-diagram-edge) 1px, transparent 1px); background-size: 2rem 2rem; inset: 0; opacity: .28; position: absolute; transform: perspective(20rem) rotateX(55deg) scale(1.6); transform-origin: center bottom; }
 .visual-slot-copy { align-items: flex-start; display: grid; gap: var(--nx-space-3); max-width: 22rem; position: relative; z-index: 1; }
 .visual-slot-copy > span:last-child { color: var(--nx-semantic-text-secondary); }
+.context-core-boundary { aspect-ratio: 1.25; background: var(--nx-component-card-surface); border: var(--nx-border-thin) solid var(--nx-component-card-border); box-shadow: var(--nx-shadow-soft); isolation: isolate; overflow: hidden; position: relative; }
+.context-core-static, .context-core-runtime { inset: 0; position: absolute; }
+.context-core-static { opacity: 1; transition: opacity var(--nx-motion-duration-slow) var(--nx-motion-easing-precision); }
+.context-core-boundary.is-live .context-core-static { opacity: .16; }
+.context-core-static-image { object-fit: cover; }
+.context-core-static-portrait, .context-core-static-square { display: none !important; }
+.context-core-static-wash { background: radial-gradient(circle at 52% 45%, transparent 0 30%, var(--nx-component-card-surface) 100%); inset: 0; opacity: .55; position: absolute; }
+.context-core-canvas { inset: 0; position: absolute !important; }
+.context-core-debug { background: color-mix(in srgb, var(--nx-semantic-surface-page) 90%, transparent); border: var(--nx-border-thin) solid var(--nx-component-card-border); bottom: var(--nx-space-3); color: var(--nx-semantic-text-secondary); display: grid; font-family: var(--nx-font-family-mono); font-size: .65rem; gap: .2rem; inset-inline-end: var(--nx-space-3); padding: var(--nx-space-2); position: absolute; z-index: 3; }
+.context-core-debug strong { color: var(--nx-semantic-text-primary); }
 .theme-control select { background: var(--nx-semantic-surface-page); border: var(--nx-border-thin) solid var(--nx-semantic-action-secondary); color: var(--nx-semantic-text-primary); min-height: 2.5rem; padding: var(--nx-space-2) var(--nx-space-3); }
 .technical-diagram { align-self: center; background: var(--nx-semantic-surface-page); border: var(--nx-border-thin) solid var(--nx-component-card-border); margin: 0; padding: var(--nx-space-4); }
 .technical-diagram svg { display: block; height: auto; max-width: 100%; }
@@ -40,3 +50,5 @@
 .content-item h3 { margin-block-end: var(--nx-space-2); }
 .content-item p { color: var(--nx-component-card-body); margin-block-end: 0; }
 @media (max-width: 48rem) { .content-items { grid-template-columns: 1fr; } }
+@media (max-width: 48rem) { .context-core-static-landscape { display: none !important; } .context-core-static-portrait { display: block !important; } .context-core-boundary { aspect-ratio: 4 / 5; } }
+@media (max-width: 24rem) { .context-core-static-portrait { display: none !important; } .context-core-static-square { display: block !important; } .context-core-boundary { aspect-ratio: 1; } }

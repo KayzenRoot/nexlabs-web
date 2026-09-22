@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from "react";
+import { ThreeBoundary } from "@/components/three/ThreeBoundary";
 
 type VisualSlotProps = HTMLAttributes<HTMLDivElement> & { label?: string; description?: string; decorative?: boolean };
 
@@ -7,5 +8,5 @@ export function VisualSlot({ label = "Provisional visual system slot", descripti
 }
 
 export function HeroVisualSlot() {
-  return <VisualSlot className="hero-visual-slot" label="Provisional NexLabs visual system slot" description="Replaceable media boundary; no final brand artwork is represented." />;
+  return <ThreeBoundary />;
 }
