@@ -32,6 +32,23 @@ export function useAdaptiveFidelity(options: UseAdaptiveFidelityOptions): Adapti
 
   useEffect(() => {
     if (!active) return undefined;
+
+    if (paused || prefersReducedMotion || !canUseWebGL || runtimeFailed || (typeof document !== "undefined" && document.hidden)) {
+      const previous = stateRef.current;
+      const next = stepAdaptiveFidelity(previous, {
+        frameTimeMs: 0,
+        nowMs: performance.now(),
+        prefersReducedMotion,
+        canUseWebGL,
+        runtimeFailed,
+        documentHidden: typeof document !== "undefined" && document.hidden,
+        heroOffscreen: paused,
+      });
+      stateRef.current = next;
+      if (next.tier !== previous.tier || next.reason !== previous.reason || next.paused !== previous.paused || next.sessionLocked !== previous.sessionLocked) setState(next);
+      return undefined;
+    }
+
     let frame = 0;
     let last = performance.now();
     const tick = (now: number) => {
@@ -53,7 +70,7 @@ export function useAdaptiveFidelity(options: UseAdaptiveFidelityOptions): Adapti
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [active]);
+  }, [active, canUseWebGL, paused, prefersReducedMotion, runtimeFailed]);
 
   return state;
 }
