@@ -3,23 +3,24 @@
 Status: `DERIVED_VIEW`
 Canonical source: `docs/project-brain/13-CHECKPOINT.md`
 
+
 ## STATUS
-CP-07 IN PROGRESS
+CP-07 COMPLETE
 
 ## VERSION
-NEXLABS-WEB CP-07 WEB 3D RUNTIME + ADAPTIVE FIDELITY
+NEXLABS-WEB CP-07 WEB 3D RUNTIME + ADAPTIVE FIDELITY COMPLETE
 
 ## PHASE
-CP-06 is complete and merged. CP-07 is admitted from protected main `d01288967fca590029166e4b8532cdfd7fad5877` on `codex/cp07-web-3d-runtime-adaptive-fidelity` under Work Order `NXWEB-WO-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY` and Context Lock `NXWEB-LOCK-0006-CP07-WEB-3D-RUNTIME-ADAPTIVE-FIDELITY`.
+CP-07 H01 static-first Web 3D runtime is independently reviewed at `10751005f869705a87b93027230db2a07ce76965`. The approved CP-06 HIGH/MED/LOW/STATIC package is integrated through an isolated Three.js/React Three Fiber boundary with semantic runtime, adaptive fidelity, reduced-motion fallback, failure isolation and visibility throttling. CP-08 has not been admitted.
 
 ## OBJECTIVE
-Integrate the approved hash-bound CP-06 HIGH/MED/LOW/STATIC package into the H01 hero through a static-first, isolated Three.js/React Three Fiber runtime with semantic state, adaptive fidelity, failure isolation, visibility control, reduced-motion behavior and non-home dependency isolation.
+Preserve the reviewed CP-07 runtime package and its static-first/degraded-safe behavior as the canonical H01 web runtime baseline for the next governed phase.
 
 ## IN PROGRESS
-CP-07 product implementation is authorized under the active Work Order and Context Lock. HIVE preparation, asset promotion, runtime isolation, tests and exact-head evidence are in progress. Blender mutation, UGAS generation, deployment and CP-08 remain out of scope.
+No product Work Order is active after CP-07 closure. PR #33 remains open pending final closure-head checks and protected merge.
 
 ## BLOCKERS
-No hard blocker. Persistent Blender transport remains a carried operational risk only for future Blender edits and does not block consumption of the frozen CP-06 package. UGAS generation and deployment remain separately governed boundaries.
+No CP-07 closure blocker. `HIVE_MCP_TRANSPORT_CLOSED_AFTER_RETRY` remains a carried operational risk because the read-only MCP connector closed after bounded retries; HIVE API project/task/index/corpus proof remains READY/COMPLETED at the recorded product proof head and no MCP PASS is claimed. Persistent Blender transport remains a carried risk only for future Blender mutation and does not affect the frozen CP-06 assets consumed by CP-07.
 
 ## NEXT STEP
-Complete CP-07 local validation, publish one protected PR, obtain exact-head quality and Governance PASS, request independent review, and stop before merge.
+Complete final closure-head review, protected merge and post-merge verification for PR #33. After that, admit CP-08 only through a new Work Order and Context Lock.
