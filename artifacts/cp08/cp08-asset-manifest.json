@@ -1,0 +1,1275 @@
+{
+  "assets": [
+    {
+      "alt_text": "NexLabs - Infrastructure for AI-native software. NexLabs builds developer infrastructure for complex AI-assisted software development, beginning with HIVE.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_OG_DEFAULT",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "descriptionLineCount": 2,
+        "descriptionLines": [
+          "NexLabs builds developer infrastructure for complex AI-assisted",
+          "software development, beginning with HIVE."
+        ],
+        "safeMarginPx": 64,
+        "sourceImageBox": [
+          668,
+          182,
+          468,
+          263
+        ],
+        "textBounds": {
+          "bottom": 349,
+          "left": 68,
+          "right": 593,
+          "top": 142
+        },
+        "titleLineCount": 2,
+        "titleLines": [
+          "NexLabs - Infrastructure",
+          "for AI-native software"
+        ],
+        "visibleText": {
+          "description": "NexLabs builds developer infrastructure for complex AI-assisted software development, beginning with HIVE.",
+          "eyebrow": "NEXLABS TECHNOLOGY",
+          "footer": "NexLabs Technology",
+          "title": "NexLabs - Infrastructure for AI-native software"
+        }
+      },
+      "destinations": [
+        "/"
+      ],
+      "notes": [
+        "Canonical title and description are rendered without copy edits.",
+        "Social card is supporting media; equivalent page content remains available as HTML."
+      ],
+      "outputs": [
+        {
+          "bytes": 179006,
+          "format": "PNG",
+          "height": 630,
+          "path": "public/release-visuals/og/nexlabs.png",
+          "sha256": "21dfaa43578cb89fb02316b55bab75b38e8f8761a4c113c783cb2ad6a7fb8073",
+          "width": 1200
+        }
+      ],
+      "purpose": "Open Graph visual for the existing / destination.",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 83401,
+            "height": 360,
+            "path": "artifacts/cp06/static/hero-16x9.png",
+            "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+            "width": 640
+          },
+          {
+            "bytes": 9787,
+            "path": "public/brand/tokens.json",
+            "sha256": "6fac85e093bb4b5ab612f423d3a3b139cff2f64d716899dd547c08e703f0278a"
+          },
+          {
+            "bytes": 3814,
+            "path": "content/site/site.json",
+            "sha256": "d4193baf9572dda33d56f1e921990ec537b86844e5cbab5fc583310db013af6b"
+          },
+          {
+            "bytes": 394,
+            "path": "brand/logo/candidates/NX-C-02.svg",
+            "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "PRODUCTION",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "HIVE - Durable Context Infrastructure | NexLabs. Explore HIVE, NexLabs' local-first system for project context, retrieval and governed AI-assisted development workflows.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_OG_HIVE",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "descriptionLineCount": 2,
+        "descriptionLines": [
+          "Explore HIVE, NexLabs' local-first system for project context,",
+          "retrieval and governed AI-assisted development workflows."
+        ],
+        "safeMarginPx": 64,
+        "sourceImageBox": [
+          668,
+          182,
+          468,
+          263
+        ],
+        "textBounds": {
+          "bottom": 349,
+          "left": 68,
+          "right": 593,
+          "top": 142
+        },
+        "titleLineCount": 2,
+        "titleLines": [
+          "HIVE - Durable Context",
+          "Infrastructure | NexLabs"
+        ],
+        "visibleText": {
+          "description": "Explore HIVE, NexLabs' local-first system for project context, retrieval and governed AI-assisted development workflows.",
+          "eyebrow": "NEXLABS TECHNOLOGY",
+          "footer": "NexLabs Technology",
+          "title": "HIVE - Durable Context Infrastructure | NexLabs"
+        }
+      },
+      "destinations": [
+        "/hive"
+      ],
+      "notes": [
+        "Canonical title and description are rendered without copy edits.",
+        "Social card is supporting media; equivalent page content remains available as HTML."
+      ],
+      "outputs": [
+        {
+          "bytes": 179151,
+          "format": "PNG",
+          "height": 630,
+          "path": "public/release-visuals/og/hive.png",
+          "sha256": "840f720890bf33ee7ca1a1a0a68df068c758ee87557622fc0a4d0f3eacf96ae1",
+          "width": 1200
+        }
+      ],
+      "purpose": "Open Graph visual for the existing /hive destination.",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 83401,
+            "height": 360,
+            "path": "artifacts/cp06/static/hero-16x9.png",
+            "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+            "width": 640
+          },
+          {
+            "bytes": 9787,
+            "path": "public/brand/tokens.json",
+            "sha256": "6fac85e093bb4b5ab612f423d3a3b139cff2f64d716899dd547c08e703f0278a"
+          },
+          {
+            "bytes": 3814,
+            "path": "content/site/site.json",
+            "sha256": "d4193baf9572dda33d56f1e921990ec537b86844e5cbab5fc583310db013af6b"
+          },
+          {
+            "bytes": 394,
+            "path": "brand/logo/candidates/NX-C-02.svg",
+            "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "PRODUCTION",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Technology | NexLabs. Explore the NexLabs thesis on context, retrieval, efficiency and governance as infrastructure for AI-assisted software development.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_OG_TECHNOLOGY",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "descriptionLineCount": 3,
+        "descriptionLines": [
+          "Explore the NexLabs thesis on context, retrieval, efficiency and",
+          "governance as infrastructure for AI-assisted software",
+          "development."
+        ],
+        "safeMarginPx": 64,
+        "sourceImageBox": [
+          668,
+          182,
+          468,
+          263
+        ],
+        "textBounds": {
+          "bottom": 322,
+          "left": 68,
+          "right": 593,
+          "top": 142
+        },
+        "titleLineCount": 1,
+        "titleLines": [
+          "Technology | NexLabs"
+        ],
+        "visibleText": {
+          "description": "Explore the NexLabs thesis on context, retrieval, efficiency and governance as infrastructure for AI-assisted software development.",
+          "eyebrow": "NEXLABS TECHNOLOGY",
+          "footer": "NexLabs Technology",
+          "title": "Technology | NexLabs"
+        }
+      },
+      "destinations": [
+        "/technology"
+      ],
+      "notes": [
+        "Canonical title and description are rendered without copy edits.",
+        "Social card is supporting media; equivalent page content remains available as HTML."
+      ],
+      "outputs": [
+        {
+          "bytes": 173915,
+          "format": "PNG",
+          "height": 630,
+          "path": "public/release-visuals/og/technology.png",
+          "sha256": "c9a0b6ccce16bd537f94e95d722082325fb5105c20ef1ccc841728e0cf406c43",
+          "width": 1200
+        }
+      ],
+      "purpose": "Open Graph visual for the existing /technology destination.",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 83401,
+            "height": 360,
+            "path": "artifacts/cp06/static/hero-16x9.png",
+            "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+            "width": 640
+          },
+          {
+            "bytes": 9787,
+            "path": "public/brand/tokens.json",
+            "sha256": "6fac85e093bb4b5ab612f423d3a3b139cff2f64d716899dd547c08e703f0278a"
+          },
+          {
+            "bytes": 3814,
+            "path": "content/site/site.json",
+            "sha256": "d4193baf9572dda33d56f1e921990ec537b86844e5cbab5fc583310db013af6b"
+          },
+          {
+            "bytes": 394,
+            "path": "brand/logo/candidates/NX-C-02.svg",
+            "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "PRODUCTION",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Infrastructure for AI-native software. NexLabs builds developer infrastructure for complex AI-assisted software development, beginning with HIVE.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_SOCIAL_GITHUB_REPOSITORY",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "descriptionLineCount": 2,
+        "descriptionLines": [
+          "NexLabs builds developer infrastructure for complex AI-assisted",
+          "software development, beginning with HIVE."
+        ],
+        "safeMarginPx": 68,
+        "sourceImageBox": [
+          712,
+          194,
+          499,
+          281
+        ],
+        "textBounds": {
+          "bottom": 374,
+          "left": 73,
+          "right": 633,
+          "top": 151
+        },
+        "titleLineCount": 2,
+        "titleLines": [
+          "Infrastructure for",
+          "AI-native software."
+        ],
+        "visibleText": {
+          "description": "NexLabs builds developer infrastructure for complex AI-assisted software development, beginning with HIVE.",
+          "footer": "github.com/KayzenRoot/nexlabs-web",
+          "title": "Infrastructure for AI-native software."
+        }
+      },
+      "destinations": [
+        "https://github.com/KayzenRoot/nexlabs-web"
+      ],
+      "notes": [
+        "Uses the canonical homepage heading and description.",
+        "No fabricated social account, handle or proof is included."
+      ],
+      "outputs": [
+        {
+          "bytes": 196603,
+          "format": "PNG",
+          "height": 640,
+          "path": "public/release-visuals/social-preview/github-repository.png",
+          "sha256": "a6ed665e314155cefd36707cb5b897dd4a32153c3cf785afb9be0f4f8d307741",
+          "width": 1280
+        }
+      ],
+      "purpose": "GitHub repository social-preview image; asset is prepared but not uploaded as a release action.",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 83401,
+            "height": 360,
+            "path": "artifacts/cp06/static/hero-16x9.png",
+            "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+            "width": 640
+          },
+          {
+            "bytes": 9787,
+            "path": "public/brand/tokens.json",
+            "sha256": "6fac85e093bb4b5ab612f423d3a3b139cff2f64d716899dd547c08e703f0278a"
+          },
+          {
+            "bytes": 3814,
+            "path": "content/site/site.json",
+            "sha256": "d4193baf9572dda33d56f1e921990ec537b86844e5cbab5fc583310db013af6b"
+          },
+          {
+            "bytes": 394,
+            "path": "brand/logo/candidates/NX-C-02.svg",
+            "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "PRODUCTION",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Decorative responsive still from the Context Core visual system; all explanatory website content remains in HTML.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_HERO_16X9_WEBP",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "outputDimensions": [
+          640,
+          360
+        ],
+        "sourceDimensions": [
+          640,
+          360
+        ],
+        "upscaled": false,
+        "visualParityMaximumPercent": 3.0,
+        "visualParityNormalizedMaePercent": 0.5295
+      },
+      "destinations": [
+        "homepage hero responsive static fallback"
+      ],
+      "notes": [
+        "Deterministic Pillow WEBP encoding with {'quality': 88, 'method': 6, 'exact': True}.",
+        "Source framing and pixel dimensions are preserved; no upscaling; accepted PNG sources remain unchanged."
+      ],
+      "outputs": [
+        {
+          "bytes": 15488,
+          "format": "WEBP",
+          "height": 360,
+          "path": "public/release-visuals/hero/context-core-16x9.webp",
+          "sha256": "3d91da7fcc0b50624cdbb87090c96a7c01b2fe88e466c47c6749df86d5b38463",
+          "width": 640
+        }
+      ],
+      "purpose": "Responsive static Context Core hero delivery derivative (16x9, WEBP).",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 83401,
+            "height": 360,
+            "path": "artifacts/cp06/static/hero-16x9.png",
+            "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+            "width": 640
+          },
+          {
+            "bytes": 83401,
+            "height": 360,
+            "path": "public/images/context-core/hero-16x9.png",
+            "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+            "width": 640
+          },
+          {
+            "bytes": 2909,
+            "path": "artifacts/cp06/cp06-asset-acceptance.json",
+            "sha256": "5cf7d4696f9a529a6a35672044302d13059ea0c6bdd200e6df3565bad4b830bd"
+          },
+          {
+            "bytes": 2558,
+            "path": "artifacts/cp07/cp07-runtime-manifest.json",
+            "sha256": "c59bde0d871d4fdcee5b0a2f64698adef7d5debf3ab5c39d46ae8145c7d66881"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "OPTIMIZED",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Decorative responsive still from the Context Core visual system; all explanatory website content remains in HTML.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_HERO_16X9_AVIF",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "outputDimensions": [
+          640,
+          360
+        ],
+        "sourceDimensions": [
+          640,
+          360
+        ],
+        "upscaled": false,
+        "visualParityMaximumPercent": 3.0,
+        "visualParityNormalizedMaePercent": 0.6194
+      },
+      "destinations": [
+        "homepage hero responsive static fallback"
+      ],
+      "notes": [
+        "Deterministic Pillow AVIF encoding with {'quality': 58, 'speed': 6}.",
+        "Source framing and pixel dimensions are preserved; no upscaling; accepted PNG sources remain unchanged."
+      ],
+      "outputs": [
+        {
+          "bytes": 8345,
+          "format": "AVIF",
+          "height": 360,
+          "path": "public/release-visuals/hero/context-core-16x9.avif",
+          "sha256": "c8d80820096e556e1026732b4ece80cf521b9fd9ecf56f34dab1e71dba0bb138",
+          "width": 640
+        }
+      ],
+      "purpose": "Responsive static Context Core hero delivery derivative (16x9, AVIF).",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 83401,
+            "height": 360,
+            "path": "artifacts/cp06/static/hero-16x9.png",
+            "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+            "width": 640
+          },
+          {
+            "bytes": 83401,
+            "height": 360,
+            "path": "public/images/context-core/hero-16x9.png",
+            "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+            "width": 640
+          },
+          {
+            "bytes": 2909,
+            "path": "artifacts/cp06/cp06-asset-acceptance.json",
+            "sha256": "5cf7d4696f9a529a6a35672044302d13059ea0c6bdd200e6df3565bad4b830bd"
+          },
+          {
+            "bytes": 2558,
+            "path": "artifacts/cp07/cp07-runtime-manifest.json",
+            "sha256": "c59bde0d871d4fdcee5b0a2f64698adef7d5debf3ab5c39d46ae8145c7d66881"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "OPTIMIZED",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Decorative responsive still from the Context Core visual system; all explanatory website content remains in HTML.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_HERO_4X5_WEBP",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "outputDimensions": [
+          480,
+          600
+        ],
+        "sourceDimensions": [
+          480,
+          600
+        ],
+        "upscaled": false,
+        "visualParityMaximumPercent": 3.0,
+        "visualParityNormalizedMaePercent": 0.4529
+      },
+      "destinations": [
+        "homepage hero responsive static fallback"
+      ],
+      "notes": [
+        "Deterministic Pillow WEBP encoding with {'quality': 88, 'method': 6, 'exact': True}.",
+        "Source framing and pixel dimensions are preserved; no upscaling; accepted PNG sources remain unchanged."
+      ],
+      "outputs": [
+        {
+          "bytes": 15316,
+          "format": "WEBP",
+          "height": 600,
+          "path": "public/release-visuals/hero/context-core-4x5.webp",
+          "sha256": "4ed075c1da12a407aeb500afa4492c715ad607538c56d8846da8a9f7ffb1a205",
+          "width": 480
+        }
+      ],
+      "purpose": "Responsive static Context Core hero delivery derivative (4x5, WEBP).",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 95512,
+            "height": 600,
+            "path": "artifacts/cp06/static/hero-4x5.png",
+            "sha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e",
+            "width": 480
+          },
+          {
+            "bytes": 95512,
+            "height": 600,
+            "path": "public/images/context-core/hero-4x5.png",
+            "sha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e",
+            "width": 480
+          },
+          {
+            "bytes": 2909,
+            "path": "artifacts/cp06/cp06-asset-acceptance.json",
+            "sha256": "5cf7d4696f9a529a6a35672044302d13059ea0c6bdd200e6df3565bad4b830bd"
+          },
+          {
+            "bytes": 2558,
+            "path": "artifacts/cp07/cp07-runtime-manifest.json",
+            "sha256": "c59bde0d871d4fdcee5b0a2f64698adef7d5debf3ab5c39d46ae8145c7d66881"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "OPTIMIZED",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Decorative responsive still from the Context Core visual system; all explanatory website content remains in HTML.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_HERO_4X5_AVIF",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "outputDimensions": [
+          480,
+          600
+        ],
+        "sourceDimensions": [
+          480,
+          600
+        ],
+        "upscaled": false,
+        "visualParityMaximumPercent": 3.0,
+        "visualParityNormalizedMaePercent": 0.5328
+      },
+      "destinations": [
+        "homepage hero responsive static fallback"
+      ],
+      "notes": [
+        "Deterministic Pillow AVIF encoding with {'quality': 58, 'speed': 6}.",
+        "Source framing and pixel dimensions are preserved; no upscaling; accepted PNG sources remain unchanged."
+      ],
+      "outputs": [
+        {
+          "bytes": 8044,
+          "format": "AVIF",
+          "height": 600,
+          "path": "public/release-visuals/hero/context-core-4x5.avif",
+          "sha256": "32464f67fece133e46fc717ee9aee7fbef69207d66dce84ed4eb3300cbbfffb9",
+          "width": 480
+        }
+      ],
+      "purpose": "Responsive static Context Core hero delivery derivative (4x5, AVIF).",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 95512,
+            "height": 600,
+            "path": "artifacts/cp06/static/hero-4x5.png",
+            "sha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e",
+            "width": 480
+          },
+          {
+            "bytes": 95512,
+            "height": 600,
+            "path": "public/images/context-core/hero-4x5.png",
+            "sha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e",
+            "width": 480
+          },
+          {
+            "bytes": 2909,
+            "path": "artifacts/cp06/cp06-asset-acceptance.json",
+            "sha256": "5cf7d4696f9a529a6a35672044302d13059ea0c6bdd200e6df3565bad4b830bd"
+          },
+          {
+            "bytes": 2558,
+            "path": "artifacts/cp07/cp07-runtime-manifest.json",
+            "sha256": "c59bde0d871d4fdcee5b0a2f64698adef7d5debf3ab5c39d46ae8145c7d66881"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "OPTIMIZED",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Decorative responsive still from the Context Core visual system; all explanatory website content remains in HTML.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_HERO_1X1_WEBP",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "outputDimensions": [
+          512,
+          512
+        ],
+        "sourceDimensions": [
+          512,
+          512
+        ],
+        "upscaled": false,
+        "visualParityMaximumPercent": 3.0,
+        "visualParityNormalizedMaePercent": 0.4424
+      },
+      "destinations": [
+        "homepage hero responsive static fallback"
+      ],
+      "notes": [
+        "Deterministic Pillow WEBP encoding with {'quality': 88, 'method': 6, 'exact': True}.",
+        "Source framing and pixel dimensions are preserved; no upscaling; accepted PNG sources remain unchanged."
+      ],
+      "outputs": [
+        {
+          "bytes": 13352,
+          "format": "WEBP",
+          "height": 512,
+          "path": "public/release-visuals/hero/context-core-1x1.webp",
+          "sha256": "a598d8ee078846ecb5d04a21fb516b13206342657ad179a46745638b2c195359",
+          "width": 512
+        }
+      ],
+      "purpose": "Responsive static Context Core hero delivery derivative (1x1, WEBP).",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 85498,
+            "height": 512,
+            "path": "artifacts/cp06/static/hero-1x1.png",
+            "sha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6",
+            "width": 512
+          },
+          {
+            "bytes": 85498,
+            "height": 512,
+            "path": "public/images/context-core/hero-1x1.png",
+            "sha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6",
+            "width": 512
+          },
+          {
+            "bytes": 2909,
+            "path": "artifacts/cp06/cp06-asset-acceptance.json",
+            "sha256": "5cf7d4696f9a529a6a35672044302d13059ea0c6bdd200e6df3565bad4b830bd"
+          },
+          {
+            "bytes": 2558,
+            "path": "artifacts/cp07/cp07-runtime-manifest.json",
+            "sha256": "c59bde0d871d4fdcee5b0a2f64698adef7d5debf3ab5c39d46ae8145c7d66881"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "OPTIMIZED",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Decorative responsive still from the Context Core visual system; all explanatory website content remains in HTML.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_HERO_1X1_AVIF",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "composition": {
+        "outputDimensions": [
+          512,
+          512
+        ],
+        "sourceDimensions": [
+          512,
+          512
+        ],
+        "upscaled": false,
+        "visualParityMaximumPercent": 3.0,
+        "visualParityNormalizedMaePercent": 0.5159
+      },
+      "destinations": [
+        "homepage hero responsive static fallback"
+      ],
+      "notes": [
+        "Deterministic Pillow AVIF encoding with {'quality': 58, 'speed': 6}.",
+        "Source framing and pixel dimensions are preserved; no upscaling; accepted PNG sources remain unchanged."
+      ],
+      "outputs": [
+        {
+          "bytes": 6952,
+          "format": "AVIF",
+          "height": 512,
+          "path": "public/release-visuals/hero/context-core-1x1.avif",
+          "sha256": "650ac655bf9f4c96f4d69eeac3d3651b0cbc39f447304cf6e1b499821c446bd8",
+          "width": 512
+        }
+      ],
+      "purpose": "Responsive static Context Core hero delivery derivative (1x1, AVIF).",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 85498,
+            "height": 512,
+            "path": "artifacts/cp06/static/hero-1x1.png",
+            "sha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6",
+            "width": 512
+          },
+          {
+            "bytes": 85498,
+            "height": 512,
+            "path": "public/images/context-core/hero-1x1.png",
+            "sha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6",
+            "width": 512
+          },
+          {
+            "bytes": 2909,
+            "path": "artifacts/cp06/cp06-asset-acceptance.json",
+            "sha256": "5cf7d4696f9a529a6a35672044302d13059ea0c6bdd200e6df3565bad4b830bd"
+          },
+          {
+            "bytes": 2558,
+            "path": "artifacts/cp07/cp07-runtime-manifest.json",
+            "sha256": "c59bde0d871d4fdcee5b0a2f64698adef7d5debf3ab5c39d46ae8145c7d66881"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "OPTIMIZED",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Reusable NexLabs social-card layout for a future verified destination.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_TEMPLATE_GENERIC_SOCIAL",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "destinations": [],
+      "notes": [
+        "Generic layout only; no destination-specific campaign, account, handle or social-proof copy."
+      ],
+      "outputs": [
+        {
+          "bytes": 1514,
+          "format": "SVG",
+          "height": 630,
+          "path": "artifacts/cp08/templates/social-card.svg",
+          "sha256": "77d62da9549fcbee55dcf494b39b85c0030376f72d18573d51fdd8ba37ffb01e",
+          "width": 1200
+        }
+      ],
+      "purpose": "Reusable NexLabs social-card layout for future verified destinations.",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 9787,
+            "path": "public/brand/tokens.json",
+            "sha256": "6fac85e093bb4b5ab612f423d3a3b139cff2f64d716899dd547c08e703f0278a"
+          },
+          {
+            "bytes": 394,
+            "path": "brand/logo/candidates/NX-C-02.svg",
+            "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "PRODUCTION",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    },
+    {
+      "alt_text": "Contact sheet for human inspection of three Open Graph cards and one GitHub repository preview.",
+      "approval_status": "NOT_INDEPENDENTLY_REVIEWED",
+      "approved_at": null,
+      "approved_by": null,
+      "asset_id": "NL_CP08_CONTACT_SHEET",
+      "blender": {
+        "source_file": null,
+        "source_revision": null
+      },
+      "brand_spec_revision": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+      "destinations": [],
+      "notes": [
+        "Review aid only; not a user-facing information channel."
+      ],
+      "outputs": [
+        {
+          "bytes": 237492,
+          "format": "PNG",
+          "height": 720,
+          "path": "artifacts/cp08/contact-sheets/cp08-contact-sheet.png",
+          "sha256": "be54795225d36355d3e6ae13cbe212b3b17317793b7ae9f92ea97d1687342aed",
+          "width": 1080
+        }
+      ],
+      "purpose": "Human inspection contact sheet for the three Open Graph cards and repository preview.",
+      "review_state": "CP08_IN_PROGRESS",
+      "rights": {
+        "external_inputs": [],
+        "notes": "Derived only from tracked, approved NexLabs source assets and canonical repository copy/tokens.",
+        "provenance_reviewed": true
+      },
+      "source": {
+        "references": [
+          {
+            "bytes": 179006,
+            "path": "public/release-visuals/og/nexlabs.png",
+            "sha256": "21dfaa43578cb89fb02316b55bab75b38e8f8761a4c113c783cb2ad6a7fb8073"
+          },
+          {
+            "bytes": 179151,
+            "path": "public/release-visuals/og/hive.png",
+            "sha256": "840f720890bf33ee7ca1a1a0a68df068c758ee87557622fc0a4d0f3eacf96ae1"
+          },
+          {
+            "bytes": 173915,
+            "path": "public/release-visuals/og/technology.png",
+            "sha256": "c9a0b6ccce16bd537f94e95d722082325fb5105c20ef1ccc841728e0cf406c43"
+          },
+          {
+            "bytes": 196603,
+            "path": "public/release-visuals/social-preview/github-repository.png",
+            "sha256": "a6ed665e314155cefd36707cb5b897dd4a32153c3cf785afb9be0f4f8d307741"
+          }
+        ],
+        "type": "procedural"
+      },
+      "status": "OPTIMIZED",
+      "ugas": {
+        "notes": "UGAS was not used; deterministic local composition/encoding only.",
+        "workflow": null,
+        "workflow_version": null
+      },
+      "version": "v001"
+    }
+  ],
+  "boundaries": {
+    "cp09Started": false,
+    "deployed": false,
+    "externalInputs": [],
+    "identityChanged": false,
+    "merged": false,
+    "released": false,
+    "ugasGenerationPerformed": false,
+    "ugasProviderStarted": false
+  },
+  "canonicalDestinations": {
+    "/": {
+      "description": "NexLabs builds developer infrastructure for complex AI-assisted software development, beginning with HIVE.",
+      "path": "/release-visuals/og/nexlabs.png",
+      "title": "NexLabs - Infrastructure for AI-native software"
+    },
+    "/hive": {
+      "description": "Explore HIVE, NexLabs' local-first system for project context, retrieval and governed AI-assisted development workflows.",
+      "path": "/release-visuals/og/hive.png",
+      "title": "HIVE - Durable Context Infrastructure | NexLabs"
+    },
+    "/technology": {
+      "description": "Explore the NexLabs thesis on context, retrieval, efficiency and governance as infrastructure for AI-assisted software development.",
+      "path": "/release-visuals/og/technology.png",
+      "title": "Technology | NexLabs"
+    }
+  },
+  "compression": [
+    {
+      "dimensions": [
+        640,
+        360
+      ],
+      "format": "WEBP",
+      "normalizedMeanAbsoluteErrorPercent": 0.5295,
+      "outputBytes": 15488,
+      "outputPath": "public/release-visuals/hero/context-core-16x9.webp",
+      "outputSha256": "3d91da7fcc0b50624cdbb87090c96a7c01b2fe88e466c47c6749df86d5b38463",
+      "settings": {
+        "exact": true,
+        "method": 6,
+        "quality": 88
+      },
+      "sizeChangePercent": -81.43,
+      "sourceBytes": 83401,
+      "sourcePath": "artifacts/cp06/static/hero-16x9.png",
+      "sourceSha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b"
+    },
+    {
+      "dimensions": [
+        640,
+        360
+      ],
+      "format": "AVIF",
+      "normalizedMeanAbsoluteErrorPercent": 0.6194,
+      "outputBytes": 8345,
+      "outputPath": "public/release-visuals/hero/context-core-16x9.avif",
+      "outputSha256": "c8d80820096e556e1026732b4ece80cf521b9fd9ecf56f34dab1e71dba0bb138",
+      "settings": {
+        "quality": 58,
+        "speed": 6
+      },
+      "sizeChangePercent": -89.99,
+      "sourceBytes": 83401,
+      "sourcePath": "artifacts/cp06/static/hero-16x9.png",
+      "sourceSha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b"
+    },
+    {
+      "dimensions": [
+        480,
+        600
+      ],
+      "format": "WEBP",
+      "normalizedMeanAbsoluteErrorPercent": 0.4529,
+      "outputBytes": 15316,
+      "outputPath": "public/release-visuals/hero/context-core-4x5.webp",
+      "outputSha256": "4ed075c1da12a407aeb500afa4492c715ad607538c56d8846da8a9f7ffb1a205",
+      "settings": {
+        "exact": true,
+        "method": 6,
+        "quality": 88
+      },
+      "sizeChangePercent": -83.96,
+      "sourceBytes": 95512,
+      "sourcePath": "artifacts/cp06/static/hero-4x5.png",
+      "sourceSha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e"
+    },
+    {
+      "dimensions": [
+        480,
+        600
+      ],
+      "format": "AVIF",
+      "normalizedMeanAbsoluteErrorPercent": 0.5328,
+      "outputBytes": 8044,
+      "outputPath": "public/release-visuals/hero/context-core-4x5.avif",
+      "outputSha256": "32464f67fece133e46fc717ee9aee7fbef69207d66dce84ed4eb3300cbbfffb9",
+      "settings": {
+        "quality": 58,
+        "speed": 6
+      },
+      "sizeChangePercent": -91.58,
+      "sourceBytes": 95512,
+      "sourcePath": "artifacts/cp06/static/hero-4x5.png",
+      "sourceSha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e"
+    },
+    {
+      "dimensions": [
+        512,
+        512
+      ],
+      "format": "WEBP",
+      "normalizedMeanAbsoluteErrorPercent": 0.4424,
+      "outputBytes": 13352,
+      "outputPath": "public/release-visuals/hero/context-core-1x1.webp",
+      "outputSha256": "a598d8ee078846ecb5d04a21fb516b13206342657ad179a46745638b2c195359",
+      "settings": {
+        "exact": true,
+        "method": 6,
+        "quality": 88
+      },
+      "sizeChangePercent": -84.38,
+      "sourceBytes": 85498,
+      "sourcePath": "artifacts/cp06/static/hero-1x1.png",
+      "sourceSha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6"
+    },
+    {
+      "dimensions": [
+        512,
+        512
+      ],
+      "format": "AVIF",
+      "normalizedMeanAbsoluteErrorPercent": 0.5159,
+      "outputBytes": 6952,
+      "outputPath": "public/release-visuals/hero/context-core-1x1.avif",
+      "outputSha256": "650ac655bf9f4c96f4d69eeac3d3651b0cbc39f447304cf6e1b499821c446bd8",
+      "settings": {
+        "quality": 58,
+        "speed": 6
+      },
+      "sizeChangePercent": -91.87,
+      "sourceBytes": 85498,
+      "sourcePath": "artifacts/cp06/static/hero-1x1.png",
+      "sourceSha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6"
+    }
+  ],
+  "generationMode": "DETERMINISTIC_NO_GENERATION",
+  "planningSource": "KayzenRoot/nexlabs-startup@b541e802472a3acc75a3a8ebd3818d33de8a316f",
+  "releaseStatus": "NOT_RELEASED",
+  "reports": {
+    "contactSheet": "artifacts/cp08/contact-sheets/cp08-contact-sheet.png",
+    "gateReport": "artifacts/cp08/cp08-gate-report.json",
+    "humanGateReport": "artifacts/cp08/cp08-gate-report.md",
+    "sizeReport": "artifacts/cp08/cp08-size-report.md"
+  },
+  "schemaVersion": "nexlabs-web-cp08-asset-manifest-v1",
+  "sourceCommit": "d971047d25dc01e7338aba369ea1bd7cf7452490",
+  "sourceDocumentSha256": "b89cc978f695cd990ae3d4d8a473af5df53b47ea161411d7432e782c65718990",
+  "sourceInputs": [
+    {
+      "bytes": 2909,
+      "path": "artifacts/cp06/cp06-asset-acceptance.json",
+      "sha256": "5cf7d4696f9a529a6a35672044302d13059ea0c6bdd200e6df3565bad4b830bd"
+    },
+    {
+      "bytes": 83401,
+      "height": 360,
+      "path": "artifacts/cp06/static/hero-16x9.png",
+      "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+      "width": 640
+    },
+    {
+      "bytes": 85498,
+      "height": 512,
+      "path": "artifacts/cp06/static/hero-1x1.png",
+      "sha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6",
+      "width": 512
+    },
+    {
+      "bytes": 95512,
+      "height": 600,
+      "path": "artifacts/cp06/static/hero-4x5.png",
+      "sha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e",
+      "width": 480
+    },
+    {
+      "bytes": 2558,
+      "path": "artifacts/cp07/cp07-runtime-manifest.json",
+      "sha256": "c59bde0d871d4fdcee5b0a2f64698adef7d5debf3ab5c39d46ae8145c7d66881"
+    },
+    {
+      "bytes": 394,
+      "path": "brand/logo/candidates/NX-C-02.svg",
+      "sha256": "16daeac469520dbae6ba224dbd87bc8f07510c734940d35412248f32d2364165"
+    },
+    {
+      "bytes": 3814,
+      "path": "content/site/site.json",
+      "sha256": "d4193baf9572dda33d56f1e921990ec537b86844e5cbab5fc583310db013af6b"
+    },
+    {
+      "bytes": 9787,
+      "path": "public/brand/tokens.json",
+      "sha256": "6fac85e093bb4b5ab612f423d3a3b139cff2f64d716899dd547c08e703f0278a"
+    },
+    {
+      "bytes": 83401,
+      "height": 360,
+      "path": "public/images/context-core/hero-16x9.png",
+      "sha256": "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
+      "width": 640
+    },
+    {
+      "bytes": 85498,
+      "height": 512,
+      "path": "public/images/context-core/hero-1x1.png",
+      "sha256": "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6",
+      "width": 512
+    },
+    {
+      "bytes": 95512,
+      "height": 600,
+      "path": "public/images/context-core/hero-4x5.png",
+      "sha256": "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e",
+      "width": 480
+    }
+  ],
+  "status": "PRODUCTION_AND_OPTIMIZED_NOT_RELEASED",
+  "tools": {
+    "avifAvailable": true,
+    "fontFamily": "Segoe UI",
+    "fontRegularSha256": "8134dbcd09e7b123c9a7f229d49cffbcb01352cc72ea5e1076b65d0dca9f73cd",
+    "fontSemiboldSha256": "2d9b22d71f72de2823fee5d9c8bc1b0fc32b2577c4c27b9ec6abdbb8df0e1731",
+    "pillow": "12.3.0",
+    "python": "3.12.10",
+    "webpAvailable": true
+  },
+  "workOrder": "NXWEB-WO-0007-CP08-UGAS-DERIVATIVE-MEDIA-RELEASE-VISUALS"
+}

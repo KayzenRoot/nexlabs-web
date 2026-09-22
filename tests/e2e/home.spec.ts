@@ -83,3 +83,29 @@ test.describe("CP-07 static-first runtime boundary", () => {
     expect(modelRequests).toHaveLength(0);
   });
 });
+
+test("CP-08 metadata and responsive derivatives resolve to local assets", async ({ page, request }) => {
+  for (const [route, image] of [
+    ["/", "/release-visuals/og/nexlabs.png"],
+    ["/hive/", "/release-visuals/og/hive.png"],
+    ["/technology/", "/release-visuals/og/technology.png"],
+  ]) {
+    const response = await page.goto(route);
+    expect(response?.status(), route).toBe(200);
+    const ogImage = await page.locator('meta[property="og:image"]').getAttribute("content");
+    expect(ogImage).toBeTruthy();
+    expect(new URL(ogImage!, page.url()).pathname).toBe(image);
+    expect((await request.get(image)).status(), image).toBe(200);
+  }
+
+  await page.goto("/");
+  for (const type of ["image/avif", "image/webp"]) {
+    const variants = await page.locator(`.context-core-static-picture source[type="${type}"]`).evaluateAll((items) => items.map((item) => item.getAttribute("srcset")));
+    expect(variants).toHaveLength(3);
+    for (const path of variants) {
+      expect(path).toMatch(/^\/release-visuals\/hero\//);
+      expect((await request.get(path!)).status(), path!).toBe(200);
+    }
+  }
+  await expect(page.locator(".context-core-static-picture img").first()).toHaveAttribute("src", "/images/context-core/hero-16x9.png");
+});

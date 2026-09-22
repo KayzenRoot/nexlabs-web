@@ -1,4 +1,5 @@
 import { buildSiteMetadata } from "@/lib/metadata";
+import { siteContent } from "@/content/site";
 
 describe("metadata helper", () => {
   afterEach(() => {
@@ -41,5 +42,20 @@ describe("metadata helper", () => {
     const metadata = buildSiteMetadata();
     expect(metadata.alternates?.canonical).toBe("/");
     expect(metadata.robots).toEqual({ index: true, follow: true });
+  });
+
+  it.each([
+    ["/", "/release-visuals/og/nexlabs.png"],
+    ["/hive", "/release-visuals/og/hive.png"],
+    ["/technology", "/release-visuals/og/technology.png"],
+  ])("uses the committed local social card for %s without changing canonical copy", (path, image) => {
+    const route = siteContent.routes.find((item) => item.path === path);
+    const metadata = buildSiteMetadata(path);
+    const social = metadata.openGraph;
+
+    expect(social?.title).toBe(route?.title);
+    expect(social?.description).toBe(route?.description);
+    expect(social?.images).toEqual([{ url: image, width: 1200, height: 630, alt: route?.title }]);
+    expect(metadata.twitter).toEqual({ card: "summary_large_image", images: [{ url: image, alt: route?.title }] });
   });
 });

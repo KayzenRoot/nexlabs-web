@@ -31,6 +31,8 @@ jobs:
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
+      - name: Install CP-08 image validation dependency
+        run: python -m pip install -r requirements-cp08.txt
       - name: Install dependencies
         run: npm ci
       - name: Typecheck
@@ -49,6 +51,10 @@ jobs:
         run: python -m unittest discover -s tests -p "test_cp06*.py" -v
       - name: CP06 frozen asset validation
         run: python scripts/cp06/validate_assets.py
+      - name: CP08 provenance and media tests
+        run: python -m unittest discover -s tests -p "test_cp08*.py" -v
+      - name: CP08 derivative media validation
+        run: python scripts/cp08/validate_media.py
       - name: Production build
         run: npm run build
       - name: Dependency audit

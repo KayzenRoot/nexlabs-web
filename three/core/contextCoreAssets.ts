@@ -57,18 +57,24 @@ export const contextCoreAssets: Record<LiveFidelityTier, ContextCoreAsset> = {
 export const contextCoreStaticFallbacks = {
   landscape: {
     url: "/images/context-core/hero-16x9.png",
+    webpUrl: "/release-visuals/hero/context-core-16x9.webp",
+    avifUrl: "/release-visuals/hero/context-core-16x9.avif",
     sourcePath: "artifacts/cp06/static/hero-16x9.png",
     sourceSha256: "42833aa76e81070a2aa9a61c4d15673bcc6e21168d7f66dcf8bd34b309ca726b",
     bytes: 83401,
   },
   portrait: {
     url: "/images/context-core/hero-4x5.png",
+    webpUrl: "/release-visuals/hero/context-core-4x5.webp",
+    avifUrl: "/release-visuals/hero/context-core-4x5.avif",
     sourcePath: "artifacts/cp06/static/hero-4x5.png",
     sourceSha256: "673530c6587376cdb8311d72189fa42f33dce0b5f1f17bc96661f4a74130a72e",
     bytes: 95512,
   },
   square: {
     url: "/images/context-core/hero-1x1.png",
+    webpUrl: "/release-visuals/hero/context-core-1x1.webp",
+    avifUrl: "/release-visuals/hero/context-core-1x1.avif",
     sourcePath: "artifacts/cp06/static/hero-1x1.png",
     sourceSha256: "956fb4c5c584ed6c9ae40ae9fe1aad7735593b2c002d5f0d50545a44956918e6",
     bytes: 85498,

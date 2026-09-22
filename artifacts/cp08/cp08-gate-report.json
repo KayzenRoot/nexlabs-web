@@ -1,0 +1,129 @@
+{
+  "candidateHead": null,
+  "findings": [],
+  "gates": [
+    {
+      "evidence": [
+        "planning source pin verified",
+        "canonical token source verified",
+        "selected NX-C-02 bytes preserved"
+      ],
+      "findings": [],
+      "id": "UG1",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Brand compliance"
+    },
+    {
+      "evidence": [
+        "all OG cards use 1200x630 with conservative safe areas",
+        "repository preview uses 1280x640",
+        "text and illustration zones do not overlap"
+      ],
+      "findings": [],
+      "id": "UG2",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Composition"
+    },
+    {
+      "evidence": [
+        "all 12 output records decode and match dimensions, formats, bytes and SHA-256",
+        "nonessential image metadata is absent"
+      ],
+      "findings": [],
+      "id": "UG3",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Artifact inspection"
+    },
+    {
+      "evidence": [
+        "Open Graph and repository card copy matches tracked canonical text",
+        "all cards have truthful text descriptions"
+      ],
+      "findings": [],
+      "id": "UG4",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Text/logo integrity"
+    },
+    {
+      "evidence": [
+        "all 12 assets have truthful BR-12 records",
+        "UGAS and Blender fields are null where unused",
+        "external inputs and approvals are not invented"
+      ],
+      "findings": [],
+      "id": "UG5",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Provenance"
+    },
+    {
+      "evidence": [
+        "accepted CP-06 and promoted CP-07 bytes remain identical",
+        "16:9, 4:5 and 1:1 framing is preserved without upscaling",
+        "six WebP/AVIF variants meet size and visual-parity budgets"
+      ],
+      "findings": [],
+      "id": "UG6",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Technical resolution"
+    },
+    {
+      "evidence": [
+        "three metadata destinations resolve to committed local PNG files",
+        "repository preview uses the verified repository URL",
+        "generic template has no fabricated destination"
+      ],
+      "findings": [],
+      "id": "UG7",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Destination crop"
+    },
+    {
+      "evidence": [
+        "each responsive derivative is smaller than its accepted PNG source",
+        "all visual parity scores are within 3% normalized MAE",
+        "all social cards are at most 512 KiB"
+      ],
+      "findings": [],
+      "id": "UG8",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Compression quality"
+    },
+    {
+      "evidence": [
+        "generic template contains no unresolved tokens or fake social claim",
+        "visuals have provenance alt-purpose descriptions",
+        "site meaning remains in semantic HTML and visuals stay decorative"
+      ],
+      "findings": [],
+      "id": "UG9",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Accessibility/meaning"
+    },
+    {
+      "evidence": [
+        "manifest status is NOT_RELEASED and asset lifecycle is PRODUCTION/OPTIMIZED only",
+        "no UGAS provider, release, merge, deployment or CP-09 action is recorded",
+        "no CP-09/deployment implementation files are in the change set"
+      ],
+      "findings": [],
+      "id": "UG10",
+      "severity": "NONE",
+      "status": "PASS",
+      "title": "Release manifest"
+    }
+  ],
+  "manifestSha256": "b543f062789ec57dfab62c3e8f71643d65adb664f7459d8d23ad7b1f14849f79",
+  "releaseStatus": "NOT_RELEASED",
+  "schemaVersion": "nexlabs-web-cp08-gate-report-v1",
+  "status": "PASS",
+  "verdict": "PASS"
+}

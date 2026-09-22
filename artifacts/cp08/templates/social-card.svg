@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="NexLabs reusable social card layout">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1014"/><stop offset="1" stop-color="#111820"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#67e8f9" stop-opacity=".20"/><stop offset="1" stop-color="#67e8f9" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#b7c6d3" stroke-opacity=".08"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <ellipse cx="970" cy="315" rx="360" ry="310" fill="url(#glow)"/>
+  <rect x="68" y="48" width="48" height="48" rx="12" fill="#f7fafc"/>
+  <g transform="translate(76 56) scale(.35)"><path d="M 25 25 L 55 25 L 55 42 L 42 42 L 42 78 L 55 78 L 55 95 L 25 95 Z" fill="#10151c" fill-rule="nonzero"/>
+<path d="M 95 25 L 65 25 L 65 42 L 78 42 L 78 78 L 65 78 L 65 95 L 95 95 Z" fill="#10151c" fill-rule="nonzero"/>
+<path d="M 55 42 L 65 42 L 65 78 L 55 78 Z" fill="#10151c" fill-rule="nonzero"/></g>
+  <text x="130" y="82" fill="#f7fafc" font-family="Segoe UI, sans-serif" font-size="26" font-weight="600">NexLabs</text>
+  <path d="M68 530H1132" stroke="#b7c6d3" stroke-opacity=".32"/>
+  <rect x="660" y="145" width="500" height="330" rx="20" fill="#17212b" fill-opacity=".48" stroke="#b7c6d3" stroke-opacity=".22"/>
+</svg>
