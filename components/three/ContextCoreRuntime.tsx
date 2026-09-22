@@ -36,6 +36,10 @@ function ContextCoreScene({ tier, paused, onReady, onFailure, onStats }: ScenePr
   }, [asset, gltf, onFailure, tier]);
 
   useEffect(() => {
+    setMachine((current) => transitionContextCore(current, { type: paused ? "PAUSE" : "RESUME" }));
+  }, [paused]);
+
+  useEffect(() => {
     if (machine.status !== "LIVE" || machine.paused || machine.state === "IDLE") return undefined;
     const timeout = window.setTimeout(() => setMachine((current) => transitionContextCore(current, { type: "ADVANCE" })), 650);
     return () => window.clearTimeout(timeout);
